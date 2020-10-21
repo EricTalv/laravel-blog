@@ -9,7 +9,7 @@ class PostsController extends Controller
 {
     public function show($slug)
     {
-        # test
+        # test2
         return view('post', [
             'post' => Post::where('slug', $slug)->firstOrFail()
         ]);
