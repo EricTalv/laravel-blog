@@ -23,6 +23,6 @@ Route::get('/posts', function () {
 
 Route::get('/posts/{post}', 'PostsController@show');
 
-Route::get('/projects/{project}', 'ProjectController@show');
-
-Route::get('/projects', 'ProjectsListController@show');
+Route::get('/contact', function () {
+    return view('contact');
+});
