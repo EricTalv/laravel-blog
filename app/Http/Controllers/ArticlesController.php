@@ -21,4 +21,24 @@ class ArticlesController extends Controller
 
         return view('articles.show', ['article' => $article]);
     }
+
+    protected function create()
+    {
+    }
+
+    protected function store()
+    {
+    }
+
+    protected function edit()
+    {
+    }
+
+    protected function update()
+    {
+    }
+
+    protected function destroy()
+    {
+    }
 }
