@@ -24,13 +24,16 @@ Route::get('/posts', function () {
 Route::get('/posts/{post}', 'PostsController@show');
 
 Route::get('/articles/{article}', 'ArticlesController@show');
+Route::get('/articles', 'ArticlesController@index');
 
 Route::get('/about', function () {
     return view('about', [
         'articles' => App\Article::take(3)->latest()->get() ]);
 });
 
+/*
 Route::get('/articles', function () {
     return view('articles', [
         'articles' => App\Article::latest()->paginate(2) ]);
 });
+*/
