@@ -22,6 +22,8 @@ Route::get('/about', function () {
         'articles' => App\Article::take(3)->latest()->get() ]);
 });
 
+Route::post('/articles', 'ArticlesController@store');
+
 Route::get('/articles', 'ArticlesController@index');
 
 Route::get('/articles/create', 'ArticlesController@Create');
