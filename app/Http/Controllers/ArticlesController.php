@@ -32,6 +32,7 @@ class ArticlesController extends Controller
     // Persist( SAVE ) created resource
     protected function store()
     {
+        dump(request()->all());
     }
 
     // Show a view to Edit an existing resource
