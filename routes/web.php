@@ -17,23 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', function () {
-    return view('posts');
-});
-
-Route::get('/posts/{post}', 'PostsController@show');
-
-Route::get('/articles/{article}', 'ArticlesController@show');
-Route::get('/articles', 'ArticlesController@index');
-
 Route::get('/about', function () {
     return view('about', [
         'articles' => App\Article::take(3)->latest()->get() ]);
 });
 
-/*
-Route::get('/articles', function () {
-    return view('articles', [
-        'articles' => App\Article::latest()->paginate(2) ]);
-});
-*/
+Route::get('/articles', 'ArticlesController@index');
+
+Route::get('/articles/create', 'ArticlesController@Create');
+
+Route::get('/articles/{article}', 'ArticlesController@show');
+
