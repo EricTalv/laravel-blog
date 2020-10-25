@@ -39,6 +39,8 @@ class ArticlesController extends Controller
         $article->body = request('body');
 
         $article->save();
+
+        return redirect('/articles');
     }
 
     // Show a view to Edit an existing resource
