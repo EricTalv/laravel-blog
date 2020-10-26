@@ -16,7 +16,7 @@
                     <label for="title" class="label">Title</label>
 
                     <div class="control">
-                        <input class="input" type="text" name="title" id="title">
+                        <input class="input" type="text" name="title" id="title" required>
                     </div>
                 </div>
 
