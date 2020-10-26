@@ -46,6 +46,7 @@ class ArticlesController extends Controller
     // Show a view to Edit an existing resource
     protected function edit($id)
     {
+        // Find the article associated with the ID
         $article = Article::find($id);
 
         return view('articles.edit', compact('article'));
