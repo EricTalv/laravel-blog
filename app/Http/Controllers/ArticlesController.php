@@ -53,8 +53,17 @@ class ArticlesController extends Controller
     }
 
     // Persist Edited resource
-    protected function update()
+    protected function update($id)
     {
+        $article = Article::find($id);
+
+        $article->title = request('title');
+        $article->excerpt = request('excerpt');
+        $article->body = request('body');
+
+        $article->save();
+
+        return redirect('/articles/' . $article->id);
     }
 
     //  Delete the resource
