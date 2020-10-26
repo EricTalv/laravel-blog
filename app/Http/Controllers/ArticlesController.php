@@ -62,6 +62,12 @@ class ArticlesController extends Controller
     // Persist Edited resource
     protected function update($id)
     {
+        request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+        ]);
+
         $article = Article::find($id);
 
         $article->title = request('title');
