@@ -30,3 +30,7 @@ Route::get('/articles/create', 'ArticlesController@Create');
 
 Route::get('/articles/{article}', 'ArticlesController@show');
 
+Route::get('/articles/{article}/edit', 'ArticlesController@edit');
+
+Route::put('/articles/{article}/edit', 'ArticlesController@edit');
+

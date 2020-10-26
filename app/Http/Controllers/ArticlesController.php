@@ -44,8 +44,11 @@ class ArticlesController extends Controller
     }
 
     // Show a view to Edit an existing resource
-    protected function edit()
+    protected function edit($id)
     {
+        $article = Article::find($id);
+
+        return view('articles.edit', compact('article'));
     }
 
     // Persist Edited resource
