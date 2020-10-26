@@ -16,7 +16,10 @@
                     <label for="title" class="label">Title</label>
 
                     <div class="control">
-                        <input class="input" type="text" name="title" id="title" required>
+                        <input class="input {{ $errors->has('title') ? 'is-danger' : '' }}" type="text" name="title" id="title" >
+                        @error('title')
+                            <p class="help is-danger">{{ $errors->first('title') }}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -24,7 +27,7 @@
                     <label for="excerpt" class="label">Excerpt</label>
 
                     <div class="control">
-                        <textarea class="textarea" name="excerpt" id="excerpt" ></textarea>
+                        <textarea class="textarea" name="excerpt" id="excerpt"></textarea>
                     </div>
                 </div>
 
@@ -32,7 +35,7 @@
                     <label for="body" class="label">Body</label>
 
                     <div class="control">
-                        <textarea class="textarea" name="body" id="body" ></textarea>
+                        <textarea class="textarea" name="body" id="body"></textarea>
                     </div>
                 </div>
 
