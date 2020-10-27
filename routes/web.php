@@ -28,7 +28,7 @@ Route::get('/articles', 'ArticlesController@index');
 
 Route::get('/articles/create', 'ArticlesController@Create');
 
-Route::get('/articles/{article}', 'ArticlesController@show');
+Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 
 Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 
