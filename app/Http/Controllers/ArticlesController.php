@@ -28,7 +28,7 @@ class ArticlesController extends Controller
     }
 
     // Persist( SAVE ) created resource
-    protected function store()
+    protected function store(Article $article)
     {
 
         request()->validate([
@@ -37,13 +37,11 @@ class ArticlesController extends Controller
             'body' => 'required',
         ]);
 
-        $article = new Article();
-
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-
-        $article->save();
+        Article::create([
+            'title' => request('title'),
+            'excerpt' => request('excerpt'),
+            'body' => request('body')
+        ]);
 
         return redirect('/articles');
     }
@@ -56,13 +54,15 @@ class ArticlesController extends Controller
     }
 
     // Persist Edited resource
-    protected function update(Article $article)
+    protected function update($id)
     {
         request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required',
         ]);
+
+        $article = Article::findOrFail($id);
 
         $article->title = request('title');
         $article->excerpt = request('excerpt');
