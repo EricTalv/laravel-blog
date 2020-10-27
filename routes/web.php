@@ -24,7 +24,7 @@ Route::get('/about', function () {
 
 Route::post('/articles', 'ArticlesController@store');
 
-Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 
 Route::get('/articles/create', 'ArticlesController@Create');
 

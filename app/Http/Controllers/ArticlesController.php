@@ -28,12 +28,11 @@ class ArticlesController extends Controller
     }
 
     // Persist( SAVE ) created resource
-    protected function store(Article $article)
+    protected function store()
     {
-
         Article::create($this->validateArticle());
 
-        return redirect('/articles');
+        return redirect(route('articles.show'));
     }
 
     // Show a view to Edit an existing resource
@@ -48,7 +47,7 @@ class ArticlesController extends Controller
     {
         $article->update($this->validateArticle());
 
-        return redirect('/articles/' . $article->id);
+        return redirect($article->path());
     }
 
     //  Delete the resource
