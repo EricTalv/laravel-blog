@@ -16,10 +16,8 @@ class ArticlesController extends Controller
     }
 
     // Show a Single resource
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
-
         return view('articles.show', ['article' => $article]);
     }
 
@@ -54,7 +52,7 @@ class ArticlesController extends Controller
     protected function edit($id)
     {
         // Find the article associated with the ID
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
         return view('articles.edit', compact('article'));
     }
@@ -68,7 +66,7 @@ class ArticlesController extends Controller
             'body' => 'required',
         ]);
 
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
         $article->title = request('title');
         $article->excerpt = request('excerpt');
