@@ -49,24 +49,20 @@ class ArticlesController extends Controller
     }
 
     // Show a view to Edit an existing resource
-    protected function edit($id)
+    protected function edit(Article $article)
     {
         // Find the article associated with the ID
-        $article = Article::findOrFail($id);
-
         return view('articles.edit', compact('article'));
     }
 
     // Persist Edited resource
-    protected function update($id)
+    protected function update(Article $article)
     {
         request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required',
         ]);
-
-        $article = Article::findOrFail($id);
 
         $article->title = request('title');
         $article->excerpt = request('excerpt');
