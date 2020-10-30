@@ -17,20 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about', [
-        'articles' => App\Article::take(3)->latest()->get() ]);
-});
-
-Route::post('/articles', 'ArticlesController@store');
-
-Route::get('/articles', 'ArticlesController@index')->name('articles.index');
-
-Route::get('/articles/create', 'ArticlesController@Create');
-
-Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
-
-Route::get('/articles/{article}/edit', 'ArticlesController@edit');
-
-Route::put('/articles/{article}', 'ArticlesController@update');
-
+// Show all articles
+Route::get('/articles', 'ArticleController@index');

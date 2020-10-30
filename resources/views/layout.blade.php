@@ -24,17 +24,14 @@
             <ul>
                 <li class="current_page_item"><a href="/" accesskey="1" title="">Homepage</a>
                 </li>
+                <li class=""><a href="/articles" accesskey="1" title="">Articles</a>
+                </li>
             </ul>
         </div>
     </div>
     @yield ('header')
 </div>
 @yield ('content')
-
-<div id="copyright" class="container">
-    <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a
-            href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
-</div>
 
 </body>
 </html>
