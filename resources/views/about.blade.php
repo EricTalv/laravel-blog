@@ -14,6 +14,13 @@
             </div>
             <div id="sidebar">
                 <ul class="style1">
+                    @foreach( $articles as $article)
+                    <li class="first">
+                        <h3>{{ $article->title }}</h3>
+                        <p>{{ $article->excerpt }}</p>
+                        <pre>{{ $article->created_at }}</pre>
+                    </li>
+                    @endforeach
                 </ul>
                 <div id="stwo-col">
                     <div class="sbox1">

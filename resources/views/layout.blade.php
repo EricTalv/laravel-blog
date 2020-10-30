@@ -22,11 +22,11 @@
         </div>
         <div id="menu">
             <ul>
-                <li class="current_page_item"><a href="/" accesskey="1" title="">Homepage</a>
+                <li class="{{ request()->is('/') ? 'current_page_item' : '' }}"><a href="/" accesskey="1" title="">Homepage</a>
                 </li>
-                <li class=""><a href="/articles" accesskey="1" title="">Articles</a>
+                <li class="{{ request()->is('articles') ? 'current_page_item' : '' }}"><a href="/articles" accesskey="1" title="">Articles</a>
                 </li>
-                <li class=""><a href="/about" accesskey="1" title="">About</a>
+                <li class="{{ request()->is('about') ? 'current_page_item' : '' }}"><a href="/about" accesskey="1" title="">About</a>
                 </li>
             </ul>
         </div>

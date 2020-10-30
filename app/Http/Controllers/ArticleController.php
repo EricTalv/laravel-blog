@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 use App\Article;
 
@@ -12,11 +11,11 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
      */
     public function index()
     {
-        return view('articles.index' , [ 'articles' => Article::get()->latest() ]);
+        return view('articles.index' , [ 'articles' => Article::latest()->get() ]);
     }
 
     /**
