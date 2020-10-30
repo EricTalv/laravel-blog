@@ -26,6 +26,8 @@
                 </li>
                 <li class=""><a href="/articles" accesskey="1" title="">Articles</a>
                 </li>
+                <li class=""><a href="/about" accesskey="1" title="">About</a>
+                </li>
             </ul>
         </div>
     </div>
