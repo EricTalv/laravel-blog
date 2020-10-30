@@ -24,5 +24,5 @@ Route::get('/about', function () {
 
 // Show all articles
 Route::get('/articles', 'ArticleController@index');
-
+// Show one post
 Route::get('/articles/{article}', 'ArticleController@show');

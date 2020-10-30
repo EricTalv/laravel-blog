@@ -5,7 +5,7 @@
         <div id="page" class="container">
             <div id="content">
                 <div class="title">
-                    <h2>{{ $article->title }}</h2>
+                    <h2>{{ $article->title }} |{{ $article->id }}</h2>
                     <pre>{{ $article->excerpt }}</pre>
                     <p><small>{{ $article->created_at }}</small></p>
                 </div>

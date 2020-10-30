@@ -10,7 +10,7 @@
                 <ul>
                     <li>
                         @foreach ($articles as $article)
-                            <h1>{{ $article->title }}</h1>
+                            <h1><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></h1>
                             <pre>{{ $article->excerpt }}</pre>
                             <p><small>{{ $article->created_at }}</small></p>
                         @endforeach

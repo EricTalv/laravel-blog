@@ -47,7 +47,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        return view('articles.show', [ 'article' => Article::findOrFail($id)->first() ]);
+        return view('articles.show', [ 'article' => Article::findOrFail($id) ]);
     }
 
     /**
