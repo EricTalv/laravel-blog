@@ -17,15 +17,13 @@
 
                     <div class="control">
                         <input
-                            class="input @error('title') is-danger @enderror"
+                            class="input "
                             type="text"
                             name="title"
                             id="title"
-                            value="{{ old('title') }}"
+                            value=""
                         >
-                        @error('title')
-                            <p class="help is-danger">{{ $message }}</p>
-                        @enderror
+
                     </div>
                 </div>
 
@@ -34,14 +32,11 @@
 
                     <div class="control">
                         <textarea
-                            class="textarea @error('excerpt') is-danger @enderror"
+                            class="textarea"
                             name="excerpt"
-                            id="excerpt">{{ old('excerpt') }}</textarea>
+                            id="excerpt"></textarea>
                     </div>
 
-                    @error('excerpt')
-                    <p class="help is-danger">{{ $errors->first('excerpt') }}</p>
-                    @enderror
                 </div>
 
                 <div class="field">
@@ -49,13 +44,11 @@
 
                     <div class="control">
                         <textarea
-                            class="textarea @error('body') is-danger @enderror"
+                            class="textarea"
                             name="body"
-                            id="body">{{ old('body') }}</textarea>
+                            id="body"></textarea>
                     </div>
-                    @error('body')
-                    <p class="help is-danger">{{ $errors->first('body') }}</p>
-                    @enderror
+
                 </div>
 
                 <div class="field is-grouped">

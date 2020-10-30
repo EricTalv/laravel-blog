@@ -5,9 +5,15 @@
         <div id="page" class="container">
             <div id="content">
                 <div class="title">
-                    <h2>{{ $article->title }}</h2>
-                <p><img src="/images/banner.jpg" alt="" class="image image-full"/></p>
-                {{ $article->body }}
+                    <h2>{{ $article->title }} |{{ $article->id }}</h2>
+                    <pre>{{ $article->excerpt }}</pre>
+                    <p><small>{{ $article->created_at }}</small></p>
+                </div>
+
+                <p>
+                    {{ $article->body }}
+                </p>
             </div>
         </div>
+    </div>
 @endsection

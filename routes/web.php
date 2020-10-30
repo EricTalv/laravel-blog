@@ -18,19 +18,15 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about', [
-        'articles' => App\Article::take(3)->latest()->get() ]);
+    return view('about' , [ 'articles' => \App\Article::latest()->take(3)->get()
+    ]);
 });
 
-Route::post('/articles', 'ArticlesController@store');
-
-Route::get('/articles', 'ArticlesController@index')->name('articles.index');
-
-Route::get('/articles/create', 'ArticlesController@Create');
-
-Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
-
-Route::get('/articles/{article}/edit', 'ArticlesController@edit');
-
-Route::put('/articles/{article}', 'ArticlesController@update');
-
+// Show all articles
+Route::get('/articles', 'ArticleController@index');
+// Create Page
+Route::get('/articles/create', 'ArticleController@create');
+// Create Page
+Route::put('/articles', 'ArticleController@store');
+// Show one post
+Route::get('/articles/{article}', 'ArticleController@show');

@@ -22,18 +22,13 @@
         </div>
         <div id="menu">
             <ul>
-                <li class="{{ Request::path() === '/' ? 'current_page_item' : ''}}"><a href="/" accesskey="1" title="">Homepage</a>
+                <li class="{{ request()->is('/') ? 'current_page_item' : '' }}"><a href="/" accesskey="1" title="">Homepage</a>
                 </li>
-                <li class="{{ Request::path() === 'clients' ? 'current_page_item' : ''}}"><a href="#" accesskey="2"
-                                                                                             title="">Our Clients</a>
+                <li class="{{ request()->is('articles') ? 'current_page_item' : '' }}"><a href="/articles" accesskey="1" title="">Articles</a>
                 </li>
-                <li class="{{ Request::is('about') ? 'current_page_item' : '' }}"><a href="/about" accesskey="3"
-                                                                                     title="">About Us</a></li>
-                <li class="{{ Request::path() === 'articles' ? 'current_page_item' : ''}}"><a href="/articles"
-                                                                                              accesskey="4" title="">Articles</a>
+                <li class="{{ request()->is('about') ? 'current_page_item' : '' }}"><a href="/about" accesskey="1" title="">About</a>
                 </li>
-                <li class="{{ Request::path() === 'contact' ? 'current_page_item' : ''}}"><a href="#" accesskey="5"
-                                                                                             title="">Contact Us</a>
+                <li class="{{ request()->is('articles/create') ? 'current_page_item' : '' }}"><a href="/articles/create" accesskey="1" title="">Create</a>
                 </li>
             </ul>
         </div>
@@ -41,11 +36,6 @@
     @yield ('header')
 </div>
 @yield ('content')
-
-<div id="copyright" class="container">
-    <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a
-            href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
-</div>
 
 </body>
 </html>

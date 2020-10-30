@@ -16,12 +16,11 @@
                 <ul class="style1">
                     @foreach( $articles as $article)
                     <li class="first">
-                        <h3><a href="/articles/{{ $article->id }}"> {{ $article->title }}</a></h3>
+                        <h3>{{ $article->title }}</h3>
                         <p>{{ $article->excerpt }}</p>
-                        <p>{{ $article->created_at }}</p>
+                        <pre>{{ $article->created_at }}</pre>
                     </li>
                     @endforeach
-
                 </ul>
                 <div id="stwo-col">
                     <div class="sbox1">
