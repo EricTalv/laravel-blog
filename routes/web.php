@@ -24,3 +24,5 @@ Route::get('/about', function () {
 
 // Show all articles
 Route::get('/articles', 'ArticleController@index');
+
+Route::get('/articles/{article}', 'ArticleController@show');
