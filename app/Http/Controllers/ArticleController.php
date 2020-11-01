@@ -34,9 +34,11 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Article::create($this->validateArticle());
+
+        return redirect(route('articles.index'));
     }
 
     /**
@@ -82,5 +84,13 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function validateArticle(): array {
+        return request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
     }
 }

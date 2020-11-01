@@ -7,6 +7,9 @@
                 <div class="title">
                     <h2>articles</h2>
                 </div>
+                @if (!$articles)
+                     <h1>No articles</h1>
+                @else
                 <ul>
                     <li>
                         @foreach ($articles as $article)
@@ -16,6 +19,7 @@
                         @endforeach
                     </li>
                 </ul>
+                @endif
             </div>
         </div>
     </div>

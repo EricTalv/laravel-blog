@@ -23,10 +23,10 @@ Route::get('/about', function () {
 });
 
 // Show all articles
-Route::get('/articles', 'ArticleController@index');
+Route::get('/articles', 'ArticleController@index')->name('articles.index');
 // Create Page
 Route::get('/articles/create', 'ArticleController@create');
 // Create Page
-Route::put('/articles', 'ArticleController@store');
+Route::put('/articles', 'ArticleController@store')->name('articles.create');
 // Show one post
 Route::get('/articles/{article}', 'ArticleController@show');
