@@ -18,14 +18,17 @@
 
                     <div class="control">
                         <input
-                            class="input "
+                            class="input {{ !$errors->has('title') ?  '' : 'is-danger' }}"
                             type="text"
                             name="title"
                             id="title"
-                            value=""
+                            value="{{ old('title') }}"
                         >
-
                     </div>
+                    @error('title')
+                        <p class="help is-danger">{{ $message }}</p>
+                    @enderror
+
                 </div>
 
                 <div class="field">
@@ -33,10 +36,13 @@
 
                     <div class="control">
                         <textarea
-                            class="textarea"
+                            class="textarea {{ !$errors->has('excerpt') ?  '' : 'is-danger' }}"
                             name="excerpt"
-                            id="excerpt"></textarea>
+                            id="excerpt">{{ old('excerpt') }}</textarea>
                     </div>
+                    @error('excerpt')
+                    <p class="help is-danger">{{ $message }}</p>
+                    @enderror
 
                 </div>
 
@@ -45,11 +51,13 @@
 
                     <div class="control">
                         <textarea
-                            class="textarea"
+                            class="textarea {{ !$errors->has('body') ?  '' : 'is-danger' }}"
                             name="body"
-                            id="body"></textarea>
+                            id="body">{{ old('body') }}</textarea>
                     </div>
-
+                    @error('body')
+                    <p class="help is-danger">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="field is-grouped">
