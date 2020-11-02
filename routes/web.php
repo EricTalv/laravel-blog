@@ -24,9 +24,18 @@ Route::get('/about', function () {
 
 // Show all articles
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
+
 // Create Page
 Route::get('/articles/create', 'ArticleController@create');
+
 // Create Page
 Route::put('/articles', 'ArticleController@store')->name('articles.create');
+
+// Show post editing page
+Route::get('/articles/edit/{article}', 'ArticleController@edit');
+
 // Show one post
-Route::get('/articles/{article}', 'ArticleController@show');
+Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
+
+// Show post editing page
+Route::put('/articles/{article}', 'ArticleController@update');
