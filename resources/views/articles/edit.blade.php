@@ -22,7 +22,7 @@
                             type="text"
                             name="title"
                             id="title"
-                            value="{{ $article->title }}"
+                            value="{{ $errors->isEmpty() ? $article->title : old('title') }}"
                         >
                     </div>
                     @error('title')
@@ -38,7 +38,7 @@
                         <textarea
                             class="textarea {{ !$errors->has('excerpt') ?  '' : 'is-danger' }}"
                             name="excerpt"
-                            id="excerpt">{{ $article->excerpt }}</textarea>
+                            id="excerpt">{{ $errors->isEmpty() ? $article->excerpt : old('excerpt') }}</textarea>
                     </div>
                     @error('excerpt')
                     <p class="help is-danger">{{ $message }}</p>
@@ -53,7 +53,7 @@
                         <textarea
                             class="textarea {{ !$errors->has('body') ?  '' : 'is-danger' }}"
                             name="body"
-                            id="body">{{ $article->body }}</textarea>
+                            id="body">{{ $errors->isEmpty() ? $article->body : old('body') }}</textarea>
                     </div>
                     @error('body')
                     <p class="help is-danger">{{ $message }}</p>

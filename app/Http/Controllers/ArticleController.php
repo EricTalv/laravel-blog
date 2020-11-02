@@ -90,8 +90,8 @@ class ArticleController extends Controller
 
     public function validateArticle(): array {
         return request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
+            'title' => 'required|max:255',
+            'excerpt' => 'required|max:255',
             'body' => 'required'
         ]);
     }
