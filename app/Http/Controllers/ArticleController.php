@@ -34,9 +34,9 @@ class ArticleController extends Controller
      */
     public function store()
     {
-        Article::create($this->validateArticle());
+        $article = Article::create($this->validateArticle());
 
-        return redirect(route('articles.index'));
+        return redirect('/articles/' . $article->id );
     }
 
     /**
