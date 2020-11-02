@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/app.css">
 
     @yield('head')
+    @yield('style')
 </head>
 <body>
 <div id="header-wrapper">
