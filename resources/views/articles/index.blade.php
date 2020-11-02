@@ -28,7 +28,10 @@
                     <ul>
                         <li>
                             @foreach ($articles as $article)
+
                                 <div class="section pt-0 show-options ">
+                                    <a style="z-index: 3; float: right;" class=" button edit-option"
+                                       href="/articles/edit/{{ $article->id }}">Edit</a>
                                     <div class="title is-capitalized ">
                                         <h3>
                                             <u>
@@ -45,8 +48,7 @@
                                         </h5>
                                         <p><small>{{ $article->created_at }}</small></p>
                                     </div>
-                                    <a style="z-index: 3; float: right;" class=" button edit-option"
-                                   href="/articles/edit/{{ $article->id }}">Edit</a>
+
                                 </div>
                             @endforeach
                         </li>
