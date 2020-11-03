@@ -19,7 +19,11 @@ class CreateArticlesTable extends Migration
             $table->string('excerpt');
             $table->text('body');
 
+            $table->unsignedBigInteger('user_id');
 
+            $table->foreign('user_id')
+                    ->refrences('id')
+                    ->on('users');
 
             $table->timestamps();
         });
