@@ -32,9 +32,15 @@
                 <ul class="style1">
                     @foreach( $articles as $article)
                         <li class="first">
-                            <h3><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></h3>
-                            <p>{{ $article->excerpt }}</p>
-                            <pre>{{ $article->created_at }}</pre>
+                            <div class="level">
+                                <div class="level-left">
+                                    <h3 class="mr-4"><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></h3>
+                                    <p>{{ date('d-m-Y', strtotime( $article->created_at ))  }}</p>
+                                </div>
+                            </div>
+                            <div class="subtitle">
+                                <p>{{ $article->excerpt }}</p>
+                            </div>
                         </li>
                     @endforeach
                 </ul>
