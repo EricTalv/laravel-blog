@@ -6,7 +6,18 @@ This is a part of my *100-days-of-code* challenge,
 The prospect of this project should be a full fledged simple blog 
 based around and on laravel and vue technologies.
 
+## Vision
 
+MVP: Blog post must include: 
+ - Index of articles
+ - One article page view
+ - Create article view
+ - Update article view
+ - Delete article button
+ - Tags on posts
+ - Tag view page 
+
+_Deadline: 13.11.20_ 
 
 ### TODO : MVP 
 
@@ -59,6 +70,9 @@ legend:
  [X] Article-User relationship
  [X] Article-Tag relationship 
   [X] Pivot table article_tag
+
+
+Stretch Goals: 
 
  [ ] Authorization
   [ ] Login
