@@ -17,7 +17,7 @@
                 </p>
 
                 @foreach ( $article->tags as $tag)
-                    <span class="tag is-dark mx-1 mt-2">{{ $tag->name }}</span>
+                    <span class="tag is-dark mx-1 mt-2"><a href="/articles?tag={{ $tags->name }}"></a>{{ $tag->name }}</span>
                 @endforeach
             </div>
         </div>
