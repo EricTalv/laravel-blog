@@ -4,11 +4,12 @@
     <div id="wrapper">
         <div id="page" class="container">
             <div id="content">
-                <div class="title">
-                    <h3>{{ $article->title }} |{{ $article->id }}</h3>
-                    <p>{{ $article->excerpt }}</p>
-                    <p><small>{{ date('j M Y', strtotime( $article->created_at ))  }}</small></p>
+                <div class="title" style="text-transform: capitalize;">
+                    <h3>{{ $article->title }} | <small>{{ date('j M Y', strtotime( $article->created_at ))  }}</small></h3>
+                </div>
 
+                <div class="subtitle">
+                {{ $article->excerpt }}
                 </div>
 
                 <p>
@@ -16,7 +17,7 @@
                 </p>
 
                 @foreach ( $article->tags as $tag)
-                                        <span class="tag is-dark mx-1">{{ $tag->name }}</span>
+                    <span class="tag is-dark mx-1 mt-2">{{ $tag->name }}</span>
                 @endforeach
             </div>
         </div>
