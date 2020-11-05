@@ -66,7 +66,7 @@ legend:
    [X] Store 
   [ ] Destroy
  
-[ ] Tagging 
+[X] Tagging 
  [X] Article-User relationship
  [X] Article-Tag relationship 
   [X] Pivot table article_tag
