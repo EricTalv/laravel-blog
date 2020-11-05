@@ -13,7 +13,7 @@ class Article extends Model
         return route('articles.show', $this);
     }
 
-<<<<<<< HEAD
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -22,10 +22,6 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
-;    }
-=======
-    public function user(){
-        return $this->belongsTo('App\User');
     }
->>>>>>> 135921e135a9d9d8ea5977bf0a098e7740530d1a
+
 }
