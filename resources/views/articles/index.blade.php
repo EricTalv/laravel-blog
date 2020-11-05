@@ -28,6 +28,9 @@
                                 <div class="section pt-0 show-options ">
                                     <a style="z-index: 3; float: right;" class=" button edit-option"
                                        href="/articles/edit/{{ $article->id }}">Edit</a>
+
+                                    <a style="z-index: 3; float: right;" class=" mr-2 button edit-option"
+                                       href="#">Delete</a>
                                     <div class="title is-capitalized ">
                                         <h3>
                                             <u>

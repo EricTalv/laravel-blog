@@ -37,5 +37,8 @@ Route::get('/articles/edit/{article}', 'ArticleController@edit');
 // Show one post
 Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
 
+// Delete post
+// Route::delete('/articles/{article}', 'ArticleController@destroy');
+
 // Show post editing page
 Route::put('/articles/{article}', 'ArticleController@update');
