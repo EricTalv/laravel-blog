@@ -35,7 +35,7 @@
                             <div class="level">
                                 <div class="level-left">
                                     <h3 class="mr-4"><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></h3>
-                                    <p>{{ date('d-m-Y', strtotime( $article->created_at ))  }}</p>
+                                    <p>{{ date('j M Y', strtotime( $article->created_at ))  }}</p>
                                 </div>
                             </div>
                             <div class="subtitle">
