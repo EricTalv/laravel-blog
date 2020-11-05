@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Article;
+use App\Tag;
+
 
 class ArticleTagSeeder extends Seeder
 {
@@ -13,8 +16,8 @@ class ArticleTagSeeder extends Seeder
     {
         DB::table('article_tag')->insert(
             [
-                'article_id' => factory(App\Article::class,5)->create()->id,
-                'tag_id' => factory(App\Tag::class,5)->create()->id,
+                'article_id' => Article::select('id')->orderByRaw("RAND()")->first()->id,
+                'tag_id' => Tag::select('id')->orderByRaw("RAND()")->first()->id,
             ]
         );
     }

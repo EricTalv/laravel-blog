@@ -48,7 +48,7 @@
                                         <p><small>{{ date('j M Y', strtotime( $article->created_at ))  }}</small></p>
 
                                         @foreach ( $article->tags as $tag)
-                                        <p><small>{{ $tag->name }}</small></p>
+                                        <span class="tag is-dark mx-1">{{ $tag->name }}</span>
                                         @endforeach
 
                                     </div>
