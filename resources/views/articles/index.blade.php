@@ -46,7 +46,10 @@
                                             {{ $article->excerpt }}
                                         </h5>
                                         <p><small>{{ date('j M Y', strtotime( $article->created_at ))  }}</small></p>
-                                        <p><small>{{ $article->tags() ? dd($article->tags('name')) : '' }}</small></p>
+
+                                        @foreach ( $article->tags as $tag)
+                                        <p><small>{{ $tag->name }}</small></p>
+                                        @endforeach
 
                                     </div>
 

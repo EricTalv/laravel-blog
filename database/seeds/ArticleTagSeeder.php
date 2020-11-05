@@ -13,8 +13,8 @@ class ArticleTagSeeder extends Seeder
     {
         DB::table('article_tag')->insert(
             [
-                'article_id' => factory(App\Article::class)->create()->id,
-                'tag_id' => factory(App\Tag::class)->create()->id,
+                'article_id' => factory(App\Article::class,5)->create()->id,
+                'tag_id' => factory(App\Tag::class,5)->create()->id,
             ]
         );
     }
