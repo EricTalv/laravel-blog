@@ -42,7 +42,7 @@
                                         <h5>
                                             {{ $article->excerpt }}
                                         </h5>
-                                        <p><small>{{ $article->created_at }}</small></p>
+                                        <p><small>{{ date('j M Y', strtotime( $article->created_at ))  }}</small></p>
                                     </div>
 
                                 </div>
