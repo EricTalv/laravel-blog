@@ -17,7 +17,7 @@
                 </p>
 
                 @foreach ( $article->tags as $tag)
-                    <span class="tag is-dark mx-1 mt-2"><a href="/articles?tag={{ $tag->name }}">{{ $tag->name }}</a></span>
+                    <span class="tag is-dark mx-1 mt-2"><a href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a></span>
                 @endforeach
             </div>
         </div>
