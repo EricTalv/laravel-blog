@@ -42,8 +42,10 @@ class ArticleController extends Controller
      */
     public function store()
     {
-        // $article = Article::create($this->validateArticle());
-        $article = new Article($this->validateArticle());
+        $this->validateArticle();
+
+        // old->$article = Article::create($this->validateArticle());
+        $article = new Article(request(['title', 'excerpt', 'body']));
 
         // this is hard coded to simulate user article creation
         // ideally we'd do it like auth()-id

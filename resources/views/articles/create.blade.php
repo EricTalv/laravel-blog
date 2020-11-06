@@ -65,7 +65,7 @@
                 <div class="field">
                     <label for="tag" class="label">Tags</label>
 
-                    <div class="control">
+                    <div class="control select is-multiple">
                         {{--
                              tags[] enables us to fetch multiple (array)
                              options to send as a request instead of one
