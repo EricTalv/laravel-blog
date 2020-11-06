@@ -107,7 +107,8 @@ class ArticleController extends Controller
         return request()->validate([
             'title' => 'required|max:255',
             'excerpt' => 'required|max:255',
-            'body' => 'required'
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
         ]);
     }
 }
