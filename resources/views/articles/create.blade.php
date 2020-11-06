@@ -14,13 +14,19 @@
 
                     <div class="control">
                         <input
+                            {{-- If we have an error, add is-danger class  --}}
                             class="input {{ !$errors->has('title') ?  '' : 'is-danger' }}"
                             type="text"
                             name="title"
                             id="title"
+                            {{-- Retreives an old input item --}}
                             value="{{ old('title') }}"
                         >
                     </div>
+                    {{--
+                     @error is a helper in blade -> if we have any errors,
+                      this will render and display the error message as $message
+                    --}}
                     @error('title')
                     <p class="help is-danger">{{ $message }}</p>
                     @enderror
@@ -60,28 +66,11 @@
                     <label for="tag" class="label">Tags</label>
 
                     <div class="control">
-
-                        <div class="dropdown">
-                            <div class="dropdown-trigger">
-                                <a class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-                                    <span>Content</span>
-                                    <span class="icon is-small">
-                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                                <div class="dropdown-content">
-                                    <a href="#" class="dropdown-item">
-                                        This is a link
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+                        {{--
+                             tags[] enables us to fetch multiple (array)
+                             options to send as a request instead of one
+                        --}}
                         <select name="tags[]" id="tags">
-
-
                             @foreach($tags as $tag)
                                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                             @endforeach
