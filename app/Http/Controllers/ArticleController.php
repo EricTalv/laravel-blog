@@ -20,7 +20,6 @@ class ArticleController extends Controller
 
         if(request('tag')) {
             $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
-
         } else {
             $articles = Article::latest()->get();
         }
