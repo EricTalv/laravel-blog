@@ -42,7 +42,16 @@ class ArticleController extends Controller
      */
     public function store()
     {
-        $article = Article::create($this->validateArticle());
+        // $article = Article::create($this->validateArticle());
+        $article = new Article($this->validateArticle());
+
+        // this is hard coded to simulate user article creation
+        // ideally we'd do it like auth()-id
+        $article->user_id = 1;
+        $article->save();
+
+        $article->tags()->attach(request('tags'));
+
 
         return redirect('/articles/' . $article->id );
     }

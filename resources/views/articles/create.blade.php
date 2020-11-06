@@ -70,7 +70,7 @@
                              tags[] enables us to fetch multiple (array)
                              options to send as a request instead of one
                         --}}
-                        <select name="tags[]" id="tags">
+                        <select name="tags[]" multiple>
                             @foreach($tags as $tag)
                                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                             @endforeach
