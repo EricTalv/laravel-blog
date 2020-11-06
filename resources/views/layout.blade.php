@@ -32,7 +32,7 @@
                 </li>
                 <li class="{{ request()->is('about') ? 'current_page_item' : '' }}"><a href="/about" accesskey="1" title="">About</a>
                 </li>
-                <li class="{{ request()->is('articles/create') ? 'current_page_item' : '' }}"><a href="/articles/create" accesskey="1" title="">Create</a>
+                <li class="{{ request()->is('articles/create') ? 'current_page_item' : '' }}"><a href="{{ route('articles.create') }}" accesskey="1" title="">Create</a>
                 </li>
             </ul>
         </div>

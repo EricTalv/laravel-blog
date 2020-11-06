@@ -26,10 +26,10 @@ Route::get('/about', function () {
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
 
 // Create Page
-Route::get('/articles/create', 'ArticleController@create');
+Route::get('/articles/create', 'ArticleController@create')->name('article-create');
 
 // Create Page
-Route::put('/articles', 'ArticleController@store')->name('articles.create');
+Route::put('/articles', 'ArticleController@store')->name('articles.store');
 
 // Show post editing page
 Route::get('/articles/edit/{article}', 'ArticleController@edit');
