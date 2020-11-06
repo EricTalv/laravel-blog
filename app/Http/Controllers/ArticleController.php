@@ -12,15 +12,15 @@ class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     *
      */
     public function index()
     {
-
-        if(request('tag')) {
+        // Check for request on TAG
+        if (request('tag')) {
+            // Lookup tag in the database for any articles
             $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
         } else {
+            // Otherwise give latest articles
             $articles = Article::latest()->get();
         }
 
@@ -29,8 +29,6 @@ class ArticleController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     *
      */
     public function create()
     {
@@ -41,7 +39,6 @@ class ArticleController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      */
     public function store()
     {
@@ -52,32 +49,30 @@ class ArticleController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     *
-     *
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
-        return view('articles.show', [ 'article' => Article::findOrFail($id) ]);
+        return view('articles.show', [
+            'article' => Article::findOrFail($id)
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     *
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-
-        $article = Article::find($id);
-
-        return view('articles.edit' , [ 'article' => $article]);
+        return view('articles.edit' , [
+            'article' => Article::find($id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
-     *
      * @param Article $article
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -90,15 +85,15 @@ class ArticleController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
     }
 
+    /**'
+     * Return a VALIDATED array of requested items
+     */
     public function validateArticle(): array {
         return request()->validate([
             'title' => 'required|max:255',
