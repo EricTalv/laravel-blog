@@ -1,4 +1,4 @@
-w
+
 ## About This Project
 
 This is a part of my *100-days-of-code* challenge,
