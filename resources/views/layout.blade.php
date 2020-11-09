@@ -40,6 +40,6 @@
     @yield ('header')
 </div>
 @yield ('content')
-
+@yield('scripts')
 </body>
 </html>
