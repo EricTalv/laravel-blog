@@ -85,8 +85,11 @@
                         >
                     </div>
 
-                    <label for="tagger" class="label">Existing tags</label>
 
+                </div>
+
+                <div class="field">
+                    <label for="tagger" class="label">Existing tags</label>
                     <div class="control">
                         {{--
                              tags[] enables us to fetch multiple (array)
