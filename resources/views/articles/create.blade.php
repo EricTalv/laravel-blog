@@ -63,14 +63,38 @@
                 </div>
 
                 <div class="field">
-                    <label for="tag" class="label">Tags</label>
+                    <label for="tagger" class="label">Tags</label>
+                    <div class="control">
+                        {{--
 
-                    <div class="control select is-multiple">
+                            You should be able to write any word into the
+                            input, press enter, this creates a Word-Label.
+
+                            These will be posted and later added to the post.
+
+                            If theres a new TAG it will be created into the
+                            TAGS table.
+                            Otherwise we will just add it.
+
+                        --}}
+                        <input
+                            class="input"
+                            type="text"
+                            name="tagger"
+                            id="tagger"
+                        >
+                    </div>
+
+                    <label for="tagger" class="label">Existing tags</label>
+
+                    <div class="control">
                         {{--
                              tags[] enables us to fetch multiple (array)
-                             options to send as a request instead of one
+                             options to send as a request instead of one.
+
+                             This however lets you add EXISTING tags
                         --}}
-                        <select name="tags[]" multiple>
+                        <select name="tags[]" class="select is-multiple" multiple>
                             @foreach($tags as $tag)
                                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                             @endforeach
