@@ -5,11 +5,11 @@
         <div id="banner-wrapper">
             <div id="banner" class="container">
 
-                @if (Auth::check())
+                @auth
                  <h2>Welcome {{ Auth::user()->name }}</h2>
                 @else
                     <h2>Welcome</h2>
-                @endif
+                @endauth
 
 
 
