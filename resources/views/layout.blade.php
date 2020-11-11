@@ -26,13 +26,26 @@
         </div>
         <div id="menu">
             <ul>
-                <li class="{{ request()->is('/') ? 'current_page_item' : '' }}"><a href="/" accesskey="1" title="">Homepage</a>
+                @guest
+                    <li class="{{ request()->is('/login') ? 'current_page_item' : '' }}">
+                        <a href="/login" accesskey="1"
+                           title="">Login</a>
+                    </li>
+                @else
+                    <li class="{{ request()->is('/home') ? 'current_page_item' : '' }}"><a href="/home" accesskey="1" title="">Dashboard</a>
+                    </li>
+                @endguest
+
+                <li class="{{ request()->is('/') ? 'current_page_item' : '' }}"><a href="/" accesskey="1" title="">Welcome</a>
                 </li>
-                <li class="{{ request()->is('articles') ? 'current_page_item' : '' }}"><a href="/articles" accesskey="1" title="">Articles</a>
+                <li class="{{ request()->is('articles') ? 'current_page_item' : '' }}"><a href="/articles"
+                                                                                          accesskey="1" title="">Articles</a>
                 </li>
-                <li class="{{ request()->is('about') ? 'current_page_item' : '' }}"><a href="/about" accesskey="1" title="">About</a>
+                <li class="{{ request()->is('about') ? 'current_page_item' : '' }}"><a href="/about" accesskey="1"
+                                                                                       title="">About</a>
                 </li>
-                <li class="{{ request()->is('articles/create') ? 'current_page_item' : '' }}"><a href="{{ route('articles.create') }}" accesskey="1" title="">Create</a>
+                <li class="{{ request()->is('articles/create') ? 'current_page_item' : '' }}"><a
+                        href="{{ route('articles.create') }}" accesskey="1" title="">Create</a>
                 </li>
             </ul>
         </div>

@@ -11,8 +11,6 @@
                     <h2>Welcome</h2>
                 @endauth
 
-
-
                 <p>This is <strong>SimpleBlog</strong></br>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae delectus error explicabo ipsum
                     labore libero maxime modi nisi recusandae voluptatibus.
