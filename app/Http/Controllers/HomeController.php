@@ -9,7 +9,10 @@ class HomeController extends Controller
     /**
      * Create a new controller instance.
      *
-     * This is where users get authenticated
+     * This is where users get authenticated.
+     *
+     * Before a user gets to the INDEX page,
+     * it is sent to the middleware
      *
      * @return void
      */
