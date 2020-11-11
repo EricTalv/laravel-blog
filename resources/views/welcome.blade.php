@@ -10,8 +10,7 @@
 
                 <script>
 
-                    var inputElement = document.querySelector('input')
-                    new Tagify(inputElement)
+
 
                 </script>
 

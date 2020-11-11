@@ -1,6 +1,11 @@
 require('./bootstrap');
-import Tagify from '@yaireo/tagify';
-import './styles.scss';
 
+try {
+    window.tagify = require('@yaireo/tagify');
 
-require
+    var inputElement = document.querySelector('input');
+    new Tagify(inputElement);
+
+    console.log('w1');
+
+} catch (e) {}

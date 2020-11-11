@@ -20,6 +20,6 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "@yaireo/tagify": "^3.21.0"
+        "@yaireo/tagify": "^3.21.4"
     }
 }
