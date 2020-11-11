@@ -1,2 +1,6 @@
 require('./bootstrap');
-require('@yaireo/tagify');
+import Tagify from '@yaireo/tagify';
+import './styles.scss';
+
+
+require
