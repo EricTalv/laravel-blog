@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        // Check for request on TAG
+        // Check for request for input TAG
         if (request('tag')) {
             // Lookup tag in the database for any articles
             $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
