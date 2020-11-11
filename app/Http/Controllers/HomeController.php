@@ -9,6 +9,8 @@ class HomeController extends Controller
     /**
      * Create a new controller instance.
      *
+     * This is where users get authenticated
+     *
      * @return void
      */
     public function __construct()
