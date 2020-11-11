@@ -42,3 +42,7 @@ Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show
 
 // Show post editing page
 Route::put('/articles/{article}', 'ArticleController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
