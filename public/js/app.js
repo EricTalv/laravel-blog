@@ -19351,12 +19351,10 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-try {
-  window.tagify = __webpack_require__(/*! @yaireo/tagify */ "./node_modules/@yaireo/tagify/dist/tagify.min.js");
-  var inputElement = document.querySelector('input');
-  new Tagify(inputElement);
-  console.log('w1');
-} catch (e) {}
+window.tagify = __webpack_require__(/*! @yaireo/tagify */ "./node_modules/@yaireo/tagify/dist/tagify.min.js");
+var inputElement = document.querySelector('input');
+new Tagify(inputElement);
+console.log('w1');
 
 /***/ }),
 
