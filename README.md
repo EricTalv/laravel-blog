@@ -39,7 +39,8 @@ legend:
    [ ] Show
    [ ] Index
    [ ] Edit
-   [ ] Create  
+   [ ] Create
+   [ ] Add Tagify component to project
 
  [ ] CRUD Pages
   [X] Index
