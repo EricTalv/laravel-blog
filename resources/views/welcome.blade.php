@@ -1,20 +1,9 @@
-@extends ('layout')
+@extends('layouts.app')
 
-@section ('header')
-    <div id="header-featured">
-        <div id="banner-wrapper">
-            <div id="banner" class="container">
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
 
-                @auth
-                 <h2>Welcome {{ Auth::user()->name }}</h2>
-                @else
-                    <h2>Welcome</h2>
-                @endauth
-
-                <p>This is <strong>SimpleBlog</strong></br>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae delectus error explicabo ipsum
-                    labore libero maxime modi nisi recusandae voluptatibus.
-                </p>
-            </div>
         </div>
+    </div>
 @endsection
