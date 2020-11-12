@@ -22,7 +22,7 @@
 <div id="header-wrapper">
     <div id="header" class="container">
         <div id="logo">
-            <h1><a href="/">SimpleWork</a></h1>
+            <h1><a href="/">{{ empty(request()->segment(1)) ? 'Simplework' : request()->segment(1)   }}</a></h1>
         </div>
         <div id="menu">
             <ul>
