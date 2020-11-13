@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    @if ( empty(request()) )
+    @if ( empty(request('tag')) )
         Articles
     @else
         Articles | {{ request('tag') }}
