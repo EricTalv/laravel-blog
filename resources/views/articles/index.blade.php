@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+    @if ( empty(request()) )
+        Articles
+    @else
+        Articles | {{ request('tag') }}
+    @endif
+@endsection
+
 @section('style')
     <style>
         .edit-option {
