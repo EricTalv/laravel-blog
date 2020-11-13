@@ -22,6 +22,7 @@ Route::get('/', function () {
             'articles' => Article::all(),
             'tags' => Tag::all(),
             'latestArticle' => Article::latest()->first(),
+            'featuredArticles' => Article::latest()->take(2)->get(),
         ]);
 })->name('home');
 

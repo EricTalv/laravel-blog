@@ -2,13 +2,18 @@
 
 @section('title') Welcome @endsection
 
+@section('style')
+    
+@endsection
+
 @section('content')
 
     <div class="container">
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-between">
                 @foreach($tags as $tag)
-                <a class="p-2 text-muted" href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
+                    <a class="p-2 text-muted"
+                       href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
                 @endforeach
             </nav>
         </div>
@@ -17,43 +22,36 @@
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic text-capitalize">{{ $latestArticle->title }}</h1>
                 <p class="lead my-3">{{ $latestArticle->excerpt }}</p>
-                <p class="lead mb-0"><a href="/article/{{ $latestArticle->id }}" class="text-white font-weight-bold">Continue reading...</a></p>
+                <p class="lead mb-0"><a href="/article/{{ $latestArticle->id }}" class="text-white font-weight-bold">Continue
+                        reading...</a></p>
             </div>
         </div>
 
         <div class="row mb-2 justify-content-center">
-            <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow h-md-250 card-fix">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-primary">World</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="#">Featured post</a>
-                        </h3>
-                        <div class="mb-1 text-muted">Nov 12</div>
-                        <p class="card-text mb-auto">This is a wider card with supporting
-                            text below as a natural lead-in to additional content. <a href="#">Continue reading</a>
-                        </p>
+            @foreach($featuredArticles as $featuredArticle )
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250 card-fix">
+                        <div class="card-body d-flex flex-column align-items-start">
+
+                            <small> @foreach($featuredArticle->tags as $tag)<strong
+                                    class="d-inline-block mb-2 badge badge-dark">{{ $tag->name }}</strong>  @endforeach
+                            </small>
+
+                            <h3 class="mb-0">
+                                <a class="text-dark text-capitalize" href="#">{{$featuredArticle->title}}</a>
+                            </h3>
+                            <div
+                                class="mb-1 text-muted">{{ date('j M Y', strtotime( $featuredArticle->created_at ))  }}</div>
+                            <p class="card-text mb-auto">{{ $featuredArticle->excerpt }}<a
+                                    href="/articles/{{ $featuredArticle->id }}">Continue reading</a>
+                            </p>
+                        </div>
+                        <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/500"
+                             alt="Card image cap">
                     </div>
-                    <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/500"
-                         alt="Card image cap">
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div style="max-width: 100%" class="card flex-md-row mb-4 box-shadow h-md-250 card-fix">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-primary">World</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="#">Featured post</a>
-                        </h3>
-                        <div class="mb-1 text-muted">Nov 12</div>
-                        <p style="word-wrap: break-word" class="card-text mb-auto">This is a wider card with supporting
-                            text below as a natural lead-in to additional content. <a href="#">Continue reading</a>
-                        </p>
-                    </div>
-                    <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/550"
-                         alt="Card image cap">
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 
