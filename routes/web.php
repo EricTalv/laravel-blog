@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Article;
+use App\Tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Article;
 */
 
 Route::get('/', function () {
-    return view('welcome', [ 'articles' => Article::all()]);
+    return view('welcome', [ 'articles' => Article::all(), 'tags' => Tag::all() ]);
 })->name('home');
 
 Route::get('/about', function () {

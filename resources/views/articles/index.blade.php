@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('style')
     <style>
@@ -10,50 +10,48 @@
         .show-options:hover > .edit-option, .edit-option:hover {
             display: inline-block !important;
         }
+
+        .my-font-in-index {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: black;
+        }
+
+        .card {
+            box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+            transition:  transform .5s, box-shadow .5s;
+        }
+
+        .card:hover{
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
     </style>
 @endsection
 
 @section('content')
-    <div id="wrapper">
-        <div id="page" class="container">
-            <div id="content">
-                <ul>
-                    <li>
-                        @forelse ($articles as $article)
+    <div class="container">
+        @forelse ($articles as $article)
+            <div class="row justify-content-center">
+                <div class="card w-75 my-5 p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <h5 class=" card-title text-capitalize "><a class="my-font-in-index" href="/articles/{{ $article->id }}">{{ $article->title }}</a></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ date('j M Y', strtotime( $article->created_at ))  }}</h6>
+                        <p class="card-text">{{ $article->excerpt }}</p>
 
-                            <div class="section pt-0 show-options ">
-                                <a style="z-index: 3; float: right;" class=" button edit-option"
-                                   href="/articles/edit/{{ $article->id }}">Edit</a>
-
-                                <a style="z-index: 3; float: right;" class=" mr-2 button edit-option"
-                                   href="#">Delete</a>
-                                <div class="title is-capitalized ">
-                                    <h3>
-                                        <u>
-                                            <a class="has-text-dark has-text-weight-bold"
-                                               href="/articles/{{ $article->id }}">
-                                                {{ $article->title }}
-                                            </a>
-                                        </u>
-                                    </h3>
-                                </div>
-                                <div class="subtitle">
-                                    <h5>
-                                        {{ $article->excerpt }}
-                                    </h5>
-                                    <p><small>{{ date('j M Y', strtotime( $article->created_at ))  }}</small></p>
-
-                                    @foreach ( $article->tags as $tag)
-                                        <span class="tag is-dark mx-1">{{ $tag->name }}</span>
-                                    @endforeach
-                                </div>
-                            </div>
-                        @empty
-                            <p>No relevant articles yet.</p>
-                        @endforelse
-                    </li>
-                </ul>
+                        <a style="z-index: 3; float: right;" class=" button edit-option"
+                           href="/articles/edit/{{ $article->id }}">Edit</a>
+                        @foreach ( $article->tags as $tag)
+                            <a href="{{ route('articles.index', ['tag' => $tag->name]) }}" class="badge badge-secondary">{{ $tag->name }}</a>
+                        @endforeach
+                    </div>
+                </div>
             </div>
-        </div>
+        @empty
+            <div class="alert alert-light" role="alert">
+                No relevant articles yet.
+            </div>
+        @endforelse
     </div>
+
 @endsection
