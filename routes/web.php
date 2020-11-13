@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 Route::get('/about', function () {
     return view('about' , [ 'articles' => \App\Article::latest()->take(3)->get()
@@ -45,4 +45,4 @@ Route::put('/articles/{article}', 'ArticleController@update');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
