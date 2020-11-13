@@ -24,7 +24,7 @@ Route::get('/', function () {
             'latestArticle' => Article::latest()->first(),
             'featuredArticles' => Article::latest()->take(2)->get(),
         ]);
-})->name('home');
+})->name('welcome');
 
 Route::get('/about', function () {
     return view('about' , [ 'articles' => Article::latest()->take(3)->get()
@@ -54,4 +54,4 @@ Route::put('/articles/{article}', 'ArticleController@update');
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/home', 'DashboardController@index')->name('home');
