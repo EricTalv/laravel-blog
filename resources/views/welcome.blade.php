@@ -4,6 +4,12 @@
 
 @section('style')
     <style>
+
+        .first-post-gradient {
+            background-color: #8EC5FC !important;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%) !important;
+        }
+
         .text-overflow-fix {
             white-space: nowrap;
             overflow: hidden;
@@ -52,7 +58,7 @@
                                     href="/articles/{{ $featuredArticle->id }}">Continue reading</a>
                             </p>
                         </div>
-                        <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/500"
+                        <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/200"
                              alt="Card image cap">
                     </div>
                 </div>
@@ -195,12 +201,14 @@
         </div><!-- /.row -->
 
     </main><!-- /.container -->
-
+    @section('footer')
     <footer class="blog-footer">
         <p>Blog template built imported with ❤️ by <a href="https://github.com/EricTalv">Eric</a>.</p>
         <p>
             <a href="#">Back to top</a>
         </p>
     </footer>
+    @endsection
+
 
 @endsection

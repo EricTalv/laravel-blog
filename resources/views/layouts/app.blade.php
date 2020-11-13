@@ -94,6 +94,8 @@
     <div class="container p-4">
         @yield('content')
     </div>
+    @yield('footer')
+
 </div>
 </body>
 </html>
