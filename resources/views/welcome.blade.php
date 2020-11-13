@@ -3,7 +3,13 @@
 @section('title') Welcome @endsection
 
 @section('style')
-    
+    <style>
+        .text-overflow-fix {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -21,7 +27,7 @@
         <div class="jumbotron p-3 p-md-5 text-white rounded first-post-gradient">
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic text-capitalize">{{ $latestArticle->title }}</h1>
-                <p class="lead my-3">{{ $latestArticle->excerpt }}</p>
+                <p class="lead my-3 text-overflow-fix">{{ $latestArticle->excerpt }}</p>
                 <p class="lead mb-0"><a href="/article/{{ $latestArticle->id }}" class="text-white font-weight-bold">Continue
                         reading...</a></p>
             </div>
@@ -42,7 +48,7 @@
                             </h3>
                             <div
                                 class="mb-1 text-muted">{{ date('j M Y', strtotime( $featuredArticle->created_at ))  }}</div>
-                            <p class="card-text mb-auto">{{ $featuredArticle->excerpt }}<a
+                            <p class="card-text mb-auto" style="overflow: hidden; text-overflow: ellipsis;">{{ $featuredArticle->excerpt }}<a
                                     href="/articles/{{ $featuredArticle->id }}">Continue reading</a>
                             </p>
                         </div>
