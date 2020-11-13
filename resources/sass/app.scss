@@ -1,10 +1,15 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css?family=Goldman');
 
 // Variables
 @import 'variables';
-@import 'bootstrap_overrides';
+@import 'blog-template';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+// My code
+
+body {
+    font-size: 1.2rem;
+}
