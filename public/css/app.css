@@ -11067,3 +11067,10 @@ body {
   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 }
 
+@media only all and (min-width: 772px) and (max-width: 1199px) {
+  .card-fix {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
