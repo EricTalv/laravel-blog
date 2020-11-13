@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Article;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [ 'articles' => Article::all()]);
 })->name('home');
 
 Route::get('/about', function () {
-    return view('about' , [ 'articles' => \App\Article::latest()->take(3)->get()
+    return view('about' , [ 'articles' => Article::latest()->take(3)->get()
     ]);
 })->name('about');
 
@@ -45,4 +47,4 @@ Route::put('/articles/{article}', 'ArticleController@update');
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
