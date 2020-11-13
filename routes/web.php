@@ -17,7 +17,12 @@ use App\Tag;
 */
 
 Route::get('/', function () {
-    return view('welcome', [ 'articles' => Article::all(), 'tags' => Tag::all() ]);
+    return view('welcome',
+        [
+            'articles' => Article::all(),
+            'tags' => Tag::all(),
+            'latestArticle' => Article::latest()->first(),
+        ]);
 })->name('home');
 
 Route::get('/about', function () {

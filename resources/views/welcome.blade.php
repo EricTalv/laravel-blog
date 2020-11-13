@@ -15,9 +15,9 @@
 
         <div class="jumbotron p-3 p-md-5 text-white rounded first-post-gradient">
             <div class="col-md-6 px-0">
-                <h1 class="display-4 font-italic text-capitalize">{{ \App\Article::latest()->first()->title }}</h1>
-                <p class="lead my-3">{{ \App\Article::latest()->first()->excerpt }}</p>
-                <p class="lead mb-0"><a href="/article/{{ \App\Article::latest()->first()->id }}" class="text-white font-weight-bold">Continue reading...</a></p>
+                <h1 class="display-4 font-italic text-capitalize">{{ $latestArticle->title }}</h1>
+                <p class="lead my-3">{{ $latestArticle->excerpt }}</p>
+                <p class="lead mb-0"><a href="/article/{{ $latestArticle->id }}" class="text-white font-weight-bold">Continue reading...</a></p>
             </div>
         </div>
 
