@@ -29,8 +29,8 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 ET | <span class="text-capitalize">
-                    @if (View::hasSection('username'))
-                        @yield('username')
+                    @if (Auth::user())
+                        {{ Auth::user()->name }}
                     @else
                         Blog
                     @endif
@@ -77,6 +77,9 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('home') }}">
                                     {{ __('Dashboard') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('articles.create') }}">
+                                    {{ __('Create Article') }}
                                 </a>
                                 <hr>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

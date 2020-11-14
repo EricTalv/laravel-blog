@@ -11,6 +11,9 @@ use App\Tag;
 class ArticleController extends Controller
 {
 
+    /**
+     *  Welcome page articles
+     */
     public function welcomeArticles()
     {
         return view('welcome',
