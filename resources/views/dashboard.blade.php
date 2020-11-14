@@ -2,6 +2,10 @@
 
 @section('title') Dashboard @endsection
 
+@section('username')
+{{ Auth::user()->name }}
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

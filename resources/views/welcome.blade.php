@@ -33,7 +33,7 @@
         <div class="jumbotron p-3 p-md-5 text-white rounded first-post-gradient">
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic text-capitalize">{{ $latestFeaturedArticle->title }}</h1>
-                <p class="lead my-3 text-overflow-fix">{{ $latestFeaturedArticle->excerpt }}</p>
+                <p class="lead my-3 ">{{ $latestFeaturedArticle->excerpt }}</p>
                 <p class="lead mb-0"><a href="/article/{{ $latestFeaturedArticle->id }}" class="text-white font-weight-bold">Continue
                         reading...</a></p>
             </div>
@@ -105,29 +105,19 @@
                 </div>
 
                 <div class="p-3">
-                    <h4 class="font-italic">Archives</h4>
+                    <h4 class="font-italic">Featured Articles</h4>
                     <ol class="list-unstyled mb-0">
-                        <li><a href="#">March 2014</a></li>
-                        <li><a href="#">February 2014</a></li>
-                        <li><a href="#">January 2014</a></li>
-                        <li><a href="#">December 2013</a></li>
-                        <li><a href="#">November 2013</a></li>
-                        <li><a href="#">October 2013</a></li>
-                        <li><a href="#">September 2013</a></li>
-                        <li><a href="#">August 2013</a></li>
-                        <li><a href="#">July 2013</a></li>
-                        <li><a href="#">June 2013</a></li>
-                        <li><a href="#">May 2013</a></li>
-                        <li><a href="#">April 2013</a></li>
+                        @foreach( $allFeaturedArticles as $article)
+                        <li><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></li>
+                        @endforeach
                     </ol>
                 </div>
 
                 <div class="p-3">
                     <h4 class="font-italic">Elsewhere</h4>
                     <ol class="list-unstyled">
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
+                        <li><a href="https://github.com/EricTalv">GitHub</a></li>
+                        <li><a href="https://twitter.com/EricTalviste">Twitter</a></li>
                     </ol>
                 </div>
             </aside><!-- /.blog-sidebar -->
@@ -137,7 +127,7 @@
     </main><!-- /.container -->
     @section('footer')
     <footer class="blog-footer">
-        <p>Blog template built imported with ❤️ by <a href="https://github.com/EricTalv">Eric</a>.</p>
+        <p>Blog made with ❤️ by <a href="https://github.com/EricTalv">Eric</a>.</p>
         <p>
             <a href="#">Back to top</a>
         </p>
