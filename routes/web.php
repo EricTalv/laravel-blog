@@ -16,15 +16,7 @@ use App\Tag;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome',
-        [
-            'threeLatestArticles' => Article::latest()->take(3)->get(),
-            'tags' => Tag::all(),
-            'latestArticle' => Article::latest()->first(),
-            'featuredArticles' => Article::latest()->take(2)->get(),
-        ]);
-})->name('welcome');
+Route::get('/', 'ArticleController@welcomeArticles')->name('welcome');
 
 Route::get('/about', function () {
     return view('about' , [ 'articles' => Article::latest()->take(3)->get()

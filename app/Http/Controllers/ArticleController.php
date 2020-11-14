@@ -10,6 +10,18 @@ use App\Tag;
 
 class ArticleController extends Controller
 {
+
+    public function welcomeArticles()
+    {
+        return view('welcome',
+            [
+                'threeLatestArticles' => Article::latest()->take(3)->get(),
+                'tags' => Tag::all(),
+                'latestFeaturedArticle' => Article::latest()->first(),
+                'featuredArticles' => Article::where('featured', '1')->latest()->skip(1)->take(2)->get(),
+            ]);
+    }
+
     /**
      * Display a listing of the resource.
      */

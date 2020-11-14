@@ -32,22 +32,22 @@
 
         <div class="jumbotron p-3 p-md-5 text-white rounded first-post-gradient">
             <div class="col-md-6 px-0">
-                <h1 class="display-4 font-italic text-capitalize">{{ $latestArticle->title }}</h1>
-                <p class="lead my-3 text-overflow-fix">{{ $latestArticle->excerpt }}</p>
-                <p class="lead mb-0"><a href="/article/{{ $latestArticle->id }}" class="text-white font-weight-bold">Continue
+                <h1 class="display-4 font-italic text-capitalize">{{ $latestFeaturedArticle->title }}</h1>
+                <p class="lead my-3 text-overflow-fix">{{ $latestFeaturedArticle->excerpt }}</p>
+                <p class="lead mb-0"><a href="/article/{{ $latestFeaturedArticle->id }}" class="text-white font-weight-bold">Continue
                         reading...</a></p>
             </div>
         </div>
 
         <div class="row mb-2 justify-content-center">
             @foreach($featuredArticles as $featuredArticle )
-                <div class="col-md-6">
+                <div class="col-md">
                     <div class="card flex-md-row mb-4 box-shadow h-md-250 card-fix">
                         <div class="card-body d-flex flex-column align-items-start">
 
-                            <small> @foreach($featuredArticle->tags as $tag)<strong
-                                    class="d-inline-block mb-2 badge badge-dark">{{ $tag->name }}</strong>  @endforeach
-                            </small>
+                             @foreach($featuredArticle->tags as $tag)<small><strong
+                                    class="d-inline-block mb-2 badge badge-dark">{{ $tag->name }}</small></strong>  @endforeach
+
 
                             <h3 class="mb-0">
                                 <a class="text-dark text-capitalize" href="#">{{$featuredArticle->title}}</a>
