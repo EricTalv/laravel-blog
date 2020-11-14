@@ -41,7 +41,11 @@
     <div class="container">
         @forelse ($articles as $article)
             <div class="row justify-content-center">
-                <div class="card w-75 my-5 p-3 mb-5 bg-white rounded">
+
+                <div class="card w-75 my-5  bg-white rounded">
+                    @if ($article->featured)
+                        <h5 class="card-header">Featured</h5>
+                    @endif
                     <div class="card-body">
                         <h5 class=" card-title text-capitalize "><a class="my-font-in-index" href="/articles/{{ $article->id }}">{{ $article->title }}</a></h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ date('j M Y', strtotime( $article->created_at ))  }}</h6>
