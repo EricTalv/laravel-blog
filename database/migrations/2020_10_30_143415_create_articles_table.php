@@ -20,6 +20,8 @@ class CreateArticlesTable extends Migration
             $table->text('excerpt');
             $table->text('body');
 
+            $table->boolean('featured')->default(0);
+
             $table->timestamps();
 
             $table->foreign('user_id')
