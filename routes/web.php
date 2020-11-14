@@ -19,7 +19,7 @@ use App\Tag;
 Route::get('/', function () {
     return view('welcome',
         [
-            'articles' => Article::all(),
+            'threeLatestArticles' => Article::latest()->take(3)->get(),
             'tags' => Tag::all(),
             'latestArticle' => Article::latest()->first(),
             'featuredArticles' => Article::latest()->take(2)->get(),
