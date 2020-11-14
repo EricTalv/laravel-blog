@@ -95,8 +95,13 @@
             <aside class="col-md-4 blog-sidebar">
                 <div class="p-3 mb-3 bg-light rounded">
                     <h4 class="font-italic">About</h4>
-                    <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur
-                        purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <p class="mb-0">
+                            This is a laravel blog.
+                            Made purely on Laravel and PHP technologies.
+                            Everything(most) you see, read and press is all dynamically retrieved
+                            from my MySQL database.
+                    </p>
+                    <a href="/about">Continue reading</a>
                 </div>
 
                 <div class="p-3">
