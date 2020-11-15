@@ -17,7 +17,8 @@ MVP: Blog post must include:
  - Tags on posts
  - Tag view page 
 
-_Deadline: 13.11.20_ 
+<s>Deadline: 13.11.20</s> 
+_New Deadline: 18.11.20 _
 
 ### TODO : MVP 
 
@@ -30,30 +31,27 @@ legend:
 ----- 
 
 [ ] Frontend
- [ ] Add some animations
-  [ ] Flash screen? 
-  [ ] Smooth transition between pages 
-  [ ] Hovers!
 
   [ ] Add Tags option
-   [ ] Show
-   [ ] Index
+   [X] Show
+   [X] Index
    [ ] Edit
-   [ ] Create
-   [ ] Add Tagify component to project
-
+   [X] Create
+   
  [ ] CRUD Pages
   [X] Index
    [X] Design v1
-   [ ] Design v2
+   [X] Design v2
   [X] Show
    [X] Design v1
    [ ] Design v2
   [X] Edit
    [X] Design v1
+   [ ] Design v2
+
   [X] Create
    [x] Design v1
-   [ ] Tags
+   [X] Tags
 
 >[ ] Add Vue.js AS front-end Framework
 
@@ -76,8 +74,8 @@ legend:
 Stretch Goals: 
 
  [ ] Authorization
-  [ ] Login
-  [ ] Register
+  [X] Login
+  [X] Register
   [ ] Dashboards
    [ ] Admin
    [ ] User
