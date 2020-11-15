@@ -50,7 +50,6 @@
                         <table class="table table-sm table-striped table-hover">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Excerpt</th>
                                 <th scope="col">Date</th>
@@ -60,7 +59,6 @@
                             <tbody>
                             @foreach($allUserArticles as $article)
                                 <tr>
-                                    <th scope="row">{{ $article->id }}</th>
                                     <td>
                                         <a class="reformat-a-styles" target="_blank" href="/articles/{{ $article->id }}">
                                             {{ \Illuminate\Support\Str::limit($article->title, 20, $end=".." )  }}
