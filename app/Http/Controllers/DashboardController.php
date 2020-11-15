@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
+
 
 use App\Article;
 use Illuminate\Http\Request;
@@ -31,6 +33,7 @@ class DashboardController extends Controller
     {
         return view('dashboard',
             [
+             'allUserArticles' => Auth::user()->articles()->latest()->get(),
             'latestArticle' => Article::latest()->first(),
         ]);
     }

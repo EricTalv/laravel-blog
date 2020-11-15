@@ -58,7 +58,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach(Auth::user()->articles as $article)
+                            @foreach($allUserArticles as $article)
                                 <tr>
                                     <th scope="row">{{ $article->id }}</th>
                                     <td>
