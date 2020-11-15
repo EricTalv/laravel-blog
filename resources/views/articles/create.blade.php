@@ -1,22 +1,32 @@
 @extends('layouts.app')
 
+@section('style')
+    <style>
+        .form-group > label > h4 {
+            font-weight: bold !important;
+        }
+    </style>
+@endsection
+
 @section('scripts')
-    <script type="text/javascript">
-        window.addEventListener('keydown', function (e) {
-            if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
-                if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
-                    e.preventDefault();
-                    return false;
-                }
-            }
-        }, true);
-    </script>
+{{--    --}}
+{{--    This is to remove ENTER-key to SUBMIT the form --}}
+{{--    <script type="text/javascript">--}}
+{{--        window.addEventListener('keydown', function (e) {--}}
+{{--            if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {--}}
+{{--                if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {--}}
+{{--                    e.preventDefault();--}}
+{{--                    return false;--}}
+{{--                }--}}
+{{--            }--}}
+{{--        }, true);--}}
+{{--    </script>--}}
 @endsection
 
 @section('content')
 
     <div class="container">
-        <form method="POST" action="{{ route('articles.store') }}" novalidate>
+        <form class="needs-validation " novalidate method="POST" action="{{ route('articles.store') }}" >
             @csrf
             @method('PUT')
 
@@ -24,39 +34,42 @@
                 <label for="title"><h4>Title</h4></label>
                 <input
                     {{-- If we have an error, add is-danger class  --}}
-                    class="form-control {{ !$errors->has('title') ?  '' : 'invalid-feedback' }}"
+                    class="form-control  {{ !$errors->has('title') ?  '' : 'is-invalid' }}"
                     type="text"
                     name="title"
                     id="title"
                     {{-- Retreives an old input item --}}
                     value="{{ old('title') }}"
                 >
+                @error('title')
+
+                <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
             </div>
-            @error('title')
-            <p class="invalid-feedback">{{ $message }}</p>
-            @enderror
+
+
             <div class="form-group">
                 <label for="excerpt"><h4>Excerpt</h4></label>
                 <textarea
-                    class="form-control {{ !$errors->has('excerpt') ?  '' : 'invalid-feedback' }}"
+                    class="form-control {{ !$errors->has('excerpt') ?  '' : 'is-invalid' }}"
                     name="excerpt"
                     rows="3"
                     id="excerpt">{{ old('excerpt') }}</textarea>
+                @error('excerpt')
+                <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
             </div>
-            @error('excerpt')
-            <p class="invalid-feedback">{{ $message }}</p>
-            @enderror
             <div class="form-group">
                 <label for="body"><h4>Body</h4></label>
                 <textarea
-                    class="form-control {{ !$errors->has('body') ?  '' : 'invalid-feedback' }}"
+                    class="form-control {{ !$errors->has('body') ?  '' : 'is-invalid' }}"
                     name="body"
                     rows="3"
                     id="body">{{ old('body') }}</textarea>
-            </div>
             @error('body')
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror
+            </div>
             <div class="form-group">
                 <label for="existing-tags-input"><h4>Tags</h4></label>
                 {{--
@@ -70,11 +83,16 @@
                         <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                     @endforeach
                 </select>
+                @error('tags')
+                <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
                 <small class="from-text text-muted">Hold down control to select multiple options</small>
+
             </div>
-            @error('tags')
-            <p class="help is-danger">{{ $message }}</p>
-            @enderror
+
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         </form>
     </div>
+    <hr>
+
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Article;
@@ -18,7 +19,7 @@ class ArticleController extends Controller
     {
         return view('welcome',
             [
-                'threeLatestArticles' => Article::latest()->take(3)->get(),
+                'threeLatestArticles' => Article::latest()->skip(1)->take(3)->get(),
                 'tags' => Tag::all(),
                 'latestFeaturedArticle' => Article::latest()->first(),
                 'allFeaturedArticles' => Article::where('featured', 1)->latest()->get(),
@@ -65,7 +66,7 @@ class ArticleController extends Controller
 
         // this is hard coded to simulate user article creation
         // ideally we'd do it like auth()-id
-        $article->user_id = 1;
+        $article->user_id = Auth::id;
         $article->save();
 
         $article->tags()->attach(request('tags'));
