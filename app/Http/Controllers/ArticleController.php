@@ -66,7 +66,7 @@ class ArticleController extends Controller
 
         // this is hard coded to simulate user article creation
         // ideally we'd do it like auth()-id
-        $article->user_id = Auth::id;
+        $article->user_id = Auth::id();
         $article->save();
 
         $article->tags()->attach(request('tags'));
