@@ -31,6 +31,15 @@ legend:
 ----- 
 
 [ ] Frontend
+  [ ] Add cover picture option to article
+  [ ] Pagination 
+  [ ] Pagination on dashboard
+  [ ] User Profile view page 
+  
+  [ ] If there are no featured articles, take 2 random articles
+
+  [X] Featured Article section
+  [X] Latest article
 
   [ ] Add Tags option
    [X] Show
