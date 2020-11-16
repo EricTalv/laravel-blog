@@ -1,69 +1,88 @@
-@extends('layout')
+@extends('layouts.app')
+
+@section('style')
+    <style>
+        .form-group > label > h4 {
+            font-weight: bold !important;
+        }
+    </style>
+@endsection
+
+@section('title')
+    Edit Article
+@endsection
 
 @section('content')
-    <div id="wrapper">
-        <div id="page" class="container">
-            <h1 class="heading has-text-weight-bold is-size-4">New Article</h1>
 
-            <form method="POST" action="/articles/{{ $article->id }}">
-                @csrf
-                @method('PUT')
+    <div class="container">
+        <form class="needs-validation " novalidate method="POST" action="/articles/{{ $article->id }}" >
+            @csrf
+            @method('PUT')
 
-                <div class="field">
-                    <label for="title" class="label">Title</label>
+            <div class="form-group">
+                <label for="title"><h4>Title</h4></label>
+                <input
+                    {{-- If we have an error, add is-danger class  --}}
+                    class="form-control  {{ !$errors->has('title') ?  '' : 'is-invalid' }}"
+                    type="text"
+                    name="title"
+                    id="title"
+                    {{-- Retreives an old input item --}}
+                    value="{{ $errors->isEmpty() ? $article->body : old('title') }}"
+                >
+                @error('title')
 
-                    <div class="control">
-                        <input
-                            class="input {{ !$errors->has('title') ?  '' : 'is-danger' }}"
-                            type="text"
-                            name="title"
-                            id="title"
-                            value="{{ $errors->isEmpty() ? $article->title : old('title') }}"
-                        >
-                    </div>
-                    @error('title')
-                    <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-
-                </div>
-
-                <div class="field">
-                    <label for="excerpt" class="label">Excerpt</label>
-
-                    <div class="control">
-                        <textarea
-                            class="textarea {{ !$errors->has('excerpt') ?  '' : 'is-danger' }}"
-                            name="excerpt"
-                            id="excerpt">{{ $errors->isEmpty() ? $article->excerpt : old('excerpt') }}</textarea>
-                    </div>
-                    @error('excerpt')
-                    <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-
-                </div>
-
-                <div class="field">
-                    <label for="body" class="label">Body</label>
-
-                    <div class="control">
-                        <textarea
-                            class="textarea {{ !$errors->has('body') ?  '' : 'is-danger' }}"
-                            name="body"
-                            id="body">{{ $errors->isEmpty() ? $article->body : old('body') }}</textarea>
-                    </div>
-                    @error('body')
-                    <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-link" type="submit">Submit</button>
-                    </div>
-                </div>
+                <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
+            </div>
 
 
-            </form>
-        </div>
+            <div class="form-group">
+                <label for="excerpt"><h4>Excerpt</h4></label>
+                <textarea
+                    class="form-control {{ !$errors->has('excerpt') ?  '' : 'is-invalid' }}"
+                    name="excerpt"
+                    rows="3"
+                    id="excerpt">{{ $errors->isEmpty() ? $article->body : old('excerpt') }}</textarea>
+                @error('excerpt')
+                <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="body"><h4>Body</h4></label>
+                <textarea
+                    class="form-control {{ !$errors->has('body') ?  '' : 'is-invalid' }}"
+                    name="body"
+                    rows="3"
+                    id="body">{{ $errors->isEmpty() ? $article->body : old('body') }}</textarea>
+                @error('body')
+                <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="form-group">
+
+                <label for="existing-tags-input"><h4>Tags</h4></label>
+                {{--
+                           tags[] enables us to fetch multiple (array)
+                           options to send as a request instead of one.
+
+                           This however lets you add EXISTING tags
+                      --}}
+{{--                <select name="tags[]" class="form-control form-control-lg" multiple >--}}
+{{--                    @foreach($tags as $tag)--}}
+{{--                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
+{{--                @error('tags')--}}
+{{--                <p class="invalid-feedback">{{ $message }}</p>--}}
+{{--                @enderror--}}
+{{--                <small class="from-text text-muted">Hold down control to select multiple options</small>--}}
+
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </form>
     </div>
+    <hr>
+
 @endsection

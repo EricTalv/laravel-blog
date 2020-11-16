@@ -76,7 +76,7 @@
                                         </td>
                                     @endif
                                     <td>
-                                        <a class="btn btn-warning" href="/article/edit/{{$article->id}}">Edit</a>
+                                        <a class="btn btn-warning" href="/articles/edit/{{$article->id}}">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -8,6 +8,10 @@
     </style>
 @endsection
 
+@section('title')
+    Create Article
+@endsection
+
 @section('scripts')
 {{--    --}}
 {{--    This is to remove ENTER-key to SUBMIT the form --}}
