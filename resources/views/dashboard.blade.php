@@ -54,13 +54,15 @@
                                 <th scope="col">Excerpt</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Tags</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($allUserArticles as $article)
                                 <tr>
                                     <td>
-                                        <a class="reformat-a-styles" target="_blank" href="/articles/{{ $article->id }}">
+                                        <a class="reformat-a-styles" target="_blank"
+                                           href="/articles/{{ $article->id }}">
                                             {{ \Illuminate\Support\Str::limit($article->title, 20, $end=".." )  }}
                                         </a>
                                     </td>
@@ -73,9 +75,13 @@
                                             @endforeach
                                         </td>
                                     @endif
+                                    <td>
+                                        <a class="btn btn-warning" href="/article/edit/{{$article->id}}">Edit</a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
+
                         </table>
                     </div>
                 </div>
