@@ -8,10 +8,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+/**
+ * Import tag library
+ */
 import VueTags from "vue-tags";
-
 Vue.component("input-tags", VueTags);
-
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,7 +25,7 @@ Vue.component("input-tags", VueTags);
  //const files = require.context('./', true, /\.vue$/i)
  //files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
- Vue.component('tester', require('./components/Tester.vue').default);
+ Vue.component('tester', require('./components/TagInput.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

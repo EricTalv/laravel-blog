@@ -1,86 +1,52 @@
 <template>
-
-<div class="tags-input-container">
-
-    <!--
-      For each Tag inside of Tags
-      write it out
-    -->
-    <div
-        class="tag"
-        v-for="(tag, index) in tags"
-        :key="'tag' + index"
-    >
-        {{ tag }}
-    </div>
-
-    <!--    Call addTag method on enter key up-->
-    <input class="tag-input" v-model="tagValue" @keyup.enter="addTag()" />
-    <button v-on:click="test()">Say hi</button>
-</div>
-
+    <input-tags v-model="tags">
+        <div class="tags-input"
+             slot-scope="{tag,removeTag,inputEventHandlers,inputBindings }">
+            <span v-for="tag in tags"
+                  class="tag">
+              <span>{{ tag }}</span>
+              <button type="button" class="tag-remove"
+                      v-on:click="removeTag(tag)"
+              >&times;
+             </button>
+            </span>
+            <input
+                class="tags-input"  placeholder="Add tag..."
+                v-on="inputEventHandlers"
+                v-bind="inputBindings"
+            >
+        </div>
+    </input-tags>
 </template>
-
 
 <script>
     export default {
 
         data() {
             return {
-                tagValue: '',
-                tags: [ 'hello' ]
+                tags: ['Laravel','Vuejs'],
             }
-        },
-
-        methods: {
-
-            addTag() {
-                // If the Input contains data, add it to the list as
-                // a new tag
-                if(!this.tagValue == '') {
-                    this.tags.push(this.tagValue);
-                }
-                this.tagValue ='';
-
-                console.log('Added Tag');
-
-            },
-
-            test() {
-                console.log('this is from test func');
-            }
-        },
-
-        mounted()  {
-            console.log('Tag input component Mounted');
-            this.test();
         }
-
     }
 </script>
 
+
 <style lang="scss" scoped>
-    .tags-input-container {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .tag-input {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        border: 1px solid grey;
-        outline: none;
-    }
-
     .tag {
-        float: left;
-        padding: 3px 5px;
-
-        &:hover {
-            color: #0073ff;
-        }
+        background-color: #03a5fc;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 4px;
+        font-size: 20px;
     }
 
+    .tag-remove {
+        border: 0;
+        background-color: transparent;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
 
 </style>
