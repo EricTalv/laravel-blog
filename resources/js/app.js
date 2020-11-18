@@ -9,12 +9,6 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 /**
- * Import Tagging component
- */
-import VueTags from "vue-tags";
-Vue.component("input-tags", VueTags);
-
-/**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
