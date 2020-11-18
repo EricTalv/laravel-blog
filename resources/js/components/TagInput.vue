@@ -22,11 +22,24 @@
 <script>
     export default {
 
+        props: {
+            existingTags: { type: Array, default: [] }
+        },
+
         data() {
             return {
-                tags: ['Laravel','Vuejs'],
+                // Get This->Users->Article->Tags
+                // IF we are creating however
+                // Dont show anything
+                tags: this.existingTags,
             }
+        },
+
+        mounted() {
+            console.log(this.existingTags)
         }
+
+
     }
 </script>
 
