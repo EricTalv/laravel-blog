@@ -23,11 +23,13 @@
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
         <hr>
+
+        @if (!Auth::user()->articles->isEmpty())
         <!-- Content Row -->
         <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
+            <div class="col-xl-12">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -89,24 +91,33 @@
         </div>
 
         <!-- Content Row -->
-        <div class="row">
 
 
-            <div class="col-xl-12 mb-4">
-                <!-- Approach -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Latest Article</h6>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $latestArticle->title }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ \Illuminate\Support\Str::limit($latestArticle->excerpt, 100, $end='...') }}</h6>
-                        <p class="card-text">{{ \Illuminate\Support\Str::limit($latestArticle->body, 150, $end='...')  }}</p>
-                        <a target="_blank" href="/articles/{{ $latestArticle->id }}" class="card-link">Go To Post</a>
+            <div class="row">
+                <div class="col-xl-12 mb-4">
+                    <!-- Approach -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Latest Article</h6>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $latestArticle->title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ \Illuminate\Support\Str::limit($latestArticle->excerpt, 100, $end='...') }}</h6>
+                            <p class="card-text">{{ \Illuminate\Support\Str::limit($latestArticle->body, 150, $end='...')  }}</p>
+                            <a target="_blank" href="/articles/{{ $latestArticle->id }}" class="card-link">Go To Post</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div class="alert alert-secondary" role="alert">
+                <h4 class="alert-heading text-capitalize">Welcome {{ Auth::User()->name }}</h4>
+                <p>This is your first time logging in! Feel free to browse around!</p>
+                <hr>
+                <p class="mb-0">If you are ready, you can create an article <a href="{{ route('articles.create') }}">by clicking here!</a></p>
+            </div>
+        @endif
+
 
     </div>
 @endsection

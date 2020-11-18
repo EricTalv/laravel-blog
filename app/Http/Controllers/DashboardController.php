@@ -34,7 +34,7 @@ class DashboardController extends Controller
         return view('dashboard',
             [
              'allUserArticles' => Auth::user()->articles()->latest()->get(),
-            'latestArticle' => Article::latest()->first(),
+            'latestArticle' => Auth::user()->latest()->firstOrFail(),
         ]);
     }
 }

@@ -82,11 +82,15 @@
 
                            This however lets you add EXISTING tags
                       --}}
-                <select name="tags[]" class="form-control form-control-lg" multiple >
-                    @foreach($tags as $tag)
-                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                    @endforeach
-                </select>
+{{--                <select name="tags[]" class="form-control form-control-lg" multiple >--}}
+{{--                    @foreach($tags as $tag)--}}
+{{--                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
+{{--                --}}
+
+                <tag-input></tag-input>
+
                 @error('tags')
                 <p class="invalid-feedback">{{ $message }}</p>
                 @enderror

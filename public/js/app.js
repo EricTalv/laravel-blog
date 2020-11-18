@@ -50452,7 +50452,7 @@ Vue.component("input-tags", vue_tags__WEBPACK_IMPORTED_MODULE_0___default.a);
 //const files = require.context('./', true, /\.vue$/i)
 //files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('tester', __webpack_require__(/*! ./components/TagInput.vue */ "./resources/js/components/TagInput.vue")["default"]);
+Vue.component('tag-input', __webpack_require__(/*! ./components/TagInput.vue */ "./resources/js/components/TagInput.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
