@@ -11,11 +11,8 @@ window.Vue = require('vue');
 /**
  * Import Tagging component
  */
-import Tagify from '@yaireo/tagify';
-require('@yaireo/tagify/src/tagify.scss');
-
-var inputElement = document.querySelector('input');
-new Tagify(inputElement);
+import VueTags from "vue-tags";
+Vue.component("input-tags", VueTags);
 
 /**
  * The following block of code may be used to automatically register your

@@ -20,7 +20,7 @@
 
 @section('content')
 
-
+    <tag-component></tag-component>
 
     <div class="container">
         <div class="nav-scroller py-1 mb-2">
