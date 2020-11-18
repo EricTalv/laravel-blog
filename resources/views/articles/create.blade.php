@@ -89,14 +89,11 @@
 {{--                </select>--}}
 {{--                --}}
 
-                <?php $rndm = ['helo', 'php']; ?>
-
-                <tag-input :existing-tags="{{ $rndm }}" ></tag-input>
+                <tag-input></tag-input>
 
                 @error('tags')
                 <p class="invalid-feedback">{{ $message }}</p>
                 @enderror
-                <small class="from-text text-muted">Hold down control to select multiple options</small>
 
             </div>
 
