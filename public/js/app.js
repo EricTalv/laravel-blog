@@ -1930,22 +1930,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    existingTags: {
-      type: Array,
-      "default": []
-    }
-  },
   data: function data() {
     return {
       // Get This->Users->Article->Tags
       // IF we are creating however
       // Dont show anything
-      tags: this.existingTags
+      tags: []
     };
-  },
-  mounted: function mounted() {
-    console.log(this.existingTags);
   }
 });
 
