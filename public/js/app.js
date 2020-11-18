@@ -1941,6 +1941,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _this = undefined;
+
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1962,19 +1971,26 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       tagValue: '',
-      tags: []
+      tags: ['hello']
     };
   },
   methods: {
     addTag: function addTag() {
       // If the Input contains data, add it to the list as
       // a new tag
-      if (!this.tagValue == '') {
-        this.tags.push(this.tagValue);
+      if (!_this.tagValue == '') {
+        _this.tags.push(_this.tagValue);
       }
 
-      this.tagValue = '';
+      _this.tagValue = '';
+      console.log('Added Tag');
+    },
+    say: function say(message) {
+      alert(message);
     }
+  },
+  mounted: function mounted() {
+    console.log('Tag input component Mounted');
   }
 });
 
@@ -6420,7 +6436,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".tags-input-container[data-v-2812c5bb] {\n  width: 100%;\n  padding: 10px;\n}\n.tag-input[data-v-2812c5bb] {\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  border: 1px solid grey;\n  outline: none;\n}", ""]);
+exports.push([module.i, ".tags-input-container[data-v-2812c5bb] {\n  width: 100%;\n  padding: 10px;\n}\n.tag-input[data-v-2812c5bb] {\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  border: 1px solid grey;\n  outline: none;\n}\n.tag[data-v-2812c5bb] {\n  float: left;\n  padding: 3px 5px;\n}\n.tag[data-v-2812c5bb]:hover {\n  color: #0073ff;\n}", ""]);
 
 // exports
 
@@ -38284,6 +38300,15 @@ var render = function() {
         staticClass: "tag-input",
         domProps: { value: _vm.tagValue },
         on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.addTag($event)
+          },
           input: function($event) {
             if ($event.target.composing) {
               return
@@ -38291,7 +38316,19 @@ var render = function() {
             _vm.tagValue = $event.target.value
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          on: {
+            click: function($event) {
+              return _vm.say("hi")
+            }
+          }
+        },
+        [_vm._v("Say hi")]
+      )
     ],
     2
   )

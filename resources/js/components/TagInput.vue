@@ -1,6 +1,11 @@
 <template>
 
 <div class="tags-input-container">
+
+    <!--
+      For each Tag inside of Tags
+      write it out
+    -->
     <div
         class="tag"
         v-for="(tag, index) in tags"
@@ -9,7 +14,9 @@
         {{ tag }}
     </div>
 
-    <input class="tag-input" v-model="tagValue" />
+    <!--    Call addTag method on enter key up-->
+    <input class="tag-input" v-model="tagValue" @keyup.enter="addTag()" />
+    <button v-on:click="test()">Say hi</button>
 </div>
 
 </template>
@@ -21,7 +28,7 @@
         data() {
             return {
                 tagValue: '',
-                tags: []
+                tags: [ 'hello' ]
             }
         },
 
@@ -34,8 +41,21 @@
                     this.tags.push(this.tagValue);
                 }
                 this.tagValue ='';
+
+                console.log('Added Tag');
+
+            },
+
+            test() {
+                console.log('this is from test func');
             }
+        },
+
+        mounted()  {
+            console.log('Tag input component Mounted');
+            this.test();
         }
+
     }
 </script>
 
@@ -51,6 +71,16 @@
         margin: 0;
         border: 1px solid grey;
         outline: none;
-
     }
+
+    .tag {
+        float: left;
+        padding: 3px 5px;
+
+        &:hover {
+            color: #0073ff;
+        }
+    }
+
+
 </style>
