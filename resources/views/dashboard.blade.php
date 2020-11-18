@@ -112,7 +112,7 @@
         @else
             <div class="alert alert-secondary" role="alert">
                 <h4 class="alert-heading text-capitalize">Welcome {{ Auth::User()->name }}</h4>
-                <p>This is your first time logging in! Feel free to browse around!</p>
+                <p>You have successfully logged in! Feel free to browse around!</p>
                 <hr>
                 <p class="mb-0">If you are ready, you can create an article <a href="{{ route('articles.create') }}">by clicking here!</a></p>
             </div>
