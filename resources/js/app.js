@@ -9,6 +9,15 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 /**
+ * Import Tagging component
+ */
+import Tagify from '@yaireo/tagify';
+require('@yaireo/tagify/src/tagify.scss');
+
+var inputElement = document.querySelector('input');
+new Tagify(inputElement);
+
+/**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
@@ -31,11 +40,3 @@ const app = new Vue({
     el: '#app',
 });
 
-/**
- * Import Tagging component
- */
-
-import VoerroTagsInput from '@voerro/vue-tagsinput';
-require('@voerro/vue-tagsinput/dist/style.css');
-
-Vue.component('tags-input', VoerroTagsInput);
