@@ -1964,6 +1964,17 @@ __webpack_require__.r(__webpack_exports__);
       tagValue: '',
       tags: []
     };
+  },
+  methods: {
+    addTag: function addTag() {
+      // If the Input contains data, add it to the list as
+      // a new tag
+      if (!this.tagValue == '') {
+        this.tags.push(this.tagValue);
+      }
+
+      this.tagValue = '';
+    }
   }
 });
 
