@@ -1,22 +1,38 @@
 <template>
-     <h1>Tester</h1>
-    <div id="example-2">
-        <!-- `greet` is the name of a method defined below -->
-        <button v-on:click="greet">Greet</button>
-    </div>
+    <input-tags v-model="tags">
+        <div class="tags-input"
+             slot-scope="{tag,removeTag,inputEventHandlers,inputBindings }">
+            <span v-for="tag in tags"
+                  class="tag badge-secondary">
+              <span>{{ tag }}</span>
+              <button type="button" class="tag-remove badge badge-light"
+                      v-on:click="removeTag(tag)"
+              >&times;
+             </button>
+            </span>
+            <input
+                class="tags-input"  placeholder="Add tag..."
+                v-on="inputEventHandlers"
+                v-bind="inputBindings"
+            >
+        </div>
+    </input-tags>
 </template>
 
 <script>
     export default {
-        methods: {
-            greet: function (event) {
-                // `this` inside methods points to the Vue instance
-                alert('Hello ' + this.name + '!')
-                // `event` is the native DOM event
-                if (event) {
-                    alert(event.target.tagName)
-                }
+
+        data() {
+            return {
+                tags: ['Laravel','Vuejs'],
             }
         }
     }
 </script>
+
+
+<style lang="scss" scoped>
+
+
+
+</style>

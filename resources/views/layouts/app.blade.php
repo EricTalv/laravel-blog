@@ -106,7 +106,6 @@
 <!-- Scripts -->
 {{-- Defer seems Sketchy https://stackoverflow.com/questions/40438840/should-i-use-defer-on-script-which-are-already-at-just-before-the-bottom-body-ta--}}
 <script src="{{ asset('js/app.js') }}" ></script>
-<script src="{!! mix('js/app.js') !!}"></script>
 
 </body>
 </html>
