@@ -20,8 +20,14 @@
 
 @section('content')
 
-
-    <example-component></example-component>
+    <tags-input element-id="tags"
+                v-model="selectedTags"
+                :existing-tags="[
+        { key: 'web-development', value: 'Web Development' },
+        { key: 'php', value: 'PHP' },
+        { key: 'javascript', value: 'JavaScript' },
+    ]"
+                :typeahead="true"></tags-input>
 
     <div class="container">
         <div class="nav-scroller py-1 mb-2">

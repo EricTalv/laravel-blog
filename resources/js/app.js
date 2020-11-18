@@ -30,3 +30,12 @@ window.Vue = require('vue');
 const app = new Vue({
     el: '#app',
 });
+
+/**
+ * Import Tagging component
+ */
+
+import VoerroTagsInput from '@voerro/vue-tagsinput';
+require('@voerro/vue-tagsinput/dist/style.css');
+
+Vue.component('tags-input', VoerroTagsInput);
