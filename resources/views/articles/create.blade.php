@@ -12,20 +12,7 @@
     Create Article
 @endsection
 
-@section('scripts')
-{{--    --}}
-{{--    This is to remove ENTER-key to SUBMIT the form --}}
-{{--    <script type="text/javascript">--}}
-{{--        window.addEventListener('keydown', function (e) {--}}
-{{--            if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {--}}
-{{--                if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {--}}
-{{--                    e.preventDefault();--}}
-{{--                    return false;--}}
-{{--                }--}}
-{{--            }--}}
-{{--        }, true);--}}
-{{--    </script>--}}
-@endsection
+
 
 @section('content')
 
