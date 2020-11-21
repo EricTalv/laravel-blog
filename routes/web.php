@@ -30,7 +30,7 @@ Route::get('/articles', 'ArticleController@index')->name('articles.index');
 Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
 
 // Create Page
-Route::put('/articles', 'ArticleController@store')->name('articles.store');
+Route::put('/article/create', 'ArticleController@store')->name('articles.store');
 
 // Show post editing page
 Route::get('/articles/edit/{article}', 'ArticleController@edit');

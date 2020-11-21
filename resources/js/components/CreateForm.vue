@@ -16,7 +16,7 @@
             <textarea
                 class="form-control "
                 name="excerpt"
-                rows="3"
+                rows="2"
                 id="excerpt"> </textarea>
 
         </div>
@@ -39,3 +39,27 @@
 
     </form>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                fields: {},
+                errors: {},
+            }
+        },
+        methods: {
+            submit() {
+                this.errors = {};
+
+                axios.post('/article/create', this.fields).then(response => {
+                    alert('Message sent!');
+                }).catch(error => {
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors || {};
+                    }
+                });
+            },
+        },
+    }
+</script>
