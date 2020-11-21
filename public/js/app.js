@@ -50537,7 +50537,6 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 
 
-Vue.component("input-tags", vue_tags__WEBPACK_IMPORTED_MODULE_0___default.a);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -50548,6 +50547,7 @@ Vue.component("input-tags", vue_tags__WEBPACK_IMPORTED_MODULE_0___default.a);
 //const files = require.context('./', true, /\.vue$/i)
 //files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component("input-tags", vue_tags__WEBPACK_IMPORTED_MODULE_0___default.a);
 Vue.component('tag-input', __webpack_require__(/*! ./components/TagInput.vue */ "./resources/js/components/TagInput.vue")["default"]);
 Vue.component('create-form', __webpack_require__(/*! ./components/CreateForm.vue */ "./resources/js/components/CreateForm.vue")["default"]);
 /**
