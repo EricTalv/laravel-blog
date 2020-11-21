@@ -38452,6 +38452,17 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ "./node_modules/vue-tags/dist/vue-tags.js":
+/*!************************************************!*\
+  !*** ./node_modules/vue-tags/dist/vue-tags.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t():undefined}(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var a=n[r]={exports:{},id:r,loaded:!1};return e[r].call(a.exports,a,a.exports,t),a.loaded=!0,a.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){var r=n(1)(n(2),null,null,null);e.exports=r.exports},function(e,t){e.exports=function(e,t,n,r){var a,o=e=e||{},u=typeof e["default"];"object"!==u&&"function"!==u||(a=e,o=e["default"]);var i="function"==typeof o?o.options:o;if(t&&(i.render=t.render,i.staticRenderFns=t.staticRenderFns),n&&(i._scopeId=n),r){var s=Object.create(i.computed||null);Object.keys(r).forEach(function(e){var t=r[e];s[e]=function(){return t}}),i.computed=s}return{esModule:a,exports:o,options:i}}},function(e,t){"use strict";function n(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]={model:{prop:"tags",event:"update"},props:{deleteKey:{type:Number,"default":8},addKey:{type:Number,"default":13},tags:{required:!0}},data:function(){return{newTag:""}},methods:{handleTagBackspace:function(e){0===this.newTag.length&&this.$emit("update",this.tags.slice(0,-1))},addTag:function(){0===this.newTag.length||this.tags.includes(this.newTag)||(this.$emit("update",[].concat(n(this.tags),[this.newTag])),this.newTag="")},removeTag:function(e){this.$emit("update",this.tags.filter(function(t){return t!==e}))}},render:function(){var e=this;return this.$scopedSlots["default"]({tags:this.tags,removeTag:this.removeTag,inputEventHandlers:{input:function(t){e.newTag=t.target.value},keydown:function(t){t.keyCode===e.deleteKey&&e.handleTagBackspace(),t.keyCode===e.addKey&&(t.preventDefault(),e.addTag()),13===t.keyCode&&13!==e.addKey&&13!==e.deleteKey&&t.preventDefault()}},inputBindings:{value:this.newTag}})}}}])});
+
+/***/ }),
+
 /***/ "./node_modules/vue/dist/vue.common.dev.js":
 /*!*************************************************!*\
   !*** ./node_modules/vue/dist/vue.common.dev.js ***!
@@ -50511,7 +50522,8 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-tags'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var vue_tags__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-tags */ "./node_modules/vue-tags/dist/vue-tags.js");
+/* harmony import */ var vue_tags__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_tags__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -50525,7 +50537,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 
 
-Vue.component("input-tags", !(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-tags'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+Vue.component("input-tags", vue_tags__WEBPACK_IMPORTED_MODULE_0___default.a);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
