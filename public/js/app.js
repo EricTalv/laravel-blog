@@ -1956,6 +1956,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38284,7 +38286,8 @@ var render = function() {
               expression: "fields.title"
             }
           ],
-          staticClass: "form-control  ",
+          staticClass: "form-control",
+          class: { "is-invalid": _vm.errors.title },
           attrs: { type: "text", name: "title", id: "title", value: "" },
           domProps: { value: _vm.fields.title },
           on: {
@@ -38298,7 +38301,7 @@ var render = function() {
         }),
         _vm._v(" "),
         _vm.errors && _vm.errors.title
-          ? _c("div", { staticClass: "text-danger" }, [
+          ? _c("div", { staticClass: "invalid-feedback" }, [
               _vm._v(_vm._s(_vm.errors.title[0]))
             ])
           : _vm._e()
@@ -38317,6 +38320,7 @@ var render = function() {
             }
           ],
           staticClass: "form-control ",
+          class: { "is-invalid": _vm.errors.excerpt },
           attrs: { name: "excerpt", rows: "2", id: "excerpt" },
           domProps: { value: _vm.fields.excerpt },
           on: {
@@ -38330,7 +38334,7 @@ var render = function() {
         }),
         _vm._v(" "),
         _vm.errors && _vm.errors.excerpt
-          ? _c("div", { staticClass: "text-danger" }, [
+          ? _c("div", { staticClass: "invalid-feedback" }, [
               _vm._v(_vm._s(_vm.errors.excerpt[0]))
             ])
           : _vm._e()

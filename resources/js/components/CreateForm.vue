@@ -3,25 +3,27 @@
         <div class="form-group">
             <label for="title"><h4>Title</h4></label>
             <input
-                class="form-control  "
+                class="form-control"
+                :class="{ 'is-invalid': errors.title  }"
                 type="text"
                 name="title"
                 id="title"
                 value=""
                 v-model="fields.title"
             >
-            <div v-if="errors && errors.title" class="text-danger">{{ errors.title[0] }}</div>
+            <div v-if="errors && errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
         </div>
 
         <div class="form-group">
             <label for="excerpt"><h4>Excerpt</h4></label>
             <textarea
                 class="form-control "
+                :class="{ 'is-invalid': errors.excerpt  }"
                 name="excerpt"
                 rows="2"
                 id="excerpt"
                 v-model="fields.excerpt"> </textarea>
-            <div v-if="errors && errors.excerpt" class="text-danger">{{ errors.excerpt[0] }}</div>
+            <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
         </div>
         <div class="form-group">
             <label for="body"><h4>Body</h4></label>
