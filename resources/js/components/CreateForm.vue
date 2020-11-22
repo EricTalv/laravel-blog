@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             <label for="tagger"><h4>Tags</h4></label>
-            <tag-input id="tagger" :value="value" @update="onTagUpdate" ></tag-input>
+            <tag-input id="tagger" @update="onTagUpdate" ></tag-input>
 
         </div>
 
@@ -73,13 +73,6 @@
                 });
             },
         },
-
-        computed: {
-            tester() {
-                console.log(this.$refs.tags)
-            }
-        }
-
 
     }
 </script>

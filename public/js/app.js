@@ -1981,11 +1981,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
-  },
-  computed: {
-    tester: function tester() {
-      console.log(this.$refs.tags);
-    }
   }
 });
 
@@ -38391,7 +38386,7 @@ var render = function() {
           _vm._m(3),
           _vm._v(" "),
           _c("tag-input", {
-            attrs: { id: "tagger", value: _vm.value },
+            attrs: { id: "tagger" },
             on: { update: _vm.onTagUpdate }
           })
         ],
