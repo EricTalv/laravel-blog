@@ -1951,6 +1951,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38257,6 +38262,8 @@ var render = function() {
   return _c(
     "form",
     {
+      staticClass: "needs-validation",
+      attrs: { novalidate: "" },
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -38290,21 +38297,95 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _vm.errors && _vm.errors.name
+        _vm.errors && _vm.errors.title
           ? _c("div", { staticClass: "text-danger" }, [
               _vm._v(_vm._s(_vm.errors.title[0]))
             ])
           : _vm._e()
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "form-group" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.fields.excerpt,
+              expression: "fields.excerpt"
+            }
+          ],
+          staticClass: "form-control ",
+          attrs: { name: "excerpt", rows: "2", id: "excerpt" },
+          domProps: { value: _vm.fields.excerpt },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.fields, "excerpt", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm.errors && _vm.errors.excerpt
+          ? _c("div", { staticClass: "text-danger" }, [
+              _vm._v(_vm._s(_vm.errors.excerpt[0]))
+            ])
+          : _vm._e()
+      ]),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "form-group" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.fields.body,
+              expression: "fields.body"
+            }
+          ],
+          staticClass: "form-control",
+          class: { "is-invalid": _vm.errors.body },
+          attrs: { name: "body", rows: "3", id: "body" },
+          domProps: { value: _vm.fields.body },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.fields, "body", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm.errors && _vm.errors.body
+          ? _c("div", { staticClass: "invalid-feedback" }, [
+              _vm._v(_vm._s(_vm.errors.body[0]))
+            ])
+          : _vm._e()
+      ]),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "form-group" },
-        [_vm._m(3), _vm._v(" "), _c("tag-input", { attrs: { id: "tagger" } })],
+        [
+          _vm._m(3),
+          _vm._v(" "),
+          _c("tag-input", {
+            attrs: { id: "tagger" },
+            model: {
+              value: _vm.fields.tags,
+              callback: function($$v) {
+                _vm.$set(_vm.fields, "tags", $$v)
+              },
+              expression: "fields.tags"
+            }
+          })
+        ],
         1
       ),
       _vm._v(" "),
@@ -38329,29 +38410,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "excerpt" } }, [
-        _c("h4", [_vm._v("Excerpt")])
-      ]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control ",
-        attrs: { name: "excerpt", rows: "2", id: "excerpt" }
-      })
+    return _c("label", { attrs: { for: "excerpt" } }, [
+      _c("h4", [_vm._v("Excerpt")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])]),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "form-control",
-        attrs: { name: "body", rows: "3", id: "body" }
-      })
-    ])
+    return _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])])
   },
   function() {
     var _vm = this

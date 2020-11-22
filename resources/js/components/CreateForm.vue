@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" class="needs-validation" novalidate>
         <div class="form-group">
             <label for="title"><h4>Title</h4></label>
             <input
@@ -10,7 +10,7 @@
                 value=""
                 v-model="fields.title"
             >
-            <div v-if="errors && errors.name" class="text-danger">{{ errors.title[0] }}</div>
+            <div v-if="errors && errors.title" class="text-danger">{{ errors.title[0] }}</div>
         </div>
 
         <div class="form-group">
@@ -19,20 +19,25 @@
                 class="form-control "
                 name="excerpt"
                 rows="2"
-                id="excerpt"> </textarea>
+                id="excerpt"
+                v-model="fields.excerpt"> </textarea>
+            <div v-if="errors && errors.excerpt" class="text-danger">{{ errors.excerpt[0] }}</div>
         </div>
         <div class="form-group">
             <label for="body"><h4>Body</h4></label>
             <textarea
                 class="form-control"
+                :class="{ 'is-invalid': errors.body  }"
                 name="body"
                 rows="3"
-                id="body"></textarea>
+                id="body"
+                v-model="fields.body"></textarea>
+            <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
 
         </div>
         <div class="form-group">
             <label for="tagger"><h4>Tags</h4></label>
-            <tag-input id="tagger"></tag-input>
+            <tag-input id="tagger" v-model="fields.tags"></tag-input>
 
         </div>
 
