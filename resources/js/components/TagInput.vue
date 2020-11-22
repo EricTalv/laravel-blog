@@ -14,6 +14,7 @@
                 class="tags-input"  placeholder="Add tag..."
                 v-on="inputEventHandlers"
                 v-bind="inputBindings"
+                @keyup.enter="emitTags"
             >
         </div>
     </input-tags>
@@ -24,12 +25,15 @@
 
         data() {
             return {
-                // Get This->Users->Article->Tags
-                // IF we are creating however
-                // Dont show anything
                 tags: [],
             }
         },
+
+        methods: {
+            emitTags() {
+                this.$emit('tags', this.tags());
+            }
+        }
     }
 </script>
 

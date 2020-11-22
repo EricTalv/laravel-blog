@@ -1978,6 +1978,11 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
+  },
+  computed: {
+    getTags: function getTags(tags) {
+      this.fields = tags;
+    }
   }
 });
 
@@ -2013,14 +2018,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      // Get This->Users->Article->Tags
-      // IF we are creating however
-      // Dont show anything
       tags: []
     };
+  },
+  methods: {
+    emitTags: function emitTags() {
+      this.$emit('tags', this.tags());
+    }
   }
 });
 
@@ -38381,13 +38389,7 @@ var render = function() {
           _vm._v(" "),
           _c("tag-input", {
             attrs: { id: "tagger" },
-            model: {
-              value: _vm.fields.tags,
-              callback: function($$v) {
-                _vm.$set(_vm.fields, "tags", $$v)
-              },
-              expression: "fields.tags"
-            }
+            on: { tags: _vm.getTags }
           })
         ],
         1
@@ -38493,7 +38495,24 @@ var render = function() {
                   _vm._b(
                     {
                       staticClass: "tags-input",
-                      attrs: { placeholder: "Add tag..." }
+                      attrs: { placeholder: "Add tag..." },
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !$event.type.indexOf("key") &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.emitTags($event)
+                        }
+                      }
                     },
                     "input",
                     inputBindings,

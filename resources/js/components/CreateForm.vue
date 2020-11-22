@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             <label for="tagger"><h4>Tags</h4></label>
-            <tag-input id="tagger" v-model="fields.tags"></tag-input>
+            <tag-input id="tagger" @tags="getTags"></tag-input>
 
         </div>
 
@@ -69,5 +69,11 @@
                 });
             },
         },
+        computed: {
+            getTags(tags) {
+                this.fields = tags;
+            }
+        }
+
     }
 </script>
