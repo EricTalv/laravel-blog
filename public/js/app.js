@@ -1966,8 +1966,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    onTagUpdate: function onTagUpdate(newValue) {
-      this.fields.tags = newValue;
+    onTagUpdate: function onTagUpdate() {
+      this.fields = this.$refs.data.tags;
     },
     submit: function submit() {
       var _this = this;
@@ -38385,10 +38385,7 @@ var render = function() {
         [
           _vm._m(3),
           _vm._v(" "),
-          _c("tag-input", {
-            attrs: { id: "tagger" },
-            on: { update: _vm.onTagUpdate }
-          })
+          _c("tag-input", { ref: "data", attrs: { id: "tagger" } })
         ],
         1
       ),
