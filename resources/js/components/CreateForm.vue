@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             <label for="tagger"><h4>Tags</h4></label>
-            <tag-input id="tagger" @tags="getTags"></tag-input>
+            <tag-input id="tagger" :value="value" @update="onTagUpdate" ></tag-input>
 
         </div>
 
@@ -57,6 +57,10 @@
             }
         },
         methods: {
+            onTagUpdate (newValue) {
+                this.fields.tags = newValue
+            },
+
             submit() {
                 this.errors = {};
 
@@ -69,11 +73,13 @@
                 });
             },
         },
+
         computed: {
-            getTags(tags) {
-                this.fields = tags;
+            tester() {
+                console.log(this.$refs.tags)
             }
         }
+
 
     }
 </script>

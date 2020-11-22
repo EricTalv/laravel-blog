@@ -14,7 +14,7 @@
                 class="tags-input"  placeholder="Add tag..."
                 v-on="inputEventHandlers"
                 v-bind="inputBindings"
-                @keyup.enter="emitTags"
+                @keyup.enter="sendTags"
             >
         </div>
     </input-tags>
@@ -30,10 +30,12 @@
         },
 
         methods: {
-            emitTags() {
-                this.$emit('tags', this.tags());
+            sendTags() {
+                this.$emit('onTagUpdate', this.tags)
             }
         }
+
+
     }
 </script>
 

@@ -1966,6 +1966,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    onTagUpdate: function onTagUpdate(newValue) {
+      this.fields.tags = newValue;
+    },
     submit: function submit() {
       var _this = this;
 
@@ -1980,8 +1983,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    getTags: function getTags(tags) {
-      this.fields = tags;
+    tester: function tester() {
+      console.log(this.$refs.tags);
     }
   }
 });
@@ -2026,8 +2029,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    emitTags: function emitTags() {
-      this.$emit('tags', this.tags());
+    sendTags: function sendTags() {
+      this.$emit('onTagUpdate', this.tags);
     }
   }
 });
@@ -38388,8 +38391,8 @@ var render = function() {
           _vm._m(3),
           _vm._v(" "),
           _c("tag-input", {
-            attrs: { id: "tagger" },
-            on: { tags: _vm.getTags }
+            attrs: { id: "tagger", value: _vm.value },
+            on: { update: _vm.onTagUpdate }
           })
         ],
         1
@@ -38510,7 +38513,7 @@ var render = function() {
                           ) {
                             return null
                           }
-                          return _vm.emitTags($event)
+                          return _vm.sendTags($event)
                         }
                       }
                     },
