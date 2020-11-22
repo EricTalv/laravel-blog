@@ -38254,56 +38254,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", [
-    _c("div", { staticClass: "form-group" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.fields.title,
-            expression: "fields.title"
-          }
-        ],
-        staticClass: "form-control  ",
-        attrs: { type: "text", name: "title", id: "title", value: "" },
-        domProps: { value: _vm.fields.title },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.fields, "title", $event.target.value)
-          }
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submit($event)
         }
-      }),
+      }
+    },
+    [
+      _c("div", { staticClass: "form-group" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.fields.title,
+              expression: "fields.title"
+            }
+          ],
+          staticClass: "form-control  ",
+          attrs: { type: "text", name: "title", id: "title", value: "" },
+          domProps: { value: _vm.fields.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.fields, "title", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm.errors && _vm.errors.name
+          ? _c("div", { staticClass: "text-danger" }, [
+              _vm._v(_vm._s(_vm.errors.title[0]))
+            ])
+          : _vm._e()
+      ]),
       _vm._v(" "),
-      _vm.errors && _vm.errors.name
-        ? _c("div", { staticClass: "text-danger" }, [
-            _vm._v(_vm._s(_vm.errors.title[0]))
-          ])
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [_vm._m(3), _vm._v(" "), _c("tag-input", { attrs: { id: "tagger" } })],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      { staticClass: "btn btn-primary btn-lg", attrs: { type: "submit" } },
-      [_vm._v("Submit")]
-    )
-  ])
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [_vm._m(3), _vm._v(" "), _c("tag-input", { attrs: { id: "tagger" } })],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary btn-lg", attrs: { type: "submit" } },
+        [_vm._v("Submit")]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
