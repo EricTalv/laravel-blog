@@ -8,7 +8,9 @@
                 name="title"
                 id="title"
                 value=""
+                v-model="fields.title"
             >
+            <div v-if="errors && errors.name" class="text-danger">{{ errors.title[0] }}</div>
         </div>
 
         <div class="form-group">
@@ -18,7 +20,6 @@
                 name="excerpt"
                 rows="2"
                 id="excerpt"> </textarea>
-
         </div>
         <div class="form-group">
             <label for="body"><h4>Body</h4></label>
@@ -52,8 +53,8 @@
             submit() {
                 this.errors = {};
 
-                axios.post('/article/create', this.fields).then(response => {
-                    alert('Message sent!');
+                axios.put('/article/create', this.fields).then(response => {
+                    console.log('Article Sent');
                 }).catch(error => {
                     if (error.response.status === 422) {
                         this.errors = error.response.data.errors || {};

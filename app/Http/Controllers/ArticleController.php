@@ -62,17 +62,18 @@ class ArticleController extends Controller
         $this->validateArticle();
 
         // old->$article = Article::create($this->validateArticle());
+
+        // Create a new article using the requested inputs
         $article = new Article(request(['title', 'excerpt', 'body']));
-
-        // this is hard coded to simulate user article creation
-        // ideally we'd do it like auth()-id
+        // Add user Id to article
         $article->user_id = Auth::id();
+        // Save article
         $article->save();
-
+        // Add Tags to newly created article
         $article->tags()->attach(request('tags'));
 
-
-        return redirect('/articles/' . $article->id );
+        // Return our response
+        return response()->json(null, 200);
     }
 
     /**

@@ -1950,6 +1950,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1962,8 +1963,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.errors = {};
-      axios.post('/article/create', this.fields).then(function (response) {
-        alert('Message sent!');
+      axios.put('/article/create', this.fields).then(function (response) {
+        console.log('Article Sent');
       })["catch"](function (error) {
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors || {};
@@ -38254,7 +38255,37 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("form", [
-    _vm._m(0),
+    _c("div", { staticClass: "form-group" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.fields.title,
+            expression: "fields.title"
+          }
+        ],
+        staticClass: "form-control  ",
+        attrs: { type: "text", name: "title", id: "title", value: "" },
+        domProps: { value: _vm.fields.title },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.fields, "title", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.errors && _vm.errors.name
+        ? _c("div", { staticClass: "text-danger" }, [
+            _vm._v(_vm._s(_vm.errors.title[0]))
+          ])
+        : _vm._e()
+    ]),
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
@@ -38279,13 +38310,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "title" } }, [_c("h4", [_vm._v("Title")])]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control  ",
-        attrs: { type: "text", name: "title", id: "title", value: "" }
-      })
+    return _c("label", { attrs: { for: "title" } }, [
+      _c("h4", [_vm._v("Title")])
     ])
   },
   function() {
