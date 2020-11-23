@@ -59,7 +59,7 @@
         },
         methods: {
             getTags (value) {
-                this.fields = value;
+                this.$set(this.fields, 'tags', value)
             },
 
             submit() {

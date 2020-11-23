@@ -1968,7 +1968,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getTags: function getTags(value) {
-      this.fields = value;
+      this.$set(this.fields, 'tags', value);
     },
     submit: function submit() {
       var _this = this;
