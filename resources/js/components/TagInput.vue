@@ -19,7 +19,7 @@
         </div>
     </input-tags>
 </template>
-s
+
 <script>
     export default {
 
