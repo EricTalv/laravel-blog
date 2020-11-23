@@ -39,31 +39,32 @@
             </div>
         </div>
 
-        <div class="row mb-2 justify-content-center">
-            @foreach($featuredArticles as $featuredArticle )
-                <div class="col-md">
-                    <div class="card flex-md-row mb-4 box-shadow h-md-250 card-fix">
-                        <div class="card-body d-flex flex-column align-items-start">
+        @if (!$featuredArticles->isEmpty())
+            <div class="row mb-2 justify-content-center">
+                @foreach($featuredArticles as $featuredArticle )
+                    <div class="col-md">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250 card-fix">
+                            <div class="card-body d-flex flex-column align-items-start">
 
-                             @foreach($featuredArticle->tags as $tag)<small><strong
-                                    class="d-inline-block mb-2 badge badge-dark">{{ $tag->name }}</small></strong>  @endforeach
+                                @foreach($featuredArticle->tags as $tag)<small><strong
+                                        class="d-inline-block mb-2 badge badge-dark">{{ $tag->name }}</small></strong>  @endforeach
 
-
-                            <h3 class="mb-0">
-                                <a class="text-dark text-capitalize" href="#">{{$featuredArticle->title}}</a>
-                            </h3>
-                            <div
-                                class="mb-1 text-muted">{{ date('j M Y', strtotime( $featuredArticle->created_at ))  }}</div>
-                            <p class="card-text mb-auto" style="overflow: hidden; text-overflow: ellipsis;">{{ $featuredArticle->excerpt }}<a
-                                    href="/articles/{{ $featuredArticle->id }}">Continue reading</a>
-                            </p>
+                                <h3 class="mb-0">
+                                    <a class="text-dark text-capitalize" href="#">{{$featuredArticle->title}}</a>
+                                </h3>
+                                <div
+                                    class="mb-1 text-muted">{{ date('j M Y', strtotime( $featuredArticle->created_at ))  }}</div>
+                                <p class="card-text mb-auto" style="overflow: hidden; text-overflow: ellipsis;">{{ $featuredArticle->excerpt }}<a
+                                        href="/articles/{{ $featuredArticle->id }}">Continue reading</a>
+                                </p>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/200"
+                                 alt="Card image cap">
                         </div>
-                        <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/200"
-                             alt="Card image cap">
                     </div>
-                </div>
-            @endforeach
-        </div>
+                @endforeach
+            </div>
+        @endif
     </div>
     <main role="main" class="container">
         <div class="row">
@@ -104,14 +105,20 @@
                     <a href="/about">Continue reading</a>
                 </div>
 
-                <div class="p-3">
-                    <h4 class="font-italic">Featured Articles</h4>
-                    <ol class="list-unstyled mb-0">
-                        @foreach( $allFeaturedArticles as $article)
-                        <li><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></li>
-                        @endforeach
-                    </ol>
-                </div>
+
+                @if (!$featuredArticles->isEmpty())
+
+                    <div class="p-3">
+                        <h4 class="font-italic">Featured Articles</h4>
+                        <ol class="list-unstyled mb-0">
+                            @foreach( $allFeaturedArticles as $article)
+                                <li><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></li>
+                            @endforeach
+                        </ol>
+                    </div>
+
+                @endif
+
 
                 <div class="p-3">
                     <h4 class="font-italic">Elsewhere</h4>
