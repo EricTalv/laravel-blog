@@ -17,11 +17,18 @@ class ArticleController extends Controller
      */
     public function welcomeArticles()
     {
+        $newestArticle = Article::latest()
+            ->first();
+
+        $threeLatestArticles = Article::latest()
+            ->where('id', '<>', $newestArticle->id)
+            ->paginate(3);
+
         return view('welcome',
             [
-                'threeLatestArticles' => Article::latest()->skip(1)->take(3)->get(),
+                'threeLatestArticles' => $threeLatestArticles,
                 'tags' => Tag::all(),
-                'latestFeaturedArticle' => Article::latest()->first(),
+                'newestArticle' => $newestArticle,
                 'allFeaturedArticles' => Article::where('featured', 1)->latest()->get(),
                 'featuredArticles' => Article::where('featured', '1')->latest()->skip(1)->take(2)->get(),
             ]);
