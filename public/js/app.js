@@ -1963,12 +1963,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: {},
       errors: {},
-      tags: []
+      tags: ''
     };
   },
   methods: {
     getTags: function getTags(value) {
-      this.tags = value;
+      this.fields = value;
     },
     submit: function submit() {
       var _this = this;
@@ -2025,8 +2025,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    sendTags: function sendTags() {
-      this.$emit('onTagUpdate', this.tags);
+    sendTags: function sendTags(event) {
+      this.$emit('updatetags', this.tags);
     }
   }
 });
@@ -38388,7 +38388,7 @@ var render = function() {
           _vm._v(" "),
           _c("tag-input", {
             attrs: { id: "tagger" },
-            on: { onTagUpdate: _vm.getTags }
+            on: { updatetags: _vm.getTags }
           })
         ],
         1

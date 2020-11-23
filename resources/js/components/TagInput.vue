@@ -30,8 +30,8 @@
         },
 
         methods: {
-            sendTags() {
-                this.$emit('onTagUpdate', this.tags)
+            sendTags(event) {
+                this.$emit('updatetags', this.tags)
             }
         }
 
