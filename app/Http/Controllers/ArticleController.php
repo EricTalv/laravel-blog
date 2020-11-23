@@ -69,8 +69,26 @@ class ArticleController extends Controller
         $article->user_id = Auth::id();
         // Save article
         $article->save();
-        // Add Tags to newly created article
-        $article->tags()->attach(request('tags'));
+
+        // If Article is created
+        if($article) {
+            // get Tag Names
+            $tagNames = request('tags');
+            $tagIds = [];
+
+            foreach ($tagNames as $tagName) {
+                // Check for existing tags
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                if($tag) {
+                    $tagIds[] = $tag->id;
+                }
+            }
+            $article->tags()->sync($tagIds);
+        }
+
+
+        // OLD Add Tags to newly created article
+        // OLD $article->tags()->attach(request('tags'));
 
         // Return our response
         return response()->json(null, 200);

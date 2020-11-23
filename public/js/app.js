@@ -1962,8 +1962,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {},
-      errors: {},
-      tags: ''
+      errors: {}
     };
   },
   methods: {
@@ -1980,6 +1979,8 @@ __webpack_require__.r(__webpack_exports__);
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors || {};
         }
+
+        console.log(error.response.data.errors);
       });
     }
   }

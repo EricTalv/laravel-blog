@@ -54,12 +54,11 @@
             return {
                 fields: {},
                 errors: {},
-                tags: ''
             }
         },
         methods: {
             getTags (value) {
-                this.$set(this.fields, 'tags', value)
+              this.$set(this.fields, 'tags', value)
             },
 
             submit() {
@@ -71,6 +70,8 @@
                     if (error.response.status === 422) {
                         this.errors = error.response.data.errors || {};
                     }
+
+                    console.log(error.response.data.errors);
                 });
             },
         },
