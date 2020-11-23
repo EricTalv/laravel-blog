@@ -1962,12 +1962,13 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {},
-      errors: {}
+      errors: {},
+      tags: []
     };
   },
   methods: {
-    onTagUpdate: function onTagUpdate() {
-      this.fields = this.$refs.data.tags;
+    getTags: function getTags(value) {
+      this.tags = value;
     },
     submit: function submit() {
       var _this = this;
@@ -38385,7 +38386,10 @@ var render = function() {
         [
           _vm._m(3),
           _vm._v(" "),
-          _c("tag-input", { ref: "data", attrs: { id: "tagger" } })
+          _c("tag-input", {
+            attrs: { id: "tagger" },
+            on: { onTagUpdate: _vm.getTags }
+          })
         ],
         1
       ),
