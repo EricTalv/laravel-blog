@@ -86,11 +86,7 @@
                 </div><!-- /.blog-post -->
                 @endforeach
 
-                <nav class="blog-pagination">
-                    {{ $threeLatestArticles->links('bootstrap-4') }}
-                    <a class="btn btn-outline-primary" href="#">Older</a>
-                    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-                </nav>
+                {{ $threeLatestArticles->links('pagination.simple-bootstrap-4') }}
 
             </div><!-- /.blog-main -->
 
