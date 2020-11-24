@@ -20,6 +20,7 @@ class ArticleController extends Controller
         $newestArticle = Article::latest()
             ->first();
 
+        // Get pagination of 3 articles Excluding the first article.
         $threeLatestArticles = Article::latest()
             ->where('id', '<>', $newestArticle->id)
             ->simplePaginate(3);
