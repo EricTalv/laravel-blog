@@ -1976,14 +1976,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.put('/article/create', this.fields).then(function (response) {
         console.log('Article Sent');
       })["catch"](function (error) {
-        if (error.response.status === 422) {
-          _this.errors = error.response.data.errors || {};
-        }
-
         _this.errors = error.response.data.errors;
-        console.log('I got errors');
-        console.log(error.response.data);
-        console.log(error.response.data.errors);
       });
     }
   }

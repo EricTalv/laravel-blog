@@ -67,15 +67,9 @@
                 axios.put('/article/create', this.fields).then(response => {
                     console.log('Article Sent');
                 }).catch(error => {
-                    if (error.response.status === 422) {
-                        this.errors = error.response.data.errors || {};
-                    }
 
                     this.errors = error.response.data.errors;
 
-                    console.log('I got errors');
-                    console.log(error.response.data);
-                    console.log(error.response.data.errors);
 
                 });
             },
