@@ -8,7 +8,6 @@ class Article extends Model
 {
     protected $guarded = [];
 
-
     /**
      *  Get the this articles path
      */
