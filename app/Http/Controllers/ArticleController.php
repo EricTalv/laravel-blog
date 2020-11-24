@@ -22,7 +22,7 @@ class ArticleController extends Controller
 
         $threeLatestArticles = Article::latest()
             ->where('id', '<>', $newestArticle->id)
-            ->paginate(3);
+            ->simplePaginate(3);
 
         return view('welcome',
             [
