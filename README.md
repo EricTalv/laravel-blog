@@ -9,16 +9,19 @@ based around and on laravel and vue technologies.
 ## Vision
 
 MVP: Blog post must include: 
- - Index of articles
+ - Index of articles 
  - One article page view
  - Create article view
- - Update article view
+ - Update/Edit article view
  - Delete article button
  - Tags on posts
  - Tag view page 
 
+
+New Deadline: 30.11.20
+<s>New Deadline: 18.11.20</s>
 <s>Deadline: 13.11.20</s> 
-_New Deadline: 18.11.20 _
+
 
 ### TODO : MVP 
 
@@ -27,17 +30,15 @@ _New Deadline: 18.11.20 _
 legend:
 [ ]  <- not done yet
 [X]  <- done
->[ ] <-New function? <- might impact other views 
 ----- 
 
 [ ] Frontend
   [ ] Add cover picture option to article
-  [ ] Pagination 
+  [X] Pagination on Welcome Page
   [ ] Pagination on dashboard
   [ ] User Profile view page 
+  [ ] Comments 
   
-  [ ] If there are no featured articles, take 2 random articles
-
   [X] Featured Article section
   [X] Latest article
 
@@ -46,23 +47,23 @@ legend:
    [X] Index
    [ ] Edit
    [X] Create
-   
- [ ] CRUD Pages
+
+ [X] CRUD Pages Design
   [X] Index
    [X] Design v1
    [X] Design v2
   [X] Show
    [X] Design v1
-   [ ] Design v2
+   [X] Design v2
   [X] Edit
    [X] Design v1
-   [ ] Design v2
+   [X] Design v2
 
   [X] Create
    [x] Design v1
    [X] Tags
 
->[ ] Add Vue.js AS front-end Framework
+[X] Add Vue.js AS front-end Framework
 
 [ ] Backend
  [ ] Restful Methods
@@ -79,16 +80,11 @@ legend:
  [X] Article-Tag relationship 
   [X] Pivot table article_tag
 
-
-Stretch Goals: 
-
- [ ] Authorization
+ [X] Authorization
   [X] Login
   [X] Register
-  [ ] Dashboards
-   [ ] Admin
-   [ ] User
-
+  [X] Dashboards
+   [X] User
 
  
 
