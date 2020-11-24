@@ -16,7 +16,8 @@ MVP: Blog post must include:
  - Delete article button
  - Tags on posts
  - Tag view page 
-
+ - Comments 
+ - User Profile Page
 
 New Deadline: 30.11.20
 <s>New Deadline: 18.11.20</s>
