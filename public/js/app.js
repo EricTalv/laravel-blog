@@ -1980,6 +1980,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.errors = error.response.data.errors || {};
         }
 
+        _this.errors = error.response.data.errors;
+        console.log('I got errors');
+        console.log(error.response.data);
         console.log(error.response.data.errors);
       });
     }

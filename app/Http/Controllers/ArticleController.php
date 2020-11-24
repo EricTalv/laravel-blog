@@ -79,6 +79,7 @@ class ArticleController extends Controller
         $article->save();
 
         // If Article is created
+
         if($article) {
             // get Tag Names
             $tagNames = request('tags');
@@ -154,7 +155,7 @@ class ArticleController extends Controller
             'title' => 'required|max:255',
             'excerpt' => 'required|max:255',
             'body' => 'required',
-            'tags' => 'exists:tags,id'
+          //  'tags' => 'exists:tags,id'
         ]);
     }
 }
