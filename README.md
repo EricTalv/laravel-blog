@@ -33,6 +33,22 @@ legend:
 [X]  <- done
 ----- 
 
+[ ] How do we Determine _Featured Articles_
+
+[ ] Functionality
+ [ ] Markdown support
+ [X] better tagger
+ [X] pagination
+ [ ] CRUD operations
+ [ ] Tagging
+ [ ] Comments
+ [ ] User Pages
+ [ ] Lorem Generator for Articles 
+ [ ] Article view counter 
+ [ ] Article read estimater
+ [X] Dynamic Titles
+ [X] User-Article-Comment Relations
+
 [ ] Frontend
   [ ] Add cover picture option to article
   [X] Pagination on Welcome Page
