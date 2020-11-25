@@ -48,6 +48,7 @@ legend:
  [ ] Article read estimater
  [X] Dynamic Titles
  [X] User-Article-Comment Relations
+ [ ] Admin role
 
 [ ] Frontend
   [ ] Add cover picture option to article
