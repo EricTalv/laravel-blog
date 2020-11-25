@@ -42,9 +42,14 @@
             <tag-input id="tagger" @updatetags="getTags"></tag-input>
 
         </div>
-
         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-
+        <hr>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Article Created!</h4>
+            <p>You have successfully made an article.</p>
+            <hr>
+            <a href="">Check it out here</a>
+        </div>
     </form>
 </template>
 

@@ -17,6 +17,5 @@
 <div class="container">
     <create-form></create-form>
 </div>
-<hr>
 
 @endsection

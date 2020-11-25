@@ -80,7 +80,7 @@ class ArticleController extends Controller
 
         // If Article is created
 
-        if($article) {
+        if($article && request('tags')) {
             // get Tag Names
             $tagNames = request('tags');
             $tagIds = [];
