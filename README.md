@@ -39,7 +39,39 @@ legend:
   [ ] Pagination on dashboard
   [ ] User Profile view page 
   [ ] Comments 
-  
+  [X] Tagger component  
+
+[ ] Add all functionality also to Edit page
+[ ] Create 1 component for creating/editing articles
+
+[ ] Welcome 
+ [X] Latest Post 
+ [X] Featured Section
+ [X] Short-About section
+ [X] All Featured posts
+ [X] Recent articles Section
+  [X] Pagination
+  [X] restrict latest post 
+ [X] Tags section 
+  [ ] All tags button
+ [X] Elsewhere Links section
+
+[ ] Dashboard
+ [ ] Article table view
+  [X] See All Articles
+  [X] Edit btn
+  [ ] Delete btn
+ [ ] Profile Settings
+  [ ] Change Username
+  [ ] Change Email
+  [ ] Change Password
+ [ ] Article views 
+ [ ] Article Comments
+
+[ ] Article Create
+ [ ] Markdown support
+ [ ] Cover Image
+
   [X] Featured Article section
   [X] Latest article
 
@@ -59,7 +91,6 @@ legend:
   [X] Edit
    [X] Design v1
    [X] Design v2
-
   [X] Create
    [x] Design v1
    [X] Tags
