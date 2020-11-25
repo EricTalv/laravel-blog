@@ -1967,7 +1967,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {},
-      errors: {}
+      errors: {},
+      createdArticle: 0
     };
   },
   methods: {
@@ -1979,7 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.errors = {};
       axios.put('/article/create', this.fields).then(function (response) {
-        console.log('Article Sent');
+        _this.createdArticle = response.data;
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
@@ -38404,7 +38405,25 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _vm._m(4)
+      _vm.createdArticle
+        ? _c(
+            "div",
+            { staticClass: "alert alert-success", attrs: { role: "alert" } },
+            [
+              _c("h4", { staticClass: "alert-heading" }, [
+                _vm._v("Article Created!")
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("You have successfully made an article.")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/articles/" + _vm.createdArticle } }, [
+                _vm._v("Check it out here")
+              ])
+            ]
+          )
+        : _vm._e()
     ]
   )
 }
@@ -38438,26 +38457,6 @@ var staticRenderFns = [
     return _c("label", { attrs: { for: "tagger" } }, [
       _c("h4", [_vm._v("Tags")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "alert alert-success", attrs: { role: "alert" } },
-      [
-        _c("h4", { staticClass: "alert-heading" }, [
-          _vm._v("Article Created!")
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("You have successfully made an article.")]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "" } }, [_vm._v("Check it out here")])
-      ]
-    )
   }
 ]
 render._withStripped = true

@@ -44,11 +44,11 @@
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         <hr>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success" role="alert" v-if="createdArticle">
             <h4 class="alert-heading">Article Created!</h4>
             <p>You have successfully made an article.</p>
             <hr>
-            <a href="">Check it out here</a>
+            <a v-bind:href="'/articles/' + createdArticle">Check it out here</a>
         </div>
     </form>
 </template>
@@ -59,6 +59,7 @@
             return {
                 fields: {},
                 errors: {},
+                createdArticle: 0,
             }
         },
         methods: {
@@ -69,13 +70,11 @@
             submit() {
                 this.errors = {};
 
-                axios.put('/article/create', this.fields).then(response => {
-                    console.log('Article Sent');
-                }).catch(error => {
-
+                axios.put('/article/create', this.fields)
+                    .then(response => {
+                        this.createdArticle = response.data
+                    }).catch(error => {
                     this.errors = error.response.data.errors;
-
-
                 });
             },
         },

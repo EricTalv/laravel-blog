@@ -100,7 +100,7 @@ class ArticleController extends Controller
         // OLD $article->tags()->attach(request('tags'));
 
         // Return our response
-        return response()->json(null, 200);
+        return response()->json($article->id, 200);
     }
 
     /**
