@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div v-bind:class="columnClass">
+        <div v-bind:class="[fieldsDataExists ? 'col-6' : 'col-12']">
             <form @submit.prevent="submit" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label for="title"><h4>Title</h4></label>
@@ -67,7 +67,7 @@
                 fields: {},
                 errors: {},
                 createdArticle: 0,
-                columnClass: ''
+                fieldsDataExists: false,
 
 
             }
@@ -91,14 +91,22 @@
         },
 
         computed: {
-            changeColumnClassValue() {
-                if(this.fields === 0) {
-                    this.columnClass = 'col-12'
-                } else {
-                    this.columnClass = 'col-6'
-                }
 
-            }
+
+           destroyFieldWhenEmpty() {
+               if (this.fields.title === ''){
+                   this.$delete(this.fields, 'title')
+               }
+               if (this.fields.excerpt === ''){
+                   this.$delete(this.excerpt, 'excerpt')
+               }
+               if (this.fields.body === ''){
+                   this.$delete(this.fields, 'body')
+               }
+               if (this.fields.tags === ''){
+                   this.$delete(this.fields, 'tags')
+               }
+           }
         },
 
     }

@@ -1976,7 +1976,7 @@ __webpack_require__.r(__webpack_exports__);
       fields: {},
       errors: {},
       createdArticle: 0,
-      columnClass: ''
+      fieldsDataExists: false
     };
   },
   methods: {
@@ -1995,11 +1995,21 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    changeColumnClassValue: function changeColumnClassValue() {
-      if (this.fields === 0) {
-        this.columnClass = 'col-12';
-      } else {
-        this.columnClass = 'col-6';
+    destroyFieldWhenEmpty: function destroyFieldWhenEmpty() {
+      if (this.fields.title === '') {
+        this.$delete(this.fields, 'title');
+      }
+
+      if (this.fields.excerpt === '') {
+        this.$delete(this.excerpt, 'excerpt');
+      }
+
+      if (this.fields.body === '') {
+        this.$delete(this.fields, 'body');
+      }
+
+      if (this.fields.tags === '') {
+        this.$delete(this.fields, 'tags');
       }
     }
   }
@@ -38289,7 +38299,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("div", { class: _vm.columnClass }, [
+    _c("div", { class: [_vm.fieldsDataExists ? "col-6" : "col-12"] }, [
       _c(
         "form",
         {
