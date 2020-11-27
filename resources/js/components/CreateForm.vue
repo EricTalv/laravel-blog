@@ -1,8 +1,6 @@
 <template>
-    <validation-observer>
         <form @submit.prevent="submit">
             <div class="form-group">
-                <validation-provider>
                 <label for="title"><h4>Title</h4></label>
                 <input
                     class="form-control"
@@ -18,13 +16,11 @@
                  :class="{ 'is-invalid': errors.title  }"
                  v-model="fields.title"
                   -->
-
+                <span>{{ v.errors[0] }}</span>
                 <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
-                </validation-provider>
             </div>
 
             <div class="form-group">
-                <validation-provider>
                 <label for="excerpt"><h4>Excerpt</h4></label>
                 <textarea
                     class="form-control "
@@ -37,10 +33,8 @@
 
                 > </textarea>
                 <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
-                </validation-provider>
             </div>
             <div class="form-group">
-                <validation-provider>
                 <label for="body"><h4>Body</h4></label>
                 <textarea
                     class="form-control"
@@ -51,7 +45,6 @@
                     v-model="fields.body"
                 ></textarea>
                 <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
-                </validation-provider>
 
             </div>
             <div class="form-group">
@@ -69,11 +62,10 @@
                 <a v-bind:href="'/articles/' + createdArticle">Check it out here</a>
             </div>
         </form>
-    </validation-observer>
 </template>
 
 <script>
-    import { required } from 'vee-validate/dist/rules';
+    import { Field, Form } from 'vee-validate';
 
     export default {
         data() {
@@ -85,11 +77,9 @@
         },
 
         methods: {
-            status(validation) {
-                return {
-                    error: validation.$error,
-                    dirty: validation.$dirty
-                }
+
+            isRequired(value) {
+               return value ? true : 'This field is required';
             },
 
             getTags(value) {
