@@ -1972,17 +1972,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
 //
 
+=======
+>>>>>>> 03a78c2f232ed1c53b316893e4f25081df7c971b
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       fields: {},
       errors: {},
-      createdArticle: 0
+      createdArticle: 0,
+      fieldsDataExists: false
     };
   },
   validations: {
@@ -2012,6 +2016,25 @@ __webpack_require__.r(__webpack_exports__);
         _this.errors = error.response.data.errors;
         console.log(_this.errors);
       });
+    }
+  },
+  computed: {
+    destroyFieldWhenEmpty: function destroyFieldWhenEmpty() {
+      if (this.fields.title === '') {
+        this.$delete(this.fields, 'title');
+      }
+
+      if (this.fields.excerpt === '') {
+        this.$delete(this.excerpt, 'excerpt');
+      }
+
+      if (this.fields.body === '') {
+        this.$delete(this.fields, 'body');
+      }
+
+      if (this.fields.tags === '') {
+        this.$delete(this.fields, 'tags');
+      }
     }
   }
 });
@@ -38342,6 +38365,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValidationObserver", function() { return ValidationObserver; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValidationProvider", function() { return ValidationProvider; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configure", function() { return configure; });
@@ -38360,6 +38384,217 @@ __webpack_require__.r(__webpack_exports__);
   * (c) 2020 Abdelrahman Awad
   * @license MIT
   */
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { class: [_vm.fieldsDataExists ? "col-6" : "col-12"] }, [
+      _c(
+        "form",
+        {
+          staticClass: "needs-validation",
+          attrs: { novalidate: "" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fields.title,
+                  expression: "fields.title"
+                }
+              ],
+              staticClass: "form-control",
+              class: { "is-invalid": _vm.errors.title },
+              attrs: { type: "text", name: "title", id: "title", value: "" },
+              domProps: { value: _vm.fields.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.fields, "title", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.title
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.title[0]))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fields.excerpt,
+                  expression: "fields.excerpt"
+                }
+              ],
+              staticClass: "form-control ",
+              class: { "is-invalid": _vm.errors.excerpt },
+              attrs: { name: "excerpt", rows: "2", id: "excerpt" },
+              domProps: { value: _vm.fields.excerpt },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.fields, "excerpt", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.excerpt
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.excerpt[0]))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fields.body,
+                  expression: "fields.body"
+                }
+              ],
+              staticClass: "form-control",
+              class: { "is-invalid": _vm.errors.body },
+              attrs: { name: "body", rows: "3", id: "body" },
+              domProps: { value: _vm.fields.body },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.fields, "body", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.body
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.body[0]))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _vm._m(3),
+              _vm._v(" "),
+              _c("tag-input", {
+                attrs: { id: "tagger" },
+                on: { updatetags: _vm.getTags }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary btn-lg",
+              attrs: { type: "submit" }
+            },
+            [_vm._v("Submit")]
+          ),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _vm.createdArticle
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-success",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _c("h4", { staticClass: "alert-heading" }, [
+                    _vm._v("Article Created!")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("You have successfully made an article.")]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { attrs: { href: "/articles/" + _vm.createdArticle } },
+                    [_vm._v("Check it out here")]
+                  )
+                ]
+              )
+            : _vm._e()
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _vm.fields === 0 ? _c("div", { staticClass: "col-6" }) : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "title" } }, [
+      _c("h4", [_vm._v("Title")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "excerpt" } }, [
+      _c("h4", [_vm._v("Excerpt")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "tagger" } }, [
+      _c("h4", [_vm._v("Tags")])
+    ])
+  }
+]
+render._withStripped = true
+>>>>>>> 03a78c2f232ed1c53b316893e4f25081df7c971b
 
 
 /*! *****************************************************************************
@@ -55070,8 +55305,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

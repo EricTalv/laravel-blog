@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
         <form @submit.prevent="submit">
             <div class="form-group">
                 <label for="title"><h4>Title</h4></label>
@@ -74,6 +75,9 @@
                 fields: {},
                 errors: {},
                 createdArticle: 0,
+                fieldsDataExists: false,
+
+
             }
         },
 
@@ -95,6 +99,7 @@
 
             getTags(value) {
                 this.$set(this.fields, 'tags', value)
+
             },
 
             submit() {
@@ -109,6 +114,25 @@
                     console.log(this.errors)
                 });
             },
+        },
+
+        computed: {
+
+
+           destroyFieldWhenEmpty() {
+               if (this.fields.title === ''){
+                   this.$delete(this.fields, 'title')
+               }
+               if (this.fields.excerpt === ''){
+                   this.$delete(this.excerpt, 'excerpt')
+               }
+               if (this.fields.body === ''){
+                   this.$delete(this.fields, 'body')
+               }
+               if (this.fields.tags === ''){
+                   this.$delete(this.fields, 'tags')
+               }
+           }
         },
 
     }
