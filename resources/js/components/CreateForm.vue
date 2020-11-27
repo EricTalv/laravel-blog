@@ -8,8 +8,9 @@
                     name="title"
                     id="title"
                     value=""
-                    :class="{ 'is-invalid': errors.title }"
-                    v-model="fields.title"
+
+                    v-model="$v.fields.title.$model"
+                    :class="status($v.fields.title)"
 
                 />
                 <!--
@@ -64,7 +65,8 @@
 </template>
 
 <script>
-    import { Field, Form } from 'vee-validate';
+
+    import { required } from 'vuelidate/lib/validators';
 
     export default {
         data() {
@@ -75,10 +77,20 @@
             }
         },
 
-        methods: {
+        validations: {
+            fields: {
+                title: {
+                    required,
+                }
+            }
+        },
 
-            isRequired(value) {
-               return value ? true : 'This field is required';
+        methods: {
+            status(validation) {
+                return {
+                    error: validation.$error,
+                    dirty: validation.$dirty
+                }
             },
 
             getTags(value) {
