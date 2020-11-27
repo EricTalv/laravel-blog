@@ -9,9 +9,15 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 /**
- * Import tag library
+ * Import tag component library
  */
 import VueTags from "vue-tags";
+
+/**
+ *  Import vue form validation library
+ */
+
+import Vuelidate from 'vuelidate';
 
 /**
  * The following block of code may be used to automatically register your
@@ -26,7 +32,10 @@ import VueTags from "vue-tags";
 
 Vue.component("input-tags", VueTags);
 
+Vue.use(Vuelidate);
+
 Vue.component('tag-input', require('./components/TagInput.vue').default);
+
 Vue.component('create-form', require('./components/CreateForm.vue').default);
 
 
