@@ -1974,7 +1974,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -40393,8 +40392,6 @@ var render = function() {
             }
           }
         }),
-        _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.v.errors[0]))]),
         _vm._v(" "),
         _vm.errors.title
           ? _c("div", { staticClass: "invalid-feedback" }, [

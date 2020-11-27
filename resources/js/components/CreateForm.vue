@@ -8,7 +8,7 @@
                     name="title"
                     id="title"
                     value=""
-                    :class="{ 'is-invalid': errors.title  }"
+                    :class="{ 'is-invalid': errors.title }"
                     v-model="fields.title"
 
                 />
@@ -16,7 +16,6 @@
                  :class="{ 'is-invalid': errors.title  }"
                  v-model="fields.title"
                   -->
-                <span>{{ v.errors[0] }}</span>
                 <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
             </div>
 
