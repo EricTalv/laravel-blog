@@ -1,67 +1,75 @@
 <template>
-    <form @submit.prevent="submit" >
-        <div class="form-group">
-            <label for="title"><h4>Title</h4></label>
-            <input
-            class="form-control"
-            type="text"
-            name="title"
-            id="title"
-            value=""
-            :class="{ 'is-invalid': errors.title  }"
-            v-model="fields.title"
+    <validation-observer>
+        <form @submit.prevent="submit">
+            <div class="form-group">
+                <validation-provider>
+                <label for="title"><h4>Title</h4></label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="title"
+                    id="title"
+                    value=""
+                    :class="{ 'is-invalid': errors.title  }"
+                    v-model="fields.title"
 
-            />
-            <!--
-             :class="{ 'is-invalid': errors.title  }"
-             v-model="fields.title"
-              -->
+                />
+                <!--
+                 :class="{ 'is-invalid': errors.title  }"
+                 v-model="fields.title"
+                  -->
 
-            <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
-        </div>
+                <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
+                </validation-provider>
+            </div>
 
-        <div class="form-group">
-            <label for="excerpt"><h4>Excerpt</h4></label>
-            <textarea
-                class="form-control "
-                name="excerpt"
-                rows="2"
-                id="excerpt"
+            <div class="form-group">
+                <validation-provider>
+                <label for="excerpt"><h4>Excerpt</h4></label>
+                <textarea
+                    class="form-control "
+                    name="excerpt"
+                    rows="2"
+                    id="excerpt"
 
-                :class="{ 'is-invalid': errors.excerpt  }"
-                v-model="fields.excerpt"
+                    :class="{ 'is-invalid': errors.excerpt  }"
+                    v-model="fields.excerpt"
 
-            > </textarea>
-            <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
-        </div>
-        <div class="form-group">
-            <label for="body"><h4>Body</h4></label>
-            <textarea
-                class="form-control"
-                name="body"
-                rows="3"
-                id="body"
-                :class="{ 'is-invalid': errors.body  }"
-                v-model="fields.body"
-            ></textarea>
-            <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
+                > </textarea>
+                <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
+                </validation-provider>
+            </div>
+            <div class="form-group">
+                <validation-provider>
+                <label for="body"><h4>Body</h4></label>
+                <textarea
+                    class="form-control"
+                    name="body"
+                    rows="3"
+                    id="body"
+                    :class="{ 'is-invalid': errors.body  }"
+                    v-model="fields.body"
+                ></textarea>
+                <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
+                </validation-provider>
 
-        </div>
-        <div class="form-group">
-            <label for="tagger"><h4>Tags</h4></label>
-            <tag-input id="tagger" @updatetags="getTags"></tag-input>
+            </div>
+            <div class="form-group">
+                <label for="tagger"><h4>Tags</h4></label>
+                <tag-input id="tagger" @updatetags="getTags"></tag-input>
 
-        </div>
+            </div>
 
-        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        <hr>
-        <div class="alert alert-success" role="alert" v-if="createdArticle">
-            <h4 class="alert-heading">Article Created!</h4>
-            <p>You have successfully made an article.</p>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             <hr>
-            <a v-bind:href="'/articles/' + createdArticle">Check it out here</a>
-        </div>
-    </form>
+            <div class="alert alert-success" role="alert" v-if="createdArticle">
+                <h4 class="alert-heading">Article Created!</h4>
+                <p>You have successfully made an article.</p>
+                <hr>
+                <a v-bind:href="'/articles/' + createdArticle">Check it out here</a>
+            </div>
+        </form>
+    </validation-observer>
 </template>
 
 <script>
@@ -74,7 +82,7 @@
                 createdArticle: 0,
             }
         },
-      
+
         methods: {
             status(validation) {
                 return {
@@ -83,8 +91,8 @@
                 }
             },
 
-            getTags (value) {
-              this.$set(this.fields, 'tags', value)
+            getTags(value) {
+                this.$set(this.fields, 'tags', value)
             },
 
             submit() {
