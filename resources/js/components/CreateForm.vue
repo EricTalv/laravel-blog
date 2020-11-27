@@ -73,6 +73,7 @@
 </template>
 
 <script>
+    import { required } from 'vee-validate/dist/rules';
 
     export default {
         data() {

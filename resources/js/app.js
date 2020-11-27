@@ -19,6 +19,8 @@ import VueTags from "vue-tags";
 
 import Vuelidate from 'vuelidate';
 
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -31,6 +33,9 @@ import Vuelidate from 'vuelidate';
  //files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component("input-tags", VueTags);
+
+Vue.component('validation-provider', ValidationProvider);
+Vue.component('validation-observer', ValidationObserver);
 
 Vue.use(Vuelidate);
 
