@@ -1991,7 +1991,7 @@ __webpack_require__.r(__webpack_exports__);
         body: ''
       },
       errors: {},
-      createdArticle: {},
+      createdArticle: null,
       fieldsDataExists: false
     };
   },
@@ -40516,15 +40516,15 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _vm.createdArticle !== null
+      _vm.createdArticle
         ? _c(
             "div",
             { staticClass: "alert alert-success", attrs: { role: "alert" } },
             [
               _c("h4", { staticClass: "alert-heading" }, [
-                _vm._v(
-                  'Article "' + _vm._s(_vm.createdArticle.title) + '" Created!'
-                )
+                _vm._v("Article "),
+                _c("b", [_vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')]),
+                _vm._v(" Created!")
               ]),
               _vm._v(" "),
               _c("p", [_vm._v("You have successfully made an article.")]),

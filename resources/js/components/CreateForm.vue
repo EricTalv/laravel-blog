@@ -60,8 +60,8 @@
 
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             <hr>
-            <div class="alert alert-success" role="alert" v-if="createdArticle !== null">
-                <h4 class="alert-heading">Article "{{ createdArticle.title }}" Created!</h4>
+            <div class="alert alert-success" role="alert" v-if="createdArticle">
+                <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
                 <p>You have successfully made an article.</p>
                 <hr>
                 <a v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
@@ -82,7 +82,7 @@
                     body: '',
                 },
                 errors: {},
-                createdArticle: {},
+                createdArticle: null,
                 fieldsDataExists: false,
 
 
