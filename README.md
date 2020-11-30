@@ -1,4 +1,4 @@
-
+T
 ## About This Project
 
 This is a part of my *100-days-of-code* challenge,
@@ -78,6 +78,7 @@ legend:
   [X] See All Articles
   [X] Edit btn
   [ ] Delete btn
+  [ ] Paginate
  [ ] Profile Settings
   [ ] Change Username
   [ ] Change Email
@@ -88,6 +89,9 @@ legend:
 [ ] Article Create
  [ ] Markdown support
  [ ] Cover Image
+ [ ] Article preview
+ [ ] Sucess messages
+ [X] Error handling
 
   [X] Featured Article section
   [X] Latest article
