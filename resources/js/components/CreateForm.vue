@@ -29,8 +29,8 @@
                     rows="2"
                     id="excerpt"
 
-                    :class="{ 'is-invalid': errors.excerpt  }"
-                    v-model="fields.excerpt"
+                    v-model="$v.fields.excerpt.$model"
+                    :class="status($v.fields.excerpt)"
 
                 > </textarea>
                 <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
@@ -42,8 +42,9 @@
                     name="body"
                     rows="3"
                     id="body"
-                    :class="{ 'is-invalid': errors.body  }"
-                    v-model="fields.body"
+
+                    v-model="$v.fields.body.$model"
+                    :class="status($v.fields.body)"
                 ></textarea>
                 <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
 
@@ -73,7 +74,11 @@
     export default {
         data() {
             return {
-                fields: {},
+                fields: {
+                    title: '',
+                    excerpt: '',
+                    body: '',
+                },
                 errors: {},
                 createdArticle: 0,
                 fieldsDataExists: false,
