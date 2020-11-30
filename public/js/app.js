@@ -40533,7 +40533,12 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "a",
-                { attrs: { href: "/articles/" + _vm.createdArticle.id } },
+                {
+                  attrs: {
+                    target: "_blank",
+                    href: "/articles/" + _vm.createdArticle.id
+                  }
+                },
                 [_vm._v("Check it out here")]
               )
             ]
