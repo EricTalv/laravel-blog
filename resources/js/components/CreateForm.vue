@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div v-bind:class="[fieldsDataExists ? 'col-6' : 'col-12']">
+        <div class="col-6">
             <form @submit.prevent="submit" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label for="title"><h4>Title</h4></label>
