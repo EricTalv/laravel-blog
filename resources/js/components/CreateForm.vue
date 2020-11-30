@@ -43,8 +43,6 @@
                     rows="3"
                     id="body"
 
-                    v-model="$v.fields.body.$model"
-                    :class="status($v.fields.body)"
                 ></textarea>
                 <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
 
@@ -90,6 +88,12 @@
         validations: {
             fields: {
                 title: {
+                    required,
+                },
+                excerpt: {
+                    required,
+                },
+                body: {
                     required,
                 }
             }

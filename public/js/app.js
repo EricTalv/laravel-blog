@@ -1977,8 +1977,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1996,6 +1994,12 @@ __webpack_require__.r(__webpack_exports__);
   validations: {
     fields: {
       title: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+      },
+      excerpt: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+      },
+      body: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
       }
     }
@@ -40476,26 +40480,8 @@ var render = function() {
         _vm._m(2),
         _vm._v(" "),
         _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.$v.fields.body.$model,
-              expression: "$v.fields.body.$model"
-            }
-          ],
           staticClass: "form-control",
-          class: _vm.status(_vm.$v.fields.body),
-          attrs: { name: "body", rows: "3", id: "body" },
-          domProps: { value: _vm.$v.fields.body.$model },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
-            }
-          }
+          attrs: { name: "body", rows: "3", id: "body" }
         }),
         _vm._v(" "),
         _vm.errors && _vm.errors.body
