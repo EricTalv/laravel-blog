@@ -43,6 +43,10 @@
                     rows="3"
                     id="body"
 
+
+                    v-model="$v.fields.body.$model"
+                    :class="status($v.fields.body)"
+
                 ></textarea>
                 <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
 
@@ -57,7 +61,7 @@
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             <hr>
             <div class="alert alert-success" role="alert" v-if="createdArticle">
-                <h4 class="alert-heading">Article Created!</h4>
+                <h4 class="alert-heading">Article "{{  }}" Created!</h4>
                 <p>You have successfully made an article.</p>
                 <hr>
                 <a v-bind:href="'/articles/' + createdArticle">Check it out here</a>
@@ -117,7 +121,7 @@
 
                 axios.put('/article/create', this.fields)
                     .then(response => {
-                        this.createdArticle = response.data
+                        console.log(response);
                     }).catch(error => {
                     this.errors = error.response.data.errors;
 

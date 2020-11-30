@@ -99,8 +99,13 @@ class ArticleController extends Controller
         // OLD Add Tags to newly created article
         // OLD $article->tags()->attach(request('tags'));
 
+        $data = [
+            "title" => $article->title,
+            "id" => $article->id,
+        ];
+
         // Return our response
-        return response()->json($article->id, 200);
+        return response()->json( $data, 200);
     }
 
     /**

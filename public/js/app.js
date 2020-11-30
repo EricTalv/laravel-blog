@@ -1977,6 +1977,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2019,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.errors = {};
       axios.put('/article/create', this.fields).then(function (response) {
-        _this.createdArticle = response.data;
+        console.log(response);
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
         console.log(_this.errors);
@@ -40480,8 +40484,26 @@ var render = function() {
         _vm._m(2),
         _vm._v(" "),
         _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.$v.fields.body.$model,
+              expression: "$v.fields.body.$model"
+            }
+          ],
           staticClass: "form-control",
-          attrs: { name: "body", rows: "3", id: "body" }
+          class: _vm.status(_vm.$v.fields.body),
+          attrs: { name: "body", rows: "3", id: "body" },
+          domProps: { value: _vm.$v.fields.body.$model },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
+            }
+          }
         }),
         _vm._v(" "),
         _vm.errors && _vm.errors.body
@@ -40519,7 +40541,7 @@ var render = function() {
             { staticClass: "alert alert-success", attrs: { role: "alert" } },
             [
               _c("h4", { staticClass: "alert-heading" }, [
-                _vm._v("Article Created!")
+                _vm._v('Article "' + _vm._s() + '" Created!')
               ]),
               _vm._v(" "),
               _c("p", [_vm._v("You have successfully made an article.")]),
