@@ -60,11 +60,11 @@
 
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             <hr>
-            <div class="alert alert-success" role="alert" v-if="createdArticle">
-                <h4 class="alert-heading">Article "{{  }}" Created!</h4>
+            <div class="alert alert-success" role="alert" v-if="createdArticle !== null">
+                <h4 class="alert-heading">Article "{{ createdArticle.title }}" Created!</h4>
                 <p>You have successfully made an article.</p>
                 <hr>
-                <a v-bind:href="'/articles/' + createdArticle">Check it out here</a>
+                <a v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
             </div>
         </form>
 </template>
@@ -82,7 +82,7 @@
                     body: '',
                 },
                 errors: {},
-                createdArticle: 0,
+                createdArticle: {},
                 fieldsDataExists: false,
 
 
@@ -121,7 +121,7 @@
 
                 axios.put('/article/create', this.fields)
                     .then(response => {
-                        console.log(response);
+                        this.createdArticle = response.data;
                     }).catch(error => {
                     this.errors = error.response.data.errors;
 
@@ -130,24 +130,6 @@
             },
         },
 
-        computed: {
-
-
-           destroyFieldWhenEmpty() {
-               if (this.fields.title === ''){
-                   this.$delete(this.fields, 'title')
-               }
-               if (this.fields.excerpt === ''){
-                   this.$delete(this.excerpt, 'excerpt')
-               }
-               if (this.fields.body === ''){
-                   this.$delete(this.fields, 'body')
-               }
-               if (this.fields.tags === ''){
-                   this.$delete(this.fields, 'tags')
-               }
-           }
-        },
 
     }
 </script>

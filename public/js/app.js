@@ -1991,7 +1991,7 @@ __webpack_require__.r(__webpack_exports__);
         body: ''
       },
       errors: {},
-      createdArticle: 0,
+      createdArticle: {},
       fieldsDataExists: false
     };
   },
@@ -2023,30 +2023,11 @@ __webpack_require__.r(__webpack_exports__);
 
       this.errors = {};
       axios.put('/article/create', this.fields).then(function (response) {
-        console.log(response);
+        _this.createdArticle = response.data;
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
         console.log(_this.errors);
       });
-    }
-  },
-  computed: {
-    destroyFieldWhenEmpty: function destroyFieldWhenEmpty() {
-      if (this.fields.title === '') {
-        this.$delete(this.fields, 'title');
-      }
-
-      if (this.fields.excerpt === '') {
-        this.$delete(this.excerpt, 'excerpt');
-      }
-
-      if (this.fields.body === '') {
-        this.$delete(this.fields, 'body');
-      }
-
-      if (this.fields.tags === '') {
-        this.$delete(this.fields, 'tags');
-      }
     }
   }
 });
@@ -40535,22 +40516,26 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _vm.createdArticle
+      _vm.createdArticle !== null
         ? _c(
             "div",
             { staticClass: "alert alert-success", attrs: { role: "alert" } },
             [
               _c("h4", { staticClass: "alert-heading" }, [
-                _vm._v('Article "' + _vm._s() + '" Created!')
+                _vm._v(
+                  'Article "' + _vm._s(_vm.createdArticle.title) + '" Created!'
+                )
               ]),
               _vm._v(" "),
               _c("p", [_vm._v("You have successfully made an article.")]),
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
-              _c("a", { attrs: { href: "/articles/" + _vm.createdArticle } }, [
-                _vm._v("Check it out here")
-              ])
+              _c(
+                "a",
+                { attrs: { href: "/articles/" + _vm.createdArticle.id } },
+                [_vm._v("Check it out here")]
+              )
             ]
           )
         : _vm._e()
