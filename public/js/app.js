@@ -2023,6 +2023,16 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.errors = {};
+
+      if (this.editMode) {
+        axios.put('/articles/', this.fields).then(function (response) {
+          _this.createdArticle = response.data;
+        })["catch"](function (error) {
+          _this.errors = error.response.data.errors;
+          console.log(_this.errors);
+        });
+      }
+
       axios.put('/article/create', this.fields).then(function (response) {
         _this.createdArticle = response.data;
       })["catch"](function (error) {
@@ -2038,6 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
   */
   created: function created() {
     if (this.editData) this.editMode = true;
+    console.log(this.editData);
   }
 });
 

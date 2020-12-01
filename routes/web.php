@@ -41,7 +41,7 @@ Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show
 // Delete post
 // Route::delete('/articles/{article}', 'ArticleController@destroy');
 
-// Show post editing page
+// Persist edited data
 Route::put('/articles/{article}', 'ArticleController@update');
 
 Auth::routes();
