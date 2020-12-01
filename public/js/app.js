@@ -2031,12 +2031,13 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  computed: {
-    /*
-       * If we get any data
-       * switch to edit mode
-    */
-    checkEditMode: function checkEditMode() {}
+
+  /*
+     * If we get any data
+     * switch to edit mode
+  */
+  created: function created() {
+    if (this.editData) this.editMode = true;
   }
 });
 

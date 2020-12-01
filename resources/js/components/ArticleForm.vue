@@ -131,15 +131,14 @@
             },
         },
 
-        computed: {
             /*
                * If we get any data
                * switch to edit mode
             */
-            checkEditMode() {
-
-            }
+        created: function () {
+                if(this.editData) this.editMode = true
         }
+
 
 
     }
