@@ -85,7 +85,8 @@
                 },
                 errors: {},
                 createdArticle: null,
-                editMode: false,
+
+
 
             }
         },
@@ -120,16 +121,7 @@
             submit() {
                 this.errors = {};
 
-                if (this.editMode) {
-                    axios.put('/articles/' , this.fields)
-                        .then(response => {
-                            this.createdArticle = response.data;
-                        }).catch(error => {
-                        this.errors = error.response.data.errors;
 
-                        console.log(this.errors)
-                    });
-                }
                 axios.put('/article/create', this.fields)
                     .then(response => {
                         this.createdArticle = response.data;
@@ -146,9 +138,9 @@
                * switch to edit mode
             */
         created: function () {
-            if(this.editData) this.editMode = true
+            if(this.editData) console.log(this.editData.id)
 
-            console.log(this.editData)
+
         }
 
     }

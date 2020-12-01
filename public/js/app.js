@@ -1992,8 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
         body: ''
       },
       errors: {},
-      createdArticle: null,
-      editMode: false
+      createdArticle: null
     };
   },
   validations: {
@@ -2023,16 +2022,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.errors = {};
-
-      if (this.editMode) {
-        axios.put('/articles/', this.fields).then(function (response) {
-          _this.createdArticle = response.data;
-        })["catch"](function (error) {
-          _this.errors = error.response.data.errors;
-          console.log(_this.errors);
-        });
-      }
-
       axios.put('/article/create', this.fields).then(function (response) {
         _this.createdArticle = response.data;
       })["catch"](function (error) {
@@ -2047,8 +2036,7 @@ __webpack_require__.r(__webpack_exports__);
      * switch to edit mode
   */
   created: function created() {
-    if (this.editData) this.editMode = true;
-    console.log(this.editData);
+    if (this.editData) console.log(this.editData.id);
   }
 });
 
