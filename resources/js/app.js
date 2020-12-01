@@ -41,7 +41,7 @@ Vue.use(Vuelidate);
 
 Vue.component('tag-input', require('./components/TagInput.vue').default);
 
-Vue.component('create-form', require('./components/CreateForm.vue').default);
+Vue.component('article-form', require('./components/ArticleForm.vue').default);
 
 
 

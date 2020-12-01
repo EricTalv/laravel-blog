@@ -15,7 +15,7 @@
 @section('content')
 
 <div class="container">
-    <create-form></create-form>
+    <article-form></article-form>
 </div>
 
 @endsection
