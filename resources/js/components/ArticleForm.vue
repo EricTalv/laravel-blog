@@ -74,7 +74,11 @@
     import { required } from 'vuelidate/lib/validators';
 
     export default {
-        props: ['editData'],
+        props: {
+            editData: {
+                type: Object,
+            }
+        },
 
         data() {
             return {
@@ -138,7 +142,7 @@
                * switch to edit mode
             */
         created: function () {
-            if(this.editData) console.log(this.editData.id)
+            console.log(this.editData)
 
 
         }

@@ -1983,7 +1983,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['editData'],
+  props: {
+    editData: {
+      type: Object
+    }
+  },
   data: function data() {
     return {
       fields: {
@@ -2036,7 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
      * switch to edit mode
   */
   created: function created() {
-    if (this.editData) console.log(this.editData.id);
+    console.log(this.editData);
   }
 });
 
