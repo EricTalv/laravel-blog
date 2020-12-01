@@ -74,6 +74,8 @@
     import { required } from 'vuelidate/lib/validators';
 
     export default {
+        props: ['editData'],
+
         data() {
             return {
                 fields: {
@@ -83,8 +85,7 @@
                 },
                 errors: {},
                 createdArticle: null,
-                fieldsDataExists: false,
-
+                editMode: false,
 
             }
         },
@@ -129,6 +130,16 @@
                 });
             },
         },
+
+        computed: {
+            /*
+               * If we get any data
+               * switch to edit mode
+            */
+            checkEditMode() {
+
+            }
+        }
 
 
     }

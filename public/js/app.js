@@ -1983,6 +1983,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['editData'],
   data: function data() {
     return {
       fields: {
@@ -1992,7 +1993,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       errors: {},
       createdArticle: null,
-      fieldsDataExists: false
+      editMode: false
     };
   },
   validations: {
@@ -2029,6 +2030,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.errors);
       });
     }
+  },
+  computed: {
+    /*
+       * If we get any data
+       * switch to edit mode
+    */
+    checkEditMode: function checkEditMode() {}
   }
 });
 

@@ -15,7 +15,7 @@
 @section('content')
 
     <div class="container">
-        <article-form></article-form>
+        <article-form edit-data={{ $article }}></article-form>
     </div>
 
 @endsection
