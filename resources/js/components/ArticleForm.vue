@@ -89,9 +89,6 @@
                 },
                 errors: {},
                 createdArticle: null,
-
-
-
             }
         },
 
@@ -119,21 +116,27 @@
 
             getTags(value) {
                 this.$set(this.fields, 'tags', value)
-
             },
 
             submit() {
                 this.errors = {};
 
-
-                axios.put('/article/create', this.fields)
-                    .then(response => {
-                        this.createdArticle = response.data;
-                    }).catch(error => {
-                    this.errors = error.response.data.errors;
-
-                    console.log(this.errors)
-                });
+                if (this.editData) {
+                    axios.put('/articles/' + this.editData.id, this.fields)
+                        .then(response => {
+                            this.createdArticle = response.data;
+                        }).catch(error => {
+                            this.errors = error.response.data.errors;
+                    });
+                }
+                else {
+                    axios.put('/article/create', this.fields)
+                        .then(response => {
+                            this.createdArticle = response.data;
+                        }).catch(error => {
+                        this.errors = error.response.data.errors;
+                    });
+                }
             },
         },
 
@@ -142,8 +145,12 @@
                * switch to edit mode
             */
         created: function () {
-            console.log(this.editData)
 
+            console.log(this.editData)
+            this.fields.title = this.editData.title
+            this.fields.excerpt = this.editData.excerpt
+            this.fields.body = this.editData.body
+            this.fields.tags = this.editData.tags
 
         }
 

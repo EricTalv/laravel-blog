@@ -2026,12 +2026,20 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.errors = {};
-      axios.put('/article/create', this.fields).then(function (response) {
-        _this.createdArticle = response.data;
-      })["catch"](function (error) {
-        _this.errors = error.response.data.errors;
-        console.log(_this.errors);
-      });
+
+      if (this.editData) {
+        axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
+          _this.createdArticle = response.data;
+        })["catch"](function (error) {
+          _this.errors = error.response.data.errors;
+        });
+      } else {
+        axios.put('/article/create', this.fields).then(function (response) {
+          _this.createdArticle = response.data;
+        })["catch"](function (error) {
+          _this.errors = error.response.data.errors;
+        });
+      }
     }
   },
 
@@ -2041,6 +2049,10 @@ __webpack_require__.r(__webpack_exports__);
   */
   created: function created() {
     console.log(this.editData);
+    this.fields.title = this.editData.title;
+    this.fields.excerpt = this.editData.excerpt;
+    this.fields.body = this.editData.body;
+    this.fields.tags = this.editData.tags;
   }
 });
 

@@ -15,7 +15,10 @@
 @section('content')
 
     <div class="container">
-        <article-form :edit-data={{ $article }}></article-form>
+        <article-form
+            :edit-data="{{ $article }}"
+            :edit-data-tags="{{ $article->tags }}"
+        ></article-form>
     </div>
 
 @endsection
