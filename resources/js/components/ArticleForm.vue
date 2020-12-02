@@ -77,6 +77,9 @@
         props: {
             editData: {
                 type: Object,
+            },
+            editDataTags: {
+                type: Array,
             }
         },
 
@@ -86,6 +89,7 @@
                     title: '',
                     excerpt: '',
                     body: '',
+                    tags: '',
                 },
                 errors: {},
                 createdArticle: null,
@@ -115,7 +119,8 @@
             },
 
             getTags(value) {
-                this.$set(this.fields, 'tags', value)
+                // this.$set(this.fields, 'tags', value)
+                this.fields.tags = value;
             },
 
             submit() {
@@ -147,9 +152,13 @@
         created: function () {
 
             console.log(this.editData)
+            console.log(this.editDataTags)
+
+
             this.fields.title = this.editData.title
             this.fields.excerpt = this.editData.excerpt
             this.fields.body = this.editData.body
+            this.fields.tags = this.editDataTags.name
 
 
         }

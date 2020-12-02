@@ -17,7 +17,7 @@
     <div class="container">
         <article-form
             :edit-data="{{ $article }}"
-            :edit-data-tags="{{ $article->tags }}"
+            :edit-data-tags="{{ $article->tags()->name }}"
         ></article-form>
     </div>
 

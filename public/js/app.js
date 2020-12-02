@@ -1986,6 +1986,9 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     editData: {
       type: Object
+    },
+    editDataTags: {
+      type: Array
     }
   },
   data: function data() {
@@ -1993,7 +1996,8 @@ __webpack_require__.r(__webpack_exports__);
       fields: {
         title: '',
         excerpt: '',
-        body: ''
+        body: '',
+        tags: ''
       },
       errors: {},
       createdArticle: null
@@ -2020,7 +2024,8 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     getTags: function getTags(value) {
-      this.$set(this.fields, 'tags', value);
+      // this.$set(this.fields, 'tags', value)
+      this.fields.tags = value;
     },
     submit: function submit() {
       var _this = this;
@@ -2049,9 +2054,11 @@ __webpack_require__.r(__webpack_exports__);
   */
   created: function created() {
     console.log(this.editData);
+    console.log(this.editDataTags);
     this.fields.title = this.editData.title;
     this.fields.excerpt = this.editData.excerpt;
     this.fields.body = this.editData.body;
+    this.fields.tags = this.editDataTags.name;
   }
 });
 
