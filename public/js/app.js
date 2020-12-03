@@ -2058,7 +2058,6 @@ __webpack_require__.r(__webpack_exports__);
     this.fields.title = this.editData.title;
     this.fields.excerpt = this.editData.excerpt;
     this.fields.body = this.editData.body;
-    this.fields.tags = this.editDataTags.name;
   }
 });
 
