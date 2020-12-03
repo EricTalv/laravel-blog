@@ -78,9 +78,7 @@
             editData: {
                 type: Object,
             },
-            editDataTags: {
-                type: Array,
-            }
+            editDataTags: { type: Array },
         },
 
         data() {
@@ -150,6 +148,10 @@
                * switch to edit mode
             */
         created: function () {
+
+            for (let tag in this.editDataTags) {
+                console.log(tag[0].name)
+            }
 
             console.log(this.editData)
             console.log(this.editDataTags)

@@ -2053,6 +2053,10 @@ __webpack_require__.r(__webpack_exports__);
      * switch to edit mode
   */
   created: function created() {
+    for (var tag in this.editDataTags) {
+      console.log(tag[0].name);
+    }
+
     console.log(this.editData);
     console.log(this.editDataTags);
     this.fields.title = this.editData.title;

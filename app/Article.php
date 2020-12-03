@@ -33,11 +33,7 @@ class Article extends Model
 
     }
 
-    public function tagsOnlyName()
-    {
-        return $this->belongsToMany(Tag::class)->pluck('name');
 
-    }
 
 
 
