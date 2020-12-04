@@ -141,7 +141,13 @@ class ArticleController extends Controller
     {
         $article->update($this->validateArticle());
 
-        return redirect($article->path());
+        $data = [
+            "title" => $article->title,
+            "id" => $article->id,
+        ];
+
+        // Return our response
+        return response()->json( $data, 200);
     }
 
     /**
