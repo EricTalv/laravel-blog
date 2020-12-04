@@ -80,20 +80,7 @@ class ArticleController extends Controller
 
         // If Article is created
 
-        if($article && request('tags')) {
-            // get Tag Names
-            $tagNames = request('tags');
-            $tagIds = [];
-
-            foreach ($tagNames as $tagName) {
-                // Check for existing tags
-                $tag = Tag::firstOrCreate(['name' => $tagName]);
-                if($tag) {
-                    $tagIds[] = $tag->id;
-                }
-            }
-            $article->tags()->sync($tagIds);
-        }
+        $this->checkTags($article);
 
 
         // OLD Add Tags to newly created article
@@ -141,6 +128,8 @@ class ArticleController extends Controller
     {
         $article->update($this->validateArticle());
 
+        $this->checkTags($article);
+
         $data = [
             "title" => $article->title,
             "id" => $article->id,
@@ -168,5 +157,23 @@ class ArticleController extends Controller
             'body' => 'required',
           //  'tags' => 'exists:tags,id'
         ]);
+    }
+
+    public function checkTags($article)
+    {
+        if($article && request('tags')) {
+            // get Tag Names
+            $tagNames = request('tags');
+            $tagIds = [];
+
+            foreach ($tagNames as $tagName) {
+                // Check for existing tags
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                if($tag) {
+                    $tagIds[] = $tag->id;
+                }
+            }
+            $article->tags()->sync($tagIds);
+        }
     }
 }
