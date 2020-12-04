@@ -39,8 +39,10 @@
 
         mounted() {
             for(let tag of this.editDataTags) {
-               console.log(tag.name)
+               this.tags.push(tag.name)
             }
+
+            this.$emit('updatetags', this.tags)
         }
 
     }

@@ -2118,13 +2118,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     try {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var tag = _step.value;
-        console.log(tag.name);
+        this.tags.push(tag.name);
       }
     } catch (err) {
       _iterator.e(err);
     } finally {
       _iterator.f();
     }
+
+    this.$emit('updatetags', this.tags);
   }
 });
 
