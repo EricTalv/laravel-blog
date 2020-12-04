@@ -37,13 +37,11 @@
             }
         },
 
-        created: () => {
-            // for (let tag of this.editDataTags) {
-            //     this.fields.tags.push(tag.name);
-            // }
-
+        mounted() {
+            for(let tag of this.editDataTags) {
+               console.log(tag.name)
+            }
         }
-
 
     }
 </script>

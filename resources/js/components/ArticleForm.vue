@@ -87,7 +87,6 @@
                     title: '',
                     excerpt: '',
                     body: '',
-                    tags: [],
 
                 },
                 errors: {},
