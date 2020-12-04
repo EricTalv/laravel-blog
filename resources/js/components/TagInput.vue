@@ -39,11 +39,14 @@
         },
 
         mounted() {
-            for(let tag of this.editDataTags) {
-               this.tags.push(tag.name)
+            if( this.editDataTags ) {
+                for(let tag of this.editDataTags) {
+                    this.tags.push(tag.name)
+                }
+
+                this.$emit('updatetags', this.tags)
             }
 
-            this.$emit('updatetags', this.tags)
         }
 
     }

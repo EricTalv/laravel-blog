@@ -2059,9 +2059,11 @@ __webpack_require__.r(__webpack_exports__);
      * switch to edit mode
   */
   created: function created() {
-    this.fields.title = this.editData.title;
-    this.fields.excerpt = this.editData.excerpt;
-    this.fields.body = this.editData.body;
+    if (this.editData) {
+      this.fields.title = this.editData.title;
+      this.fields.excerpt = this.editData.excerpt;
+      this.fields.body = this.editData.body;
+    }
   }
 });
 
@@ -2118,21 +2120,23 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   mounted: function mounted() {
-    var _iterator = _createForOfIteratorHelper(this.editDataTags),
-        _step;
+    if (this.editDataTags) {
+      var _iterator = _createForOfIteratorHelper(this.editDataTags),
+          _step;
 
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var tag = _step.value;
-        this.tags.push(tag.name);
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var tag = _step.value;
+          this.tags.push(tag.name);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
       }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
 
-    this.$emit('updatetags', this.tags);
+      this.$emit('updatetags', this.tags);
+    }
   }
 });
 

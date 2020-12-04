@@ -157,9 +157,11 @@
             */
         created: function () {
 
-            this.fields.title = this.editData.title
-            this.fields.excerpt = this.editData.excerpt
-            this.fields.body = this.editData.body
+            if(this.editData) {
+                this.fields.title = this.editData.title
+                this.fields.excerpt = this.editData.excerpt
+                this.fields.body = this.editData.body
+            }
 
         }
 
