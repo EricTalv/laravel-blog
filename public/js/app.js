@@ -1997,7 +1997,7 @@ __webpack_require__.r(__webpack_exports__);
         title: '',
         excerpt: '',
         body: '',
-        tags: ''
+        tags: []
       },
       errors: {},
       createdArticle: null
@@ -2024,8 +2024,8 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     getTags: function getTags(value) {
-      // this.$set(this.fields, 'tags', value)
-      this.fields.tags = value;
+      this.$set(this.fields, 'tags', value); //  this.fields.tags = value;
+      //this.fields.tags.push(value);
     },
     submit: function submit() {
       var _this = this;
@@ -2053,10 +2053,9 @@ __webpack_require__.r(__webpack_exports__);
      * switch to edit mode
   */
   created: function created() {
-    for (var tag in this.editDataTags) {
-      console.log(tag[0].name);
-    }
-
+    // for (let tag of this.editDataTags) {
+    //     this.fields.tags.push(tag.name);
+    // }
     console.log(this.editData);
     console.log(this.editDataTags);
     this.fields.title = this.editData.title;
@@ -2104,9 +2103,11 @@ __webpack_require__.r(__webpack_exports__);
       tags: []
     };
   },
+  props: ['editDataTags'],
   methods: {
     sendTags: function sendTags(event) {
       this.$emit('updatetags', this.tags);
+      console.log;
     }
   }
 });
@@ -40534,7 +40535,7 @@ var render = function() {
           _vm._m(3),
           _vm._v(" "),
           _c("tag-input", {
-            attrs: { id: "tagger" },
+            attrs: { id: "tagger", editDataTags: _vm.editDataTags },
             on: { updatetags: _vm.getTags }
           })
         ],

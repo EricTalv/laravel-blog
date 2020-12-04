@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label for="tagger"><h4>Tags</h4></label>
-                <tag-input id="tagger" @updatetags="getTags"></tag-input>
+                <tag-input id="tagger" :editDataTags="editDataTags" @updatetags="getTags"></tag-input>
 
             </div>
 
@@ -87,7 +87,8 @@
                     title: '',
                     excerpt: '',
                     body: '',
-                    tags: '',
+                    tags: [],
+
                 },
                 errors: {},
                 createdArticle: null,
@@ -117,8 +118,9 @@
             },
 
             getTags(value) {
-                // this.$set(this.fields, 'tags', value)
-                this.fields.tags = value;
+               this.$set(this.fields, 'tags', value)
+               //  this.fields.tags = value;
+                //this.fields.tags.push(value);
             },
 
             submit() {
@@ -149,9 +151,9 @@
             */
         created: function () {
 
-            for (let tag in this.editDataTags) {
-                console.log(tag[0].name)
-            }
+            // for (let tag of this.editDataTags) {
+            //     this.fields.tags.push(tag.name);
+            // }
 
             console.log(this.editData)
             console.log(this.editDataTags)

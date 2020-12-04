@@ -28,10 +28,13 @@
                 tags: [],
             }
         },
+        props: ['editDataTags'],
 
         methods: {
             sendTags(event) {
                 this.$emit('updatetags', this.tags)
+
+                console.log
             }
         }
 
