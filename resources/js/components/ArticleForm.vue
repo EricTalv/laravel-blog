@@ -66,6 +66,12 @@
                 <hr>
                 <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
             </div>
+            <div class="alert alert-success" role="alert" v-if="updatedArticle">
+                <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
+                <p>You have successfully made an article.</p>
+                <hr>
+                <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
+            </div>
         </form>
 </template>
 
@@ -91,6 +97,7 @@
                 },
                 errors: {},
                 createdArticle: null,
+                updatedArticle: null,
             }
         },
 
@@ -150,18 +157,9 @@
             */
         created: function () {
 
-
-
-            console.log(this.editData)
-            console.log(this.editDataTags)
-
-
             this.fields.title = this.editData.title
             this.fields.excerpt = this.editData.excerpt
             this.fields.body = this.editData.body
-
-
-
 
         }
 

@@ -1981,6 +1981,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -1999,7 +2005,8 @@ __webpack_require__.r(__webpack_exports__);
         body: ''
       },
       errors: {},
-      createdArticle: null
+      createdArticle: null,
+      updatedArticle: null
     };
   },
   validations: {
@@ -2052,8 +2059,6 @@ __webpack_require__.r(__webpack_exports__);
      * switch to edit mode
   */
   created: function created() {
-    console.log(this.editData);
-    console.log(this.editDataTags);
     this.fields.title = this.editData.title;
     this.fields.excerpt = this.editData.excerpt;
     this.fields.body = this.editData.body;
@@ -40569,6 +40574,35 @@ var render = function() {
       _c("hr"),
       _vm._v(" "),
       _vm.createdArticle
+        ? _c(
+            "div",
+            { staticClass: "alert alert-success", attrs: { role: "alert" } },
+            [
+              _c("h4", { staticClass: "alert-heading" }, [
+                _vm._v("Article "),
+                _c("b", [_vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')]),
+                _vm._v(" Created!")
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("You have successfully made an article.")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    target: "_blank",
+                    href: "/articles/" + _vm.createdArticle.id
+                  }
+                },
+                [_vm._v("Check it out here")]
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.updatedArticle
         ? _c(
             "div",
             { staticClass: "alert alert-success", attrs: { role: "alert" } },
