@@ -151,9 +151,7 @@
             */
         created: function () {
 
-            // for (let tag of this.editDataTags) {
-            //     this.fields.tags.push(tag.name);
-            // }
+
 
             console.log(this.editData)
             console.log(this.editDataTags)

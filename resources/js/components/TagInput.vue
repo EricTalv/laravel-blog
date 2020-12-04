@@ -34,8 +34,14 @@
             sendTags(event) {
                 this.$emit('updatetags', this.tags)
 
-                console.log(this.editDataTags);
             }
+        },
+
+        created: () => {
+            // for (let tag of this.editDataTags) {
+            //     this.fields.tags.push(tag.name);
+            // }
+
         }
 
 

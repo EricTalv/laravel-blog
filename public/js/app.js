@@ -2053,9 +2053,6 @@ __webpack_require__.r(__webpack_exports__);
      * switch to edit mode
   */
   created: function created() {
-    // for (let tag of this.editDataTags) {
-    //     this.fields.tags.push(tag.name);
-    // }
     console.log(this.editData);
     console.log(this.editDataTags);
     this.fields.title = this.editData.title;
@@ -2107,8 +2104,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendTags: function sendTags(event) {
       this.$emit('updatetags', this.tags);
-      console.log(this.editDataTags);
     }
+  },
+  created: function created() {// for (let tag of this.editDataTags) {
+    //     this.fields.tags.push(tag.name);
+    // }
   }
 });
 
