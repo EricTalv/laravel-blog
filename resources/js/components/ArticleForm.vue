@@ -67,10 +67,10 @@
                 <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
             </div>
             <div class="alert alert-success" role="alert" v-if="updatedArticle">
-                <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
-                <p>You have successfully made an article.</p>
+                <h4 class="alert-heading">Article <b>"{{ updatedArticle.title }}"</b> Updated!</h4>
+                <p>You have successfully Updated the article.</p>
                 <hr>
-                <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
+                <a target="_blank" v-bind:href="'/articles/' + updatedArticle.id">Check it out here</a>
             </div>
         </form>
 </template>
@@ -135,7 +135,7 @@
                 if (this.editData) {
                     axios.put('/articles/' + this.editData.id, this.fields)
                         .then(response => {
-                            this.createdArticle = response.data;
+                            this.updatedArticle = response.data;
                         }).catch(error => {
                             this.errors = error.response.data.errors;
                     });

@@ -2040,7 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.editData) {
         axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
-          _this.createdArticle = response.data;
+          _this.updatedArticle = response.data;
         })["catch"](function (error) {
           _this.errors = error.response.data.errors;
         });
@@ -2082,6 +2082,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+//
 //
 //
 //
@@ -40609,11 +40610,11 @@ var render = function() {
             [
               _c("h4", { staticClass: "alert-heading" }, [
                 _vm._v("Article "),
-                _c("b", [_vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')]),
-                _vm._v(" Created!")
+                _c("b", [_vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')]),
+                _vm._v(" Updated!")
               ]),
               _vm._v(" "),
-              _c("p", [_vm._v("You have successfully made an article.")]),
+              _c("p", [_vm._v("You have successfully Updated the article.")]),
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
@@ -40622,7 +40623,7 @@ var render = function() {
                 {
                   attrs: {
                     target: "_blank",
-                    href: "/articles/" + _vm.createdArticle.id
+                    href: "/articles/" + _vm.updatedArticle.id
                   }
                 },
                 [_vm._v("Check it out here")]
@@ -40727,21 +40728,38 @@ var render = function() {
                       staticClass: "tags-input",
                       attrs: { placeholder: "Add tag..." },
                       on: {
-                        keyup: function($event) {
-                          if (
-                            !$event.type.indexOf("key") &&
-                            _vm._k(
-                              $event.keyCode,
-                              "enter",
-                              13,
-                              $event.key,
-                              "Enter"
-                            )
-                          ) {
-                            return null
+                        keyup: [
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            return _vm.sendTags($event)
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "delete",
+                                [8, 46],
+                                $event.key,
+                                ["Backspace", "Delete", "Del"]
+                              )
+                            ) {
+                              return null
+                            }
+                            return _vm.sendTags($event)
                           }
-                          return _vm.sendTags($event)
-                        }
+                        ]
                       }
                     },
                     "input",
