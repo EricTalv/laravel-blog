@@ -34,7 +34,7 @@
             sendTags(event) {
                 this.$emit('updatetags', this.tags)
 
-                console.log
+                console.log(this.editDataTags);
             }
         }
 

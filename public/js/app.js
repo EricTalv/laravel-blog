@@ -2107,7 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendTags: function sendTags(event) {
       this.$emit('updatetags', this.tags);
-      console.log;
+      console.log(this.editDataTags);
     }
   }
 });
