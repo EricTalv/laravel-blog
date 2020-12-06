@@ -2078,7 +2078,11 @@ __webpack_require__.r(__webpack_exports__);
       this.fields.title = this.editData.title;
       this.fields.excerpt = this.editData.excerpt;
       this.fields.body = this.editData.body;
-      comoment(this.editData.created_at).format('MMMM Do YYYY, h:mm:ss');
+      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('Do.MMM.YYYY');
+      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('hh:mm');
+    } else {
+      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('Do.MMM.YYYY').fromNow();
+      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('hh:mm').fromNow();
     }
   },
 
@@ -60246,7 +60250,7 @@ var render = function() {
           _vm._v(" "),
           _c("small", [
             _vm._v(
-              "| " + _vm._s(_vm._f("formatDate")(this.editData.created_at))
+              "| " + _vm._s(_vm._f("formatDate")(this.articleDateTime.date))
             )
           ])
         ])
