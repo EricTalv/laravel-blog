@@ -2115,7 +2115,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   props: ['editDataTags'],
   methods: {
-    sendTags: function sendTags(event) {
+    sendTags: function sendTags() {
       this.$emit('updatetags', this.tags);
     }
   },

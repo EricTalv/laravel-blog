@@ -32,7 +32,7 @@
         props: ['editDataTags'],
 
         methods: {
-            sendTags(event) {
+            sendTags() {
                 this.$emit('updatetags', this.tags)
 
             }
