@@ -1999,6 +1999,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60057,7 +60061,13 @@ var render = function() {
               ],
               staticClass: "form-control",
               class: _vm.status(_vm.$v.fields.title),
-              attrs: { type: "text", name: "title", id: "title", value: "" },
+              attrs: {
+                type: "text",
+                name: "title",
+                id: "title",
+                value: "",
+                placeholder: "Article Title.."
+              },
               domProps: { value: _vm.$v.fields.title.$model },
               on: {
                 input: function($event) {
@@ -60090,7 +60100,12 @@ var render = function() {
               ],
               staticClass: "form-control ",
               class: _vm.status(_vm.$v.fields.excerpt),
-              attrs: { name: "excerpt", rows: "2", id: "excerpt" },
+              attrs: {
+                name: "excerpt",
+                rows: "2",
+                id: "excerpt",
+                placeholder: "Article excerpt.."
+              },
               domProps: { value: _vm.$v.fields.excerpt.$model },
               on: {
                 input: function($event) {
@@ -60123,7 +60138,12 @@ var render = function() {
               ],
               staticClass: "form-control",
               class: _vm.status(_vm.$v.fields.body),
-              attrs: { name: "body", rows: "3", id: "body" },
+              attrs: {
+                name: "body",
+                rows: "3",
+                id: "body",
+                placeholder: "Article body.."
+              },
               domProps: { value: _vm.$v.fields.body.$model },
               on: {
                 input: function($event) {
@@ -60247,7 +60267,7 @@ var render = function() {
             ? _c("span", { staticClass: "text-capitalize" }, [
                 _vm._v(_vm._s(_vm.fields.title))
               ])
-            : _c("span", [_vm._v("This is your title")]),
+            : _c("span", [_vm._v("Article Title")]),
           _vm._v(" "),
           _c("small", [_vm._v("| " + _vm._s(this.articleDateTime.date))]),
           _vm._v(" "),
@@ -60255,9 +60275,17 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(4),
+      _c("div", { staticClass: "prev" }, [
+        _vm.fields.excerpt
+          ? _c("span", [_vm._v(_vm._s(_vm.fields.excerpt))])
+          : _c("span", [_vm._v("Article excerpt")])
+      ]),
       _vm._v(" "),
-      _vm._m(5)
+      _c("div", { staticClass: "prev" }, [
+        _vm.fields.body
+          ? _c("span", [_vm._v(_vm._s(_vm.fields.body))])
+          : _c("span", [_vm._v("Article body")])
+      ])
     ])
   ])
 }
@@ -60290,22 +60318,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "tagger" } }, [
       _c("h4", [_vm._v("Tags")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "prev" }, [
-      _c("p", [_vm._v("This is your excerpt")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "prev" }, [
-      _c("p", [_vm._v("This is your body")])
     ])
   }
 ]

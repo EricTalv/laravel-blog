@@ -13,7 +13,7 @@
 
                         v-model="$v.fields.title.$model"
                         :class="status($v.fields.title)"
-
+                        placeholder="Article Title.."
                     />
                     <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
                 </div>
@@ -27,6 +27,7 @@
                         id="excerpt"
                         v-model="$v.fields.excerpt.$model"
                         :class="status($v.fields.excerpt)"
+                        placeholder="Article excerpt.."
 
                     > </textarea>
                     <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
@@ -40,6 +41,7 @@
                         id="body"
                         v-model="$v.fields.body.$model"
                         :class="status($v.fields.body)"
+                        placeholder="Article body.."
 
                     ></textarea>
                     <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
@@ -70,16 +72,18 @@
             <div class="title">
                 <h4>
                     <span v-if="fields.title" class="text-capitalize">{{ fields.title }}</span>
-                    <span v-else>This is your title</span>
+                    <span v-else>Article Title</span>
                     <small>| {{ this.articleDateTime.date  }}</small>
                     <small>| {{ this.articleDateTime.time  }}</small>
                 </h4>
             </div>
             <div class="prev">
-                <p>This is your excerpt</p>
+                <span v-if="fields.excerpt" >{{ fields.excerpt }}</span>
+                <span v-else>Article excerpt</span>
             </div>
             <div class="prev">
-                <p>This is your body</p>
+                <span v-if="fields.body">{{ fields.body }}</span>
+                <span v-else>Article body</span>
             </div>
         </div>
     </div>
