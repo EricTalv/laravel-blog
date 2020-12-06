@@ -1987,6 +1987,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2006,7 +2015,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       errors: {},
       createdArticle: null,
-      updatedArticle: null
+      updatedArticle: null,
+      dateToday: null
     };
   },
   validations: {
@@ -40446,197 +40456,234 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.submit($event)
-        }
-      }
-    },
-    [
-      _c("div", { staticClass: "form-group" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.$v.fields.title.$model,
-              expression: "$v.fields.title.$model"
-            }
-          ],
-          staticClass: "form-control",
-          class: _vm.status(_vm.$v.fields.title),
-          attrs: { type: "text", name: "title", id: "title", value: "" },
-          domProps: { value: _vm.$v.fields.title.$model },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.$v.fields.title, "$model", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errors.title
-          ? _c("div", { staticClass: "invalid-feedback" }, [
-              _vm._v(_vm._s(_vm.errors.title[0]))
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.$v.fields.excerpt.$model,
-              expression: "$v.fields.excerpt.$model"
-            }
-          ],
-          staticClass: "form-control ",
-          class: _vm.status(_vm.$v.fields.excerpt),
-          attrs: { name: "excerpt", rows: "2", id: "excerpt" },
-          domProps: { value: _vm.$v.fields.excerpt.$model },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.$v.fields.excerpt, "$model", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errors && _vm.errors.excerpt
-          ? _c("div", { staticClass: "invalid-feedback" }, [
-              _vm._v(_vm._s(_vm.errors.excerpt[0]))
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.$v.fields.body.$model,
-              expression: "$v.fields.body.$model"
-            }
-          ],
-          staticClass: "form-control",
-          class: _vm.status(_vm.$v.fields.body),
-          attrs: { name: "body", rows: "3", id: "body" },
-          domProps: { value: _vm.$v.fields.body.$model },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errors && _vm.errors.body
-          ? _c("div", { staticClass: "invalid-feedback" }, [
-              _vm._v(_vm._s(_vm.errors.body[0]))
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-6" }, [
       _c(
-        "div",
-        { staticClass: "form-group" },
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
         [
-          _vm._m(3),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.fields.title.$model,
+                  expression: "$v.fields.title.$model"
+                }
+              ],
+              staticClass: "form-control",
+              class: _vm.status(_vm.$v.fields.title),
+              attrs: { type: "text", name: "title", id: "title", value: "" },
+              domProps: { value: _vm.$v.fields.title.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.fields.title, "$model", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors.title
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.title[0]))
+                ])
+              : _vm._e()
+          ]),
           _vm._v(" "),
-          _c("tag-input", {
-            attrs: { id: "tagger", editDataTags: _vm.editDataTags },
-            on: { updatetags: _vm.getTags }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary btn-lg", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
-      ),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _vm.createdArticle
-        ? _c(
-            "div",
-            { staticClass: "alert alert-success", attrs: { role: "alert" } },
-            [
-              _c("h4", { staticClass: "alert-heading" }, [
-                _vm._v("Article "),
-                _c("b", [_vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')]),
-                _vm._v(" Created!")
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v("You have successfully made an article.")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "a",
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
                 {
-                  attrs: {
-                    target: "_blank",
-                    href: "/articles/" + _vm.createdArticle.id
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.fields.excerpt.$model,
+                  expression: "$v.fields.excerpt.$model"
+                }
+              ],
+              staticClass: "form-control ",
+              class: _vm.status(_vm.$v.fields.excerpt),
+              attrs: { name: "excerpt", rows: "2", id: "excerpt" },
+              domProps: { value: _vm.$v.fields.excerpt.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
-                },
-                [_vm._v("Check it out here")]
-              )
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.updatedArticle
-        ? _c(
-            "div",
-            { staticClass: "alert alert-success", attrs: { role: "alert" } },
-            [
-              _c("h4", { staticClass: "alert-heading" }, [
-                _vm._v("Article "),
-                _c("b", [_vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')]),
-                _vm._v(" Updated!")
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v("You have successfully Updated the article.")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "a",
+                  _vm.$set(_vm.$v.fields.excerpt, "$model", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.excerpt
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.excerpt[0]))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
                 {
-                  attrs: {
-                    target: "_blank",
-                    href: "/articles/" + _vm.updatedArticle.id
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.fields.body.$model,
+                  expression: "$v.fields.body.$model"
+                }
+              ],
+              staticClass: "form-control",
+              class: _vm.status(_vm.$v.fields.body),
+              attrs: { name: "body", rows: "3", id: "body" },
+              domProps: { value: _vm.$v.fields.body.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
+                  _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.body
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.body[0]))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _vm._m(3),
+              _vm._v(" "),
+              _c("tag-input", {
+                attrs: { id: "tagger", editDataTags: _vm.editDataTags },
+                on: { updatetags: _vm.getTags }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary btn-lg",
+              attrs: { type: "submit" }
+            },
+            [_vm._v("Submit")]
+          ),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _vm.createdArticle
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-success",
+                  attrs: { role: "alert" }
                 },
-                [_vm._v("Check it out here")]
+                [
+                  _c("h4", { staticClass: "alert-heading" }, [
+                    _vm._v("Article "),
+                    _c("b", [
+                      _vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')
+                    ]),
+                    _vm._v(" Created!")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("You have successfully made an article.")]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        target: "_blank",
+                        href: "/articles/" + _vm.createdArticle.id
+                      }
+                    },
+                    [_vm._v("Check it out here")]
+                  )
+                ]
               )
-            ]
-          )
-        : _vm._e()
-    ]
-  )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.updatedArticle
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-success",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _c("h4", { staticClass: "alert-heading" }, [
+                    _vm._v("Article "),
+                    _c("b", [
+                      _vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')
+                    ]),
+                    _vm._v(" Updated!")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("You have successfully Updated the article.")
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        target: "_blank",
+                        href: "/articles/" + _vm.updatedArticle.id
+                      }
+                    },
+                    [_vm._v("Check it out here")]
+                  )
+                ]
+              )
+            : _vm._e()
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-6" }, [
+      _c("div", { staticClass: "title" }, [
+        _c("h4", [
+          _vm.fields.title
+            ? _c("span", { staticClass: "text-capitalize" }, [
+                _vm._v(_vm._s(_vm.fields.title))
+              ])
+            : _c("span", [_vm._v("This is your title")]),
+          _vm._v(" "),
+          _c("small", [_vm._v("| 20. nov 2020")])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _vm._m(5)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -40667,6 +40714,22 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "tagger" } }, [
       _c("h4", [_vm._v("Tags")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "prev" }, [
+      _c("p", [_vm._v("This is your excerpt")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "prev" }, [
+      _c("p", [_vm._v("This is your body")])
     ])
   }
 ]

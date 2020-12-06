@@ -1,5 +1,6 @@
 <template>
-
+<div class="row">
+    <div class="col-6">
         <form @submit.prevent="submit">
             <div class="form-group">
                 <label for="title"><h4>Title</h4></label>
@@ -14,10 +15,6 @@
                     :class="status($v.fields.title)"
 
                 />
-                <!--
-                 :class="{ 'is-invalid': errors.title  }"
-                 v-model="fields.title"
-                  -->
                 <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
             </div>
 
@@ -28,7 +25,6 @@
                     name="excerpt"
                     rows="2"
                     id="excerpt"
-
                     v-model="$v.fields.excerpt.$model"
                     :class="status($v.fields.excerpt)"
 
@@ -42,8 +38,6 @@
                     name="body"
                     rows="3"
                     id="body"
-
-
                     v-model="$v.fields.body.$model"
                     :class="status($v.fields.body)"
 
@@ -54,9 +48,7 @@
             <div class="form-group">
                 <label for="tagger"><h4>Tags</h4></label>
                 <tag-input id="tagger" :editDataTags="editDataTags" @updatetags="getTags"></tag-input>
-
             </div>
-
 
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             <hr>
@@ -73,6 +65,23 @@
                 <a target="_blank" v-bind:href="'/articles/' + updatedArticle.id">Check it out here</a>
             </div>
         </form>
+    </div>
+    <div class="col-6">
+        <div class="title">
+            <h4>
+                <span v-if="fields.title" class="text-capitalize">{{fields.title}}</span>
+                <span v-else>This is your title</span>
+                <small>| 20. nov 2020</small>
+            </h4>
+        </div>
+        <div class="prev">
+            <p>This is your excerpt</p>
+        </div>
+        <div class="prev">
+            <p>This is your body</p>
+        </div>
+    </div>
+</div>
 </template>
 
 <script>
@@ -98,6 +107,7 @@
                 errors: {},
                 createdArticle: null,
                 updatedArticle: null,
+                dateToday: null,
             }
         },
 
