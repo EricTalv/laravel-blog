@@ -1998,6 +1998,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2081,8 +2082,8 @@ __webpack_require__.r(__webpack_exports__);
       this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('Do.MMM.YYYY');
       this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('hh:mm');
     } else {
-      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('Do.MMM.YYYY').fromNow();
-      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('hh:mm').fromNow();
+      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('Do.MMM.YYYY');
+      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('hh:mm');
     }
   },
 
@@ -60248,11 +60249,9 @@ var render = function() {
               ])
             : _c("span", [_vm._v("This is your title")]),
           _vm._v(" "),
-          _c("small", [
-            _vm._v(
-              "| " + _vm._s(_vm._f("formatDate")(this.articleDateTime.date))
-            )
-          ])
+          _c("small", [_vm._v("| " + _vm._s(this.articleDateTime.date))]),
+          _vm._v(" "),
+          _c("small", [_vm._v("| " + _vm._s(this.articleDateTime.time))])
         ])
       ]),
       _vm._v(" "),
