@@ -1910,6 +1910,8 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -1997,6 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     editData: {
@@ -2016,7 +2019,10 @@ __webpack_require__.r(__webpack_exports__);
       errors: {},
       createdArticle: null,
       updatedArticle: null,
-      articleDateTime: null
+      articleDateTime: {
+        date: '',
+        time: ''
+      }
     };
   },
   validations: {
@@ -2064,15 +2070,27 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   /*
-     * If we get any data
-     * switch to edit mode
-  */
+   * If we get any data
+   * switch to edit mode
+   */
   created: function created() {
     if (this.editData) {
       this.fields.title = this.editData.title;
       this.fields.excerpt = this.editData.excerpt;
       this.fields.body = this.editData.body;
-      this.articleDateTime = moment(this.editData.created_at).format('MMMM Do YYYY, h:mm:ss');
+      comoment(this.editData.created_at).format('MMMM Do YYYY, h:mm:ss');
+    }
+  },
+
+  /*
+   * Create Date and Time format filters
+   */
+  filters: {
+    formatDate: function formatDate(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).format('MMMM Do YYYY');
+    },
+    formatTime: function formatTime(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).format('hh:mm');
     }
   }
 });
@@ -60228,7 +60246,7 @@ var render = function() {
           _vm._v(" "),
           _c("small", [
             _vm._v(
-              "| " + _vm._s(_vm._f("formatDate")(this.editData.updated_at))
+              "| " + _vm._s(_vm._f("formatDate")(this.editData.created_at))
             )
           ])
         ])
@@ -74566,12 +74584,13 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  *  this will format the date accordingly
  *  {{  data-to-format | formatDate }}
  */
+// Vue.filter('formatDate', function(value) {
+//     if (value) {
+//         return moment(String(value)).format('MM.DD.YYYY hh:mm')
+//     }
+// });
+//
 
-Vue.filter('formatDate', function (value) {
-  if (value) {
-    return moment__WEBPACK_IMPORTED_MODULE_2___default()(String(value)).format('MM.DD.YYYY hh:mm');
-  }
-});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

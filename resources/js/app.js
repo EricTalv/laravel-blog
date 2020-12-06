@@ -28,12 +28,12 @@ import moment from 'moment';
  *  this will format the date accordingly
  *  {{  data-to-format | formatDate }}
  */
-Vue.filter('formatDate', function(value) {
-    if (value) {
-        return moment(String(value)).format('MM.DD.YYYY hh:mm')
-    }
-});
-
+// Vue.filter('formatDate', function(value) {
+//     if (value) {
+//         return moment(String(value)).format('MM.DD.YYYY hh:mm')
+//     }
+// });
+//
 
 /**
  * The following block of code may be used to automatically register your
