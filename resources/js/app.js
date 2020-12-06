@@ -16,10 +16,24 @@ import VueTags from "vue-tags";
 /**
  *  Import vue form validation library
  */
-
 import Vuelidate from 'vuelidate';
 
-import { ValidationProvider, ValidationObserver } from 'vee-validate';
+/**
+ * Import date formating libraty
+ */
+import moment from 'moment';
+
+/**
+ *  We can use this in any vue component
+ *  this will format the date accordingly
+ *  {{  data-to-format | formatDate }}
+ */
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('MM.DD.YYYY hh:mm')
+    }
+});
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -34,16 +48,11 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate';
 
 Vue.component("input-tags", VueTags);
 
-Vue.component('validation-provider', ValidationProvider);
-Vue.component('validation-observer', ValidationObserver);
-
 Vue.use(Vuelidate);
 
 Vue.component('tag-input', require('./components/TagInput.vue').default);
 
 Vue.component('article-form', require('./components/ArticleForm.vue').default);
-
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

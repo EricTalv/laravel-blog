@@ -71,7 +71,7 @@
             <h4>
                 <span v-if="fields.title" class="text-capitalize">{{fields.title}}</span>
                 <span v-else>This is your title</span>
-                <small>| 20. nov 2020</small>
+                <small>| {{  this.editData.updated_at | formatDate }}</small>
             </h4>
         </div>
         <div class="prev">
@@ -107,7 +107,7 @@
                 errors: {},
                 createdArticle: null,
                 updatedArticle: null,
-                articleDate: null,
+                articleDateTime: null,
             }
         },
 
@@ -135,8 +135,6 @@
 
             getTags(value) {
                this.$set(this.fields, 'tags', value)
-               //  this.fields.tags = value;
-                //this.fields.tags.push(value);
             },
 
             submit() {
@@ -172,7 +170,8 @@
                 this.fields.excerpt = this.editData.excerpt
                 this.fields.body = this.editData.body
 
-                console.log(this.editData.updated_at)
+                this.articleDateTime = moment(this.editData.created_at).format('MMMM Do YYYY, h:mm:ss');
+
             }
 
         }
