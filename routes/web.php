@@ -27,7 +27,7 @@ Route::get('/about', function () {
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
 
 // Create Page
-Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
+Route::get('/articles/create', 'ArticleController@create')->name('articles.create')->middleware('auth');
 
 // Create Page
 Route::put('/article/create', 'ArticleController@store')->name('articles.store');

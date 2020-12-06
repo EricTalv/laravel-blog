@@ -107,7 +107,7 @@
                 errors: {},
                 createdArticle: null,
                 updatedArticle: null,
-                dateToday: null,
+                articleDate: null,
             }
         },
 
@@ -171,6 +171,8 @@
                 this.fields.title = this.editData.title
                 this.fields.excerpt = this.editData.excerpt
                 this.fields.body = this.editData.body
+
+                console.log(this.editData)
             }
 
         }
