@@ -1,6 +1,8 @@
 <template>
     <div class="row">
         <div class="col-6">
+            <small>Create an Article</small>
+            <hr>
             <form @submit.prevent="submit">
                 <div class="form-group">
                     <label for="title"><h4>Title</h4></label>
@@ -13,7 +15,7 @@
 
                         v-model="$v.fields.title.$model"
                         :class="status($v.fields.title)"
-                        placeholder="Article Title.."
+                        placeholder="Title.."
                     />
                     <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
                 </div>
@@ -27,7 +29,7 @@
                         id="excerpt"
                         v-model="$v.fields.excerpt.$model"
                         :class="status($v.fields.excerpt)"
-                        placeholder="Article excerpt.."
+                        placeholder="Excerpt.."
 
                     > </textarea>
                     <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
@@ -41,7 +43,7 @@
                         id="body"
                         v-model="$v.fields.body.$model"
                         :class="status($v.fields.body)"
-                        placeholder="Article body.."
+                        placeholder="Body.."
 
                     ></textarea>
                     <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
@@ -69,6 +71,8 @@
             </form>
         </div>
         <div class="col-6">
+            <small>Article Preview</small>
+            <hr>
             <div class="title">
                 <h4>
                     <span v-if="fields.title" class="text-capitalize">{{ fields.title }}</span>
@@ -187,7 +191,7 @@ export default {
         }
     },
 
-    
+
 }
 </script>
 

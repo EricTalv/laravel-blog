@@ -2003,6 +2003,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60024,6 +60028,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-6" }, [
+      _c("small", [_vm._v("Create an Article")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c(
         "form",
         {
@@ -60054,7 +60062,7 @@ var render = function() {
                 name: "title",
                 id: "title",
                 value: "",
-                placeholder: "Article Title.."
+                placeholder: "Title.."
               },
               domProps: { value: _vm.$v.fields.title.$model },
               on: {
@@ -60092,7 +60100,7 @@ var render = function() {
                 name: "excerpt",
                 rows: "2",
                 id: "excerpt",
-                placeholder: "Article excerpt.."
+                placeholder: "Excerpt.."
               },
               domProps: { value: _vm.$v.fields.excerpt.$model },
               on: {
@@ -60130,7 +60138,7 @@ var render = function() {
                 name: "body",
                 rows: "3",
                 id: "body",
-                placeholder: "Article body.."
+                placeholder: "Body.."
               },
               domProps: { value: _vm.$v.fields.body.$model },
               on: {
@@ -60249,6 +60257,10 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-6" }, [
+      _c("small", [_vm._v("Article Preview")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c("div", { staticClass: "title" }, [
         _c("h4", [
           _vm.fields.title
