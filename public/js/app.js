@@ -2007,6 +2007,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60167,7 +60168,11 @@ var render = function() {
               _c("tag-input", {
                 attrs: { id: "tagger", editDataTags: _vm.editDataTags },
                 on: { updatetags: _vm.getTags }
-              })
+              }),
+              _vm._v(" "),
+              _c("small", { staticClass: "text-muted" }, [
+                _vm._v("Write something and press enter.")
+              ])
             ],
             1
           ),

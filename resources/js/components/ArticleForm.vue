@@ -52,6 +52,7 @@
                 <div class="form-group">
                     <label for="tagger"><h4>Tags</h4></label>
                     <tag-input id="tagger" :editDataTags="editDataTags" @updatetags="getTags"></tag-input>
+                    <small class="text-muted">Write something and press enter.</small>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
