@@ -2087,19 +2087,7 @@ __webpack_require__.r(__webpack_exports__);
       this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('hh:mm');
     } else {
       this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('Do.MMM.YYYY');
-      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('hh:mm');
-    }
-  },
-
-  /*
-   * Create Date and Time format filters
-   */
-  filters: {
-    formatDate: function formatDate(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).format('MMMM Do YYYY');
-    },
-    formatTime: function formatTime(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).format('hh:mm');
+      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('HH:mm');
     }
   }
 });
@@ -74869,8 +74857,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

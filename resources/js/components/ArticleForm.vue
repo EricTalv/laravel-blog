@@ -183,23 +183,11 @@ export default {
         }
         else {
             this.articleDateTime.date = moment().format('Do.MMM.YYYY');
-            this.articleDateTime.time = moment().format('hh:mm');
+            this.articleDateTime.time = moment().format('HH:mm');
         }
     },
 
-    /*
-     * Create Date and Time format filters
-     */
-    filters: {
-        formatDate: function (date) {
-            return moment(date).format('MMMM Do YYYY');
-        },
-        formatTime: function (date) {
-            return moment(date).format('hh:mm');
-        },
-    }
-
-
+    
 }
 </script>
 
