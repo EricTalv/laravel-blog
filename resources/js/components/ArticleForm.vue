@@ -71,23 +71,29 @@
                 </div>
             </form>
         </div>
-        <div class="col-6 bg-white">
+        <div class="col-6">
             <small>Article Preview</small>
             <hr>
-            <div class="title">
-                <small class="text-muted">{{ this.articleDateTime.date }}</small>
-                <h4>
+            <div class="bg-white p-2 rounded border border-light">
+                <div class="title">
+                    <small class="text-muted">{{ this.articleDateTime.date }}</small>
+                    <h4>
                     <span
-                          class="text-capitalize font-weight-bold">
-                          <h3>{{ fields.title }} <a class="badge badge-pill badge-light float-right mr-5 font-italic text-muted" style="font-size: 1rem;">{{ this.$userName }}</a></h3>
+                        class="text-capitalize font-weight-bold">
+                          <h3>{{ fields.title ? fields.title : 'Title' }}
+                            <a
+                              class="badge badge-pill badge-light float-right mr-5 font-italic text-muted"
+                              style="font-size: 1rem;">{{ this.$userName }}</a></h3>
                     </span>
-                </h4>
-            </div>
-            <div class="prev">
-                <span >{{ fields.excerpt }}</span>
-            </div>
-            <div class="prev">
-                <span >{{ fields.body }}</span>
+                    </h4>
+                </div>
+                <div class="prev">
+                    <span>{{ fields.excerpt ? fields.excerpt : 'Excerpt' }}</span>
+                </div>
+                <div class="prev">
+                    <span>{{ fields.body ? fields.body : 'Body' }}</span>
+
+                </div>
             </div>
         </div>
     </div>
@@ -109,9 +115,9 @@
         data() {
             return {
                 fields: {
-                    title: 'Title',
-                    excerpt: 'Excerpt',
-                    body: 'Body',
+                    title: '',
+                    excerpt: '',
+                    body: '',
 
                 },
                 errors: {},

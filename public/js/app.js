@@ -2007,6 +2007,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2021,9 +2027,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {
-        title: 'Title',
-        excerpt: 'Excerpt',
-        body: 'Body'
+        title: '',
+        excerpt: '',
+        body: ''
       },
       errors: {},
       createdArticle: null,
@@ -60257,40 +60263,49 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-6 bg-white" }, [
+    _c("div", { staticClass: "col-6" }, [
       _c("small", [_vm._v("Article Preview")]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c("div", { staticClass: "title" }, [
-        _c("small", { staticClass: "text-muted" }, [
-          _vm._v(_vm._s(this.articleDateTime.date))
-        ]),
-        _vm._v(" "),
-        _c("h4", [
-          _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
-            _c("h3", [
-              _vm._v(_vm._s(_vm.fields.title) + " "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "badge badge-pill badge-light float-right mr-5 font-italic text-muted",
-                  staticStyle: { "font-size": "1rem" }
-                },
-                [_vm._v(_vm._s(this.$userName))]
-              )
+      _c("div", { staticClass: "bg-white p-2 rounded border border-light" }, [
+        _c("div", { staticClass: "title" }, [
+          _c("small", { staticClass: "text-muted" }, [
+            _vm._v(_vm._s(this.articleDateTime.date))
+          ]),
+          _vm._v(" "),
+          _c("h4", [
+            _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
+              _c("h3", [
+                _vm._v(
+                  _vm._s(_vm.fields.title ? _vm.fields.title : "Title") +
+                    "\n                        "
+                ),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "badge badge-pill badge-light float-right mr-5 font-italic text-muted",
+                    staticStyle: { "font-size": "1rem" }
+                  },
+                  [_vm._v(_vm._s(this.$userName))]
+                )
+              ])
             ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "prev" }, [
+          _c("span", [
+            _vm._v(_vm._s(_vm.fields.excerpt ? _vm.fields.excerpt : "Excerpt"))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "prev" }, [
+          _c("span", [
+            _vm._v(_vm._s(_vm.fields.body ? _vm.fields.body : "Body"))
+          ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "prev" }, [
-        _c("span", [_vm._v(_vm._s(_vm.fields.excerpt))])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "prev" }, [
-        _c("span", [_vm._v(_vm._s(_vm.fields.body))])
       ])
     ])
   ])
