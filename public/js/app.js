@@ -2007,7 +2007,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2030,8 +2029,7 @@ __webpack_require__.r(__webpack_exports__);
       createdArticle: null,
       updatedArticle: null,
       articleDateTime: {
-        date: '',
-        time: ''
+        date: ''
       }
     };
   },
@@ -2089,10 +2087,8 @@ __webpack_require__.r(__webpack_exports__);
       this.fields.excerpt = this.editData.excerpt;
       this.fields.body = this.editData.body;
       this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('Do.MMM.YYYY');
-      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('hh:mm');
     } else {
-      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('Do.MMM.YYYY');
-      this.articleDateTime.time = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('HH:mm');
+      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('D MMM, YYYY');
     }
   }
 });
@@ -60267,16 +60263,16 @@ var render = function() {
       _c("hr"),
       _vm._v(" "),
       _c("div", { staticClass: "title" }, [
+        _c("small", { staticClass: "text-muted" }, [
+          _vm._v(_vm._s(this.articleDateTime.date))
+        ]),
+        _vm._v(" "),
         _c("h4", [
           _vm.fields.title
-            ? _c("span", { staticClass: "text-capitalize" }, [
+            ? _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
                 _vm._v(_vm._s(_vm.fields.title))
               ])
-            : _c("span", [_vm._v("Article Title")]),
-          _vm._v(" "),
-          _c("small", [_vm._v("| " + _vm._s(this.articleDateTime.date))]),
-          _vm._v(" "),
-          _c("small", [_vm._v("| " + _vm._s(this.articleDateTime.time))])
+            : _c("span", [_vm._v("Article Title")])
         ])
       ]),
       _vm._v(" "),
@@ -60300,7 +60296,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "title" } }, [
-      _c("h4", [_vm._v("Title")])
+      _c("h2", [_vm._v("Title")])
     ])
   },
   function() {
@@ -60308,21 +60304,21 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "excerpt" } }, [
-      _c("h4", [_vm._v("Excerpt")])
+      _c("h2", [_vm._v("Excerpt")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])])
+    return _c("label", { attrs: { for: "body" } }, [_c("h2", [_vm._v("Body")])])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "tagger" } }, [
-      _c("h4", [_vm._v("Tags")])
+      _c("h2", [_vm._v("Tags")])
     ])
   }
 ]

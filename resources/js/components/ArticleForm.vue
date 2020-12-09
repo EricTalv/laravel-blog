@@ -5,7 +5,7 @@
             <hr>
             <form @submit.prevent="submit">
                 <div class="form-group">
-                    <label for="title"><h4>Title</h4></label>
+                    <label for="title"><h2>Title</h2></label>
                     <input
                         class="form-control"
                         type="text"
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="excerpt"><h4>Excerpt</h4></label>
+                    <label for="excerpt"><h2>Excerpt</h2></label>
                     <textarea
                         class="form-control "
                         name="excerpt"
@@ -35,7 +35,7 @@
                     <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
                 </div>
                 <div class="form-group">
-                    <label for="body"><h4>Body</h4></label>
+                    <label for="body"><h2>Body</h2></label>
                     <textarea
                         class="form-control"
                         name="body"
@@ -50,7 +50,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="tagger"><h4>Tags</h4></label>
+                    <label for="tagger"><h2>Tags</h2></label>
                     <tag-input id="tagger" :editDataTags="editDataTags" @updatetags="getTags"></tag-input>
                     <small class="text-muted">Write something and press enter.</small>
                 </div>
@@ -75,14 +75,14 @@
             <small>Article Preview</small>
             <hr>
             <div class="title">
+                <small class="text-muted">{{ this.articleDateTime.date }}</small>
                 <h4>
-                    <span v-if="fields.title" class="text-capitalize">{{ fields.title }}</span>
+                    <span v-if="fields.title" class="text-capitalize font-weight-bold">{{ fields.title }}</span>
                     <span v-else>Article Title</span>
-                    <small>| {{ this.articleDateTime.date  }}</small>
                 </h4>
             </div>
             <div class="prev">
-                <span v-if="fields.excerpt" >{{ fields.excerpt }}</span>
+                <span v-if="fields.excerpt">{{ fields.excerpt }}</span>
                 <span v-else>Article excerpt</span>
             </div>
             <div class="prev">
@@ -95,128 +95,129 @@
 
 <script>
 
-import {required} from 'vuelidate/lib/validators';
-import moment from 'moment';
+    import {required} from 'vuelidate/lib/validators';
+    import moment from 'moment';
 
-export default {
-    props: {
-        editData: {
-            type: Object,
+    export default {
+        props: {
+            editData: {
+                type: Object,
+            },
+            editDataTags: {type: Array},
         },
-        editDataTags: {type: Array},
-    },
 
-    data() {
-        return {
-            fields: {
-                title: '',
-                excerpt: '',
-                body: '',
-
-            },
-            errors: {},
-            createdArticle: null,
-            updatedArticle: null,
-            articleDateTime: {
-                date: '',
-            },
-        }
-    },
-
-    validations: {
-        fields: {
-            title: {
-                required,
-            },
-            excerpt: {
-                required,
-            },
-            body: {
-                required,
-            }
-        }
-    },
-
-    methods: {
-        status(validation) {
+        data() {
             return {
-                error: validation.$error,
-                dirty: validation.$dirty
+                fields: {
+                    title: '',
+                    excerpt: '',
+                    body: '',
+
+                },
+                errors: {},
+                createdArticle: null,
+                updatedArticle: null,
+                articleDateTime: {
+                    date: '',
+                },
             }
         },
 
-        getTags(value) {
-            this.$set(this.fields, 'tags', value)
+        validations: {
+            fields: {
+                title: {
+                    required,
+                },
+                excerpt: {
+                    required,
+                },
+                body: {
+                    required,
+                }
+            }
         },
 
-        submit() {
-            this.errors = {};
+        methods: {
+            status(validation) {
+                return {
+                    error: validation.$error,
+                    dirty: validation.$dirty
+                }
+            },
+
+            getTags(value) {
+                this.$set(this.fields, 'tags', value)
+            },
+
+            submit() {
+                this.errors = {};
+
+                if (this.editData) {
+                    axios.put('/articles/' + this.editData.id, this.fields)
+                        .then(response => {
+                            this.updatedArticle = response.data;
+                        }).catch(error => {
+                        this.errors = error.response.data.errors;
+                    });
+                } else {
+                    axios.put('/article/create', this.fields)
+                        .then(response => {
+                            this.createdArticle = response.data;
+                        }).catch(error => {
+                        this.errors = error.response.data.errors;
+                    });
+                }
+            },
+        },
+
+        /*
+         * If we get any data
+         * switch to edit mode
+         */
+        created: function () {
 
             if (this.editData) {
-                axios.put('/articles/' + this.editData.id, this.fields)
-                    .then(response => {
-                        this.updatedArticle = response.data;
-                    }).catch(error => {
-                    this.errors = error.response.data.errors;
-                });
+                this.fields.title = this.editData.title
+                this.fields.excerpt = this.editData.excerpt
+                this.fields.body = this.editData.body
+
+                this.articleDateTime.date = moment(this.editData.created_at).format('Do.MMM.YYYY')
             } else {
-                axios.put('/article/create', this.fields)
-                    .then(response => {
-                        this.createdArticle = response.data;
-                    }).catch(error => {
-                    this.errors = error.response.data.errors;
-                });
+                this.articleDateTime.date = moment().format('D MMM, YYYY');
             }
         },
-    },
-
-    /*
-     * If we get any data
-     * switch to edit mode
-     */
-    created: function () {
-
-        if (this.editData) {
-            this.fields.title = this.editData.title
-            this.fields.excerpt = this.editData.excerpt
-            this.fields.body = this.editData.body
-
-            this.articleDateTime.date = moment(this.editData.created_at).format('Do.MMM.YYYY')
-        }
-        else {
-            this.articleDateTime.date = moment().format('Do.MMM.YYYY');
-        }
-    },
 
 
-}
+    }
 </script>
 
 
 <style scoped>
-input {
-    border: 1px solid silver;
-    border-radius: 4px;
-    background: white;
-    padding: 5px 10px;
-}
 
-.dirty {
-    border-color: #5A5;
-    background: #EFE;
-}
 
-.dirty:focus {
-    outline-color: #8E8;
-}
+    input {
+        border: 1px solid silver;
+        border-radius: 4px;
+        background: white;
+        padding: 5px 10px;
+    }
 
-.error {
-    border-color: red;
-    background: #FDD;
-}
+    .dirty {
+        border-color: #5A5;
+        background: #EFE;
+    }
 
-.error:focus {
-    outline-color: #F99;
-}
+    .dirty:focus {
+        outline-color: #8E8;
+    }
+
+    .error {
+        border-color: red;
+        background: #FDD;
+    }
+
+    .error:focus {
+        outline-color: #F99;
+    }
 
 </style>

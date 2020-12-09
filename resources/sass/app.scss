@@ -8,14 +8,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
-// My code
-
+// My styles
 body {
     font-size: 1.2rem;
 }
-
-
 
 // Fix card overflow between 772->1199px by adding overflow to cards
 @media only all and (min-width: 772px) and (max-width: 1199px) {

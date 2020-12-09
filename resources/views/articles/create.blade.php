@@ -2,9 +2,7 @@
 
 @section('style')
     <style>
-        .form-group > label > h4 {
-            font-weight: bold !important;
-        }
+
     </style>
 @endsection
 
