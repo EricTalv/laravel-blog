@@ -79,7 +79,6 @@
                     <span v-if="fields.title" class="text-capitalize">{{ fields.title }}</span>
                     <span v-else>Article Title</span>
                     <small>| {{ this.articleDateTime.date  }}</small>
-                    <small>| {{ this.articleDateTime.time  }}</small>
                 </h4>
             </div>
             <div class="prev">
@@ -120,7 +119,6 @@ export default {
             updatedArticle: null,
             articleDateTime: {
                 date: '',
-                time: ''
             },
         }
     },
@@ -184,11 +182,9 @@ export default {
             this.fields.body = this.editData.body
 
             this.articleDateTime.date = moment(this.editData.created_at).format('Do.MMM.YYYY')
-            this.articleDateTime.time = moment(this.editData.created_at).format('hh:mm')
         }
         else {
             this.articleDateTime.date = moment().format('Do.MMM.YYYY');
-            this.articleDateTime.time = moment().format('HH:mm');
         }
     },
 
