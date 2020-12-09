@@ -60270,9 +60270,9 @@ var render = function() {
         _c("h4", [
           _vm.fields.title
             ? _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
-                _vm._v(_vm._s(_vm.fields.title))
+                _c("h2", [_vm._v(_vm._s(_vm.fields.title))])
               ])
-            : _c("span", [_vm._v("Article Title")])
+            : _c("span", [_c("h2", [_vm._v("Article Title")])])
         ])
       ]),
       _vm._v(" "),
@@ -60296,7 +60296,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "title" } }, [
-      _c("h2", [_vm._v("Title")])
+      _c("h3", [_vm._v("Title")])
     ])
   },
   function() {
@@ -60304,21 +60304,21 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "excerpt" } }, [
-      _c("h2", [_vm._v("Excerpt")])
+      _c("h3", [_vm._v("Excerpt")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "body" } }, [_c("h2", [_vm._v("Body")])])
+    return _c("label", { attrs: { for: "body" } }, [_c("h3", [_vm._v("Body")])])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "tagger" } }, [
-      _c("h2", [_vm._v("Tags")])
+      _c("h3", [_vm._v("Tags")])
     ])
   }
 ]

@@ -5,7 +5,7 @@
             <hr>
             <form @submit.prevent="submit">
                 <div class="form-group">
-                    <label for="title"><h2>Title</h2></label>
+                    <label for="title"><h3>Title</h3></label>
                     <input
                         class="form-control"
                         type="text"
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="excerpt"><h2>Excerpt</h2></label>
+                    <label for="excerpt"><h3>Excerpt</h3></label>
                     <textarea
                         class="form-control "
                         name="excerpt"
@@ -35,7 +35,7 @@
                     <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
                 </div>
                 <div class="form-group">
-                    <label for="body"><h2>Body</h2></label>
+                    <label for="body"><h3>Body</h3></label>
                     <textarea
                         class="form-control"
                         name="body"
@@ -50,7 +50,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="tagger"><h2>Tags</h2></label>
+                    <label for="tagger"><h3>Tags</h3></label>
                     <tag-input id="tagger" :editDataTags="editDataTags" @updatetags="getTags"></tag-input>
                     <small class="text-muted">Write something and press enter.</small>
                 </div>
@@ -77,8 +77,8 @@
             <div class="title">
                 <small class="text-muted">{{ this.articleDateTime.date }}</small>
                 <h4>
-                    <span v-if="fields.title" class="text-capitalize font-weight-bold">{{ fields.title }}</span>
-                    <span v-else>Article Title</span>
+                    <span v-if="fields.title" class="text-capitalize font-weight-bold"><h2>{{ fields.title }}</h2></span>
+                    <span v-else><h2>Article Title</h2></span>
                 </h4>
             </div>
             <div class="prev">
