@@ -55,6 +55,11 @@ Vue.component('tag-input', require('./components/TagInput.vue').default);
 Vue.component('article-form', require('./components/ArticleForm.vue').default);
 
 /**
+ * Fetch userName from META variable and set it as $userName
+ */
+Vue.prototype.$userName = document.querySelector("meta[name='user-name']").getAttribute('content');
+
+/**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.

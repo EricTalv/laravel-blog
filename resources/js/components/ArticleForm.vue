@@ -71,23 +71,23 @@
                 </div>
             </form>
         </div>
-        <div class="col-6">
+        <div class="col-6 bg-white">
             <small>Article Preview</small>
             <hr>
             <div class="title">
                 <small class="text-muted">{{ this.articleDateTime.date }}</small>
                 <h4>
-                    <span v-if="fields.title" class="text-capitalize font-weight-bold"><h2>{{ fields.title }}</h2></span>
-                    <span v-else><h2>Article Title</h2></span>
+                    <span
+                          class="text-capitalize font-weight-bold">
+                          <h3>{{ fields.title }} <a class="badge badge-pill badge-light float-right mr-5 font-italic text-muted" style="font-size: 1rem;">{{ this.$userName }}</a></h3>
+                    </span>
                 </h4>
             </div>
             <div class="prev">
-                <span v-if="fields.excerpt">{{ fields.excerpt }}</span>
-                <span v-else>Article excerpt</span>
+                <span >{{ fields.excerpt }}</span>
             </div>
             <div class="prev">
-                <span v-if="fields.body">{{ fields.body }}</span>
-                <span v-else>Article body</span>
+                <span >{{ fields.body }}</span>
             </div>
         </div>
     </div>
@@ -109,9 +109,9 @@
         data() {
             return {
                 fields: {
-                    title: '',
-                    excerpt: '',
-                    body: '',
+                    title: 'Title',
+                    excerpt: 'Excerpt',
+                    body: 'Body',
 
                 },
                 errors: {},
@@ -186,8 +186,6 @@
                 this.articleDateTime.date = moment().format('D MMM, YYYY');
             }
         },
-
-
     }
 </script>
 
@@ -203,8 +201,7 @@
     }
 
     .dirty {
-        border-color: #5A5;
-        background: #EFE;
+        border-color: #6eb86e;
     }
 
     .dirty:focus {
@@ -213,7 +210,6 @@
 
     .error {
         border-color: red;
-        background: #FDD;
     }
 
     .error:focus {

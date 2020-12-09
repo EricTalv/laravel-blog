@@ -2021,9 +2021,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {
-        title: '',
-        excerpt: '',
-        body: ''
+        title: 'Title',
+        excerpt: 'Excerpt',
+        body: 'Body'
       },
       errors: {},
       createdArticle: null,
@@ -6627,7 +6627,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #5A5;\n    background: #EFE;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n    background: #FDD;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
+exports.push([module.i, "\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
 
 // exports
 
@@ -60257,7 +60257,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-6" }, [
+    _c("div", { staticClass: "col-6 bg-white" }, [
       _c("small", [_vm._v("Article Preview")]),
       _vm._v(" "),
       _c("hr"),
@@ -60268,24 +60268,29 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("h4", [
-          _vm.fields.title
-            ? _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
-                _c("h2", [_vm._v(_vm._s(_vm.fields.title))])
-              ])
-            : _c("span", [_c("h2", [_vm._v("Article Title")])])
+          _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
+            _c("h3", [
+              _vm._v(_vm._s(_vm.fields.title) + " "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "badge badge-pill badge-light float-right mr-5 font-italic text-muted",
+                  staticStyle: { "font-size": "1rem" }
+                },
+                [_vm._v(_vm._s(this.$userName))]
+              )
+            ])
+          ])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "prev" }, [
-        _vm.fields.excerpt
-          ? _c("span", [_vm._v(_vm._s(_vm.fields.excerpt))])
-          : _c("span", [_vm._v("Article excerpt")])
+        _c("span", [_vm._v(_vm._s(_vm.fields.excerpt))])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "prev" }, [
-        _vm.fields.body
-          ? _c("span", [_vm._v(_vm._s(_vm.fields.body))])
-          : _c("span", [_vm._v("Article body")])
+        _c("span", [_vm._v(_vm._s(_vm.fields.body))])
       ])
     ])
   ])
@@ -74621,6 +74626,11 @@ Vue.component("input-tags", vue_tags__WEBPACK_IMPORTED_MODULE_0___default.a);
 Vue.use(vuelidate__WEBPACK_IMPORTED_MODULE_1___default.a);
 Vue.component('tag-input', __webpack_require__(/*! ./components/TagInput.vue */ "./resources/js/components/TagInput.vue")["default"]);
 Vue.component('article-form', __webpack_require__(/*! ./components/ArticleForm.vue */ "./resources/js/components/ArticleForm.vue")["default"]);
+/**
+ * Fetch userName from META variable and set it as $userName
+ */
+
+Vue.prototype.$userName = document.querySelector("meta[name='user-name']").getAttribute('content');
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
