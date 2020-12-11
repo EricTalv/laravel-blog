@@ -58,8 +58,8 @@ legend:
   [ ] Comments 
   [X] Tagger component  
 
-[ ] Add all functionality also to Edit page
-[ ] Create 1 component for creating/editing articles
+[X] Add all functionality also to Edit page
+[X] Create 1 component for creating/editing articles
 
 [ ] Welcome 
  [X] Latest Post 
