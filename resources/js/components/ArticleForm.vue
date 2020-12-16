@@ -89,7 +89,9 @@
                 </div>
                 <div class="prev">
                     <span>{{ fields.body ? fields.body : 'Body' }}</span>
-
+                </div>
+                <div class="prev" v-if=" fields.tags ">
+                    <span class="badge badge-secondary mr-1" v-for="tag in fields.tags">{{ tag }}</span>
                 </div>
             </div>
         </div>

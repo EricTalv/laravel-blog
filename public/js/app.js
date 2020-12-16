@@ -2010,6 +2010,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60292,7 +60294,22 @@ var render = function() {
           _c("span", [
             _vm._v(_vm._s(_vm.fields.body ? _vm.fields.body : "Body"))
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _vm.fields.tags
+          ? _c(
+              "div",
+              { staticClass: "prev" },
+              _vm._l(_vm.fields.tags, function(tag) {
+                return _c(
+                  "span",
+                  { staticClass: "badge badge-secondary mr-1" },
+                  [_vm._v(_vm._s(tag))]
+                )
+              }),
+              0
+            )
+          : _vm._e()
       ])
     ])
   ])
