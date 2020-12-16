@@ -6613,7 +6613,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".tag[data-v-2812c5bb] {\n  background-color: #03a5fc;\n  color: white;\n  border-radius: 5px;\n  padding: 5px;\n  margin: 4px;\n  font-size: 20px;\n}\n.tag-remove[data-v-2812c5bb] {\n  border: 0;\n  background-color: transparent;\n  color: white;\n  margin: 0;\n  padding: 0;\n}", ""]);
+exports.push([module.i, ".tags-input[data-v-2812c5bb] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.tag[data-v-2812c5bb] {\n  background-color: #03a5fc;\n  color: white;\n  border-radius: 5px;\n  padding: 2px;\n  margin: 2px;\n  font-size: 20px;\n}\n.tag-remove[data-v-2812c5bb] {\n  border: 0;\n  background-color: transparent;\n  color: white;\n  margin: 0;\n  padding: 0;\n}", ""]);
 
 // exports
 
@@ -60381,8 +60381,8 @@ var render = function() {
             { staticClass: "tags-input" },
             [
               _vm._l(_vm.tags, function(tag) {
-                return _c("span", { staticClass: "tag" }, [
-                  _c("span", [_vm._v(_vm._s(tag))]),
+                return _c("span", { staticClass: "tag " }, [
+                  _c("span", { staticClass: "m-1" }, [_vm._v(_vm._s(tag))]),
                   _vm._v(" "),
                   _c(
                     "button",

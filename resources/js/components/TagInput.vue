@@ -3,8 +3,8 @@
         <div class="tags-input"
              slot-scope="{tag,removeTag,inputEventHandlers,inputBindings }">
             <span v-for="tag in tags"
-                  class="tag">
-              <span>{{ tag }}</span>
+                  class="tag ">
+              <span class="m-1">{{ tag }}</span>
               <button type="button" class="tag-remove"
                       v-on:click="removeTag(tag)"
               >&times;
@@ -54,12 +54,18 @@
 
 
 <style lang="scss" scoped>
+
+    .tags-input {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
     .tag {
         background-color: #03a5fc;
         color: white;
         border-radius: 5px;
-        padding: 5px;
-        margin: 4px;
+        padding: 2px;
+        margin: 2px;
         font-size: 20px;
     }
 
