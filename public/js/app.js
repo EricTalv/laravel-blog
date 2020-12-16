@@ -2010,9 +2010,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60271,25 +60268,15 @@ var render = function() {
       _c("div", { staticClass: "bg-white p-2 rounded border border-light" }, [
         _c("div", { staticClass: "title" }, [
           _c("small", { staticClass: "text-muted" }, [
-            _vm._v(_vm._s(this.articleDateTime.date))
+            _vm._v(
+              _vm._s(this.$userName) + " | " + _vm._s(this.articleDateTime.date)
+            )
           ]),
           _vm._v(" "),
           _c("h4", [
             _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
               _c("h3", [
-                _vm._v(
-                  _vm._s(_vm.fields.title ? _vm.fields.title : "Title") +
-                    "\n                        "
-                ),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "badge badge-pill badge-light float-right mr-5 font-italic text-muted",
-                    staticStyle: { "font-size": "1rem" }
-                  },
-                  [_vm._v(_vm._s(this.$userName))]
-                )
+                _vm._v(_vm._s(_vm.fields.title ? _vm.fields.title : "Title"))
               ])
             ])
           ])

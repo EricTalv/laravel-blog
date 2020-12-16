@@ -76,14 +76,11 @@
             <hr>
             <div class="bg-white p-2 rounded border border-light">
                 <div class="title">
-                    <small class="text-muted">{{ this.articleDateTime.date }}</small>
+                    <small class="text-muted">{{ this.$userName }} | {{ this.articleDateTime.date }}</small>
                     <h4>
                     <span
                         class="text-capitalize font-weight-bold">
-                          <h3>{{ fields.title ? fields.title : 'Title' }}
-                            <a
-                              class="badge badge-pill badge-light float-right mr-5 font-italic text-muted"
-                              style="font-size: 1rem;">{{ this.$userName }}</a></h3>
+                        <h3>{{ fields.title ? fields.title : 'Title' }}</h3>
                     </span>
                     </h4>
                 </div>
