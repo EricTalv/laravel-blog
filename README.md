@@ -19,10 +19,6 @@ MVP: Blog post must include:
  - Comments 
  - User Profile Page
 
-New Deadline: 30.11.20
-<s>New Deadline: 18.11.20</s>
-<s>Deadline: 13.11.20</s> 
-
 
 ### TODO : MVP 
 
@@ -58,8 +54,8 @@ legend:
   [ ] Comments 
   [X] Tagger component  
 
-[ ] Add all functionality also to Edit page
-[ ] Create 1 component for creating/editing articles
+[X] Add all functionality also to Edit page
+[X] Create 1 component for creating/editing articles
 
 [ ] Welcome 
  [X] Latest Post 
