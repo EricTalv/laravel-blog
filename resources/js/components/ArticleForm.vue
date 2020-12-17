@@ -3,7 +3,7 @@
         <div class="col-6">
             <small>Create an Article</small>
             <hr>
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submit" novalidate>
                 <div class="form-group">
                     <label for="title"><h3>Title</h3></label>
                     <input
@@ -17,7 +17,7 @@
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
+                    <div class="error" v-if="!$v.title.required">Title is required</div>
                 </div>
 
                 <div class="form-group">
@@ -163,14 +163,15 @@
                         .then(response => {
                             this.updatedArticle = response.data;
                         }).catch(error => {
-                        this.errors = error.response.data.errors;
+                            this.errors = error.response.data.errors;
                     });
                 } else {
                     axios.put('/article/create', this.fields)
                         .then(response => {
                             this.createdArticle = response.data;
                         }).catch(error => {
-                        this.errors = error.response.data.errors;
+                            this.errors = error.response.data.errors;
+                            console.log(this.errors);
                     });
                 }
             },
@@ -198,6 +199,9 @@
 
 <style scoped>
 
+    .invalid-feedback {
+        display: block;
+    }
 
     input {
         border: 1px solid silver;

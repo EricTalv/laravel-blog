@@ -2078,6 +2078,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.createdArticle = response.data;
         })["catch"](function (error) {
           _this.errors = error.response.data.errors;
+          console.log(_this.errors);
         });
       }
     }
@@ -6633,7 +6634,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
+exports.push([module.i, "\n.invalid-feedback[data-v-0940e0bf] {\n    display: block;\n}\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
 
 // exports
 
@@ -60038,6 +60039,7 @@ var render = function() {
       _c(
         "form",
         {
+          attrs: { novalidate: "" },
           on: {
             submit: function($event) {
               $event.preventDefault()
@@ -60078,9 +60080,9 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _vm.errors.title
-              ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.title[0]))
+            !_vm.$v.title.required
+              ? _c("div", { staticClass: "error" }, [
+                  _vm._v("Title is required")
                 ])
               : _vm._e()
           ]),
@@ -74895,8 +74897,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
