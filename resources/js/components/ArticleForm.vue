@@ -120,6 +120,7 @@
                     body: '',
 
                 },
+                submitStatus: null,
                 errors: {},
                 createdArticle: null,
                 updatedArticle: null,
@@ -158,21 +159,35 @@
             submit() {
                 this.errors = {};
 
-                if (this.editData) {
-                    axios.put('/articles/' + this.editData.id, this.fields)
-                        .then(response => {
-                            this.updatedArticle = response.data;
-                        }).catch(error => {
-                            this.errors = error.response.data.errors;
-                    });
+                // Check Validations
+                this.$v.$touch();
+                // Check invalidity
+                if (this.$v.$invalid) {
+                    this.submitStatus = 'ERROR'
                 } else {
-                    axios.put('/article/create', this.fields)
-                        .then(response => {
-                            this.createdArticle = response.data;
-                        }).catch(error => {
-                            this.errors = error.response.data.errors;
-                            console.log(this.errors);
-                    });
+                    this.submitStatus = 'PENDING'
+                    // Check if this is an EDIT request or a CREATE request
+                    // EDIT REQUEST
+                    if (this.editData) {
+                        axios.put('/articles/' + this.editData.id, this.fields)
+                            .then(response => {
+                                this.submitStatus = 'SUCCESS'
+                                this.updatedArticle = response.data;
+                            }).catch(error => {
+                                this.submitStatus = 'ERROR'
+                                this.errors = error.response.data.errors;
+                        });
+                        // CREATE REQUEST
+                    } else {
+                        axios.put('/article/create', this.fields)
+                            .then(response => {
+                                this.submitStatus = 'SUCCESS'
+                                this.createdArticle = response.data;
+                            }).catch(error => {
+                                this.submitStatus = 'ERROR'
+                                this.errors = error.response.data.errors;
+                        });
+                    }
                 }
             },
         },

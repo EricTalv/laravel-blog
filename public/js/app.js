@@ -2031,6 +2031,7 @@ __webpack_require__.r(__webpack_exports__);
         excerpt: '',
         body: ''
       },
+      submitStatus: null,
       errors: {},
       createdArticle: null,
       updatedArticle: null,
@@ -2065,21 +2066,33 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      this.errors = {};
+      this.errors = {}; // Check Validations
 
-      if (this.editData) {
-        axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
-          _this.updatedArticle = response.data;
-        })["catch"](function (error) {
-          _this.errors = error.response.data.errors;
-        });
+      this.$v.$touch(); // Check invalidity
+
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR';
       } else {
-        axios.put('/article/create', this.fields).then(function (response) {
-          _this.createdArticle = response.data;
-        })["catch"](function (error) {
-          _this.errors = error.response.data.errors;
-          console.log(_this.errors);
-        });
+        this.submitStatus = 'PENDING'; // Check if this is an EDIT request or a CREATE request
+        // EDIT REQUEST
+
+        if (this.editData) {
+          axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
+            _this.submitStatus = 'SUCCESS';
+            _this.updatedArticle = response.data;
+          })["catch"](function (error) {
+            _this.submitStatus = 'ERROR';
+            _this.errors = error.response.data.errors;
+          }); // CREATE REQUEST
+        } else {
+          axios.put('/article/create', this.fields).then(function (response) {
+            _this.submitStatus = 'SUCCESS';
+            _this.createdArticle = response.data;
+          })["catch"](function (error) {
+            _this.submitStatus = 'ERROR';
+            _this.errors = error.response.data.errors;
+          });
+        }
       }
     }
   },
