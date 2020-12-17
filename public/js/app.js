@@ -60111,81 +60111,99 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.fields.excerpt.$model,
-                  expression: "$v.fields.excerpt.$model"
-                }
-              ],
-              staticClass: "form-control ",
-              class: _vm.status(_vm.$v.fields.excerpt),
-              attrs: {
-                name: "excerpt",
-                rows: "2",
-                id: "excerpt",
-                placeholder: "Excerpt.."
-              },
-              domProps: { value: _vm.$v.fields.excerpt.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: { "form-group--error": _vm.$v.fields.excerpt.$error }
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.$v.fields.excerpt.$model,
+                    expression: "$v.fields.excerpt.$model"
                   }
-                  _vm.$set(_vm.$v.fields.excerpt, "$model", $event.target.value)
+                ],
+                staticClass: "form-control ",
+                class: _vm.status(_vm.$v.fields.excerpt),
+                attrs: {
+                  name: "excerpt",
+                  rows: "2",
+                  id: "excerpt",
+                  placeholder: "Excerpt.."
+                },
+                domProps: { value: _vm.$v.fields.excerpt.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.$v.fields.excerpt,
+                      "$model",
+                      $event.target.value
+                    )
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _vm.errors && _vm.errors.excerpt
-              ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.excerpt[0]))
-                ])
-              : _vm._e()
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.$v.fields.excerpt.$dirty && _vm.$v.fields.excerpt.$error
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [_vm._v("Excerpt is required")])
+                  ])
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _vm._m(2),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.fields.body.$model,
-                  expression: "$v.fields.body.$model"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.status(_vm.$v.fields.body),
-              attrs: {
-                name: "body",
-                rows: "3",
-                id: "body",
-                placeholder: "Body.."
-              },
-              domProps: { value: _vm.$v.fields.body.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: { "form-group--error": _vm.$v.fields.body.$error }
+            },
+            [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.$v.fields.body.$model,
+                    expression: "$v.fields.body.$model"
                   }
-                  _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
+                ],
+                staticClass: "form-control",
+                class: _vm.status(_vm.$v.fields.body),
+                attrs: {
+                  name: "body",
+                  rows: "3",
+                  id: "body",
+                  placeholder: "Body.."
+                },
+                domProps: { value: _vm.$v.fields.body.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _vm.errors && _vm.errors.body
-              ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.body[0]))
-                ])
-              : _vm._e()
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.$v.fields.body.$dirty && _vm.$v.fields.body.$error
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [_vm._v("Body is required")])
+                  ])
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -60218,19 +60236,21 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.submitStatus === "OK"
-            ? _c("div", { staticClass: "text-success" }, [
+            ? _c("p", { staticClass: "text-success my-2" }, [
                 _vm._v("Thanks for your submission!")
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.submitStatus === "ERROR"
-            ? _c("div", { staticClass: "text-danger" }, [
+            ? _c("p", { staticClass: "text-danger my-2" }, [
                 _vm._v("Please fill the form correctly.")
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.submitStatus === "PENDING"
-            ? _c("div", { staticClass: "text-warning" }, [_vm._v("Sending...")])
+            ? _c("p", { staticClass: "text-warning my-2" }, [
+                _vm._v("Sending...")
+              ])
             : _vm._e(),
           _vm._v(" "),
           _c("hr"),

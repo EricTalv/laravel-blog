@@ -20,7 +20,7 @@
                     <div class="error" v-if="$v.fields.title.$dirty && $v.fields.title.$error"><small>Title is required</small></div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
                     <label for="excerpt"><h3>Excerpt</h3></label>
                     <textarea
                         class="form-control "
@@ -32,9 +32,9 @@
                         placeholder="Excerpt.."
 
                     > </textarea>
-                    <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
+                    <div class="error" v-if="$v.fields.excerpt.$dirty && $v.fields.excerpt.$error"><small>Excerpt is required</small></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" :class="{ 'form-group--error': $v.fields.body.$error }">
                     <label for="body"><h3>Body</h3></label>
                     <textarea
                         class="form-control"
@@ -46,7 +46,7 @@
                         placeholder="Body.."
 
                     ></textarea>
-                    <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
+                <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is required</small></div>
 
                 </div>
                 <div class="form-group">
@@ -56,9 +56,9 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit</button>
-                <div class="text-success" v-if="submitStatus === 'OK'">Thanks for your submission!</div>
-                <div class="text-danger" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</div>
-                <div class="text-warning" v-if="submitStatus === 'PENDING'">Sending...</div>
+                <p class="text-success my-2" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
+                <p class="text-danger my-2" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
+                <p class="text-warning my-2" v-if="submitStatus === 'PENDING'">Sending...</p>
 
                 <hr>
                 <div class="alert alert-success" role="alert" v-if="createdArticle">
