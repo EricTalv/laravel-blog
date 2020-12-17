@@ -13,12 +13,11 @@
                         name="title"
                         id="title"
                         value=""
-
                         v-model="$v.fields.title.$model"
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div class="error" v-if="$v.fields.title.$dirty && $v.fields.title.$error">Title is required</div>
+                    <div class="error" v-if="$v.fields.title.$dirty && $v.fields.title.$error"><small>Title is required</small></div>
                 </div>
 
                 <div class="form-group">
@@ -57,9 +56,9 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit</button>
-                <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
-                <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-                <p class="typo__p" v-if="submitStatus === 'PENDING'">Sending...</p>
+                <div class="text-success" v-if="submitStatus === 'OK'">Thanks for your submission!</div>
+                <div class="text-danger" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</div>
+                <div class="text-warning" v-if="submitStatus === 'PENDING'">Sending...</div>
 
                 <hr>
                 <div class="alert alert-success" role="alert" v-if="createdArticle">

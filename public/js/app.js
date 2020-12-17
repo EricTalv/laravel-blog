@@ -2017,7 +2017,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60106,7 +60105,7 @@ var render = function() {
               _vm._v(" "),
               _vm.$v.fields.title.$dirty && _vm.$v.fields.title.$error
                 ? _c("div", { staticClass: "error" }, [
-                    _vm._v("Title is required")
+                    _c("small", [_vm._v("Title is required")])
                   ])
                 : _vm._e()
             ]
@@ -60219,19 +60218,19 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.submitStatus === "OK"
-            ? _c("p", { staticClass: "typo__p" }, [
+            ? _c("div", { staticClass: "text-success" }, [
                 _vm._v("Thanks for your submission!")
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.submitStatus === "ERROR"
-            ? _c("p", { staticClass: "typo__p" }, [
+            ? _c("div", { staticClass: "text-danger" }, [
                 _vm._v("Please fill the form correctly.")
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.submitStatus === "PENDING"
-            ? _c("p", { staticClass: "typo__p" }, [_vm._v("Sending...")])
+            ? _c("div", { staticClass: "text-warning" }, [_vm._v("Sending...")])
             : _vm._e(),
           _vm._v(" "),
           _c("hr"),
