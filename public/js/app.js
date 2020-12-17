@@ -2013,6 +2013,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6647,7 +6652,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.invalid-feedback[data-v-0940e0bf] {\n    display: block;\n}\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
+exports.push([module.i, "\n.invalid-feedback[data-v-0940e0bf] {\n    display: block;\n}\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n    color: #f54747;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
 
 // exports
 
@@ -60061,44 +60066,51 @@ var render = function() {
           }
         },
         [
-          _c("div", { staticClass: "form-group" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.fields.title.$model,
-                  expression: "$v.fields.title.$model"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.status(_vm.$v.fields.title),
-              attrs: {
-                type: "text",
-                name: "title",
-                id: "title",
-                value: "",
-                placeholder: "Title.."
-              },
-              domProps: { value: _vm.$v.fields.title.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: { "form-group--error": _vm.$v.fields.title.$error }
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.$v.fields.title.$model,
+                    expression: "$v.fields.title.$model"
                   }
-                  _vm.$set(_vm.$v.fields.title, "$model", $event.target.value)
+                ],
+                staticClass: "form-control form__input",
+                class: _vm.status(_vm.$v.fields.title),
+                attrs: {
+                  type: "text",
+                  name: "title",
+                  id: "title",
+                  value: "",
+                  placeholder: "Title.."
+                },
+                domProps: { value: _vm.$v.fields.title.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.$v.fields.title, "$model", $event.target.value)
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            !_vm.$v.fields.title.required
-              ? _c("div", { staticClass: "error" }, [
-                  _vm._v("Title is required")
-                ])
-              : _vm._e()
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.$v.fields.title.$dirty && _vm.$v.fields.title.$error
+                ? _c("div", { staticClass: "error" }, [
+                    _vm._v("Title is required")
+                  ])
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _vm._m(1),
@@ -60198,10 +60210,29 @@ var render = function() {
             "button",
             {
               staticClass: "btn btn-primary btn-lg",
-              attrs: { type: "submit" }
+              attrs: {
+                type: "submit",
+                disabled: _vm.submitStatus === "PENDING"
+              }
             },
             [_vm._v("Submit")]
           ),
+          _vm._v(" "),
+          _vm.submitStatus === "OK"
+            ? _c("p", { staticClass: "typo__p" }, [
+                _vm._v("Thanks for your submission!")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.submitStatus === "ERROR"
+            ? _c("p", { staticClass: "typo__p" }, [
+                _vm._v("Please fill the form correctly.")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.submitStatus === "PENDING"
+            ? _c("p", { staticClass: "typo__p" }, [_vm._v("Sending...")])
+            : _vm._e(),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -60330,9 +60361,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "title" } }, [
-      _c("h3", [_vm._v("Title")])
-    ])
+    return _c(
+      "label",
+      { staticClass: "form__label", attrs: { for: "title" } },
+      [_c("h3", [_vm._v("Title")])]
+    )
   },
   function() {
     var _vm = this

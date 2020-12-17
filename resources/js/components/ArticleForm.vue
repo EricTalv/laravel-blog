@@ -4,10 +4,11 @@
             <small>Create an Article</small>
             <hr>
             <form @submit.prevent="submit" novalidate>
-                <div class="form-group">
-                    <label for="title"><h3>Title</h3></label>
+
+                <div class="form-group" :class="{ 'form-group--error': $v.fields.title.$error }">
+                    <label class="form__label" for="title"><h3>Title</h3></label>
                     <input
-                        class="form-control"
+                        class="form-control form__input"
                         type="text"
                         name="title"
                         id="title"
@@ -17,7 +18,7 @@
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div class="error" v-if="!$v.fields.title.required">Title is required</div>
+                    <div class="error" v-if="$v.fields.title.$dirty && $v.fields.title.$error">Title is required</div>
                 </div>
 
                 <div class="form-group">
@@ -55,7 +56,11 @@
                     <small class="text-muted">Write something and press enter.</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit</button>
+                <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
+                <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
+                <p class="typo__p" v-if="submitStatus === 'PENDING'">Sending...</p>
+
                 <hr>
                 <div class="alert alert-success" role="alert" v-if="createdArticle">
                     <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
@@ -235,6 +240,7 @@
 
     .error {
         border-color: red;
+        color: #f54747;
     }
 
     .error:focus {
