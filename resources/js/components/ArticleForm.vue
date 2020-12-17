@@ -17,7 +17,7 @@
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div class="error" v-if="!$v.title.required">Title is required</div>
+                    <div class="error" v-if="!$v.fields.title.required">Title is required</div>
                 </div>
 
                 <div class="form-group">

@@ -60080,7 +60080,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            !_vm.$v.title.required
+            !_vm.$v.fields.title.required
               ? _c("div", { staticClass: "error" }, [
                   _vm._v("Title is required")
                 ])
