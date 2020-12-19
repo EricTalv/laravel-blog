@@ -2017,6 +2017,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2047,10 +2048,12 @@ __webpack_require__.r(__webpack_exports__);
   validations: {
     fields: {
       title: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(5)
       },
       excerpt: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
       },
       body: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
@@ -60103,9 +60106,19 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm.$v.fields.title.$dirty && _vm.$v.fields.title.$error
+              !_vm.$v.fields.title.required
                 ? _c("div", { staticClass: "error" }, [
                     _c("small", [_vm._v("Title is required")])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.$v.fields.title.maxLength
+                ? _c("div", { staticClass: "error" }, [
+                    _vm._v(
+                      "Title must have at least " +
+                        _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
+                        " letters."
+                    )
                   ])
                 : _vm._e()
             ]

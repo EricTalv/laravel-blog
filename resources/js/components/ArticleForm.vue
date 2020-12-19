@@ -17,7 +17,8 @@
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div class="error" v-if="$v.fields.title.$dirty && $v.fields.title.$error"><small>Title is required</small></div>
+                    <div class="error" v-if="!$v.fields.title.required"><small>Title is required</small></div>
+                    <div class="error" v-if="!$v.fields.title.maxLength">Title must have at least {{$v.fields.title.$params.maxLength.max}} letters.</div>
                 </div>
 
                 <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
