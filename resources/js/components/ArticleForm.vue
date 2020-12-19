@@ -17,8 +17,8 @@
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div class="error" v-if="!$v.fields.title.required"><small>Title is required</small></div>
-                    <div class="error" v-if="!$v.fields.title.maxLength">Title must have at least {{$v.fields.title.$params.maxLength.max}} letters.</div>
+                    <div class="error" v-if="$v.fields.title.$dirty && !$v.fields.title.required"><small>Title is required</small></div>
+                    <div class="error" v-if="!$v.fields.title.maxLength">Title can only have {{$v.fields.title.$params.maxLength.max}} letters.</div>
                 </div>
 
                 <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
@@ -33,7 +33,9 @@
                         placeholder="Excerpt.."
 
                     > </textarea>
-                    <div class="error" v-if="$v.fields.excerpt.$dirty && $v.fields.excerpt.$error"><small>Excerpt is required</small></div>
+                    <div class="error" v-if="$v.fields.excerpt.$dirty && !$v.fields.excerpt.required"><small>Excerpt is required</small></div>
+                    <div class="error" v-if="!$v.fields.excerpt.maxLength"><small>Excerpt can only have {{$v.fields.excerpt.$params.maxLength.max}} letters.</small></div>
+
                 </div>
                 <div class="form-group" :class="{ 'form-group--error': $v.fields.body.$error }">
                     <label for="body"><h3>Body</h3></label>
@@ -139,7 +141,7 @@
             fields: {
                 title: {
                     required,
-                    maxLength: maxLength(5)
+                    maxLength: maxLength(255)
                 },
                 excerpt: {
                     required,

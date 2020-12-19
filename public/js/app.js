@@ -2018,6 +2018,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2049,7 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
     fields: {
       title: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(5)
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
       },
       excerpt: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
@@ -60106,7 +60108,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              !_vm.$v.fields.title.required
+              _vm.$v.fields.title.$dirty && !_vm.$v.fields.title.required
                 ? _c("div", { staticClass: "error" }, [
                     _c("small", [_vm._v("Title is required")])
                   ])
@@ -60115,7 +60117,7 @@ var render = function() {
               !_vm.$v.fields.title.maxLength
                 ? _c("div", { staticClass: "error" }, [
                     _vm._v(
-                      "Title must have at least " +
+                      "Title can only have " +
                         _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
                         " letters."
                     )
@@ -60165,9 +60167,21 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm.$v.fields.excerpt.$dirty && _vm.$v.fields.excerpt.$error
+              _vm.$v.fields.excerpt.$dirty && !_vm.$v.fields.excerpt.required
                 ? _c("div", { staticClass: "error" }, [
                     _c("small", [_vm._v("Excerpt is required")])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.$v.fields.excerpt.maxLength
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [
+                      _vm._v(
+                        "Excerpt can only have " +
+                          _vm._s(_vm.$v.fields.excerpt.$params.maxLength.max) +
+                          " letters."
+                      )
+                    ])
                   ])
                 : _vm._e()
             ]
