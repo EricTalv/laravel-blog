@@ -60116,11 +60116,13 @@ var render = function() {
               _vm._v(" "),
               !_vm.$v.fields.title.maxLength
                 ? _c("div", { staticClass: "error" }, [
-                    _vm._v(
-                      "Title can only have " +
-                        _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
-                        " letters."
-                    )
+                    _c("small", [
+                      _vm._v(
+                        "Title can only have " +
+                          _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
+                          " letters."
+                      )
+                    ])
                   ])
                 : _vm._e()
             ]

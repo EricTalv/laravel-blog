@@ -18,7 +18,7 @@
                         placeholder="Title.."
                     />
                     <div class="error" v-if="$v.fields.title.$dirty && !$v.fields.title.required"><small>Title is required</small></div>
-                    <div class="error" v-if="!$v.fields.title.maxLength">Title can only have {{$v.fields.title.$params.maxLength.max}} letters.</div>
+                    <div class="error" v-if="!$v.fields.title.maxLength"><small>Title can only have {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                 </div>
 
                 <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
