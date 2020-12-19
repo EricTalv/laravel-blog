@@ -105,7 +105,7 @@
 
 <script>
 
-    import {required} from 'vuelidate/lib/validators';
+    import {required,maxLength} from 'vuelidate/lib/validators';
     import moment from 'moment';
 
     export default {
@@ -138,9 +138,11 @@
             fields: {
                 title: {
                     required,
+                    maxLength: maxLength(5)
                 },
                 excerpt: {
                     required,
+                    maxLength: maxLength(255)
                 },
                 body: {
                     required,
