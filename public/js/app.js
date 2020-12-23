@@ -2019,6 +2019,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2114,7 +2121,7 @@ __webpack_require__.r(__webpack_exports__);
       this.fields.title = this.editData.title;
       this.fields.excerpt = this.editData.excerpt;
       this.fields.body = this.editData.body;
-      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('Do.MMM.YYYY');
+      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.editData.created_at).format('D MMM, YYYY');
     } else {
       this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('D MMM, YYYY');
     }
@@ -60113,7 +60120,9 @@ var render = function() {
               _vm._v(" "),
               _vm.$v.fields.title.$dirty && !_vm.$v.fields.title.required
                 ? _c("div", { staticClass: "error" }, [
-                    _c("small", [_vm._v("Title is required")])
+                    _c("small", [
+                      _vm._v("Title is\n                    required")
+                    ])
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -60121,7 +60130,7 @@ var render = function() {
                 ? _c("div", { staticClass: "error" }, [
                     _c("small", [
                       _vm._v(
-                        "Title can only have " +
+                        "Title can only have\n                    " +
                           _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
                           " letters."
                       )
@@ -60174,7 +60183,9 @@ var render = function() {
               _vm._v(" "),
               _vm.$v.fields.excerpt.$dirty && !_vm.$v.fields.excerpt.required
                 ? _c("div", { staticClass: "error" }, [
-                    _c("small", [_vm._v("Excerpt is required")])
+                    _c("small", [
+                      _vm._v("Excerpt is\n                    required")
+                    ])
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -60182,7 +60193,7 @@ var render = function() {
                 ? _c("div", { staticClass: "error" }, [
                     _c("small", [
                       _vm._v(
-                        "Excerpt can only have " +
+                        "Excerpt can only have\n                    " +
                           _vm._s(_vm.$v.fields.excerpt.$params.maxLength.max) +
                           " letters."
                       )
@@ -60231,7 +60242,9 @@ var render = function() {
               _vm._v(" "),
               _vm.$v.fields.body.$dirty && _vm.$v.fields.body.$error
                 ? _c("div", { staticClass: "error" }, [
-                    _c("small", [_vm._v("Body is required")])
+                    _c("small", [
+                      _vm._v("Body is\n                    required")
+                    ])
                   ])
                 : _vm._e()
             ]
@@ -60264,7 +60277,7 @@ var render = function() {
                 disabled: _vm.submitStatus === "PENDING"
               }
             },
-            [_vm._v("Submit")]
+            [_vm._v("Submit\n            ")]
           ),
           _vm._v(" "),
           _vm.submitStatus === "OK"
@@ -60367,17 +60380,19 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "bg-white p-2 rounded border border-light" }, [
         _c("div", { staticClass: "title" }, [
-          _c("small", { staticClass: "text-muted" }, [
-            _vm._v(
-              _vm._s(this.$userName) + " | " + _vm._s(this.articleDateTime.date)
-            )
+          _c("div", { staticClass: "clearfix" }, [
+            _c("small", { staticClass: "text-muted float-left" }, [
+              _vm._v(_vm._s(this.$userName))
+            ]),
+            _vm._v(" "),
+            _c("small", { staticClass: "text-muted float-right" }, [
+              _vm._v(_vm._s(this.articleDateTime.date))
+            ])
           ]),
           _vm._v(" "),
-          _c("h4", [
-            _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
-              _c("h3", [
-                _vm._v(_vm._s(_vm.fields.title ? _vm.fields.title : "Title"))
-              ])
+          _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
+            _c("h3", [
+              _vm._v(_vm._s(_vm.fields.title ? _vm.fields.title : "Title"))
             ])
           ])
         ]),

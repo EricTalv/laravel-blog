@@ -17,8 +17,10 @@
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div class="error" v-if="$v.fields.title.$dirty && !$v.fields.title.required"><small>Title is required</small></div>
-                    <div class="error" v-if="!$v.fields.title.maxLength"><small>Title can only have {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
+                    <div class="error" v-if="$v.fields.title.$dirty && !$v.fields.title.required"><small>Title is
+                        required</small></div>
+                    <div class="error" v-if="!$v.fields.title.maxLength"><small>Title can only have
+                        {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                 </div>
 
                 <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
@@ -33,8 +35,10 @@
                         placeholder="Excerpt.."
 
                     > </textarea>
-                    <div class="error" v-if="$v.fields.excerpt.$dirty && !$v.fields.excerpt.required"><small>Excerpt is required</small></div>
-                    <div class="error" v-if="!$v.fields.excerpt.maxLength"><small>Excerpt can only have {{$v.fields.excerpt.$params.maxLength.max}} letters.</small></div>
+                    <div class="error" v-if="$v.fields.excerpt.$dirty && !$v.fields.excerpt.required"><small>Excerpt is
+                        required</small></div>
+                    <div class="error" v-if="!$v.fields.excerpt.maxLength"><small>Excerpt can only have
+                        {{$v.fields.excerpt.$params.maxLength.max}} letters.</small></div>
 
                 </div>
                 <div class="form-group" :class="{ 'form-group--error': $v.fields.body.$error }">
@@ -49,7 +53,8 @@
                         placeholder="Body.."
 
                     ></textarea>
-                <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is required</small></div>
+                    <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is
+                        required</small></div>
 
                 </div>
                 <div class="form-group">
@@ -58,7 +63,8 @@
                     <small class="text-muted">Write something and press enter.</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit
+                </button>
                 <p class="text-success my-2" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
                 <p class="text-danger my-2" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
                 <p class="text-warning my-2" v-if="submitStatus === 'PENDING'">Sending...</p>
@@ -83,13 +89,14 @@
             <hr>
             <div class="bg-white p-2 rounded border border-light">
                 <div class="title">
-                    <small class="text-muted">{{ this.$userName }} | {{ this.articleDateTime.date }}</small>
-                    <h4>
-                    <span
-                        class="text-capitalize font-weight-bold">
+                    <div class="clearfix">
+                        <small class="text-muted float-left">{{ this.$userName }}</small>
+                        <small class="text-muted float-right">{{ this.articleDateTime.date }}</small>
+                    </div>
+
+                    <span class="text-capitalize font-weight-bold">
                         <h3>{{ fields.title ? fields.title : 'Title' }}</h3>
                     </span>
-                    </h4>
                 </div>
                 <div class="prev">
                     <span>{{ fields.excerpt ? fields.excerpt : 'Excerpt' }}</span>
@@ -107,7 +114,7 @@
 
 <script>
 
-    import {required,maxLength} from 'vuelidate/lib/validators';
+    import {required, maxLength} from 'vuelidate/lib/validators';
     import moment from 'moment';
 
     export default {
@@ -182,8 +189,8 @@
                                 this.submitStatus = 'SUCCESS'
                                 this.updatedArticle = response.data;
                             }).catch(error => {
-                                this.submitStatus = 'ERROR'
-                                this.errors = error.response.data.errors;
+                            this.submitStatus = 'ERROR'
+                            this.errors = error.response.data.errors;
                         });
                         // CREATE REQUEST
                     } else {
@@ -192,8 +199,8 @@
                                 this.submitStatus = 'SUCCESS'
                                 this.createdArticle = response.data;
                             }).catch(error => {
-                                this.submitStatus = 'ERROR'
-                                this.errors = error.response.data.errors;
+                            this.submitStatus = 'ERROR'
+                            this.errors = error.response.data.errors;
                         });
                     }
                 }
@@ -211,7 +218,7 @@
                 this.fields.excerpt = this.editData.excerpt
                 this.fields.body = this.editData.body
 
-                this.articleDateTime.date = moment(this.editData.created_at).format('Do.MMM.YYYY')
+                this.articleDateTime.date = moment(this.editData.created_at).format('D MMM, YYYY')
             } else {
                 this.articleDateTime.date = moment().format('D MMM, YYYY');
             }
