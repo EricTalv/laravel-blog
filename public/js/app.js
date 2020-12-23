@@ -2012,8 +2012,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
 //
 //
@@ -2021,8 +2019,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
->>>>>>> 8bab4410d1e9e6f7aa2ccf19167c4d52a32196e7
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2165,6 +2161,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2178,6 +2175,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   mounted: function mounted() {
+    // Find out if we have any existing data
     if (this.editDataTags) {
       var _iterator = _createForOfIteratorHelper(this.editDataTags),
           _step;
@@ -2193,6 +2191,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         _iterator.f();
       }
 
+      this.$emit('updatetags', this.tags);
+    }
+  },
+  computed: {
+    emitTags: function emitTags() {
       this.$emit('updatetags', this.tags);
     }
   }
@@ -74999,8 +75002,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

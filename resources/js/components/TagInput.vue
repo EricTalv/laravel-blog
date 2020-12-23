@@ -7,6 +7,7 @@
               <span class="m-1">{{ tag }}</span>
               <button type="button" class="tag-remove"
                       v-on:click="removeTag(tag)"
+
               >&times;
              </button>
             </span>
@@ -34,11 +35,11 @@
         methods: {
             sendTags() {
                 this.$emit('updatetags', this.tags)
-
             }
         },
 
         mounted() {
+            // Find out if we have any existing data
             if( this.editDataTags ) {
                 for(let tag of this.editDataTags) {
                     this.tags.push(tag.name)
@@ -46,8 +47,14 @@
 
                 this.$emit('updatetags', this.tags)
             }
+        },
 
+        computed: {
+            emitTags: function () {
+                this.$emit('updatetags', this.tags)
+            }
         }
+
 
     }
 </script>
