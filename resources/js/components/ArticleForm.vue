@@ -1,17 +1,19 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="alert alert-success" role="alert" v-if="createdArticle">
-                <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
-                <p>You have successfully made an article.</p>
-                <hr>
-                <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
-            </div>
-            <div class="alert alert-success" role="alert" v-if="updatedArticle">
-                <h4 class="alert-heading">Article <b>"{{ updatedArticle.title }}"</b> Updated!</h4>
-                <p>You have successfully Updated the article.</p>
-                <hr>
-                <a target="_blank" v-bind:href="'/articles/' + updatedArticle.id">Check it out here</a>
+        <div class="row" v-if="createdArticle || updatedArticle">
+            <div class="col-12">
+                <div class="alert alert-success" role="alert" v-if="createdArticle">
+                    <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
+                    <p>You have successfully made an article.</p>
+                    <hr>
+                    <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
+                </div>
+                <div class="alert alert-success" role="alert" v-if="updatedArticle">
+                    <h4 class="alert-heading">Article <b>"{{ updatedArticle.title }}"</b> Updated!</h4>
+                    <p>You have successfully Updated the article.</p>
+                    <hr>
+                    <a target="_blank" v-bind:href="'/articles/' + updatedArticle.id">Check it out here</a>
+                </div>
             </div>
         </div>
 

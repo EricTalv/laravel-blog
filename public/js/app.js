@@ -2036,6 +2036,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60073,65 +60075,81 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _vm.createdArticle
-        ? _c(
-            "div",
-            { staticClass: "alert alert-success", attrs: { role: "alert" } },
-            [
-              _c("h4", { staticClass: "alert-heading" }, [
-                _vm._v("Article "),
-                _c("b", [_vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')]),
-                _vm._v(" Created!")
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v("You have successfully made an article.")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  attrs: {
-                    target: "_blank",
-                    href: "/articles/" + _vm.createdArticle.id
-                  }
-                },
-                [_vm._v("Check it out here")]
-              )
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.updatedArticle
-        ? _c(
-            "div",
-            { staticClass: "alert alert-success", attrs: { role: "alert" } },
-            [
-              _c("h4", { staticClass: "alert-heading" }, [
-                _vm._v("Article "),
-                _c("b", [_vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')]),
-                _vm._v(" Updated!")
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v("You have successfully Updated the article.")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  attrs: {
-                    target: "_blank",
-                    href: "/articles/" + _vm.updatedArticle.id
-                  }
-                },
-                [_vm._v("Check it out here")]
-              )
-            ]
-          )
-        : _vm._e()
-    ]),
+    _vm.createdArticle || _vm.updatedArticle
+      ? _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _vm.createdArticle
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-success",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _c("h4", { staticClass: "alert-heading" }, [
+                      _vm._v("Article "),
+                      _c("b", [
+                        _vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')
+                      ]),
+                      _vm._v(" Created!")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("You have successfully made an article.")]),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          target: "_blank",
+                          href: "/articles/" + _vm.createdArticle.id
+                        }
+                      },
+                      [_vm._v("Check it out here")]
+                    )
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.updatedArticle
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-success",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _c("h4", { staticClass: "alert-heading" }, [
+                      _vm._v("Article "),
+                      _c("b", [
+                        _vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')
+                      ]),
+                      _vm._v(" Updated!")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v("You have successfully Updated the article.")
+                    ]),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          target: "_blank",
+                          href: "/articles/" + _vm.updatedArticle.id
+                        }
+                      },
+                      [_vm._v("Check it out here")]
+                    )
+                  ]
+                )
+              : _vm._e()
+          ])
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-6" }, [
