@@ -60075,7 +60075,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm.createdArticle || _vm.updatedArticle
+    (_vm.createdArticle || _vm.updatedArticle) && !this.$v.$invalid
       ? _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-12" }, [
             _vm.createdArticle
