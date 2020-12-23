@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row" v-if="(createdArticle || updatedArticle) && !this.$v.$invalid ">
+        <div class="row" v-if="(createdArticle || updatedArticle)">
             <div class="col-12">
                 <div class="alert alert-success" role="alert" v-if="createdArticle">
                     <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
