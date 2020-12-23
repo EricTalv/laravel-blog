@@ -33,11 +33,6 @@
         // Fetch existing tags from
         props: ['editDataTags'],
 
-        methods: {
-            sendTags() {
-            }
-        },
-
         mounted() {
             // Find out if we have any existing data
             if( this.editDataTags ) {
@@ -51,10 +46,8 @@
 
         watch: {
             // When a tag is added or removed, Emit the tag to parent container
-            checkTagsActivity: function () {
-                if (this.tags) {
-                    this.$emit('updatetags', this.tags)
-                }
+            tags: function (value) {
+                this.$emit('updatetags', value)
             }
         }
 

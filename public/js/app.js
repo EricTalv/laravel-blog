@@ -2170,9 +2170,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   // Fetch existing tags from
   props: ['editDataTags'],
-  methods: {
-    sendTags: function sendTags() {}
-  },
   mounted: function mounted() {
     // Find out if we have any existing data
     if (this.editDataTags) {
@@ -2195,10 +2192,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   watch: {
     // When a tag is added or removed, Emit the tag to parent container
-    checkTagsActivity: function checkTagsActivity() {
-      if (this.tags) {
-        this.$emit('updatetags', this.tags);
-      }
+    tags: function tags(value) {
+      this.$emit('updatetags', value);
     }
   }
 });
