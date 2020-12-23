@@ -101,6 +101,7 @@
                 <div class="prev">
                     <span>{{ fields.excerpt ? fields.excerpt : 'Excerpt' }}</span>
                 </div>
+                <hr>
                 <div class="prev">
                     <span>{{ fields.body ? fields.body : 'Body' }}</span>
                 </div>

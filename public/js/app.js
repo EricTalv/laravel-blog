@@ -2026,6 +2026,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60402,6 +60403,8 @@ var render = function() {
             _vm._v(_vm._s(_vm.fields.excerpt ? _vm.fields.excerpt : "Excerpt"))
           ])
         ]),
+        _vm._v(" "),
+        _c("hr"),
         _vm._v(" "),
         _c("div", { staticClass: "prev" }, [
           _c("span", [
