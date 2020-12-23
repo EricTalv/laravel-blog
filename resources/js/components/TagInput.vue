@@ -30,11 +30,11 @@
                 tags: [],
             }
         },
+        // Fetch existing tags from
         props: ['editDataTags'],
 
         methods: {
             sendTags() {
-                this.$emit('updatetags', this.tags)
             }
         },
 
@@ -49,9 +49,12 @@
             }
         },
 
-        computed: {
-            emitTags: function () {
-                this.$emit('updatetags', this.tags)
+        watch: {
+            // When a tag is added or removed, Emit the tag to parent container
+            checkTagsActivity: function () {
+                if (this.tags) {
+                    this.$emit('updatetags', this.tags)
+                }
             }
         }
 

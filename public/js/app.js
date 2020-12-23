@@ -2168,11 +2168,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       tags: []
     };
   },
+  // Fetch existing tags from
   props: ['editDataTags'],
   methods: {
-    sendTags: function sendTags() {
-      this.$emit('updatetags', this.tags);
-    }
+    sendTags: function sendTags() {}
   },
   mounted: function mounted() {
     // Find out if we have any existing data
@@ -2194,9 +2193,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.$emit('updatetags', this.tags);
     }
   },
-  computed: {
-    emitTags: function emitTags() {
-      this.$emit('updatetags', this.tags);
+  watch: {
+    // When a tag is added or removed, Emit the tag to parent container
+    checkTagsActivity: function checkTagsActivity() {
+      if (this.tags) {
+        this.$emit('updatetags', this.tags);
+      }
     }
   }
 });
