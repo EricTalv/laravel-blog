@@ -3,24 +3,25 @@
         <div class="col-6">
             <small>Create an Article</small>
             <hr>
-            <form @submit.prevent="submit">
-                <div class="form-group">
-                    <label for="title"><h3>Title</h3></label>
+            <form @submit.prevent="submit" novalidate>
+
+                <div class="form-group" :class="{ 'form-group--error': $v.fields.title.$error }">
+                    <label class="form__label" for="title"><h3>Title</h3></label>
                     <input
-                        class="form-control"
+                        class="form-control form__input"
                         type="text"
                         name="title"
                         id="title"
                         value=""
-
                         v-model="$v.fields.title.$model"
                         :class="status($v.fields.title)"
                         placeholder="Title.."
                     />
-                    <div v-if=" errors.title" class="invalid-feedback">{{ errors.title[0] }}</div>
+                    <div class="error" v-if="$v.fields.title.$dirty && !$v.fields.title.required"><small>Title is required</small></div>
+                    <div class="error" v-if="!$v.fields.title.maxLength"><small>Title can only have {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
                     <label for="excerpt"><h3>Excerpt</h3></label>
                     <textarea
                         class="form-control "
@@ -32,9 +33,11 @@
                         placeholder="Excerpt.."
 
                     > </textarea>
-                    <div v-if="errors && errors.excerpt" class="invalid-feedback">{{ errors.excerpt[0] }}</div>
+                    <div class="error" v-if="$v.fields.excerpt.$dirty && !$v.fields.excerpt.required"><small>Excerpt is required</small></div>
+                    <div class="error" v-if="!$v.fields.excerpt.maxLength"><small>Excerpt can only have {{$v.fields.excerpt.$params.maxLength.max}} letters.</small></div>
+
                 </div>
-                <div class="form-group">
+                <div class="form-group" :class="{ 'form-group--error': $v.fields.body.$error }">
                     <label for="body"><h3>Body</h3></label>
                     <textarea
                         class="form-control"
@@ -46,7 +49,7 @@
                         placeholder="Body.."
 
                     ></textarea>
-                    <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
+                <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is required</small></div>
 
                 </div>
                 <div class="form-group">
@@ -55,7 +58,11 @@
                     <small class="text-muted">Write something and press enter.</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit</button>
+                <p class="text-success my-2" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
+                <p class="text-danger my-2" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
+                <p class="text-warning my-2" v-if="submitStatus === 'PENDING'">Sending...</p>
+
                 <hr>
                 <div class="alert alert-success" role="alert" v-if="createdArticle">
                     <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
@@ -100,7 +107,7 @@
 
 <script>
 
-    import {required} from 'vuelidate/lib/validators';
+    import {required,maxLength} from 'vuelidate/lib/validators';
     import moment from 'moment';
 
     export default {
@@ -119,6 +126,7 @@
                     body: '',
 
                 },
+                submitStatus: null,
                 errors: {},
                 createdArticle: null,
                 updatedArticle: null,
@@ -132,9 +140,11 @@
             fields: {
                 title: {
                     required,
+                    maxLength: maxLength(255)
                 },
                 excerpt: {
                     required,
+                    maxLength: maxLength(255)
                 },
                 body: {
                     required,
@@ -157,20 +167,35 @@
             submit() {
                 this.errors = {};
 
-                if (this.editData) {
-                    axios.put('/articles/' + this.editData.id, this.fields)
-                        .then(response => {
-                            this.updatedArticle = response.data;
-                        }).catch(error => {
-                        this.errors = error.response.data.errors;
-                    });
+                // Check Validations
+                this.$v.$touch();
+                // Check invalidity
+                if (this.$v.$invalid) {
+                    this.submitStatus = 'ERROR'
                 } else {
-                    axios.put('/article/create', this.fields)
-                        .then(response => {
-                            this.createdArticle = response.data;
-                        }).catch(error => {
-                        this.errors = error.response.data.errors;
-                    });
+                    this.submitStatus = 'PENDING'
+                    // Check if this is an EDIT request or a CREATE request
+                    // EDIT REQUEST
+                    if (this.editData) {
+                        axios.put('/articles/' + this.editData.id, this.fields)
+                            .then(response => {
+                                this.submitStatus = 'SUCCESS'
+                                this.updatedArticle = response.data;
+                            }).catch(error => {
+                                this.submitStatus = 'ERROR'
+                                this.errors = error.response.data.errors;
+                        });
+                        // CREATE REQUEST
+                    } else {
+                        axios.put('/article/create', this.fields)
+                            .then(response => {
+                                this.submitStatus = 'SUCCESS'
+                                this.createdArticle = response.data;
+                            }).catch(error => {
+                                this.submitStatus = 'ERROR'
+                                this.errors = error.response.data.errors;
+                        });
+                    }
                 }
             },
         },
@@ -197,6 +222,9 @@
 
 <style scoped>
 
+    .invalid-feedback {
+        display: block;
+    }
 
     input {
         border: 1px solid silver;
@@ -215,6 +243,7 @@
 
     .error {
         border-color: red;
+        color: #f54747;
     }
 
     .error:focus {

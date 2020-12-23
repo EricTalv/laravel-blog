@@ -1,5 +1,5 @@
 
-## About This Project
+## About This Project. 
 
 This is a part of my *100-days-of-code* challenge,
 
@@ -27,6 +27,7 @@ MVP: Blog post must include:
 legend:
 [ ]  <- not done yet
 [X]  <- done
+[ ]* <- stretch goals 
 ----- 
 
 [ ] How do we Determine _Featured Articles_
@@ -36,10 +37,10 @@ legend:
  [X] better tagger
  [X] pagination
  [ ] CRUD operations
- [ ] Tagging
+ [X] Tagging
  [ ] Comments
  [ ] User Pages
- [ ] Lorem Generator for Articles 
+ [ ]* Lorem Generator for Articles 
  [ ] Article view counter 
  [ ] Article read estimater
  [X] Dynamic Titles
@@ -75,7 +76,7 @@ legend:
   [X] Edit btn
   [ ] Delete btn
   [ ] Paginate
- [ ] Profile Settings
+ [ ]* Profile Settings
   [ ] Change Username
   [ ] Change Email
   [ ] Change Password
@@ -86,16 +87,16 @@ legend:
  [ ] Markdown support
  [ ] Cover Image
  [ ] Article preview
- [ ] Sucess messages
+ [X] Sucess messages
  [X] Error handling
 
   [X] Featured Article section
   [X] Latest article
 
-  [ ] Add Tags option
+  [X] Add Tags option
    [X] Show
    [X] Index
-   [ ] Edit
+   [X] Edit
    [X] Create
 
  [X] CRUD Pages Design

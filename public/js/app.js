@@ -2012,6 +2012,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+//
+//
+//
+//
+//
+>>>>>>> 8bab4410d1e9e6f7aa2ccf19167c4d52a32196e7
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2030,6 +2041,7 @@ __webpack_require__.r(__webpack_exports__);
         excerpt: '',
         body: ''
       },
+      submitStatus: null,
       errors: {},
       createdArticle: null,
       updatedArticle: null,
@@ -2041,10 +2053,12 @@ __webpack_require__.r(__webpack_exports__);
   validations: {
     fields: {
       title: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
       },
       excerpt: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
       },
       body: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
@@ -2064,20 +2078,33 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      this.errors = {};
+      this.errors = {}; // Check Validations
 
-      if (this.editData) {
-        axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
-          _this.updatedArticle = response.data;
-        })["catch"](function (error) {
-          _this.errors = error.response.data.errors;
-        });
+      this.$v.$touch(); // Check invalidity
+
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR';
       } else {
-        axios.put('/article/create', this.fields).then(function (response) {
-          _this.createdArticle = response.data;
-        })["catch"](function (error) {
-          _this.errors = error.response.data.errors;
-        });
+        this.submitStatus = 'PENDING'; // Check if this is an EDIT request or a CREATE request
+        // EDIT REQUEST
+
+        if (this.editData) {
+          axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
+            _this.submitStatus = 'SUCCESS';
+            _this.updatedArticle = response.data;
+          })["catch"](function (error) {
+            _this.submitStatus = 'ERROR';
+            _this.errors = error.response.data.errors;
+          }); // CREATE REQUEST
+        } else {
+          axios.put('/article/create', this.fields).then(function (response) {
+            _this.submitStatus = 'SUCCESS';
+            _this.createdArticle = response.data;
+          })["catch"](function (error) {
+            _this.submitStatus = 'ERROR';
+            _this.errors = error.response.data.errors;
+          });
+        }
       }
     }
   },
@@ -6632,7 +6659,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
+exports.push([module.i, "\n.invalid-feedback[data-v-0940e0bf] {\n    display: block;\n}\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n    color: #f54747;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
 
 // exports
 
@@ -60037,6 +60064,7 @@ var render = function() {
       _c(
         "form",
         {
+          attrs: { novalidate: "" },
           on: {
             submit: function($event) {
               $event.preventDefault()
@@ -60045,120 +60073,169 @@ var render = function() {
           }
         },
         [
-          _c("div", { staticClass: "form-group" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.fields.title.$model,
-                  expression: "$v.fields.title.$model"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.status(_vm.$v.fields.title),
-              attrs: {
-                type: "text",
-                name: "title",
-                id: "title",
-                value: "",
-                placeholder: "Title.."
-              },
-              domProps: { value: _vm.$v.fields.title.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: { "form-group--error": _vm.$v.fields.title.$error }
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.$v.fields.title.$model,
+                    expression: "$v.fields.title.$model"
                   }
-                  _vm.$set(_vm.$v.fields.title, "$model", $event.target.value)
+                ],
+                staticClass: "form-control form__input",
+                class: _vm.status(_vm.$v.fields.title),
+                attrs: {
+                  type: "text",
+                  name: "title",
+                  id: "title",
+                  value: "",
+                  placeholder: "Title.."
+                },
+                domProps: { value: _vm.$v.fields.title.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.$v.fields.title, "$model", $event.target.value)
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _vm.errors.title
-              ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.title[0]))
-                ])
-              : _vm._e()
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.$v.fields.title.$dirty && !_vm.$v.fields.title.required
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [_vm._v("Title is required")])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.$v.fields.title.maxLength
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [
+                      _vm._v(
+                        "Title can only have " +
+                          _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
+                          " letters."
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.fields.excerpt.$model,
-                  expression: "$v.fields.excerpt.$model"
-                }
-              ],
-              staticClass: "form-control ",
-              class: _vm.status(_vm.$v.fields.excerpt),
-              attrs: {
-                name: "excerpt",
-                rows: "2",
-                id: "excerpt",
-                placeholder: "Excerpt.."
-              },
-              domProps: { value: _vm.$v.fields.excerpt.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: { "form-group--error": _vm.$v.fields.excerpt.$error }
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.$v.fields.excerpt.$model,
+                    expression: "$v.fields.excerpt.$model"
                   }
-                  _vm.$set(_vm.$v.fields.excerpt, "$model", $event.target.value)
+                ],
+                staticClass: "form-control ",
+                class: _vm.status(_vm.$v.fields.excerpt),
+                attrs: {
+                  name: "excerpt",
+                  rows: "2",
+                  id: "excerpt",
+                  placeholder: "Excerpt.."
+                },
+                domProps: { value: _vm.$v.fields.excerpt.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.$v.fields.excerpt,
+                      "$model",
+                      $event.target.value
+                    )
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _vm.errors && _vm.errors.excerpt
-              ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.excerpt[0]))
-                ])
-              : _vm._e()
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.$v.fields.excerpt.$dirty && !_vm.$v.fields.excerpt.required
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [_vm._v("Excerpt is required")])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.$v.fields.excerpt.maxLength
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [
+                      _vm._v(
+                        "Excerpt can only have " +
+                          _vm._s(_vm.$v.fields.excerpt.$params.maxLength.max) +
+                          " letters."
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _vm._m(2),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.fields.body.$model,
-                  expression: "$v.fields.body.$model"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.status(_vm.$v.fields.body),
-              attrs: {
-                name: "body",
-                rows: "3",
-                id: "body",
-                placeholder: "Body.."
-              },
-              domProps: { value: _vm.$v.fields.body.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: { "form-group--error": _vm.$v.fields.body.$error }
+            },
+            [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.$v.fields.body.$model,
+                    expression: "$v.fields.body.$model"
                   }
-                  _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
+                ],
+                staticClass: "form-control",
+                class: _vm.status(_vm.$v.fields.body),
+                attrs: {
+                  name: "body",
+                  rows: "3",
+                  id: "body",
+                  placeholder: "Body.."
+                },
+                domProps: { value: _vm.$v.fields.body.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _vm.errors && _vm.errors.body
-              ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.body[0]))
-                ])
-              : _vm._e()
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.$v.fields.body.$dirty && _vm.$v.fields.body.$error
+                ? _c("div", { staticClass: "error" }, [
+                    _c("small", [_vm._v("Body is required")])
+                  ])
+                : _vm._e()
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -60182,10 +60259,31 @@ var render = function() {
             "button",
             {
               staticClass: "btn btn-primary btn-lg",
-              attrs: { type: "submit" }
+              attrs: {
+                type: "submit",
+                disabled: _vm.submitStatus === "PENDING"
+              }
             },
             [_vm._v("Submit")]
           ),
+          _vm._v(" "),
+          _vm.submitStatus === "OK"
+            ? _c("p", { staticClass: "text-success my-2" }, [
+                _vm._v("Thanks for your submission!")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.submitStatus === "ERROR"
+            ? _c("p", { staticClass: "text-danger my-2" }, [
+                _vm._v("Please fill the form correctly.")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.submitStatus === "PENDING"
+            ? _c("p", { staticClass: "text-warning my-2" }, [
+                _vm._v("Sending...")
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
@@ -60319,9 +60417,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "title" } }, [
-      _c("h3", [_vm._v("Title")])
-    ])
+    return _c(
+      "label",
+      { staticClass: "form__label", attrs: { for: "title" } },
+      [_c("h3", [_vm._v("Title")])]
+    )
   },
   function() {
     var _vm = this
@@ -74899,8 +74999,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\erict\Desktop\Websites\laravel-blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/luella.../Desktop/erics stuff/websites/laravel-blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
