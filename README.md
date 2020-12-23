@@ -55,6 +55,9 @@ legend:
   [ ] Comments 
   [X] Tagger component  
 
+  [ ]* Add dropdown of existing tags to tag input
+  [ ]* Pop-Up Modal for success message 
+
 [X] Add all functionality also to Edit page
 [X] Create 1 component for creating/editing articles
 
