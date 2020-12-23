@@ -2027,6 +2027,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -60063,369 +60072,375 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-6" }, [
-      _c("small", [_vm._v("Create an Article")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          attrs: { novalidate: "" },
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.submit($event)
-            }
-          }
-        },
-        [
-          _c(
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _vm.createdArticle
+        ? _c(
             "div",
-            {
-              staticClass: "form-group",
-              class: { "form-group--error": _vm.$v.fields.title.$error }
-            },
+            { staticClass: "alert alert-success", attrs: { role: "alert" } },
             [
-              _vm._m(0),
+              _c("h4", { staticClass: "alert-heading" }, [
+                _vm._v("Article "),
+                _c("b", [_vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')]),
+                _vm._v(" Created!")
+              ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.$v.fields.title.$model,
-                    expression: "$v.fields.title.$model"
-                  }
-                ],
-                staticClass: "form-control form__input",
-                class: _vm.status(_vm.$v.fields.title),
-                attrs: {
-                  type: "text",
-                  name: "title",
-                  id: "title",
-                  value: "",
-                  placeholder: "Title.."
-                },
-                domProps: { value: _vm.$v.fields.title.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.$v.fields.title, "$model", $event.target.value)
-                  }
-                }
-              }),
+              _c("p", [_vm._v("You have successfully made an article.")]),
               _vm._v(" "),
-              _vm.$v.fields.title.$dirty && !_vm.$v.fields.title.required
-                ? _c("div", { staticClass: "error" }, [
-                    _c("small", [
-                      _vm._v("Title is\n                    required")
-                    ])
-                  ])
-                : _vm._e(),
+              _c("hr"),
               _vm._v(" "),
-              !_vm.$v.fields.title.maxLength
-                ? _c("div", { staticClass: "error" }, [
-                    _c("small", [
-                      _vm._v(
-                        "Title can only have\n                    " +
-                          _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
-                          " letters."
-                      )
-                    ])
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "form-group",
-              class: { "form-group--error": _vm.$v.fields.excerpt.$error }
-            },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.$v.fields.excerpt.$model,
-                    expression: "$v.fields.excerpt.$model"
-                  }
-                ],
-                staticClass: "form-control ",
-                class: _vm.status(_vm.$v.fields.excerpt),
-                attrs: {
-                  name: "excerpt",
-                  rows: "2",
-                  id: "excerpt",
-                  placeholder: "Excerpt.."
-                },
-                domProps: { value: _vm.$v.fields.excerpt.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.$v.fields.excerpt,
-                      "$model",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.$v.fields.excerpt.$dirty && !_vm.$v.fields.excerpt.required
-                ? _c("div", { staticClass: "error" }, [
-                    _c("small", [
-                      _vm._v("Excerpt is\n                    required")
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              !_vm.$v.fields.excerpt.maxLength
-                ? _c("div", { staticClass: "error" }, [
-                    _c("small", [
-                      _vm._v(
-                        "Excerpt can only have\n                    " +
-                          _vm._s(_vm.$v.fields.excerpt.$params.maxLength.max) +
-                          " letters."
-                      )
-                    ])
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "form-group",
-              class: { "form-group--error": _vm.$v.fields.body.$error }
-            },
-            [
-              _vm._m(2),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.$v.fields.body.$model,
-                    expression: "$v.fields.body.$model"
-                  }
-                ],
-                staticClass: "form-control",
-                class: _vm.status(_vm.$v.fields.body),
-                attrs: {
-                  name: "body",
-                  rows: "3",
-                  id: "body",
-                  placeholder: "Body.."
-                },
-                domProps: { value: _vm.$v.fields.body.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.$v.fields.body, "$model", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.$v.fields.body.$dirty && _vm.$v.fields.body.$error
-                ? _c("div", { staticClass: "error" }, [
-                    _c("small", [
-                      _vm._v("Body is\n                    required")
-                    ])
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _vm._m(3),
-              _vm._v(" "),
-              _c("tag-input", {
-                attrs: { id: "tagger", editDataTags: _vm.editDataTags },
-                on: { updatetags: _vm.getTags }
-              }),
-              _vm._v(" "),
-              _c("small", { staticClass: "text-muted" }, [
-                _vm._v("Write something and press enter.")
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary btn-lg",
-              attrs: {
-                type: "submit",
-                disabled: _vm.submitStatus === "PENDING"
-              }
-            },
-            [_vm._v("Submit\n            ")]
-          ),
-          _vm._v(" "),
-          _vm.submitStatus === "OK"
-            ? _c("p", { staticClass: "text-success my-2" }, [
-                _vm._v("Thanks for your submission!")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.submitStatus === "ERROR"
-            ? _c("p", { staticClass: "text-danger my-2" }, [
-                _vm._v("Please fill the form correctly.")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.submitStatus === "PENDING"
-            ? _c("p", { staticClass: "text-warning my-2" }, [
-                _vm._v("Sending...")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _vm.createdArticle
-            ? _c(
-                "div",
+              _c(
+                "a",
                 {
-                  staticClass: "alert alert-success",
-                  attrs: { role: "alert" }
+                  attrs: {
+                    target: "_blank",
+                    href: "/articles/" + _vm.createdArticle.id
+                  }
                 },
-                [
-                  _c("h4", { staticClass: "alert-heading" }, [
-                    _vm._v("Article "),
-                    _c("b", [
-                      _vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')
-                    ]),
-                    _vm._v(" Created!")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("You have successfully made an article.")]),
-                  _vm._v(" "),
-                  _c("hr"),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        target: "_blank",
-                        href: "/articles/" + _vm.createdArticle.id
-                      }
-                    },
-                    [_vm._v("Check it out here")]
-                  )
-                ]
+                [_vm._v("Check it out here")]
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.updatedArticle
-            ? _c(
-                "div",
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.updatedArticle
+        ? _c(
+            "div",
+            { staticClass: "alert alert-success", attrs: { role: "alert" } },
+            [
+              _c("h4", { staticClass: "alert-heading" }, [
+                _vm._v("Article "),
+                _c("b", [_vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')]),
+                _vm._v(" Updated!")
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("You have successfully Updated the article.")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "a",
                 {
-                  staticClass: "alert alert-success",
-                  attrs: { role: "alert" }
+                  attrs: {
+                    target: "_blank",
+                    href: "/articles/" + _vm.updatedArticle.id
+                  }
                 },
-                [
-                  _c("h4", { staticClass: "alert-heading" }, [
-                    _vm._v("Article "),
-                    _c("b", [
-                      _vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')
-                    ]),
-                    _vm._v(" Updated!")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("You have successfully Updated the article.")
-                  ]),
-                  _vm._v(" "),
-                  _c("hr"),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        target: "_blank",
-                        href: "/articles/" + _vm.updatedArticle.id
-                      }
-                    },
-                    [_vm._v("Check it out here")]
-                  )
-                ]
+                [_vm._v("Check it out here")]
               )
-            : _vm._e()
-        ]
-      )
+            ]
+          )
+        : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-6" }, [
-      _c("small", [_vm._v("Article Preview")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "bg-white p-2 rounded border border-light" }, [
-        _c("div", { staticClass: "title" }, [
-          _c("div", { staticClass: "clearfix" }, [
-            _c("small", { staticClass: "text-muted float-left" }, [
-              _vm._v(_vm._s(this.$userName))
-            ]),
-            _vm._v(" "),
-            _c("small", { staticClass: "text-muted float-right" }, [
-              _vm._v(_vm._s(this.articleDateTime.date))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
-            _c("h3", [
-              _vm._v(_vm._s(_vm.fields.title ? _vm.fields.title : "Title"))
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "prev" }, [
-          _c("span", [
-            _vm._v(_vm._s(_vm.fields.excerpt ? _vm.fields.excerpt : "Excerpt"))
-          ])
-        ]),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-6" }, [
+        _c("small", [_vm._v("Create an Article")]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
-        _c("div", { staticClass: "prev" }, [
-          _c("span", [
-            _vm._v(_vm._s(_vm.fields.body ? _vm.fields.body : "Body"))
-          ])
-        ]),
-        _vm._v(" "),
-        _vm.fields.tags
-          ? _c(
+        _c(
+          "form",
+          {
+            attrs: { novalidate: "" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c(
               "div",
-              { staticClass: "prev" },
-              _vm._l(_vm.fields.tags, function(tag) {
-                return _c(
-                  "span",
-                  { staticClass: "badge badge-secondary mr-1" },
-                  [_vm._v(_vm._s(tag))]
-                )
-              }),
-              0
-            )
-          : _vm._e()
+              {
+                staticClass: "form-group",
+                class: { "form-group--error": _vm.$v.fields.title.$error }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.$v.fields.title.$model,
+                      expression: "$v.fields.title.$model"
+                    }
+                  ],
+                  staticClass: "form-control form__input",
+                  class: _vm.status(_vm.$v.fields.title),
+                  attrs: {
+                    type: "text",
+                    name: "title",
+                    id: "title",
+                    value: "",
+                    placeholder: "Title.."
+                  },
+                  domProps: { value: _vm.$v.fields.title.$model },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.fields.title,
+                        "$model",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.$v.fields.title.$dirty && !_vm.$v.fields.title.required
+                  ? _c("div", { staticClass: "error" }, [
+                      _c("small", [
+                        _vm._v("Title is\n                        required")
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.fields.title.maxLength
+                  ? _c("div", { staticClass: "error" }, [
+                      _c("small", [
+                        _vm._v(
+                          "Title can only have\n                        " +
+                            _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
+                            " letters."
+                        )
+                      ])
+                    ])
+                  : _vm._e()
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "form-group",
+                class: { "form-group--error": _vm.$v.fields.excerpt.$error }
+              },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.$v.fields.excerpt.$model,
+                      expression: "$v.fields.excerpt.$model"
+                    }
+                  ],
+                  staticClass: "form-control ",
+                  class: _vm.status(_vm.$v.fields.excerpt),
+                  attrs: {
+                    name: "excerpt",
+                    rows: "2",
+                    id: "excerpt",
+                    placeholder: "Excerpt.."
+                  },
+                  domProps: { value: _vm.$v.fields.excerpt.$model },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.fields.excerpt,
+                        "$model",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.$v.fields.excerpt.$dirty && !_vm.$v.fields.excerpt.required
+                  ? _c("div", { staticClass: "error" }, [
+                      _c("small", [
+                        _vm._v(
+                          "Excerpt\n                        is\n                        required"
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.fields.excerpt.maxLength
+                  ? _c("div", { staticClass: "error" }, [
+                      _c("small", [
+                        _vm._v(
+                          "Excerpt can only have\n                        " +
+                            _vm._s(
+                              _vm.$v.fields.excerpt.$params.maxLength.max
+                            ) +
+                            " letters."
+                        )
+                      ])
+                    ])
+                  : _vm._e()
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "form-group",
+                class: { "form-group--error": _vm.$v.fields.body.$error }
+              },
+              [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.$v.fields.body.$model,
+                      expression: "$v.fields.body.$model"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  class: _vm.status(_vm.$v.fields.body),
+                  attrs: {
+                    name: "body",
+                    rows: "3",
+                    id: "body",
+                    placeholder: "Body.."
+                  },
+                  domProps: { value: _vm.$v.fields.body.$model },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.fields.body,
+                        "$model",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.$v.fields.body.$dirty && _vm.$v.fields.body.$error
+                  ? _c("div", { staticClass: "error" }, [
+                      _c("small", [
+                        _vm._v("Body is\n                        required")
+                      ])
+                    ])
+                  : _vm._e()
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("tag-input", {
+                  attrs: { id: "tagger", editDataTags: _vm.editDataTags },
+                  on: { updatetags: _vm.getTags }
+                }),
+                _vm._v(" "),
+                _c("small", { staticClass: "text-muted" }, [
+                  _vm._v("Write something and press enter.")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-lg",
+                attrs: {
+                  type: "submit",
+                  disabled: _vm.submitStatus === "PENDING"
+                }
+              },
+              [_vm._v("Submit\n                ")]
+            ),
+            _vm._v(" "),
+            _vm.submitStatus === "OK"
+              ? _c("p", { staticClass: "text-success my-2" }, [
+                  _vm._v("Thanks for your submission!")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.submitStatus === "ERROR"
+              ? _c("p", { staticClass: "text-danger my-2" }, [
+                  _vm._v("Please fill the form correctly.")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.submitStatus === "PENDING"
+              ? _c("p", { staticClass: "text-warning my-2" }, [
+                  _vm._v("Sending...")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("hr")
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6" }, [
+        _c("small", [_vm._v("Article Preview")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-white p-2 rounded border border-light" }, [
+          _c("div", { staticClass: "title" }, [
+            _c("div", { staticClass: "clearfix" }, [
+              _c("small", { staticClass: "text-muted float-left" }, [
+                _vm._v(_vm._s(this.$userName))
+              ]),
+              _vm._v(" "),
+              _c("small", { staticClass: "text-muted float-right" }, [
+                _vm._v(_vm._s(this.articleDateTime.date))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "text-capitalize font-weight-bold" }, [
+              _c("h3", [
+                _vm._v(_vm._s(_vm.fields.title ? _vm.fields.title : "Title"))
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "prev" }, [
+            _c("span", [
+              _vm._v(
+                _vm._s(_vm.fields.excerpt ? _vm.fields.excerpt : "Excerpt")
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("div", { staticClass: "prev" }, [
+            _c("span", [
+              _vm._v(_vm._s(_vm.fields.body ? _vm.fields.body : "Body"))
+            ])
+          ]),
+          _vm._v(" "),
+          _vm.fields.tags
+            ? _c(
+                "div",
+                { staticClass: "prev" },
+                _vm._l(_vm.fields.tags, function(tag) {
+                  return _c(
+                    "span",
+                    { staticClass: "badge badge-secondary mr-1" },
+                    [_vm._v(_vm._s(tag))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
+        ])
       ])
     ])
   ])

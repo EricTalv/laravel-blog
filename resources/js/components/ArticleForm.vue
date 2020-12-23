@@ -1,116 +1,125 @@
 <template>
-    <div class="row">
-        <div class="col-6">
-            <small>Create an Article</small>
-            <hr>
-            <form @submit.prevent="submit" novalidate>
-
-                <div class="form-group" :class="{ 'form-group--error': $v.fields.title.$error }">
-                    <label class="form__label" for="title"><h3>Title</h3></label>
-                    <input
-                        class="form-control form__input"
-                        type="text"
-                        name="title"
-                        id="title"
-                        value=""
-                        v-model="$v.fields.title.$model"
-                        :class="status($v.fields.title)"
-                        placeholder="Title.."
-                    />
-                    <div class="error" v-if="$v.fields.title.$dirty && !$v.fields.title.required"><small>Title is
-                        required</small></div>
-                    <div class="error" v-if="!$v.fields.title.maxLength"><small>Title can only have
-                        {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
-                </div>
-
-                <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
-                    <label for="excerpt"><h3>Excerpt</h3></label>
-                    <textarea
-                        class="form-control "
-                        name="excerpt"
-                        rows="2"
-                        id="excerpt"
-                        v-model="$v.fields.excerpt.$model"
-                        :class="status($v.fields.excerpt)"
-                        placeholder="Excerpt.."
-
-                    > </textarea>
-                    <div class="error" v-if="$v.fields.excerpt.$dirty && !$v.fields.excerpt.required"><small>Excerpt is
-                        required</small></div>
-                    <div class="error" v-if="!$v.fields.excerpt.maxLength"><small>Excerpt can only have
-                        {{$v.fields.excerpt.$params.maxLength.max}} letters.</small></div>
-
-                </div>
-                <div class="form-group" :class="{ 'form-group--error': $v.fields.body.$error }">
-                    <label for="body"><h3>Body</h3></label>
-                    <textarea
-                        class="form-control"
-                        name="body"
-                        rows="3"
-                        id="body"
-                        v-model="$v.fields.body.$model"
-                        :class="status($v.fields.body)"
-                        placeholder="Body.."
-
-                    ></textarea>
-                    <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is
-                        required</small></div>
-
-                </div>
-                <div class="form-group">
-                    <label for="tagger"><h3>Tags</h3></label>
-                    <tag-input id="tagger" :editDataTags="editDataTags" @updatetags="getTags"></tag-input>
-                    <small class="text-muted">Write something and press enter.</small>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit
-                </button>
-                <p class="text-success my-2" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
-                <p class="text-danger my-2" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-                <p class="text-warning my-2" v-if="submitStatus === 'PENDING'">Sending...</p>
-
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-success" role="alert" v-if="createdArticle">
+                <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
+                <p>You have successfully made an article.</p>
                 <hr>
-                <div class="alert alert-success" role="alert" v-if="createdArticle">
-                    <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
-                    <p>You have successfully made an article.</p>
-                    <hr>
-                    <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
-                </div>
-                <div class="alert alert-success" role="alert" v-if="updatedArticle">
-                    <h4 class="alert-heading">Article <b>"{{ updatedArticle.title }}"</b> Updated!</h4>
-                    <p>You have successfully Updated the article.</p>
-                    <hr>
-                    <a target="_blank" v-bind:href="'/articles/' + updatedArticle.id">Check it out here</a>
-                </div>
-            </form>
+                <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
+            </div>
+            <div class="alert alert-success" role="alert" v-if="updatedArticle">
+                <h4 class="alert-heading">Article <b>"{{ updatedArticle.title }}"</b> Updated!</h4>
+                <p>You have successfully Updated the article.</p>
+                <hr>
+                <a target="_blank" v-bind:href="'/articles/' + updatedArticle.id">Check it out here</a>
+            </div>
         </div>
-        <div class="col-6">
-            <small>Article Preview</small>
-            <hr>
-            <div class="bg-white p-2 rounded border border-light">
-                <div class="title">
-                    <div class="clearfix">
-                        <small class="text-muted float-left">{{ this.$userName }}</small>
-                        <small class="text-muted float-right">{{ this.articleDateTime.date }}</small>
+
+
+        <div class="row">
+            <div class="col-6">
+                <small>Create an Article</small>
+                <hr>
+                <form @submit.prevent="submit" novalidate>
+
+                    <div class="form-group" :class="{ 'form-group--error': $v.fields.title.$error }">
+                        <label class="form__label" for="title"><h3>Title</h3></label>
+                        <input
+                            class="form-control form__input"
+                            type="text"
+                            name="title"
+                            id="title"
+                            value=""
+                            v-model="$v.fields.title.$model"
+                            :class="status($v.fields.title)"
+                            placeholder="Title.."
+                        />
+                        <div class="error" v-if="$v.fields.title.$dirty && !$v.fields.title.required"><small>Title is
+                            required</small></div>
+                        <div class="error" v-if="!$v.fields.title.maxLength"><small>Title can only have
+                            {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                     </div>
 
-                    <span class="text-capitalize font-weight-bold">
+                    <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
+                        <label for="excerpt"><h3>Excerpt</h3></label>
+                        <textarea
+                            class="form-control "
+                            name="excerpt"
+                            rows="2"
+                            id="excerpt"
+                            v-model="$v.fields.excerpt.$model"
+                            :class="status($v.fields.excerpt)"
+                            placeholder="Excerpt.."
+
+                        > </textarea>
+                        <div class="error" v-if="$v.fields.excerpt.$dirty && !$v.fields.excerpt.required"><small>Excerpt
+                            is
+                            required</small></div>
+                        <div class="error" v-if="!$v.fields.excerpt.maxLength"><small>Excerpt can only have
+                            {{$v.fields.excerpt.$params.maxLength.max}} letters.</small></div>
+
+                    </div>
+                    <div class="form-group" :class="{ 'form-group--error': $v.fields.body.$error }">
+                        <label for="body"><h3>Body</h3></label>
+                        <textarea
+                            class="form-control"
+                            name="body"
+                            rows="3"
+                            id="body"
+                            v-model="$v.fields.body.$model"
+                            :class="status($v.fields.body)"
+                            placeholder="Body.."
+
+                        ></textarea>
+                        <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is
+                            required</small></div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="tagger"><h3>Tags</h3></label>
+                        <tag-input id="tagger" :editDataTags="editDataTags" @updatetags="getTags"></tag-input>
+                        <small class="text-muted">Write something and press enter.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" :disabled="submitStatus === 'PENDING'">Submit
+                    </button>
+                    <p class="text-success my-2" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
+                    <p class="text-danger my-2" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
+                    <p class="text-warning my-2" v-if="submitStatus === 'PENDING'">Sending...</p>
+
+                    <hr>
+
+                </form>
+            </div>
+            <div class="col-6">
+                <small>Article Preview</small>
+                <hr>
+                <div class="bg-white p-2 rounded border border-light">
+                    <div class="title">
+                        <div class="clearfix">
+                            <small class="text-muted float-left">{{ this.$userName }}</small>
+                            <small class="text-muted float-right">{{ this.articleDateTime.date }}</small>
+                        </div>
+
+                        <span class="text-capitalize font-weight-bold">
                         <h3>{{ fields.title ? fields.title : 'Title' }}</h3>
                     </span>
-                </div>
-                <div class="prev">
-                    <span>{{ fields.excerpt ? fields.excerpt : 'Excerpt' }}</span>
-                </div>
-                <hr>
-                <div class="prev">
-                    <span>{{ fields.body ? fields.body : 'Body' }}</span>
-                </div>
-                <div class="prev" v-if=" fields.tags ">
-                    <span class="badge badge-secondary mr-1" v-for="tag in fields.tags">{{ tag }}</span>
+                    </div>
+                    <div class="prev">
+                        <span>{{ fields.excerpt ? fields.excerpt : 'Excerpt' }}</span>
+                    </div>
+                    <hr>
+                    <div class="prev">
+                        <span>{{ fields.body ? fields.body : 'Body' }}</span>
+                    </div>
+                    <div class="prev" v-if=" fields.tags ">
+                        <span class="badge badge-secondary mr-1" v-for="tag in fields.tags">{{ tag }}</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
