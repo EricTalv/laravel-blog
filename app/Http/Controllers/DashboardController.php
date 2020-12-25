@@ -33,7 +33,7 @@ class DashboardController extends Controller
     {
         return view('dashboard',
             [
-             'allUserArticles' => Auth::user()->articles()->latest()->get(),
+             'threeLatestArticles' => Auth::user()->articles()->latest()->simplePaginate(5),
              'latestArticle' => Auth::user()->articles()->latest()->first(),
         ]);
     }

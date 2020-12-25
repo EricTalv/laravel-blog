@@ -60,7 +60,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($allUserArticles as $article)
+                            @foreach($threeLatestArticles as $article)
                                 <tr>
                                     <td>
                                         <a class="reformat-a-styles" target="_blank"
@@ -85,6 +85,9 @@
                             </tbody>
 
                         </table>
+
+                        {{ $threeLatestArticles->links('pagination.simple-bootstrap-4') }}
+
                     </div>
                 </div>
             </div>
