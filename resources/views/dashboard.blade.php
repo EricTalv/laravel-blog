@@ -85,9 +85,7 @@
                             </tbody>
 
                         </table>
-
-                        {{ $threeLatestArticles->links('pagination.simple-bootstrap-4') }}
-
+                        {{ $threeLatestArticles->links('pagination.dashboard-pagination') }}
                     </div>
                 </div>
             </div>
