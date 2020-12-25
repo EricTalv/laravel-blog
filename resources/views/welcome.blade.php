@@ -86,7 +86,7 @@
                 </div><!-- /.blog-post -->
                 @endforeach
 
-                {{ $threeLatestArticles->links('pagination.simple-bootstrap-4') }}
+                {{ $threeLatestArticles->links('pagination.welcome-pagination') }}
 
             </div><!-- /.blog-main -->
 
