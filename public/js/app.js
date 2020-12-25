@@ -60412,9 +60412,11 @@ var render = function() {
         _c("div", { staticClass: "bg-white p-2 rounded border border-light" }, [
           _c("div", { staticClass: "title" }, [
             _c("div", { staticClass: "clearfix" }, [
-              _c("small", { staticClass: "text-muted float-left" }, [
-                _vm._v(_vm._s(this.$userName))
-              ]),
+              _c(
+                "small",
+                { staticClass: "text-muted float-left text-capitalize" },
+                [_vm._v(_vm._s(this.$userName))]
+              ),
               _vm._v(" "),
               _c("small", { staticClass: "text-muted float-right" }, [
                 _vm._v(_vm._s(this.articleDateTime.date))

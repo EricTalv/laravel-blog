@@ -99,7 +99,7 @@
                 <div class="bg-white p-2 rounded border border-light">
                     <div class="title">
                         <div class="clearfix">
-                            <small class="text-muted float-left">{{ this.$userName }}</small>
+                            <small class="text-muted float-left text-capitalize">{{ this.$userName }}</small>
                             <small class="text-muted float-right">{{ this.articleDateTime.date }}</small>
                         </div>
 
