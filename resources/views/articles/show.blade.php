@@ -1,25 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="wrapper">
-        <div id="page" class="container">
-            <div id="content">
-                <div class="title" style="text-transform: capitalize;">
-                    <h3>{{ $article->title }} | <small>{{ date('j M Y', strtotime( $article->created_at ))  }}</small></h3>
+    <div class="article-container d-flex justify-content-center">
+        <div class="row bg-white p-4 w-75">
+                <div class="col-12 ">
+                    <div class="title">
+                        <div class="clearfix">
+                            <small class="text-muted float-left text-capitalize">{{ Auth::user()->name }}</small>
+                            <small
+                                class="text-muted float-right">{{ date('j M, Y', strtotime( $article->created_at ))  }}</small>
+                        </div>
+                        <h2 class="article-title mt-3">{{ $article->title }}<small></small></h2>
+                    </div>
+                    <div class="subtitle text-muted">
+                        {{ $article->excerpt }}
+                    </div>
+                    <hr>
+                    <p>
+                        {{ $article->body }}
+                    </p>
+                    @foreach ( $article->tags as $tag)
+                        <a class="badge badge-secondary"
+                           href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
+                    @endforeach
                 </div>
-
-                <div class="subtitle">
-                {{ $article->excerpt }}
-                </div>
-
-                <p>
-                    {{ $article->body }}
-                </p>
-
-                @foreach ( $article->tags as $tag)
-                    <span class="tag is-dark mx-1 mt-2"><a href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a></span>
-                @endforeach
-            </div>
         </div>
     </div>
+    <hr>
+@endsection
+
+
+@section('style')
+    <style>
+        .article-title {
+            font-weight: bold;
+        }
+    </style>
 @endsection
