@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container d-flex flex-column justify-content-center ">
+    <div class="container d-flex flex-column align-items-center">
         <div class="row bg-white p-4 w-75">
             <div class="col-12 ">
                 <div class="title">
@@ -25,15 +25,26 @@
                 @endforeach
             </div>
         </div>
-        <hr>
+        <div class="row w-75">
+            <div class="col-12">
+                <hr>
+            </div>
+        </div>
         <div class="row bg-white w-75">
             <div class="col-12 ">
                 <div class="comment-input"></div>
                 <div class="comments">
                     <div class="comment">
-                        <img src="https://picsum.photos/80" class="avatar">
-                        <div class="username">Freekdude20</div>
-                        <div class="comment-text">This is really cool!</div>
+                        <div class="clearfix">
+                            <img src="https://picsum.photos/80" class="avatar float-left">
+                            <div class="comment-data">
+                                <div class="username">Freekdude20</div>
+                                <div class="comment-text">This is really cool!</div>
+                            </div>
+
+                        </div>
+
+
                     </div>
                 </div>
             </div>
