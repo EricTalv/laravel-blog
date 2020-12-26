@@ -6,7 +6,7 @@
                 <div class="col-12 ">
                     <div class="title">
                         <div class="clearfix">
-                            <small class="text-muted float-left text-capitalize">{{ Auth::user()->name }}</small>
+                            <small class="text-muted float-left text-capitalize">{{ $article->user->name }}</small>
                             <small
                                 class="text-muted float-right">{{ date('j M, Y', strtotime( $article->created_at ))  }}</small>
                         </div>
