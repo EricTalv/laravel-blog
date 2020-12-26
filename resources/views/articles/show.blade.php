@@ -36,10 +36,15 @@
                 <div class="comments">
                     <div class="comment">
                         <div class="clearfix">
-                            <img src="https://picsum.photos/80" class="avatar float-left">
+                            <img src="https://picsum.photos/80" class="avatar float-left mr-2">
                             <div class="comment-data">
-                                <div class="username">Freekdude20</div>
+                                <div class="username font-weight-bold">Freekdude20 <small class="text-muted small">12 Dec, 2020</small>
+                                </div>
                                 <div class="comment-text">This is really cool!</div>
+                                <div class="comment-buttons float-right my-3">
+                                    <button class="btn btn-outline-success">Like</button>
+                                    <button class="btn btn-outline-primary">Reply</button>
+                                </div>
                             </div>
 
                         </div>
