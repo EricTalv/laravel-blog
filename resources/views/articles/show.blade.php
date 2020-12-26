@@ -30,11 +30,11 @@
                 <hr>
             </div>
         </div>
-        <div class="row  p-4 w-75">
-            <div class="col-12 ">
+        <div class="row w-75 ">
+            <div class="col-12 p-0">
                 <div class="comment-input"></div>
-                <div class="comments">
-                    <div class="comment bg-white mb-2">
+                <div class="comments w-100">
+                    <div class="comment pr-5 bg-white mb-3">
                         <div class="clearfix">
                             <img src="https://picsum.photos/80" class="avatar float-left mr-2">
                             <div class="comment-data">
@@ -51,7 +51,7 @@
 
 
                     </div>
-                    <div class="comment">
+                    <div class="comment pr-5  bg-white">
                         <div class="clearfix">
                             <img src="https://picsum.photos/80" class="avatar float-left mr-2">
                             <div class="comment-data">
