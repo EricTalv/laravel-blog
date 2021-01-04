@@ -30,7 +30,20 @@
                 <hr>
             </div>
         </div>
-        @yield('comment-section')
+        @include('articles.commentsDisplay', ['comments' => $article->comments, 'post_id' => $article->id])
+
+        <hr />
+        <h4>Add comment</h4>
+        <form method="post" action="{{ route('comments.store'   ) }}">
+            @csrf
+            <div class="form-group">
+                <textarea class="form-control" name="body"></textarea>
+                <input type="hidden" name="post_id" value="{{ $article->id }}" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Add Comment" />
+            </div>
+        </form>
     </div>
 
 

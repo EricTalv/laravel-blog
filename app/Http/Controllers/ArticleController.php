@@ -79,7 +79,6 @@ class ArticleController extends Controller
         $article->save();
 
         // If Article is created
-
         $this->checkTags($article);
 
 
