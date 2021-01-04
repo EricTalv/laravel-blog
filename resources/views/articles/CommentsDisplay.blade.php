@@ -8,8 +8,8 @@
                 @csrf
                 <div class="form-group">
                     <input type="text" name="body" class="form-control" />
-                    <input type="hidden" name="article_id" value="{{ $article_id }}" />
-                    <input type="hidden" name="parent_id" value="{{ $comment->id }}" />
+                    <input type="hidden" name="article_id" value="" />
+                    <input type="hidden" name="parent_id" value="" />
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-warning" value="Reply" />

@@ -33,7 +33,7 @@ Route::get('/articles/create', 'ArticleController@create')->name('articles.creat
 Route::put('/article/create', 'ArticleController@store')->name('articles.store');
 
 // Create Comment
-Route::put('/article/comment', 'CommentController@store')->name('comments.store');
+Route::post('/article/comment', 'CommentController@store')->name('comments.store');
 
 // Show post editing page
 Route::get('/articles/edit/{article}', 'ArticleController@edit');
