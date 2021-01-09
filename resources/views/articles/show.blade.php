@@ -30,6 +30,25 @@
                 <hr>
             </div>
         </div>
+
+        <h4>Add comment</h4>
+        <form method="post" action="{{ route('comments.store'   ) }}">
+            @method('PUT')
+
+            <div class="form-group">
+                <textarea class="form-control" name="body"></textarea>
+                <input type="hidden" name="article_id" value="{{ $article->id }}" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Add Comment" />
+            </div>
+        </form>
+
+        @include('articles.commentsDisplay', ['comments' => $article->comments, 'article_id' => $article->id])
+
+
+        <hr>
+
         <div class="row w-75 ">
             <div class="col-12 p-0">
                 <div class="comment-input mb-3 ">
@@ -74,6 +93,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
     </div>
