@@ -15,6 +15,7 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.4",
+        "laravelista/comments": "^4.4",
         "shipping-docker/vessel": "^6.0"
     },
     "require-dev": {
