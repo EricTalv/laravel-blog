@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -25,6 +26,9 @@ class CommentController extends Controller
         // Set User Id as current authenticated user
         $input['user_id'] = auth()->user()->id;
 
+        // Create comment
+        Comment::create($input);
 
+        return back();
     }
 }
