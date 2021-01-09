@@ -14,6 +14,8 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-
+        $validateComment = $request->validate([
+            'body' => 'required'
+        ]);
     }
 }

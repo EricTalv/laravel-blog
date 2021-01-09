@@ -81,10 +81,6 @@ class ArticleController extends Controller
         // If Article is created
         $this->checkTags($article);
 
-
-        // OLD Add Tags to newly created article
-        // OLD $article->tags()->attach(request('tags'));
-
         $data = [
             "title" => $article->title,
             "id" => $article->id,
