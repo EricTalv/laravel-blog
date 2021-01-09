@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Comment extends Model
 {
 
-    use SoftDeletes;
-
     protected $fillable = ['body'];
 
     /**
@@ -22,6 +20,11 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function article()
+    {
+        return $this->belongsTo(Article::class);
+    }
+
     /**
      * The has Many Relationship
      *
@@ -29,6 +32,6 @@ class Comment extends Model
      */
     public function replies()
     {
-        return $this->hasMany(Comment::class, 'parent_id');
+        return null;
     }
 }
