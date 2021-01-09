@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Comment extends Model
 {
 
-    protected $fillable = ['body'];
+    protected $fillable = ['body', 'user_id', 'post_id', 'parent_id' ];
 
     /**
      * The belongs to Relationship
