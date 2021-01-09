@@ -81,6 +81,7 @@ class ArticleController extends Controller
         // If Article is created
         $this->checkTags($article);
 
+        // Response data
         $data = [
             "title" => $article->title,
             "id" => $article->id,
