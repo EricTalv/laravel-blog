@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravelista\Comments\Commentable;
 
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, Commentable;
 
     protected $fillable = ['title', 'excerpt', 'body'];
 
