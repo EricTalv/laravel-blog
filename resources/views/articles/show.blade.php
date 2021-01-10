@@ -31,7 +31,12 @@
             </div>
         </div>
 
-        @comments(['model' => $article->user])
+        <div class="row w-75">
+            <div class="col-12">
+                @comments(['model' => $article->user])
+            </div>
+        </div>
+
 
         <hr>
         <div class="row w-75 ">
