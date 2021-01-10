@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Article;
+use App\Tag;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,9 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserSeeder::class);
 
-        factory(App\Article::class, 10)->create();
-        factory(App\Tag::class, 3)->create();
+//        factory(App\Article::class, 10)->create();
+//        factory(App\Tag::class, 3)->create();
 
+        Article::factory()->count(10)->create();
+        Tag::factory()->count(5)->create();
 
     }
 }
