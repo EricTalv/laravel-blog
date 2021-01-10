@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Article;
 use App\Tag;
+use App\User;
 
 
 class DatabaseSeeder extends Seeder
@@ -19,8 +20,11 @@ class DatabaseSeeder extends Seeder
 //        factory(App\Article::class, 10)->create();
 //        factory(App\Tag::class, 3)->create();
 
-        Article::factory()->count(10)->create();
-        Tag::factory()->count(5)->create();
+        User::factory()
+            ->times(20)
+            ->hasPosts(1)
+            ->create();
+
 
     }
 }
