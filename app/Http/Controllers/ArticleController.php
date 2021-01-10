@@ -96,10 +96,10 @@ class ArticleController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show(Article $article)
     {
         return view('articles.show', [
-            'article' => Article::findOrFail($id)
+            'article' => $article
         ]);
     }
 

@@ -31,6 +31,9 @@
             </div>
         </div>
 
+        @comments(['model' => $article->user])
+
+        <hr>
         <div class="row w-75 ">
             <div class="col-12 p-0">
                 <div class="comment-input mb-3 ">
