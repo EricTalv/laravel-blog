@@ -51,4 +51,4 @@ Auth::routes();
 Route::get('/home', 'DashboardController@index')->name('home');
 
 // User Page
-Route::get('/user/{user}', 'UserController@show');
+Route::get('/user/{user}', 'UserController@show')->name('user');
