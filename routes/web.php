@@ -33,7 +33,7 @@ Route::get('/articles/create', 'ArticleController@create')->name('articles.creat
 Route::put('/article/create', 'ArticleController@store')->name('articles.store');
 
 // Show post editing page
-Route::get('/articles/edit/{article}', 'ArticleController@edit');
+Route::get('/articles/edit/{article}', 'ArticleController@edit')->name('articles.edit')->middleware('auth');
 
 // Show one post
 Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
@@ -49,3 +49,6 @@ Auth::routes();
 
 // Dashboard
 Route::get('/home', 'DashboardController@index')->name('home');
+
+// User Page
+Route::get('/user/{user}', 'UserController@show');
