@@ -76,7 +76,7 @@
                 @foreach( $threeLatestArticles as $article )
                 <div class="blog-post" >
                     <h2 class="blog-post-title text-capitalize">{{ $article->title }}</h2>
-                    <p class="blog-post-meta">{{ date('j F Y', strtotime( $article->created_at ))  }} by <a href="#" class="text-capitalize">{{ $article->user->name }}</a></p>
+                    <p class="blog-post-meta">{{ date('j F Y', strtotime( $article->created_at ))  }} by <a href="{{ route('user', $article->user->id) }}" class="text-capitalize">{{ $article->user->name }}</a></p>
 
                     <p>{{ $article->excerpt }}</p>
                     <hr>
