@@ -44,6 +44,8 @@ Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show
 // Persist edited data
 Route::put('/articles/{article}', 'ArticleController@update');
 
+// Authentication
 Auth::routes();
 
+// Dashboard
 Route::get('/home', 'DashboardController@index')->name('home');
