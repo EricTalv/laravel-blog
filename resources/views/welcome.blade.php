@@ -27,6 +27,7 @@
                     <a class="p-2 text-muted"
                        href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
                 @endforeach
+                    <a class="p2- text-muted" href="{{ route('alltags')  }}">All Tags</a>
             </nav>
         </div>
 
