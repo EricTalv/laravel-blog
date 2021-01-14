@@ -49,6 +49,7 @@
                             type="text"
                             name="slug"
                             id="slug"
+                            :value="{{ fields.slug }}"
                             v-model="$v.fields.slug.$model"
                             :class="status($v.fields.slug)"
                             placeholder="Slug.."
@@ -255,6 +256,12 @@
                     }
                 }
             },
+        },
+
+        computed: {
+            slug: function () {
+                    return this.slugify(this.fields.title)
+            }
         },
 
         /*
