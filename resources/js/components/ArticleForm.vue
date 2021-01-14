@@ -49,7 +49,6 @@
                             type="text"
                             name="slug"
                             id="slug"
-                            :value="{{ fields.slug }}"
                             v-model="$v.fields.slug.$model"
                             :class="status($v.fields.slug)"
                             placeholder="Slug.."
@@ -144,174 +143,177 @@
 
 <script>
 
-    import {required, maxLength} from 'vuelidate/lib/validators';
-    import moment from 'moment';
+import {required, maxLength} from 'vuelidate/lib/validators';
+import moment from 'moment';
 
-    export default {
-        props: {
-            editData: {
-                type: Object,
-            },
-            editDataTags: {type: Array},
+export default {
+    props: {
+        editData: {
+            type: Object,
         },
+        editDataTags: {type: Array},
+    },
 
-        data() {
-            return {
-                fields: {
-                    title: '',
-                    excerpt: '',
-                    body: '',
-                    slug: '',
-
-                },
-                submitStatus: null,
-                errors: {},
-                createdArticle: null,
-                updatedArticle: null,
-                articleDateTime: {
-                    date: '',
-                },
-            }
-        },
-
-        validations: {
+    data() {
+        return {
             fields: {
-                title: {
-                    required,
-                    maxLength: maxLength(255)
-                },
-                excerpt: {
-                    required,
-                    maxLength: maxLength(255)
-                },
-                body: {
-                    required,
-                },
-                slug: {
-                    required,
-                }
+                title: '',
+                excerpt: '',
+                body: '',
+                slug: '',
+
+            },
+            submitStatus: null,
+            errors: {},
+            createdArticle: null,
+            updatedArticle: null,
+            articleDateTime: {
+                date: '',
+            },
+        }
+    },
+
+    validations: {
+        fields: {
+            title: {
+                required,
+                maxLength: maxLength(255)
+            },
+            excerpt: {
+                required,
+                maxLength: maxLength(255)
+            },
+            body: {
+                required,
+            },
+            slug: {
+                required,
+            }
+        }
+    },
+
+    methods: {
+
+        // Slugify title
+        slugify(text, ampersand = 'and') {
+            const a = 'àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ'
+            const b = 'aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh'
+            const p = new RegExp(a.split('').join('|'), 'g')
+
+            return text.toString().toLowerCase()
+                .replace(/[\s_]+/g, '-')
+                .replace(p, c =>
+                    b.charAt(a.indexOf(c)))
+                .replace(/&/g, `-${ampersand}-`)
+                .replace(/[^\w-]+/g, '')
+                .replace(/--+/g, '-')
+                .replace(/^-+|-+$/g, '')
+        },
+
+        status(validation) {
+            return {
+                error: validation.$error,
+                dirty: validation.$dirty
             }
         },
 
-        methods: {
-
-            // Slugify title
-            slugify (text, ampersand = 'and') {
-                const a = 'àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ'
-                const b = 'aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh'
-                const p = new RegExp(a.split('').join('|'), 'g')
-
-                return text.toString().toLowerCase()
-                    .replace(/[\s_]+/g, '-')
-                    .replace(p, c =>
-                        b.charAt(a.indexOf(c)))
-                    .replace(/&/g, `-${ampersand}-`)
-                    .replace(/[^\w-]+/g, '')
-                    .replace(/--+/g, '-')
-                    .replace(/^-+|-+$/g, '')
-            },
-
-            status(validation) {
-                return {
-                    error: validation.$error,
-                    dirty: validation.$dirty
-                }
-            },
-
-            getTags(value) {
-                this.$set(this.fields, 'tags', value)
-            },
-
-            submit() {
-                this.errors = {};
-
-                // Check Validations
-                this.$v.$touch();
-                // Check invalidity
-                if (this.$v.$invalid) {
-                    this.submitStatus = 'ERROR'
-                } else {
-                    this.submitStatus = 'PENDING'
-                    // Check if this is an EDIT request or a CREATE request
-                    // EDIT REQUEST
-                    if (this.editData) {
-                        axios.put('/articles/' + this.editData.id, this.fields)
-                            .then(response => {
-                                this.submitStatus = 'SUCCESS'
-                                this.updatedArticle = response.data;
-                            }).catch(error => {
-                            this.submitStatus = 'ERROR'
-                            this.errors = error.response.data.errors;
-                        });
-                        // CREATE REQUEST
-                    } else {
-                        axios.put('/article/create', this.fields)
-                            .then(response => {
-                                this.submitStatus = 'SUCCESS'
-                                this.createdArticle = response.data;
-                            }).catch(error => {
-                            this.submitStatus = 'ERROR'
-                            this.errors = error.response.data.errors;
-                        });
-                    }
-                }
-            },
+        getTags(value) {
+            this.$set(this.fields, 'tags', value)
         },
 
-        computed: {
-            slug: function () {
-                    return this.slugify(this.fields.title)
-            }
-        },
+        submit() {
+            this.errors = {};
 
-        /*
-         * If we get any data
-         * switch to edit mode
-         */
-        created: function () {
-
-            if (this.editData) {
-                this.fields.title = this.editData.title
-                this.fields.excerpt = this.editData.excerpt
-                this.fields.body = this.editData.body
-
-                this.articleDateTime.date = moment(this.editData.created_at).format('D MMM, YYYY')
+            // Check Validations
+            this.$v.$touch();
+            // Check invalidity
+            if (this.$v.$invalid) {
+                this.submitStatus = 'ERROR'
             } else {
-                this.articleDateTime.date = moment().format('D MMM, YYYY');
+                this.submitStatus = 'PENDING'
+                // Check if this is an EDIT request or a CREATE request
+                // EDIT REQUEST
+                if (this.editData) {
+                    axios.put('/articles/' + this.editData.id, this.fields)
+                        .then(response => {
+                            this.submitStatus = 'SUCCESS'
+                            this.updatedArticle = response.data;
+                        }).catch(error => {
+                        this.submitStatus = 'ERROR'
+                        this.errors = error.response.data.errors;
+                    });
+                    // CREATE REQUEST
+                } else {
+                    axios.put('/article/create', this.fields)
+                        .then(response => {
+                            this.submitStatus = 'SUCCESS'
+                            this.createdArticle = response.data;
+                        }).catch(error => {
+                        this.submitStatus = 'ERROR'
+                        this.errors = error.response.data.errors;
+                    });
+                }
             }
         },
-    }
+    },
+
+    computed: {
+
+        fields.slug: function () {
+            return this.slugify(this.fields.title)
+        }
+
+
+    },
+
+    /*
+     * If we get any data
+     * switch to edit mode
+     */
+    created: function () {
+
+        if (this.editData) {
+            this.fields.title = this.editData.title
+            this.fields.excerpt = this.editData.excerpt
+            this.fields.body = this.editData.body
+
+            this.articleDateTime.date = moment(this.editData.created_at).format('D MMM, YYYY')
+        } else {
+            this.articleDateTime.date = moment().format('D MMM, YYYY');
+        }
+    },
+}
 </script>
 
 
 <style scoped>
 
-    .invalid-feedback {
-        display: block;
-    }
+.invalid-feedback {
+    display: block;
+}
 
-    input {
-        border: 1px solid silver;
-        border-radius: 4px;
-        background: white;
-        padding: 5px 10px;
-    }
+input {
+    border: 1px solid silver;
+    border-radius: 4px;
+    background: white;
+    padding: 5px 10px;
+}
 
-    .dirty {
-        border-color: #6eb86e;
-    }
+.dirty {
+    border-color: #6eb86e;
+}
 
-    .dirty:focus {
-        outline-color: #8E8;
-    }
+.dirty:focus {
+    outline-color: #8E8;
+}
 
-    .error {
-        border-color: red;
-        color: #f54747;
-    }
+.error {
+    border-color: red;
+    color: #f54747;
+}
 
-    .error:focus {
-        outline-color: #F99;
-    }
+.error:focus {
+    outline-color: #F99;
+}
 
 </style>
