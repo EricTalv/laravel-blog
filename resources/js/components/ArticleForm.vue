@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group" :class="{ 'form-group--error': $v.fields.slug.$error }">
-                        <label class="form__label" for="slug"><h3>Slug</h3></label>
+                        <label class="form__label" for="slug"><h3>Title</h3></label>
                         <input
                             class="form-control form__input"
                             type="text"
@@ -54,8 +54,10 @@
                             :class="status($v.fields.slug)"
                             placeholder="Title.."
                         />
-
+                        <div class="error" v-if="$v.fields.slug.$dirty && !$v.fields.slug.required"><small>Title is
+                            required</small></div>
                     </div>
+
 
                     <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
                         <label for="excerpt"><h3>Excerpt</h3></label>
@@ -182,6 +184,9 @@
                     maxLength: maxLength(255)
                 },
                 body: {
+                    required,
+                },
+                slug: {
                     required,
                 }
             }

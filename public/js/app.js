@@ -2038,6 +2038,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2054,7 +2071,8 @@ __webpack_require__.r(__webpack_exports__);
       fields: {
         title: '',
         excerpt: '',
-        body: ''
+        body: '',
+        slug: ''
       },
       submitStatus: null,
       errors: {},
@@ -2076,6 +2094,9 @@ __webpack_require__.r(__webpack_exports__);
         maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
       },
       body: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+      },
+      slug: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
       }
     }
@@ -60237,10 +60258,62 @@ var render = function() {
               "div",
               {
                 staticClass: "form-group",
-                class: { "form-group--error": _vm.$v.fields.excerpt.$error }
+                class: { "form-group--error": _vm.$v.fields.slug.$error }
               },
               [
                 _vm._m(1),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.$v.fields.slug.$model,
+                      expression: "$v.fields.slug.$model"
+                    }
+                  ],
+                  staticClass: "form-control form__input",
+                  class: _vm.status(_vm.$v.fields.slug),
+                  attrs: {
+                    type: "text",
+                    name: "slug",
+                    id: "slug",
+                    value: "",
+                    placeholder: "Title.."
+                  },
+                  domProps: { value: _vm.$v.fields.slug.$model },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.fields.slug,
+                        "$model",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.$v.fields.slug.$dirty && !_vm.$v.fields.slug.required
+                  ? _c("div", { staticClass: "error" }, [
+                      _c("small", [
+                        _vm._v("Title is\n                        required")
+                      ])
+                    ])
+                  : _vm._e()
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "form-group",
+                class: { "form-group--error": _vm.$v.fields.excerpt.$error }
+              },
+              [
+                _vm._m(2),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -60307,7 +60380,7 @@ var render = function() {
                 class: { "form-group--error": _vm.$v.fields.body.$error }
               },
               [
-                _vm._m(2),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -60355,7 +60428,7 @@ var render = function() {
               "div",
               { staticClass: "form-group" },
               [
-                _vm._m(3),
+                _vm._m(4),
                 _vm._v(" "),
                 _c("tag-input", {
                   attrs: { id: "tagger", editDataTags: _vm.editDataTags },
@@ -60475,6 +60548,14 @@ var staticRenderFns = [
       { staticClass: "form__label", attrs: { for: "title" } },
       [_c("h3", [_vm._v("Title")])]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form__label", attrs: { for: "slug" } }, [
+      _c("h3", [_vm._v("Title")])
+    ])
   },
   function() {
     var _vm = this
