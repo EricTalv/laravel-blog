@@ -60299,7 +60299,7 @@ var render = function() {
                 _vm.$v.fields.slug.$dirty && !_vm.$v.fields.slug.required
                   ? _c("div", { staticClass: "error" }, [
                       _c("small", [
-                        _vm._v("Title is\n                        required")
+                        _vm._v("Slug is\n                        required")
                       ])
                     ])
                   : _vm._e()
@@ -60554,7 +60554,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "form__label", attrs: { for: "slug" } }, [
-      _c("h3", [_vm._v("Title")])
+      _c("h3", [_vm._v("Slug")])
     ])
   },
   function() {

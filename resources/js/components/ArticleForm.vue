@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group" :class="{ 'form-group--error': $v.fields.slug.$error }">
-                        <label class="form__label" for="slug"><h3>Title</h3></label>
+                        <label class="form__label" for="slug"><h3>Slug</h3></label>
                         <input
                             class="form-control form__input"
                             type="text"
@@ -54,7 +54,7 @@
                             :class="status($v.fields.slug)"
                             placeholder="Title.."
                         />
-                        <div class="error" v-if="$v.fields.slug.$dirty && !$v.fields.slug.required"><small>Title is
+                        <div class="error" v-if="$v.fields.slug.$dirty && !$v.fields.slug.required"><small>Slug is
                             required</small></div>
                     </div>
 
