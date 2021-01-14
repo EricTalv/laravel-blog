@@ -49,10 +49,10 @@
                             type="text"
                             name="slug"
                             id="slug"
-                            value=""
                             v-model="$v.fields.slug.$model"
                             :class="status($v.fields.slug)"
-                            placeholder="Title.."
+                            placeholder="Slug.."
+                            disabled
                         />
                         <div class="error" v-if="$v.fields.slug.$dirty && !$v.fields.slug.required"><small>Slug is
                             required</small></div>
@@ -193,6 +193,23 @@
         },
 
         methods: {
+
+            // Slugify title
+            slugify (text, ampersand = 'and') {
+                const a = 'àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ'
+                const b = 'aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh'
+                const p = new RegExp(a.split('').join('|'), 'g')
+
+                return text.toString().toLowerCase()
+                    .replace(/[\s_]+/g, '-')
+                    .replace(p, c =>
+                        b.charAt(a.indexOf(c)))
+                    .replace(/&/g, `-${ampersand}-`)
+                    .replace(/[^\w-]+/g, '')
+                    .replace(/--+/g, '-')
+                    .replace(/^-+|-+$/g, '')
+            },
+
             status(validation) {
                 return {
                     error: validation.$error,

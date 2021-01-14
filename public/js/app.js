@@ -2102,6 +2102,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    // Slugify title
+    slugify: function slugify(text) {
+      var ampersand = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'and';
+      var a = 'àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ';
+      var b = 'aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh';
+      var p = new RegExp(a.split('').join('|'), 'g');
+      return text.toString().toLowerCase().replace(/[\s_]+/g, '-').replace(p, function (c) {
+        return b.charAt(a.indexOf(c));
+      }).replace(/&/g, "-".concat(ampersand, "-")).replace(/[^\w-]+/g, '').replace(/--+/g, '-').replace(/^-+|-+$/g, '');
+    },
     status: function status(validation) {
       return {
         error: validation.$error,
@@ -60278,8 +60288,8 @@ var render = function() {
                     type: "text",
                     name: "slug",
                     id: "slug",
-                    value: "",
-                    placeholder: "Title.."
+                    placeholder: "Slug..",
+                    disabled: ""
                   },
                   domProps: { value: _vm.$v.fields.slug.$model },
                   on: {
