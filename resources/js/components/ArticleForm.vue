@@ -42,6 +42,21 @@
                             {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                     </div>
 
+                    <div class="form-group" :class="{ 'form-group--error': $v.fields.slug.$error }">
+                        <label class="form__label" for="slug"><h3>Slug</h3></label>
+                        <input
+                            class="form-control form__input"
+                            type="text"
+                            name="slug"
+                            id="slug"
+                            value=""
+                            v-model="$v.fields.slug.$model"
+                            :class="status($v.fields.slug)"
+                            placeholder="Title.."
+                        />
+
+                    </div>
+
                     <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
                         <label for="excerpt"><h3>Excerpt</h3></label>
                         <textarea
@@ -143,6 +158,7 @@
                     title: '',
                     excerpt: '',
                     body: '',
+                    slug: '',
 
                 },
                 submitStatus: null,
