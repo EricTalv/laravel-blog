@@ -49,6 +49,7 @@
                             type="text"
                             name="slug"
                             id="slug"
+                            v-text="slug"
                             v-model="$v.fields.slug.$model"
                             :class="status($v.fields.slug)"
                             placeholder="Slug.."
@@ -259,17 +260,21 @@ export default {
 
     computed: {
 
-        fields: function (){
-            return {
-                slug: function () {
-                    return this.slugify(this.fields.title)
-                }
-            }
-        },
+
+        slug: function () {
+            return this.slugify(this.fields.title)
+        }
 
 
+    },
 
-
+    watch: {
+        fields: {
+            handler () {
+                this.fields.slug= this.slugify(this.fields.slug)
+            },
+            deep:true
+        }
     },
 
     /*

@@ -2055,6 +2055,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2155,12 +2156,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    fields: function fields() {
-      return {
-        slug: function slug() {
-          return this.slugify(this.fields.title);
-        }
-      };
+    slug: function slug() {
+      return this.slugify(this.fields.title);
+    }
+  },
+  watch: {
+    fields: {
+      handler: function handler() {
+        this.fields.slug = this.slugify(this.fields.slug);
+      },
+      deep: true
     }
   },
 
@@ -60300,7 +60305,10 @@ var render = function() {
                     placeholder: "Slug..",
                     disabled: ""
                   },
-                  domProps: { value: _vm.$v.fields.slug.$model },
+                  domProps: {
+                    textContent: _vm._s(_vm.slug),
+                    value: _vm.$v.fields.slug.$model
+                  },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
