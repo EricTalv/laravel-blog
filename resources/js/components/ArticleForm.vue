@@ -259,9 +259,15 @@ export default {
 
     computed: {
 
-        fields.slug: function () {
-            return this.slugify(this.fields.title)
-        }
+        fields: function (){
+            return {
+                slug: function () {
+                    return this.slugify(this.fields.title)
+                }
+            }
+        },
+
+
 
 
     },
