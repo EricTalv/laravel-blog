@@ -269,11 +269,8 @@ export default {
     },
 
     watch: {
-        fields: {
-            handler () {
-                this.fields.slug= this.slugify(this.fields.slug)
-            },
-            deep:true
+        title() {
+            this.slug = slugify(this.fields.title)
         }
     },
 
