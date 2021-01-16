@@ -268,11 +268,7 @@ export default {
 
     },
 
-    watch: {
-        title() {
-            this.slug = slugify(this.fields.title)
-        }
-    },
+
 
     /*
      * If we get any data
