@@ -42,19 +42,18 @@
                             {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                     </div>
 
-                    <div class="form-group" :class="{ 'form-group--error': $v.slug.$error }">
-                        <label class="form__label" for="slug"><h3>Slug</h3></label>
+                    <div class="form-group" >
+                        <label class="form__label" for="preSlug"><h3>Slug</h3></label>
                         <input
                             class="form-control form__input"
                             type="text"
-                            name="slug"
-                            id="slug"
-                            v-model="$v.slug.$model"
+                            name="preSlug"
+                            id="preSlug"
+                            :value="slug"
                             placeholder="Slug.."
                             disabled
                         />
-                        <div class="error" v-if="$v.slug.$dirty && !$v.slug.required"><small>Slug is
-                            required</small></div>
+
                     </div>
 
 
@@ -159,9 +158,10 @@ export default {
                 title: '',
                 excerpt: '',
                 body: '',
-                slug: '',
+                slug:'',
+
             },
-            slug: '',
+
             submitStatus: null,
             errors: {},
             createdArticle: null,
@@ -187,9 +187,7 @@ export default {
             },
         },
 
-        slug: {
-            required,
-        }
+
 
     },
 
@@ -261,7 +259,7 @@ export default {
     computed: {
 
 
-        slug: function () {
+         slug: function () {
             return this.slugify(this.fields.title)
         }
 

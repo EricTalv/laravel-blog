@@ -2119,7 +2119,6 @@ __webpack_require__.r(__webpack_exports__);
         body: '',
         slug: ''
       },
-      slug: '',
       submitStatus: null,
       errors: {},
       createdArticle: null,
@@ -2140,9 +2139,6 @@ __webpack_require__.r(__webpack_exports__);
         maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
       },
       body: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
-      },
-      slug: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
       }
     }
@@ -60319,31 +60315,15 @@ var render = function() {
               _vm._m(1),
               _vm._v(" "),
               _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.slug,
-                    expression: "slug"
-                  }
-                ],
                 staticClass: "form-control form__input",
                 attrs: {
                   type: "text",
-                  name: "slug",
-                  id: "slug",
+                  name: "preSlug",
+                  id: "preSlug",
                   placeholder: "Slug..",
                   disabled: ""
                 },
-                domProps: { value: _vm.slug },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.slug = $event.target.value
-                  }
-                }
+                domProps: { value: _vm.slug }
               })
             ]),
             _vm._v(" "),
@@ -60594,9 +60574,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "form__label", attrs: { for: "slug" } }, [
-      _c("h3", [_vm._v("Slug")])
-    ])
+    return _c(
+      "label",
+      { staticClass: "form__label", attrs: { for: "preSlug" } },
+      [_c("h3", [_vm._v("Slug")])]
+    )
   },
   function() {
     var _vm = this
