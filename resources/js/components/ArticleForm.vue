@@ -260,7 +260,9 @@ export default {
 
 
          slug: function () {
-            return this.slugify(this.fields.title)
+
+
+            return this.fields.slug = this.slugify(this.fields.title)
         }
 
 

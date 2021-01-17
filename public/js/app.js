@@ -2198,7 +2198,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     slug: function slug() {
-      return this.slugify(this.fields.title);
+      return this.fields.slug = this.slugify(this.fields.title);
     }
   },
 
