@@ -42,18 +42,19 @@
                             {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                     </div>
 
-                    <div class="form-group" >
+                    <div class="form-group" :class="{ 'form-group--error': $v.slug.$error }">
                         <label class="form__label" for="slug"><h3>Slug</h3></label>
                         <input
                             class="form-control form__input"
                             type="text"
                             name="slug"
                             id="slug"
-                            v-model="slug"
+                            v-model="$v.slug.$model"
                             placeholder="Slug.."
                             disabled
                         />
-
+                        <div class="error" v-if="$v.slug.$dirty && !$v.slug.required"><small>Slug is
+                            required</small></div>
                     </div>
 
 
@@ -184,10 +185,12 @@ export default {
             body: {
                 required,
             },
-            slug: {
-                required,
-            }
+        },
+
+        slug: {
+            required,
         }
+
     },
 
     methods: {
