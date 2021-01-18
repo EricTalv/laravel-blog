@@ -33,7 +33,7 @@
         <div class="row w-75">
 
             <div class="col-12">
-                @comments(['model' => $article])
+{{--                @comments(['model' => $article])--}}
             </div>
         </div>
     </div>

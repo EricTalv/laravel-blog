@@ -42,7 +42,7 @@ Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show
 // Route::delete('/articles/{article}', 'ArticleController@destroy');
 
 // Persist edited data
-Route::put('/articles/{slug}-{article}', 'ArticleController@update');
+Route::put('/articles/{article}', 'ArticleController@update');
 
 // Authentication
 Auth::routes();
