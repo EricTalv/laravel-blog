@@ -8,6 +8,9 @@ use App\User;
 class UserController extends Controller
 {
     protected function show(User $user) {
+
+        $user = User::where('name', $user)->first();
+
         return view('userprofile', [
             'user' => $user
         ]);
