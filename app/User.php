@@ -80,4 +80,11 @@ class User extends Authenticatable
         return $this->name;
     }
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+
+
 }
