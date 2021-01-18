@@ -36,7 +36,7 @@ Route::put('/article/create', 'ArticleController@store')->name('articles.store')
 Route::get('/articles/edit/{article}', 'ArticleController@edit')->name('articles.edit')->middleware('auth');
 
 // Show one post
-Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
+Route::get('/articles/{article}-{slug}', 'ArticleController@show')->name('articles.show');
 
 // Delete post
 // Route::delete('/articles/{article}', 'ArticleController@destroy');
