@@ -11,8 +11,10 @@ class UserController extends Controller
 
         $user = User::where('name', $user)->first();
 
-        return view('userprofile', [
-            'user' => $user
-        ]);
+
+        return $user;
+//        return view('userprofile', [
+//            'user' => $user
+//        ]);
     }
 }
