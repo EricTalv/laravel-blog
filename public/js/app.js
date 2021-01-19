@@ -2150,7 +2150,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     slug: function slug() {
-      return this.fields.slug = this.slugify(this.fields.title);
+      return this.slug = this.slugify(this.fields.title);
     }
   },
 
@@ -60451,7 +60451,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-6" }, [
-        _c("small", [_vm._v("Article Preview")]),
+        _c("small", [
+          _vm._v("Article Preview "),
+          _vm.slug ? _c("span", [_vm._v("/xx-" + _vm._s(_vm.slug))]) : _vm._e()
+        ]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),

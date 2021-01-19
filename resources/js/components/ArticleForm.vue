@@ -109,7 +109,7 @@
                 </form>
             </div>
             <div class="col-6">
-                <small>Article Preview</small>
+                <small>Article Preview <span v-if="slug">/xx-{{ slug }}</span></small>
                 <hr>
                 <div class="bg-white p-2 rounded border border-light">
                     <div class="title">
@@ -158,8 +158,6 @@ export default {
                 title: '',
                 excerpt: '',
                 body: '',
-
-
             },
 
             submitStatus: null,
@@ -264,7 +262,7 @@ export default {
          slug: function () {
 
 
-            return this.fields.slug = this.slugify(this.fields.title)
+            return this.slug = this.slugify(this.fields.title)
         }
 
 
