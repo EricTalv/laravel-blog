@@ -30,8 +30,8 @@ class ArticleController extends Controller
                 'threeLatestArticles' => $threeLatestArticles,
                 'tags' => Tag::all(),
                 'newestArticle' => $newestArticle,
-                'allFeaturedArticles' => Article::where('featured', '=', 1)->latest()->get(),
-                'featuredArticles' => Article::where('featured', '=', 1)->latest()->take(2)->get(),
+                'allFeaturedArticles' => Article::where('featured', 1)->latest()->get(),
+                'featuredArticles' => Article::where('featured', 1)->latest()->take(2)->get(),
             ]);
     }
 
