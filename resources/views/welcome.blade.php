@@ -66,7 +66,8 @@
                                         href="{{ $featuredArticle->path() }}">Continue reading</a>
                                 </p>
                             </div>
-                            <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/200"
+{{--                            https://picsum.photos/200--}}
+                            <img class="card-img-right flex-auto d-none d-md-block" src=""
                                  alt="Card image cap">
                         </div>
                     </div>
