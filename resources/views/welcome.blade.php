@@ -95,7 +95,7 @@
                         <p>{{ $article->excerpt }}</p>
                         <hr>
                         <p>{{ \Illuminate\Support\Str::limit($article->body, 500, $end='...')  }}</p>
-                        <a href="{{ $article->path }}">Continue reading</a>
+                        <a href="{{ $article->path() }}">Continue reading</a>
 
                     </div>
                 @endforeach

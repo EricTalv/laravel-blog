@@ -20,7 +20,7 @@ class Article extends Model
     public function path()
     {
         // return route('articles.show', $this);
-        return url("articles/{this->id}-" . Str::slug($this->title));
+        return url("articles/{$this->id}-" . Str::slug($this->title));
 
     }
 
