@@ -21,16 +21,19 @@
 @section('content')
 
     <div class="container">
+        {{--        TAGS START --}}
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-between">
                 @foreach($tags as $tag)
                     <a class="p-2 text-muted"
                        href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
                 @endforeach
-                    <a class="p2- text-muted" href="{{ route('alltags')  }}">All Tags</a>
+                <a class="p2- text-muted" href="{{ route('alltags')  }}">All Tags</a>
             </nav>
         </div>
+        {{--        TAGS END --}}
 
+        {{--        NEWEST ARTICLE START--}}
         <div class="jumbotron p-3 p-md-5 text-white rounded first-post-gradient">
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic text-capitalize">{{ $newestArticle->title }}</h1>
@@ -39,7 +42,9 @@
                         reading...</a></p>
             </div>
         </div>
+        {{--        NEWEST ARTICLE END--}}
 
+        {{--        FEATURED ARTICLES START--}}
         @if (!$featuredArticles->isEmpty())
             <div class="row mb-2 justify-content-center">
                 @foreach($featuredArticles as $featuredArticle )
@@ -48,14 +53,16 @@
                             <div class="card-body d-flex flex-column align-items-start">
 
                                 @foreach($featuredArticle->tags as $tag)<small><strong
-                                        class="d-inline-block mb-2 badge badge-dark">{{ $tag->name }}</small></strong>  @endforeach
+                                        class="d-inline-block mb-2 badge badge-dark">{{ $tag->name }}
+                                </small></strong>  @endforeach
 
                                 <h3 class="mb-0">
                                     <a class="text-dark text-capitalize" href="#">{{$featuredArticle->title}}</a>
                                 </h3>
                                 <div
                                     class="mb-1 text-muted">{{ date('j M Y', strtotime( $featuredArticle->created_at ))  }}</div>
-                                <p class="card-text mb-auto" style="overflow: hidden; text-overflow: ellipsis;">{{ $featuredArticle->excerpt }}<a
+                                <p class="card-text mb-auto"
+                                   style="overflow: hidden; text-overflow: ellipsis;">{{ $featuredArticle->excerpt }}<a
                                         href="/articles/{{ $featuredArticle->id }}">Continue reading</a>
                                 </p>
                             </div>
@@ -66,44 +73,55 @@
                 @endforeach
             </div>
         @endif
+        {{--        FEATURED ARTICLES END --}}
     </div>
+
+    {{--  RECENT ARTICLES SECTION START  --}}
     <main role="main" class="container">
         <div class="row">
+            {{--                THREE LATEST ARTICLES START--}}
             <div class="col-md-8 blog-main">
                 <h3 class="pb-3 mb-4 font-italic border-bottom">
                     Recent Articles
                 </h3>
 
                 @foreach( $threeLatestArticles as $article )
-                <div class="blog-post" >
-                    <h2 class="blog-post-title text-capitalize">{{ $article->title }}</h2>
-                    <p class="blog-post-meta">{{ date('j F Y', strtotime( $article->created_at ))  }} by <a href="{{ route('user', $article->user->id) }}" class="text-capitalize">{{ $article->user->name }}</a></p>
+                    <div class="blog-post">
+                        <h2 class="blog-post-title text-capitalize">{{ $article->title }}</h2>
+                        <p class="blog-post-meta">{{ date('j F Y', strtotime( $article->created_at ))  }} by <a
+                                href="{{ route('user', $article->user->id) }}"
+                                class="text-capitalize">{{ $article->user->name }}</a></p>
 
-                    <p>{{ $article->excerpt }}</p>
-                    <hr>
-                    <p >{{ \Illuminate\Support\Str::limit($article->body, 500, $end='...')  }}</p>
-                    <a href="/articles/{{ $article->id }}">Continue reading</a>
+                        <p>{{ $article->excerpt }}</p>
+                        <hr>
+                        <p>{{ \Illuminate\Support\Str::limit($article->body, 500, $end='...')  }}</p>
+                        <a href="/articles/{{ $article->id }}">Continue reading</a>
 
-                </div><!-- /.blog-post -->
+                    </div>
                 @endforeach
 
                 {{ $threeLatestArticles->links('pagination.welcome-pagination') }}
 
-            </div><!-- /.blog-main -->
+            </div>
+            {{--                     THREE LATEST ARTICLES END--}}
+
 
             <aside class="col-md-4 blog-sidebar">
+                {{--                ABOUT ASIDE START--}}
                 <div class="p-3 mb-3 bg-light rounded">
                     <h4 class="font-italic">About</h4>
                     <p class="mb-0">
-                            This is a laravel blog.
-                            Made purely on Laravel and PHP technologies.
-                            Everything(most) you see, read and press is all dynamically retrieved
-                            from my MySQL database.
+                        This is a laravel blog.
+                        Made purely on Laravel and PHP technologies.
+                        Everything(most) you see, read and press is all dynamically retrieved
+                        from my MySQL database.
                     </p>
                     <a href="/about">Continue reading</a>
                 </div>
+                {{--                ABOUT ASIDE END--}}
 
 
+                {{--                FEATURED ARTICLE ASIDE START --}}
                 @if (!$featuredArticles->isEmpty())
 
                     <div class="p-3">
@@ -114,8 +132,8 @@
                             @endforeach
                         </ol>
                     </div>
-
                 @endif
+                {{--                FEATURED ARTICLE ASIDE END --}}
 
 
                 <div class="p-3">
@@ -130,14 +148,14 @@
         </div><!-- /.row -->
 
     </main><!-- /.container -->
-    @section('footer')
+@section('footer')
     <footer class="blog-footer">
         <p>Blog made with ❤️ by <a href="https://github.com/EricTalv">Eric</a>.</p>
         <p>
             <a href="#">Back to top</a>
         </p>
     </footer>
-    @endsection
+@endsection
 
 
 @endsection
