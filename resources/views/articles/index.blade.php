@@ -47,7 +47,7 @@
                         <h5 class="card-header">Featured</h5>
                     @endif
                     <div class="card-body">
-                        <h5 class=" card-title text-capitalize "><a class="my-font-in-index" href="/articles/{{ $article->id }}">{{ $article->title }}</a></h5>
+                        <h5 class=" card-title text-capitalize "><a class="my-font-in-index" href="{{ $article->path() }}">{{ $article->title }}</a></h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ date('j M Y', strtotime( $article->created_at ))  }}</h6>
                         <p class="card-text">{{ $article->excerpt }}</p>
 
