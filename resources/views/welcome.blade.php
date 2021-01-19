@@ -95,7 +95,7 @@
                         <p>{{ $article->excerpt }}</p>
                         <hr>
                         <p>{{ \Illuminate\Support\Str::limit($article->body, 500, $end='...')  }}</p>
-                        <a href="/articles/{{ $article->id }}">Continue reading</a>
+                        <a href="{{ $article->path }}">Continue reading</a>
 
                     </div>
                 @endforeach
@@ -123,7 +123,6 @@
 
                 {{--                FEATURED ARTICLE ASIDE START --}}
                 @if (!$featuredArticles->isEmpty())
-
                     <div class="p-3">
                         <h4 class="font-italic">Featured Articles</h4>
                         <ol class="list-unstyled mb-0">
