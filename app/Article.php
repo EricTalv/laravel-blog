@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravelista\Comments\Commentable;
 use Illuminate\Support\Str;
+use Laravelista\Comments\Commentable;
+
 
 class Article extends Model
 {
@@ -18,7 +19,9 @@ class Article extends Model
      */
     public function path()
     {
+        // return route('articles.show', $this);
         return url("articles/{this->id}-" . Str::slug($this->title));
+
     }
 
     /**
