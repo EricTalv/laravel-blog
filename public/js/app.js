@@ -60136,11 +60136,7 @@ var render = function() {
                           href: _vm.createdArticle.path
                         }
                       },
-                      [
-                        _vm._v(
-                          "Check it out here " + _vm._s(_vm.createdArticle.path)
-                        )
-                      ]
+                      [_vm._v("Check it out here")]
                     )
                   ]
                 )

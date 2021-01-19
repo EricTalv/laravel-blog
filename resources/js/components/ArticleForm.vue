@@ -6,7 +6,7 @@
                     <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
                     <p>You have successfully made an article.</p>
                     <hr>
-                    <a target="_blank" v-bind:href="createdArticle.path">Check it out here {{ createdArticle.path}}</a>
+                    <a target="_blank" v-bind:href="createdArticle.path">Check it out here</a>
                 </div>
                 <div class="alert alert-success" role="alert" v-if="updatedArticle">
                     <h4 class="alert-heading">Article <b>"{{ updatedArticle.title }}"</b> Updated!</h4>
