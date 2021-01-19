@@ -6,13 +6,13 @@
                     <h4 class="alert-heading">Article <b>"{{ createdArticle.title }}"</b> Created!</h4>
                     <p>You have successfully made an article.</p>
                     <hr>
-                    <a target="_blank" v-bind:href="'/articles/' + createdArticle.id">Check it out here</a>
+                    <a target="_blank" v-bind:href="createdArticle.path">Check it out here {{ createdArticle.path}}</a>
                 </div>
                 <div class="alert alert-success" role="alert" v-if="updatedArticle">
                     <h4 class="alert-heading">Article <b>"{{ updatedArticle.title }}"</b> Updated!</h4>
                     <p>You have successfully Updated the article.</p>
                     <hr>
-                    <a target="_blank" v-bind:href="'/articles/' + updatedArticle.id">Check it out here</a>
+                    <a target="_blank" v-bind:href="updatedArticle.path">Check it out here</a>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@ export default {
                 title: '',
                 excerpt: '',
                 body: '',
-                slug:'',
+
 
             },
 
@@ -237,6 +237,9 @@ export default {
                         .then(response => {
                             this.submitStatus = 'SUCCESS'
                             this.updatedArticle = response.data;
+                            console.log( 'edit: ' + response.data );
+                            console.log( 'edit: ' );
+
                         }).catch(error => {
                         this.submitStatus = 'ERROR'
                         this.errors = error.response.data.errors;
@@ -247,6 +250,9 @@ export default {
                         .then(response => {
                             this.submitStatus = 'SUCCESS'
                             this.createdArticle = response.data;
+                            console.log( 'create: ' + response.data );
+                            console.log( 'create: '  );
+
                         }).catch(error => {
                         this.submitStatus = 'ERROR'
                         this.errors = error.response.data.errors;
