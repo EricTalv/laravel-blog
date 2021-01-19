@@ -51,6 +51,8 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{ date('j M Y', strtotime( $article->created_at ))  }}</h6>
                         <p class="card-text">{{ $article->excerpt }}</p>
 
+                        <a style="z-index: 3; float: right;" class=" button edit-option"
+                           href="/articles/edit/{{ $article->id }}">Edit</a>
 
                         @foreach ( $article->tags as $tag)
                             <a href="{{ route('articles.index', ['tag' => $tag->name]) }}" class="badge badge-secondary">{{ $tag->name }}</a>
