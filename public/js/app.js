@@ -2132,8 +2132,6 @@ __webpack_require__.r(__webpack_exports__);
           axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
             _this.submitStatus = 'SUCCESS';
             _this.updatedArticle = response.data;
-            console.log('edit: ' + response.data);
-            console.log('edit: ');
           })["catch"](function (error) {
             _this.submitStatus = 'ERROR';
             _this.errors = error.response.data.errors;
@@ -2142,8 +2140,6 @@ __webpack_require__.r(__webpack_exports__);
           axios.put('/article/create', this.fields).then(function (response) {
             _this.submitStatus = 'SUCCESS';
             _this.createdArticle = response.data;
-            console.log('create: ' + response.data);
-            console.log('create: ');
           })["catch"](function (error) {
             _this.submitStatus = 'ERROR';
             _this.errors = error.response.data.errors;
