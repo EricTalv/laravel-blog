@@ -237,8 +237,6 @@ export default {
                         .then(response => {
                             this.submitStatus = 'SUCCESS'
                             this.updatedArticle = response.data;
-                            console.log( 'edit: ' + response.data );
-                            console.log( 'edit: ' );
 
                         }).catch(error => {
                         this.submitStatus = 'ERROR'
@@ -250,8 +248,6 @@ export default {
                         .then(response => {
                             this.submitStatus = 'SUCCESS'
                             this.createdArticle = response.data;
-                            console.log( 'create: ' + response.data );
-                            console.log( 'create: '  );
 
                         }).catch(error => {
                         this.submitStatus = 'ERROR'
