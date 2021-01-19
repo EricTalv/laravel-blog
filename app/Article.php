@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravelista\Comments\Commentable;
-
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
@@ -14,11 +14,11 @@ class Article extends Model
     protected $fillable = ['title', 'excerpt', 'body'];
 
     /**
-     *  Get the this articles path
+     *  Get this articles path
      */
     public function path()
     {
-        return route('articles.show', $this);
+        return url("articles/{this->id}-" . Str::slug($this->title));
     }
 
     /**
@@ -47,7 +47,6 @@ class Article extends Model
     {
         return $this->hasMany(Comment::class)->whereNull('parent_id');
     }
-
 
 
 
