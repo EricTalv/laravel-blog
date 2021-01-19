@@ -38,7 +38,7 @@
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic text-capitalize">{{ $newestArticle->title }}</h1>
                 <p class="lead my-3 ">{{ $newestArticle->excerpt }}</p>
-                <p class="lead mb-0"><a href="{{ $newestArticle->path }}" class="text-white font-weight-bold">Continue
+                <p class="lead mb-0"><a href="{{ $newestArticle->path() }}" class="text-white font-weight-bold">Continue
                         reading...</a></p>
             </div>
         </div>
@@ -63,7 +63,7 @@
                                     class="mb-1 text-muted">{{ date('j M Y', strtotime( $featuredArticle->created_at ))  }}</div>
                                 <p class="card-text mb-auto"
                                    style="overflow: hidden; text-overflow: ellipsis;">{{ \Illuminate\Support\Str::limit($featuredArticle->excerpt, 50, $end='...')  }}<a
-                                        href="{{ $featuredArticle->path }}">Continue reading</a>
+                                        href="{{ $featuredArticle->path() }}">Continue reading</a>
                                 </p>
                             </div>
                             <img class="card-img-right flex-auto d-none d-md-block" src="https://picsum.photos/200"
@@ -127,7 +127,7 @@
                         <h4 class="font-italic">Featured Articles</h4>
                         <ol class="list-unstyled mb-0">
                             @foreach( $allFeaturedArticles as $article)
-                                <li><a href="{{ $article->path }}">{{ \Illuminate\Support\Str::limit($article->title, 50, $end='...')  }}</a></li>
+                                <li><a href="{{ $article->path() }}">{{ \Illuminate\Support\Str::limit($article->title, 50, $end='...')  }}</a></li>
                             @endforeach
                         </ol>
                     </div>
