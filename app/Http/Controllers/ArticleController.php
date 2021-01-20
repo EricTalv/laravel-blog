@@ -147,13 +147,6 @@ class ArticleController extends Controller
         //
     }
 
-    protected function checkSlug(Request $request)
-    {
-        $slug = Str::slug($request->title);
-
-        return response()->json(compact($slug));
-    }
-
     /**'
      * Return a VALIDATED array of requested items
      */
