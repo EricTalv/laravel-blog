@@ -2100,7 +2100,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     slugger: function slugger() {
-      axios.get('articles/checkslug', this.fields.title).then(function (response) {});
+      var _this = this;
+
+      axios.get('articles/checkslug', this.fields.title).then(function (response) {
+        _this.slug = response;
+      })["catch"](function (error) {
+        console.log(error);
+      });
     },
     // Slugify title
     slugify: function slugify(text) {
@@ -2122,7 +2128,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$set(this.fields, 'tags', value);
     },
     submit: function submit() {
-      var _this = this;
+      var _this2 = this;
 
       this.errors = {}; // Check Validations
 
@@ -2136,19 +2142,19 @@ __webpack_require__.r(__webpack_exports__);
 
         if (this.editData) {
           axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
-            _this.submitStatus = 'SUCCESS';
-            _this.updatedArticle = response.data;
+            _this2.submitStatus = 'SUCCESS';
+            _this2.updatedArticle = response.data;
           })["catch"](function (error) {
-            _this.submitStatus = 'ERROR';
-            _this.errors = error.response.data.errors;
+            _this2.submitStatus = 'ERROR';
+            _this2.errors = error.response.data.errors;
           }); // CREATE REQUEST
         } else {
           axios.put('/article/create', this.fields).then(function (response) {
-            _this.submitStatus = 'SUCCESS';
-            _this.createdArticle = response.data;
+            _this2.submitStatus = 'SUCCESS';
+            _this2.createdArticle = response.data;
           })["catch"](function (error) {
-            _this.submitStatus = 'ERROR';
-            _this.errors = error.response.data.errors;
+            _this2.submitStatus = 'ERROR';
+            _this2.errors = error.response.data.errors;
           });
         }
       }
