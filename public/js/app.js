@@ -2073,7 +2073,6 @@ __webpack_require__.r(__webpack_exports__);
         excerpt: '',
         body: ''
       },
-      slug: 'test',
       submitStatus: null,
       errors: {},
       createdArticle: null,
@@ -2100,11 +2099,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     slugger: function slugger() {
-      var _this = this;
-
       console.log('slugger');
       axios.get('articles/checkslug', this.fields.title).then(function (response) {
-        _this.slug = response;
+        console.log(response);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2129,7 +2126,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$set(this.fields, 'tags', value);
     },
     submit: function submit() {
-      var _this2 = this;
+      var _this = this;
 
       this.errors = {}; // Check Validations
 
@@ -2143,19 +2140,19 @@ __webpack_require__.r(__webpack_exports__);
 
         if (this.editData) {
           axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
-            _this2.submitStatus = 'SUCCESS';
-            _this2.updatedArticle = response.data;
+            _this.submitStatus = 'SUCCESS';
+            _this.updatedArticle = response.data;
           })["catch"](function (error) {
-            _this2.submitStatus = 'ERROR';
-            _this2.errors = error.response.data.errors;
+            _this.submitStatus = 'ERROR';
+            _this.errors = error.response.data.errors;
           }); // CREATE REQUEST
         } else {
           axios.put('/article/create', this.fields).then(function (response) {
-            _this2.submitStatus = 'SUCCESS';
-            _this2.createdArticle = response.data;
+            _this.submitStatus = 'SUCCESS';
+            _this.createdArticle = response.data;
           })["catch"](function (error) {
-            _this2.submitStatus = 'ERROR';
-            _this2.errors = error.response.data.errors;
+            _this.submitStatus = 'ERROR';
+            _this.errors = error.response.data.errors;
           });
         }
       }
@@ -60308,7 +60305,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("button", { attrs: { onclick: "slugger" } }, [_vm._v("SLUG")]),
+            _c("button", { on: { click: _vm.slugger } }, [_vm._v("SLUG")]),
             _vm._v(" "),
             _c(
               "div",

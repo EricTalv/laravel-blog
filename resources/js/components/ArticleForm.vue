@@ -56,7 +56,7 @@
 
                     </div>
 
-                    <button onclick="slugger">SLUG</button>
+                    <button @click="slugger">SLUG</button>
 
 
                     <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
@@ -161,7 +161,6 @@ export default {
                 excerpt: '',
                 body: '',
             },
-            slug: 'test',
             submitStatus: null,
             errors: {},
             createdArticle: null,
@@ -193,11 +192,11 @@ export default {
 
     methods: {
 
-        slugger(){
+        slugger: function(){
             console.log('slugger');
             axios.get('articles/checkslug', this.fields.title)
                  .then( response => {
-                    this.slug = response;
+                    console.log(response);
                  })
                  .catch( error => {
                      console.log(error);
