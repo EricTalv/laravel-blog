@@ -133,6 +133,7 @@ class ArticleController extends Controller
         $data = [
             "title" => $article->title,
             "id" => $article->id,
+            "path" => $article->path(),
         ];
 
         // Return our response
