@@ -109,7 +109,7 @@
                 </form>
             </div>
             <div class="col-6">
-                <small>Article Preview <span v-if="slug">/xx-{{ slug }}</span></small>
+                <small>Article Preview <span v-if="slug">/##-{{ slug }}</span></small>
                 <hr>
                 <div class="bg-white p-2 rounded border border-light">
                     <div class="title">
