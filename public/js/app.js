@@ -2180,8 +2180,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -60560,41 +60558,7 @@ var render = function() {
                   _vm._b(
                     {
                       staticClass: "tags-input",
-                      attrs: { placeholder: "Add tag..." },
-                      on: {
-                        keyup: [
-                          function($event) {
-                            if (
-                              !$event.type.indexOf("key") &&
-                              _vm._k(
-                                $event.keyCode,
-                                "enter",
-                                13,
-                                $event.key,
-                                "Enter"
-                              )
-                            ) {
-                              return null
-                            }
-                            return _vm.sendTags($event)
-                          },
-                          function($event) {
-                            if (
-                              !$event.type.indexOf("key") &&
-                              _vm._k(
-                                $event.keyCode,
-                                "delete",
-                                [8, 46],
-                                $event.key,
-                                ["Backspace", "Delete", "Del"]
-                              )
-                            ) {
-                              return null
-                            }
-                            return _vm.sendTags($event)
-                          }
-                        ]
-                      }
+                      attrs: { placeholder: "Add tag..." }
                     },
                     "input",
                     inputBindings,

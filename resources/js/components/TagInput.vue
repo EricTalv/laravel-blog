@@ -15,8 +15,6 @@
                 class="tags-input"  placeholder="Add tag..."
                 v-on="inputEventHandlers"
                 v-bind="inputBindings"
-                @keyup.enter="sendTags"
-                @keyup.delete="sendTags"
             >
         </div>
     </input-tags>
