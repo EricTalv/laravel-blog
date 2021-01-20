@@ -2100,7 +2100,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     slugger: function slugger() {
       console.log('slugger');
-      axios.get('articles/checkslug', this.fields.title).then(function (response) {
+      axios.get('/articles/checkslug', this.fields.title).then(function (response) {
         console.log(response);
       })["catch"](function (error) {
         console.log(error);

@@ -194,7 +194,7 @@ export default {
 
         slugger: function(){
             console.log('slugger');
-            axios.get('articles/checkslug', this.fields.title)
+            axios.get('/articles/checkslug', this.fields.title)
                  .then( response => {
                     console.log(response);
                  })
