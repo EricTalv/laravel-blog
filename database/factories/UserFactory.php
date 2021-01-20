@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
 
 class UserFactory extends Factory
 {
@@ -22,7 +24,7 @@ class UserFactory extends Factory
     public function definition()
     {
         $name = $this->faker->name;
-        $slug = str_slug($name, '-');
+        $slug = Str::slug($name, '-');
 
         return [
             'name' => $name,
