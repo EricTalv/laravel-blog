@@ -24,11 +24,13 @@
         {{--        TAGS START --}}
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-between">
+
                 @foreach($tags as $tag)
                     <a class="p-2 text-muted"
                        href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
                 @endforeach
-                <a class="p2- text-muted" href="{{ route('alltags')  }}">All Tags</a>
+
+                <a class="p-2 text-muted" href="{{ route('alltags')  }}">All Tags</a>
             </nav>
         </div>
         {{--        TAGS END --}}
