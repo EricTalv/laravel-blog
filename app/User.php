@@ -67,7 +67,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /**
      *  See what articles this user has
      */
@@ -82,7 +81,7 @@ class User extends Authenticatable
 
     public function getRouteKeyName()
     {
-        return 'name';
+        return 'slug';
     }
 
 

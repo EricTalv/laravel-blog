@@ -92,7 +92,7 @@
                     <div class="blog-post">
                         <h2 class="blog-post-title text-capitalize">{{ $article->title }}</h2>
                         <p class="blog-post-meta">{{ date('j F Y', strtotime( $article->created_at ))  }} by <a
-                                href="{{ route('user', $article->user->id) }}"
+                                href="{{ route('user', $article->user->slug) }}"
                                 class="text-capitalize">{{ $article->user->name }}</a></p>
 
                         <p>{{ $article->excerpt }}</p>
