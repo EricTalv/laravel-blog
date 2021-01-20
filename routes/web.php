@@ -51,7 +51,7 @@ Auth::routes();
 Route::get('/home', 'DashboardController@index')->name('home');
 
 // User Page
-Route::get('/user/{user}', 'UserController@show')->name('user');
+Route::get('/users/{user}', 'UserController@show')->name('user');
 
 // All Tags page
 Route::get('/alltags', function () {
