@@ -42,23 +42,6 @@
                             {{$v.fields.title.$params.maxLength.max}} letters.</small></div>
                     </div>
 
-                    <div class="form-group" >
-                        <label class="form__label" for="preSlug"><h3>Slug</h3></label>
-                        <input
-                            class="form-control form__input"
-                            type="text"
-                            name="preSlug"
-                            id="preSlug"
-                            v-model="slug"
-                            placeholder="Slug.."
-                            disabled
-                        />
-
-                    </div>
-
-                    <button @click="slugger">SLUG</button>
-
-
                     <div class="form-group" :class="{ 'form-group--error': $v.fields.excerpt.$error }">
                         <label for="excerpt"><h3>Excerpt</h3></label>
                         <textarea
@@ -111,7 +94,7 @@
                 </form>
             </div>
             <div class="col-6">
-                <small>Article Preview <span v-if="slug">/##-{{ slug }}</span></small>
+                <small>Article Preview</small>
                 <hr>
                 <div class="bg-white p-2 rounded border border-light">
                     <div class="title">
@@ -192,33 +175,6 @@ export default {
 
     methods: {
 
-        slugger: function(){
-            console.log('slugger');
-            axios.get('/articles/checkslug', this.fields.title)
-                 .then( response => {
-                    console.log(response);
-                 })
-                 .catch( error => {
-                     console.log(error);
-                 })
-        },
-
-        // Slugify title
-        slugify(text, ampersand = 'and') {
-            const a = 'àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ'
-            const b = 'aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh'
-            const p = new RegExp(a.split('').join('|'), 'g')
-
-            return text.toString().toLowerCase()
-                .replace(/[\s_]+/g, '-')
-                .replace(p, c =>
-                    b.charAt(a.indexOf(c)))
-                .replace(/&/g, `-${ampersand}-`)
-                .replace(/[^\w-]+/g, '')
-                .replace(/--+/g, '-')
-                .replace(/^-+|-+$/g, '')
-        },
-
         status(validation) {
             return {
                 error: validation.$error,
@@ -269,14 +225,6 @@ export default {
     },
 
     computed: {
-
-
-         slug: function () {
-
-
-            return this.slug = this.slugify(this.fields.title)
-        }
-
 
     },
 

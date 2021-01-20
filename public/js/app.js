@@ -2038,23 +2038,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2098,24 +2081,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    slugger: function slugger() {
-      console.log('slugger');
-      axios.get('/articles/checkslug', this.fields.title).then(function (response) {
-        console.log(response);
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    // Slugify title
-    slugify: function slugify(text) {
-      var ampersand = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'and';
-      var a = 'àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ';
-      var b = 'aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh';
-      var p = new RegExp(a.split('').join('|'), 'g');
-      return text.toString().toLowerCase().replace(/[\s_]+/g, '-').replace(p, function (c) {
-        return b.charAt(a.indexOf(c));
-      }).replace(/&/g, "-".concat(ampersand, "-")).replace(/[^\w-]+/g, '').replace(/--+/g, '-').replace(/^-+|-+$/g, '');
-    },
     status: function status(validation) {
       return {
         error: validation.$error,
@@ -2158,11 +2123,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   },
-  computed: {
-    slug: function slug() {
-      return this.slug = this.slugify(this.fields.title);
-    }
-  },
+  computed: {},
 
   /*
    * If we get any data
@@ -60273,40 +60234,6 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.slug,
-                    expression: "slug"
-                  }
-                ],
-                staticClass: "form-control form__input",
-                attrs: {
-                  type: "text",
-                  name: "preSlug",
-                  id: "preSlug",
-                  placeholder: "Slug..",
-                  disabled: ""
-                },
-                domProps: { value: _vm.slug },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.slug = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("button", { on: { click: _vm.slugger } }, [_vm._v("SLUG")]),
-            _vm._v(" "),
             _c(
               "div",
               {
@@ -60314,7 +60241,7 @@ var render = function() {
                 class: { "form-group--error": _vm.$v.fields.excerpt.$error }
               },
               [
-                _vm._m(2),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -60381,7 +60308,7 @@ var render = function() {
                 class: { "form-group--error": _vm.$v.fields.body.$error }
               },
               [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -60429,7 +60356,7 @@ var render = function() {
               "div",
               { staticClass: "form-group" },
               [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("tag-input", {
                   attrs: { id: "tagger", editDataTags: _vm.editDataTags },
@@ -60479,10 +60406,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-6" }, [
-        _c("small", [
-          _vm._v("Article Preview "),
-          _vm.slug ? _c("span", [_vm._v("/##-" + _vm._s(_vm.slug))]) : _vm._e()
-        ]),
+        _c("small", [_vm._v("Article Preview")]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
@@ -60551,16 +60475,6 @@ var staticRenderFns = [
       "label",
       { staticClass: "form__label", attrs: { for: "title" } },
       [_c("h3", [_vm._v("Title")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "form__label", attrs: { for: "preSlug" } },
-      [_c("h3", [_vm._v("Slug")])]
     )
   },
   function() {
