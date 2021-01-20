@@ -21,8 +21,12 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->name;
+        $slug = str_slug($name, '-');
+
         return [
-            'name' => $this->faker->name,
+            'name' => $name,
+            'slug' => $slug,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
             'password' => $this->faker->password,
