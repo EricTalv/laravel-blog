@@ -15,13 +15,6 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     *  Get this users path
-     */
-    public function path()
-    {
-        return url("users/" . Str::slug($this->name));
-    }
 
 
 }
