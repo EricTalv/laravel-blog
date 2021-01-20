@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Article;
 use App\Tag;
+use Illuminate\Support\Str;
 
 
 class ArticleController extends Controller
@@ -144,6 +145,13 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    protected function checkSlug(Request $request)
+    {
+        $slug = Str::slug($request->title);
+
+        return response()->json(compact($slug));
     }
 
     /**'

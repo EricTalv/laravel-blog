@@ -2053,6 +2053,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2071,6 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
         excerpt: '',
         body: ''
       },
+      slug: 'test',
       submitStatus: null,
       errors: {},
       createdArticle: null,
@@ -2096,6 +2099,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    slugger: function slugger() {
+      axios.get('articles/checkslug', this.fields.title).then(function (response) {});
+    },
     // Slugify title
     slugify: function slugify(text) {
       var ampersand = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'and';
@@ -60267,6 +60273,14 @@ var render = function() {
               _vm._m(1),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.slug,
+                    expression: "slug"
+                  }
+                ],
                 staticClass: "form-control form__input",
                 attrs: {
                   type: "text",
@@ -60275,9 +60289,19 @@ var render = function() {
                   placeholder: "Slug..",
                   disabled: ""
                 },
-                domProps: { value: _vm.slug }
+                domProps: { value: _vm.slug },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.slug = $event.target.value
+                  }
+                }
               })
             ]),
+            _vm._v(" "),
+            _c("button", { attrs: { onclick: "slugger" } }, [_vm._v("SLUG")]),
             _vm._v(" "),
             _c(
               "div",
@@ -60453,7 +60477,7 @@ var render = function() {
       _c("div", { staticClass: "col-6" }, [
         _c("small", [
           _vm._v("Article Preview "),
-          _vm.slug ? _c("span", [_vm._v("/xx-" + _vm._s(_vm.slug))]) : _vm._e()
+          _vm.slug ? _c("span", [_vm._v("/##-" + _vm._s(_vm.slug))]) : _vm._e()
         ]),
         _vm._v(" "),
         _c("hr"),

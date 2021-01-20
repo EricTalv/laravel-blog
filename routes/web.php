@@ -38,6 +38,11 @@ Route::get('/articles/edit/{article}', 'ArticleController@edit')->name('articles
 // Show one post
 Route::get('/articles/{article}-{slug}', 'ArticleController@show')->name('articles.show');
 
+// Check Slug
+Route::get('/articles/checkslug', 'ArticleController@checkSlug')->name('articles.show');
+
+
+
 // Delete post
 // Route::delete('/articles/{article}', 'ArticleController@destroy');
 
