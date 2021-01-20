@@ -194,6 +194,7 @@ export default {
     methods: {
 
         slugger(){
+            console.log('slugger');
             axios.get('articles/checkslug', this.fields.title)
                  .then( response => {
                     this.slug = response;

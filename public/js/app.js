@@ -2102,6 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
     slugger: function slugger() {
       var _this = this;
 
+      console.log('slugger');
       axios.get('articles/checkslug', this.fields.title).then(function (response) {
         _this.slug = response;
       })["catch"](function (error) {
