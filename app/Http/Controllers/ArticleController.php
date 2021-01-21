@@ -29,7 +29,7 @@ class ArticleController extends Controller
         return view('welcome',
             [
                 'threeLatestArticles' => $threeLatestArticles,
-                'tags' => Tag::all(),
+                'tags' => Tag::latest()->take(5)->get(),
                 'newestArticle' => $newestArticle,
                 'allFeaturedArticles' => Article::where('featured', 1)->latest()->get(),
                 'featuredArticles' => Article::where('featured', 1)->latest()->take(2)->get(),

@@ -2,10 +2,14 @@
 
 @section('content')
     <div class="container">
-        <ol>
+        <h1>All Tags</h1>
+        <div class="row">
             @foreach($tags as $tag)
-                <li>{{ $tag->name }}</li>
+                <a href="{{ route('articles.index', ['tag' => $tag->name]) }}" class=" m-3 btn btn-secondary">
+                    {{ $tag->name }}
+                    <span class="badge badge-light">{{ $tag->articles()->count() }}</span>
+                </a>
             @endforeach
-        </ol>
+        </div>
     </div>
 @endsection
