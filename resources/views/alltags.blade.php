@@ -7,9 +7,12 @@
             @foreach($tags as $tag)
                 <a href="{{ route('articles.index', ['tag' => $tag->name]) }}"
                    style="
-                       height: {{ 35 * $tag->articles()->count() }}px;
-                       width: {{ 35 * $tag->articles()->count() }}px;
-                       font-size: {{ 35 * $tag->articles()->count() }}px;
+                       height:
+                            @if($tag->articles()->count() == 1 )
+                                {{$tag->articles()->count() * 15}}px
+                            @endif;
+
+
 
                        "
                    class="m-3 btn btn-secondary align-items-center">
