@@ -3,17 +3,19 @@
 @section('content')
     <div class="container">
         <h1>All Tags</h1>
-        <div class="row">
+        <div class="row" style="align-items: flex-start;">
             @foreach($tags as $tag)
                 <a href="{{ route('articles.index', ['tag' => $tag->name]) }}"
                    style="
-                      height: calc(100% + {{ $tag->articles()->count() }}px);
-
-"
-
-                   class="m-3 btn btn-secondary align-items-center">
+                       font-size:  {{ ( 15 * $tag->articles()->count()) }}px;
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       margin: 0;
+                       "
+                   class="m-3 btn btn-secondary  ">
                     {{ $tag->name }}
-                    <span class="badge badge-light">{{ $tag->articles->count() }}</span>
+                    <span class="badge badge-light mx-1">{{ $tag->articles()->count() }}</span>
                 </a>
             @endforeach
         </div>
