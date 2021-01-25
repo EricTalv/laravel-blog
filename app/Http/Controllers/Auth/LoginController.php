@@ -46,11 +46,11 @@ class LoginController extends Controller
      *  Get the date when the user logs in and save it to the database
      *
      */
-    function authenticated($user)
+    function authenticated( $user)
     {
         $user->update([
             'last_login_at' => Carbon::now()->toDateTimeString(),
-           // 'last_login_ip' => $request->getClientIp() <- This is for getting client IP adress, saving it for future
+           // 'last_login_ip' => $request->getClientIp() <- This is for getting client IP adress, saving it for future.
         ]);
     }
 
