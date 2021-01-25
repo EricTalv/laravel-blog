@@ -50,13 +50,6 @@ class User extends Authenticatable
     ];
 
     /**
-     *
-     * Recognise this attribute as a Carbon instance so that
-     * we can take advantage of its extensive date and time feature set
-     */
-    protected $casts = ["last_online_at" => "datetime"];
-
-    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -72,6 +65,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        "last_online_at" => "datetime",  // takin advatage of carbon instance
     ];
 
     /**
