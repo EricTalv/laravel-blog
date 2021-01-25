@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'slug' => $slug,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'last_login_at' => now(),
+            'last_online_at' => now(),
             'password' => $this->faker->password,
             'remember_token' => $this->faker->lexify('??????????'),
         ];
