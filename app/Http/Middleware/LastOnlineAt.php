@@ -24,7 +24,8 @@ class LastOnlineAt
 
         /**
          *  When we get a user check 'last-online-at' field in DB
-         *  If time differs log new date as current date
+         *  check if user is more than an hour old
+         *  If its more than an hour, update DB time to current time
          */
         if (auth()->user()->last_online_at->diffInHours(now()) !==0)
         {
