@@ -27,7 +27,7 @@ class LastOnlineAt
          *  check if user is more than an hour old
          *  If its more than an hour, update DB time to current time
          */
-        if (auth()->user()->last_online_at->diffInHours(now()) !==0)
+        if (auth()->user()->last_online_at->diffInHours(now()) !==0 || auth()->user()->last_online_at->isEmpty())
         {
             DB::table("users")
                 ->where("id", auth()->user()->id)
