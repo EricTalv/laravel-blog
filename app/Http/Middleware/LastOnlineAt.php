@@ -17,9 +17,15 @@ class LastOnlineAt
      */
     public function handle(Request $request, Closure $next)
     {
+        // When we get a guest we just skip
         if (auth()->guest()) {
             return $next($request);
         }
+
+        /**
+         *  When we get a user check 'last-online-at' field in DB
+         *  If time differs log new date as current date
+         */
         if (auth()->user()->last_online_at->diffInHours(now()) !==0)
         {
             DB::table("users")
