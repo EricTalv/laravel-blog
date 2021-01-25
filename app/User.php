@@ -46,8 +46,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'slug', 'last_login_at',
+        'name', 'email', 'password', 'slug',
     ];
+
+    /**
+     *
+     * Recognise this attribute as a Carbon instance so that
+     * we can take advantage of its extensive date and time feature set
+     */
+    protected $casts = ["last_online_at" => "datetime"];
 
     /**
      * The attributes that should be hidden for arrays.
