@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->datetime('last_login_at')->useCurrent();
+            $table->timestamp("last_online_at")->useCurrent();
             $table->rememberToken();
             $table->timestamps();
         });
