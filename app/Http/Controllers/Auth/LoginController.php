@@ -37,4 +37,20 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * @param Request $request
+     * @param $user
+     *
+     *  Get the date when the user logs in and save it to the database
+     *
+     */
+    function authenticated($user)
+    {
+        $user->update([
+            'last_login_at' => Carbon::now()->toDateTimeString(),
+           // 'last_login_ip' => $request->getClientIp() <- This is for getting client IP adress, saving it for future
+        ]);
+    }
+
 }
