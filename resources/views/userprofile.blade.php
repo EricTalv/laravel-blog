@@ -49,7 +49,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                      card Body
                                     </div>
                                 </div>
                             </div>
