@@ -2,9 +2,6 @@
 
 @section('style')
 
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('fonts/fontawesome.min.css') }}" rel="stylesheet" type="text/css">
-
 
 @endsection
 
