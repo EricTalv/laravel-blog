@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
     <div class="container d-flex flex-column align-items-center">
         <div class="row bg-white p-4 w-75">
@@ -33,7 +35,7 @@
         <div class="row w-75">
 
             <div class="col-12">
-{{--                @comments(['model' => $article])--}}
+                @comments(['model' => $article])
             </div>
         </div>
     </div>
