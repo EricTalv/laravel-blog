@@ -318,11 +318,10 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
 
 img { 
-    width: 100%;
-    height: auto;
+    max-width: 100%;
 }
 
 .invalid-feedback {
