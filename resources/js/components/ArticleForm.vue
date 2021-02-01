@@ -62,7 +62,7 @@
 
                     </div>
                     <div class="form-group" :class="{ 'form-group--error': $v.fields.body.$error }">
-                        <label for="body"><h3>Body</h3></label>
+                        <!-- <label for="body"><h3>Body</h3></label>
                         <textarea
                             class="form-control"
                             name="body"
@@ -74,8 +74,12 @@
 
                         ></textarea>
                         <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is
-                            required</small></div>
+                            required</small></div> -->
 
+                        <vue-editor v-model="$v.fields.body.$model" ></vue-editor>
+                          <div class="error" v-if="$v.fields.body.$dirty && $v.fields.body.$error"><small>Body is
+                            required</small>
+                          </div>
                     </div>
                     <div class="form-group">
                         <label for="tagger"><h3>Tags</h3></label>
@@ -92,6 +96,8 @@
                     <hr>
 
                 </form>
+
+
             </div>
             <div class="col-6">
                 <small>Article Preview</small>
@@ -126,6 +132,7 @@
 
 <script>
 
+import { VueEditor } from "vue2-editor";
 import {required, maxLength} from 'vuelidate/lib/validators';
 import moment from 'moment';
 
@@ -136,6 +143,10 @@ export default {
         },
         editDataTags: {type: Array},
     },
+
+    components: [
+        VueEditor
+    ],
 
     data() {
         return {
