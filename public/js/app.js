@@ -2092,6 +2092,67 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2108,16 +2169,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {
-        title: '',
-        excerpt: '',
-        body: ''
+        title: "",
+        excerpt: "",
+        body: ""
       },
       submitStatus: null,
       errors: {},
       createdArticle: null,
       updatedArticle: null,
       articleDateTime: {
-        date: ''
+        date: ""
       }
     };
   },
@@ -2144,7 +2205,7 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     getTags: function getTags(value) {
-      this.$set(this.fields, 'tags', value);
+      this.$set(this.fields, "tags", value);
     },
     submit: function submit() {
       var _this = this;
@@ -2154,25 +2215,25 @@ __webpack_require__.r(__webpack_exports__);
       this.$v.$touch(); // Check invalidity
 
       if (this.$v.$invalid) {
-        this.submitStatus = 'ERROR';
+        this.submitStatus = "ERROR";
       } else {
-        this.submitStatus = 'PENDING'; // Check if this is an EDIT request or a CREATE request
+        this.submitStatus = "PENDING"; // Check if this is an EDIT request or a CREATE request
         // EDIT REQUEST
 
         if (this.editData) {
-          axios.put('/articles/' + this.editData.id, this.fields).then(function (response) {
-            _this.submitStatus = 'SUCCESS';
+          axios.put("/articles/" + this.editData.id, this.fields).then(function (response) {
+            _this.submitStatus = "SUCCESS";
             _this.updatedArticle = response.data;
           })["catch"](function (error) {
-            _this.submitStatus = 'ERROR';
+            _this.submitStatus = "ERROR";
             _this.errors = error.response.data.errors;
           }); // CREATE REQUEST
         } else {
-          axios.put('/article/create', this.fields).then(function (response) {
-            _this.submitStatus = 'SUCCESS';
+          axios.put("/article/create", this.fields).then(function (response) {
+            _this.submitStatus = "SUCCESS";
             _this.createdArticle = response.data;
           })["catch"](function (error) {
-            _this.submitStatus = 'ERROR';
+            _this.submitStatus = "ERROR";
             _this.errors = error.response.data.errors;
           });
         }
@@ -2190,9 +2251,9 @@ __webpack_require__.r(__webpack_exports__);
       this.fields.title = this.editData.title;
       this.fields.excerpt = this.editData.excerpt;
       this.fields.body = this.editData.body;
-      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.editData.created_at).format('D MMM, YYYY');
+      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.editData.created_at).format("D MMM, YYYY");
     } else {
-      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_2___default()().format('D MMM, YYYY');
+      this.articleDateTime.date = moment__WEBPACK_IMPORTED_MODULE_2___default()().format("D MMM, YYYY");
     }
   }
 });
@@ -8697,7 +8758,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.invalid-feedback[data-v-0940e0bf] {\n    display: block;\n}\ninput[data-v-0940e0bf] {\n    border: 1px solid silver;\n    border-radius: 4px;\n    background: white;\n    padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n    border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n    outline-color: #8E8;\n}\n.error[data-v-0940e0bf] {\n    border-color: red;\n    color: #f54747;\n}\n.error[data-v-0940e0bf]:focus {\n    outline-color: #F99;\n}\n\n", ""]);
+exports.push([module.i, "\n.invalid-feedback[data-v-0940e0bf] {\n  display: block;\n}\ninput[data-v-0940e0bf] {\n  border: 1px solid silver;\n  border-radius: 4px;\n  background: white;\n  padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n  border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n  outline-color: #8e8;\n}\n.error[data-v-0940e0bf] {\n  border-color: red;\n  color: #f54747;\n}\n.error[data-v-0940e0bf]:focus {\n  outline-color: #f99;\n}\n", ""]);
 
 // exports
 
@@ -73786,11 +73847,11 @@ var render = function() {
                   },
                   [
                     _c("h4", { staticClass: "alert-heading" }, [
-                      _vm._v("Article "),
+                      _vm._v("\n          Article "),
                       _c("b", [
                         _vm._v('"' + _vm._s(_vm.createdArticle.title) + '"')
                       ]),
-                      _vm._v(" Created!")
+                      _vm._v(" Created!\n        ")
                     ]),
                     _vm._v(" "),
                     _c("p", [_vm._v("You have successfully made an article.")]),
@@ -73820,11 +73881,11 @@ var render = function() {
                   },
                   [
                     _c("h4", { staticClass: "alert-heading" }, [
-                      _vm._v("Article "),
+                      _vm._v("\n          Article "),
                       _c("b", [
                         _vm._v('"' + _vm._s(_vm.updatedArticle.title) + '"')
                       ]),
-                      _vm._v(" Updated!")
+                      _vm._v(" Updated!\n        ")
                     ]),
                     _vm._v(" "),
                     _c("p", [
@@ -73912,9 +73973,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm.$v.fields.title.$dirty && !_vm.$v.fields.title.required
                   ? _c("div", { staticClass: "error" }, [
-                      _c("small", [
-                        _vm._v("Title is\n                        required")
-                      ])
+                      _c("small", [_vm._v("Title is required")])
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -73922,7 +73981,7 @@ var render = function() {
                   ? _c("div", { staticClass: "error" }, [
                       _c("small", [
                         _vm._v(
-                          "Title can only have\n                        " +
+                          "Title can only have\n              " +
                             _vm._s(_vm.$v.fields.title.$params.maxLength.max) +
                             " letters."
                         )
@@ -73950,7 +74009,7 @@ var render = function() {
                       expression: "$v.fields.excerpt.$model"
                     }
                   ],
-                  staticClass: "form-control ",
+                  staticClass: "form-control",
                   class: _vm.status(_vm.$v.fields.excerpt),
                   attrs: {
                     name: "excerpt",
@@ -73975,11 +74034,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm.$v.fields.excerpt.$dirty && !_vm.$v.fields.excerpt.required
                   ? _c("div", { staticClass: "error" }, [
-                      _c("small", [
-                        _vm._v(
-                          "Excerpt\n                        is\n                        required"
-                        )
-                      ])
+                      _c("small", [_vm._v("Excerpt is required")])
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -73987,7 +74042,7 @@ var render = function() {
                   ? _c("div", { staticClass: "error" }, [
                       _c("small", [
                         _vm._v(
-                          "Excerpt can only have\n                        " +
+                          "Excerpt can only have\n              " +
                             _vm._s(
                               _vm.$v.fields.excerpt.$params.maxLength.max
                             ) +
@@ -74007,6 +74062,8 @@ var render = function() {
               },
               [
                 _c("vue-editor", {
+                  class: _vm.status(_vm.$v.fields.body),
+                  attrs: { placeholder: "Body.." },
                   model: {
                     value: _vm.$v.fields.body.$model,
                     callback: function($$v) {
@@ -74018,9 +74075,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm.$v.fields.body.$dirty && _vm.$v.fields.body.$error
                   ? _c("div", { staticClass: "error" }, [
-                      _c("small", [
-                        _vm._v("Body is\n                        required")
-                      ])
+                      _c("small", [_vm._v("Body is required")])
                     ])
                   : _vm._e()
               ],
@@ -74054,24 +74109,26 @@ var render = function() {
                   disabled: _vm.submitStatus === "PENDING"
                 }
               },
-              [_vm._v("Submit\n                ")]
+              [_vm._v("\n          Submit\n        ")]
             ),
             _vm._v(" "),
             _vm.submitStatus === "OK"
               ? _c("p", { staticClass: "text-success my-2" }, [
-                  _vm._v("Thanks for your submission!")
+                  _vm._v("\n          Thanks for your submission!\n        ")
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.submitStatus === "ERROR"
               ? _c("p", { staticClass: "text-danger my-2" }, [
-                  _vm._v("Please fill the form correctly.")
+                  _vm._v(
+                    "\n          Please fill the form correctly.\n        "
+                  )
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.submitStatus === "PENDING"
               ? _c("p", { staticClass: "text-warning my-2" }, [
-                  _vm._v("Sending...")
+                  _vm._v("\n          Sending...\n        ")
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -74117,7 +74174,7 @@ var render = function() {
           _c("hr"),
           _vm._v(" "),
           _c("div", { staticClass: "prev" }, [
-            _c("span", [
+            _c("span", { domProps: { innerHTML: _vm._s(_vm.fields.body) } }, [
               _vm._v(_vm._s(_vm.fields.body ? _vm.fields.body : "Body"))
             ])
           ]),
