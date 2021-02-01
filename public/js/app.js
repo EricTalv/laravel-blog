@@ -2216,6 +2216,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.$v.$invalid) {
         this.submitStatus = "ERROR";
+        console.log(this.$v.$invalid);
       } else {
         this.submitStatus = "PENDING"; // Check if this is an EDIT request or a CREATE request
         // EDIT REQUEST
@@ -2235,6 +2236,7 @@ __webpack_require__.r(__webpack_exports__);
           })["catch"](function (error) {
             _this.submitStatus = "ERROR";
             _this.errors = error.response.data.errors;
+            console.log(error.response.data);
           });
         }
       }

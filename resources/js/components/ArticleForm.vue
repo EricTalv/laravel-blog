@@ -261,6 +261,7 @@ export default {
       // Check invalidity
       if (this.$v.$invalid) {
         this.submitStatus = "ERROR";
+        console.log(this.$v.$invalid)
       } else {
         this.submitStatus = "PENDING";
         // Check if this is an EDIT request or a CREATE request
@@ -287,6 +288,7 @@ export default {
             .catch((error) => {
               this.submitStatus = "ERROR";
               this.errors = error.response.data.errors;
+              console.log(error.response.data)
             });
         }
       }
