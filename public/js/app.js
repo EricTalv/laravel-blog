@@ -2153,6 +2153,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -74064,6 +74066,7 @@ var render = function() {
               },
               [
                 _c("vue-editor", {
+                  staticClass: "bg-white",
                   class: _vm.status(_vm.$v.fields.body),
                   attrs: { placeholder: "Body.." },
                   model: {
@@ -74176,9 +74179,9 @@ var render = function() {
           _c("hr"),
           _vm._v(" "),
           _c("div", { staticClass: "prev" }, [
-            _c("span", { domProps: { innerHTML: _vm._s(_vm.fields.body) } }, [
-              _vm._v(_vm._s(_vm.fields.body ? _vm.fields.body : "Body"))
-            ])
+            !_vm.fields.body ? _c("p", [_vm._v("Body")]) : _vm._e(),
+            _vm._v(" "),
+            _c("span", { domProps: { innerHTML: _vm._s(_vm.fields.body) } })
           ]),
           _vm._v(" "),
           _vm.fields.tags

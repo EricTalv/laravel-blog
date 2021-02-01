@@ -112,6 +112,7 @@
             <vue-editor
               :class="status($v.fields.body)"
               v-model="$v.fields.body.$model"
+              class="bg-white"
               placeholder="Body.."
             ></vue-editor>
             <div
@@ -176,7 +177,8 @@
           </div>
           <hr />
           <div class="prev">
-            <span v-html="fields.body">{{ fields.body ? fields.body : "Body" }}</span>
+              <p v-if="!fields.body">Body</p>
+              <span v-html="fields.body"></span>
           </div>
           <div class="prev" v-if="fields.tags">
             <span
