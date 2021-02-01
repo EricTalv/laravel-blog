@@ -19,7 +19,7 @@
                 </div>
                 <hr>
                 <p>
-                    {{ $article->body }}
+                    {!! $article->body !!}
                 </p>
                 @foreach ( $article->tags as $tag)
                     <a class="badge badge-secondary"
