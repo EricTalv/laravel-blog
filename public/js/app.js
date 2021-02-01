@@ -8760,7 +8760,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.invalid-feedback[data-v-0940e0bf] {\n  display: block;\n}\ninput[data-v-0940e0bf] {\n  border: 1px solid silver;\n  border-radius: 4px;\n  background: white;\n  padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n  border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n  outline-color: #8e8;\n}\n.error[data-v-0940e0bf] {\n  border-color: red;\n  color: #f54747;\n}\n.error[data-v-0940e0bf]:focus {\n  outline-color: #f99;\n}\n", ""]);
+exports.push([module.i, "\nimg[data-v-0940e0bf] { \n    width: 100%;\n    height: auto;\n}\n.invalid-feedback[data-v-0940e0bf] {\n  display: block;\n}\ninput[data-v-0940e0bf] {\n  border: 1px solid silver;\n  border-radius: 4px;\n  background: white;\n  padding: 5px 10px;\n}\n.dirty[data-v-0940e0bf] {\n  border-color: #6eb86e;\n}\n.dirty[data-v-0940e0bf]:focus {\n  outline-color: #8e8;\n}\n.error[data-v-0940e0bf] {\n  border-color: red;\n  color: #f54747;\n}\n.error[data-v-0940e0bf]:focus {\n  outline-color: #f99;\n}\n", ""]);
 
 // exports
 
