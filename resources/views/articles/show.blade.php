@@ -12,7 +12,7 @@
                         <small
                             class="text-muted float-right">{{ date('j M, Y', strtotime( $article->created_at ))  }}</small>
                     </div>
-                    <h2 class="article-title mt-3">{{ $article->title }}<small></small></h2>
+                    <h2 class="text-capitalize article-title mt-3">{{ $article->title }}<small></small></h2>
                 </div>
                 <div class="subtitle text-muted">
                     {{ $article->excerpt }}
