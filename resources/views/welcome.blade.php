@@ -97,9 +97,8 @@
                                 href="{{ route('user', $article->user->slug) }}"
                                 class="text-capitalize">{{ $article->user->name }}</a></p>
 
-                        <p>{{ $article->excerpt }}</p>
+                        <p>{{ \Illuminate\Support\Str::limit($article->excerpt, 200, $end='...')  }}</p>
                         <hr>
-                        <p>{{ \Illuminate\Support\Str::limit($article->body, 500, $end='...')  }}</p>
                         <a href="{{ $article->path() }}">Continue reading</a>
 
                     </div>
