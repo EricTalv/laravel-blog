@@ -28,7 +28,7 @@
 
                     <div class="row">
 
-                        <!-- Area Chart -->
+                        <!-- PROFILE IMAGE CARD -->
                         <div class="col-xl-4 col-lg-5">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
@@ -52,9 +52,7 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                      card Body
-                                    </div>
+                                   Image
                                 </div>
                             </div>
                         </div>
@@ -83,9 +81,7 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
+                                   
 
                                 </div>
                             </div>
@@ -167,27 +163,6 @@
 
                     <!-- Content Row -->
                     <div class="row">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="small font-weight-bold">Whacky progress bars<span
-                                            class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
 
                         <div class="col-lg-6 mb-4">
 
