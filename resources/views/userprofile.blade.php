@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('style')
-
-
+<style>
+    .reformat-a-styles {
+        font-weight: bold;
+        color: black;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -59,28 +63,60 @@
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Latest Articles</h6>
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">My Articles</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                             aria-labelledby="dropdownMenuLink" style="">
+                                            <div class="dropdown-header">Articles</div>
+                                            <a class="dropdown-item" href="{{ route('articles.index') }}">New Article</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                   
-
+                                    <table class="table table-sm table-striped table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Excerpt</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Tags</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($threeLatestArticles as $article)
+                                            <tr>
+                                                <td>
+                                                    <a class="reformat-a-styles" target="_blank"
+                                                       href="/articles/{{ $article->id }}">
+                                                        {{ \Illuminate\Support\Str::limit($article->title, 20, $end=".." )  }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ \Illuminate\Support\Str::limit($article->excerpt, 20, $end="..") }}</td>
+                                                <td>{{ date('d.m.Y', strtotime( $article->created_at ))}} </td>
+                                                @if ($article->tags)
+                                                    <td>
+                                                        @foreach($article->tags as $tag)
+                                                            <span class="badge badge-secondary">{{ $tag->name }}</span>
+                                                        @endforeach
+                                                    </td>
+                                                @endif
+                                                <td>
+                                                    <a class="btn btn-warning" href="/articles/edit/{{$article->id}}">Edit</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+            
+                                    </table>
+                                    {{ $threeLatestArticles->links('pagination.dashboard-pagination') }}
                                 </div>
                             </div>
                         </div>

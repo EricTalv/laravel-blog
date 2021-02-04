@@ -11,7 +11,8 @@ class UserController extends Controller
     protected function show(User $user) {
 
         return view('userprofile', [
-            'user' => $user
+            'user' => $user,
+            'threeLatestArticles' => $user->articles()->latest()->paginate(3),
         ]);
     }
 

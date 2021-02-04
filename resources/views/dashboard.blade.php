@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <!-- MY ARTICLES CARD -->
+            <!-- Latest articles -->
             <div class="col-xl-12">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
