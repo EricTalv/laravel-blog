@@ -91,7 +91,7 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Total amount of views -->
                         <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
@@ -109,7 +109,7 @@
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Last login -->
                         <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -127,7 +127,7 @@
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Comments -->
                         <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
