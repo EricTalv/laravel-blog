@@ -133,7 +133,6 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $latestArticle->title }}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ \Illuminate\Support\Str::limit($latestArticle->excerpt, 100, $end='...') }}</h6>
-                                <p class="card-text">{{ \Illuminate\Support\Str::limit($latestArticle->body, 350, $end='...')  }}</p>
                                 <a target="_blank" href="/articles/{{ $latestArticle->id }}" class="card-link">Go To Post</a>
                             </div>
                         </div>
