@@ -51,6 +51,8 @@
                         <img src="/images/avatars/{{ Auth::user()->avatar }}" alt="">
                         <form enctype="multipart/form-data" action="/avatar" method="POST">
 
+
+                            @csrf
                             <input type="file" name="avatar">
                             <input type="submit" >
 

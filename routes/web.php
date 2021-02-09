@@ -59,4 +59,4 @@ Route::get('/alltags', function () {
 })->name('alltags');
 
 // Update user avatar
-Route::post('/avatar', 'UserController@update_avatar');
+Route::post('avatar', 'DashboardController@updateAvatar');

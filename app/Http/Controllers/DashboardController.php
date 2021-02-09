@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Article;
+use Image;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -37,4 +38,20 @@ class DashboardController extends Controller
              'latestArticle' => Auth::user()->articles()->latest()->first(),
         ]);
     }
+
+    public function updateAvatar(Request $request) {
+        // Handle user avatar upload
+        if($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('/images/avatars/' . $filename));
+
+            $user = Auth::User();
+            $user->avatar = $filename;
+            $user->save();
+        };
+
+        return redirect('/home');
+    }
+
 }

@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Intervetion\Image\ImageServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
