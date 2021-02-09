@@ -98,7 +98,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if( $threeLatestArticles->IsEmpty )
+                            @if( $latestArticle->IsEmpty() )
                                 <h1>No Articles Yet</h1>
 
                             @else
@@ -128,7 +128,8 @@
                             </tbody>
 
                         </table>
-                        {{ $threeLatestArticles->links('pagination.dashboard-pagination') }}
+                        @if( !$latestArticle->IsEmpty() )
+                            {{ $threeLatestArticles->links('pagination.dashboard-pagination') }}
                     </div>
                 </div>
             </div>
