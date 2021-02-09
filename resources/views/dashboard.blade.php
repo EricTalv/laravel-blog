@@ -27,7 +27,7 @@
         <!-- Content Row -->
         <div class="row">
 
-            <div class="alert alert-secondary" role="alert">
+            <div class="col-12 alert alert-secondary" role="alert">
                 <h4 class="alert-heading text-capitalize">Welcome {{ Auth::User()->name }}</h4>
                 <p>This is your dashboard.</p>
                 <p>All of your articles will appear here.</p>
@@ -98,7 +98,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if( $latestArticle->IsEmpty() )
+                            @if( empty($latestArticle))
                                 <h1>No Articles Yet</h1>
 
                             @else
@@ -128,7 +128,7 @@
                             </tbody>
 
                         </table>
-                        @if( !$latestArticle->IsEmpty() )
+                        @if( !empty($latestArticle) )
                             {{ $threeLatestArticles->links('pagination.dashboard-pagination') }}
                         @endif
                     </div>
@@ -137,7 +137,7 @@
         </div>
 
         <!-- Latest Article Start -->
-        @if( !$latestArticle->isEmpty())
+        @if( !empty($latestArticle))
             <div class="row">
                 <div class="col-xl-12 mb-4">
                     <div class="card shadow mb-4">
