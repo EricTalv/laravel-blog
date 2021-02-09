@@ -43,7 +43,9 @@
                                  aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">Profile</div>
                                 <form enctype="multipart/form-data" action="/avatar" method="POST">
-                                    <a class="dropdown-item" href="#">Change Image</a>
+                                    @method('PUT')
+
+                                    <input type="file" name="avatar">
                                 </form>
                             </div>
                         </div>
