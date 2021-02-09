@@ -24,13 +24,21 @@
         </div>
         <hr>
 
-        @if (!Auth::user()->articles->isEmpty())
         <!-- Content Row -->
         <div class="row">
 
+            <div class="alert alert-secondary" role="alert">
+                <h4 class="alert-heading text-capitalize">Welcome {{ Auth::User()->name }}</h4>
+                <p>This is your dashboard.</p>
+                <p>All of your articles will appear here.</p>
+                <hr>
+                <p class="mb-0">If you are ready, you can create an article <a href="{{ route('articles.create') }}">by
+                        clicking here!</a></p>
+            </div>
 
-             <!-- PROFILE IMAGE CARD -->
-             <div class="col-xl-4 col-lg-5">
+
+            <!-- PROFILE IMAGE CARD -->
+            <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div
@@ -53,7 +61,7 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                       Image
+                        Image
                     </div>
                 </div>
             </div>
@@ -90,28 +98,33 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($threeLatestArticles as $article)
-                                <tr>
-                                    <td>
-                                        <a class="reformat-a-styles" target="_blank"
-                                           href="/articles/{{ $article->id }}">
-                                            {{ \Illuminate\Support\Str::limit($article->title, 20, $end=".." )  }}
-                                        </a>
-                                    </td>
-                                    <td>{{ \Illuminate\Support\Str::limit($article->excerpt, 20, $end="..") }}</td>
-                                    <td>{{ date('d.m.Y', strtotime( $article->created_at ))}} </td>
-                                    @if ($article->tags)
+                            @if( $threeLatestArticles->IsEmpty )
+                                <h1>No Articles Yet</h1>
+
+                            @else
+                                @foreach($threeLatestArticles as $article)
+                                    <tr>
                                         <td>
-                                            @foreach($article->tags as $tag)
-                                                <span class="badge badge-secondary">{{ $tag->name }}</span>
-                                            @endforeach
+                                            <a class="reformat-a-styles" target="_blank"
+                                               href="/articles/{{ $article->id }}">
+                                                {{ \Illuminate\Support\Str::limit($article->title, 20, $end=".." )  }}
+                                            </a>
                                         </td>
-                                    @endif
-                                    <td>
-                                        <a class="btn btn-warning" href="/articles/edit/{{$article->id}}">Edit</a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                        <td>{{ \Illuminate\Support\Str::limit($article->excerpt, 20, $end="..") }}</td>
+                                        <td>{{ date('d.m.Y', strtotime( $article->created_at ))}} </td>
+                                        @if ($article->tags)
+                                            <td>
+                                                @foreach($article->tags as $tag)
+                                                    <span class="badge badge-secondary">{{ $tag->name }}</span>
+                                                @endforeach
+                                            </td>
+                                        @endif
+                                        <td>
+                                            <a class="btn btn-warning" href="/articles/edit/{{$article->id}}">Edit</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                             </tbody>
 
                         </table>
@@ -121,34 +134,22 @@
             </div>
         </div>
 
-        <!-- Content Row -->
-
-                <div class="row">
-                    <div class="col-xl-12 mb-4">
-                        <!-- Approach -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Latest Article</h6>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $latestArticle->title }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ \Illuminate\Support\Str::limit($latestArticle->excerpt, 100, $end='...') }}</h6>
-                                <a target="_blank" href="/articles/{{ $latestArticle->id }}" class="card-link">Go To Post</a>
-                            </div>
-                        </div>
+        <!-- Latest Article Start -->
+        <div class="row">
+            <div class="col-xl-12 mb-4">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Latest Article</h6>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $latestArticle->title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ \Illuminate\Support\Str::limit($latestArticle->excerpt, 100, $end='...') }}</h6>
+                        <a target="_blank" href="/articles/{{ $latestArticle->id }}" class="card-link">Go To Post</a>
                     </div>
                 </div>
-
-
-        @else
-            <div class="alert alert-secondary" role="alert">
-                <h4 class="alert-heading text-capitalize">Welcome {{ Auth::User()->name }}</h4>
-                <p>This is your dashboard.</p>
-                <p>All of your articles will appear here.</p>
-                <hr>
-                <p class="mb-0">If you are ready, you can create an article <a href="{{ route('articles.create') }}">by clicking here!</a></p>
             </div>
-        @endif
+        </div>
+        <!-- Latest Article End-->
 
 
     </div>
