@@ -57,3 +57,6 @@ Route::get('/users/{user}', 'UserController@show')->name('user');
 Route::get('/alltags', function () {
     return view('alltags', [ 'tags' => Tag::all()]);
 })->name('alltags');
+
+// Update user avatar
+Route::post('/avatar', 'UserController@update_avatar');

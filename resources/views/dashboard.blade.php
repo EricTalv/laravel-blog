@@ -42,17 +42,19 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                  aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">Profile</div>
-                                <form enctype="multipart/form-data" action="/avatar" method="POST">
-                                    @method('PUT')
 
-                                    <input type="file" name="avatar">
-                                </form>
                             </div>
                         </div>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body text-center">
                         <img src="/images/avatars/{{ Auth::user()->avatar }}" alt="">
+                        <form enctype="multipart/form-data" action="/avatar" method="POST">
+
+                            <input type="file" name="avatar">
+                            <input type="submit" >
+
+                        </form>
                     </div>
                 </div>
             </div>

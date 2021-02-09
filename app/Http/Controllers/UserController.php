@@ -16,6 +16,10 @@ class UserController extends Controller
         ]);
     }
 
+    protected function update_avatar(Request $request)
+    {
+        // Handle user avatar upload
+    }
 
 
 }
