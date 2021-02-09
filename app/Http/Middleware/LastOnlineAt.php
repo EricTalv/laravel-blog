@@ -34,6 +34,9 @@ class LastOnlineAt
                 ->where("id", auth()->user()->id)
                 ->update(["last_online_at" => now()]);
         }
+        else {
+
+        }
 
         return $next($request);
     }

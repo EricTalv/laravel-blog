@@ -27,16 +27,6 @@
         <!-- Content Row -->
         <div class="row">
 
-            <div class="col-12 alert alert-secondary" role="alert">
-                <h4 class="alert-heading text-capitalize">Welcome {{ Auth::User()->name }}</h4>
-                <p>This is your dashboard.</p>
-                <p>All of your articles will appear here.</p>
-                <hr>
-                <p class="mb-0">If you are ready, you can create an article <a href="{{ route('articles.create') }}">by
-                        clicking here!</a></p>
-            </div>
-
-
             <!-- PROFILE IMAGE CARD -->
             <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
