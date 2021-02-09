@@ -42,7 +42,9 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                  aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">Profile</div>
-                                <a class="dropdown-item" href="#">Change Image</a>
+                                <form enctype="multipart/form-data" action="/avatar" method="POST">
+                                    <a class="dropdown-item" href="#">Change Image</a>
+                                </form>
                             </div>
                         </div>
                     </div>
