@@ -130,27 +130,31 @@
                         </table>
                         @if( !$latestArticle->IsEmpty() )
                             {{ $threeLatestArticles->links('pagination.dashboard-pagination') }}
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Latest Article Start -->
-        <div class="row">
-            <div class="col-xl-12 mb-4">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Latest Article</h6>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $latestArticle->title }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ \Illuminate\Support\Str::limit($latestArticle->excerpt, 100, $end='...') }}</h6>
-                        <a target="_blank" href="/articles/{{ $latestArticle->id }}" class="card-link">Go To Post</a>
+        @if( !$latestArticle->isEmpty())
+            <div class="row">
+                <div class="col-xl-12 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Latest Article</h6>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $latestArticle->title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ \Illuminate\Support\Str::limit($latestArticle->excerpt, 100, $end='...') }}</h6>
+                            <a target="_blank" href="/articles/{{ $latestArticle->id }}" class="card-link">Go To
+                                Post</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Latest Article End-->
+            <!-- Latest Article End-->
+        @endif
 
 
     </div>
