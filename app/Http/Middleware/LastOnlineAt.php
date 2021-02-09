@@ -28,11 +28,15 @@ class LastOnlineAt
          *  If its more than an hour, update DB time to current time
          */
 
-        if (auth()->user()->last_online_at->diffInHours(now()) !== 0)
-        {
+        if (auth()->user()->last_online_at->diffInHours(now()) !== 0) {
             DB::table("users")
                 ->where("id", auth()->user()->id)
                 ->update(["last_online_at" => now()]);
+        }
+        else {
+            DB::table("users")
+                ->where("id", auth()->user()->id)
+                ->update(["last_online_at" => null]);
         }
 
         return $next($request);

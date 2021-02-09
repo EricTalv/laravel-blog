@@ -51,11 +51,8 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                  aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-header">Profile</div>
+                                <a class="dropdown-item" href="#">Change Image</a>
                             </div>
                         </div>
                     </div>
@@ -88,20 +85,21 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <table class="table table-sm table-striped table-hover">
-                            <thead>
-                            <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Excerpt</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Tags</th>
-                                <th scope="col"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
                             @if( empty($latestArticle))
-                                <h1>No Articles Yet</h1>
-
+                                <h3>No Articles Yet</h3>
                             @else
+                                <thead>
+                                <tr>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Excerpt</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Tags</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
                                 @foreach($threeLatestArticles as $article)
                                     <tr>
                                         <td>
@@ -124,8 +122,8 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif
-                            </tbody>
+                                @endif
+                                </tbody>
 
                         </table>
                         @if( !empty($latestArticle) )
