@@ -47,8 +47,8 @@
                         </div>
                     </div>
                     <!-- Card Body -->
-                    <div class="card-body">
-                        Image
+                    <div class="card-body text-center">
+                        <img src="/images/avatars/{{ Auth::user()->avatar }}" alt="">
                     </div>
                 </div>
             </div>
