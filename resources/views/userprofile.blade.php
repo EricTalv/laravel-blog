@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('style')
-<style>
-    .reformat-a-styles {
-        font-weight: bold;
-        color: black;
-    }
-</style>
+    <style>
+        .reformat-a-styles {
+            font-weight: bold;
+            color: black;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -53,8 +53,8 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                   Image
+                                <div class="card-body text-center">
+                                    <img src="/images/avatars/{{ $user->avatar }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,8 @@
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">My Articles</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -73,7 +74,8 @@
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                              aria-labelledby="dropdownMenuLink" style="">
                                             <div class="dropdown-header">Articles</div>
-                                            <a class="dropdown-item" href="{{ route('articles.index') }}">New Article</a>
+                                            <a class="dropdown-item" href="{{ route('articles.index') }}">New
+                                                Article</a>
                                             <div class="dropdown-divider"></div>
                                         </div>
                                     </div>
@@ -114,7 +116,7 @@
                                             </tr>
                                         @endforeach
                                         </tbody>
-            
+
                                     </table>
                                     {{ $threeLatestArticles->links('pagination.dashboard-pagination') }}
                                 </div>
@@ -132,7 +134,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Amount Of Views</div>
+                                                Total Amount Of Views
+                                            </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">5,245</div>
                                         </div>
                                         <div class="col-auto">
@@ -150,8 +153,10 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Last login</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $user->last_online_at }}</div>
+                                                Last login
+                                            </div>
+                                            <div
+                                                class="h5 mb-0 font-weight-bold text-gray-800">{{ $user->last_online_at }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -167,7 +172,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Comments made
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Comments
+                                                made
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -200,7 +206,8 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti est possimus quas ullam. Eligendi, vitae.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti est possimus
+                                        quas ullam. Eligendi, vitae.</p>
 
                                 </div>
                             </div>
@@ -217,7 +224,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h1>Title</h1>
-                                    <p>Excerpt Lorem ipsum dolor sit amet.</p>      
+                                    <p>Excerpt Lorem ipsum dolor sit amet.</p>
                                     <button class="btn btn-primary">Go</button>
                                 </div>
                             </div>
