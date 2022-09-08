@@ -1,144 +1,30 @@
+## Project Description 
 
-## About This Project.
+Create a blogging system with laravel and vue 
 
-This is a part of my *100-days-of-code* challenge
+## Project Status
 
-The prospect of this project should be a full fledged simple blog 
-based around and on laravel and vue technologies.
+This project was my own curiosity into building APIs, laravels eco-system,
+front-end + back-end workflow.
 
-## Vision
+The project included a front-end view of all the posts using
+a bootstrap blog template.
 
-MVP: Blog post must include: 
- - Index of articles 
- - One article page view
- - Create article view
- - Update/Edit article view
- - Delete article button
- - Tags on posts
- - Tag view page 
- - Comments 
- - User Profile Page
+I also had a feature post, tags specific search.
 
+Overall I was pretty happy of how the project was going,
+though life eventually got in the way and I had to go on hiatus for a while.
 
-### TODO : MVP 
+Coming back the composer was so out-of-date I couldn´t get the site 
+back up and running.
 
-```
-----
-legend:
-[ ]  <- not done yet
-[X]  <- done
-[ ]* <- stretch goals 
------ 
+Though not finished, I am still proud of how far I 
 
-[ ] How do we Determine _Featured Articles_
+got with it and the valuable stuff I learned.
 
-[ ] Functionality
- [ ] Markdown support
- [X] better tagger
- [X] pagination
- [ ] CRUD operations
- [X] Tagging
- [ ] Comments
- [ ] User Pages
- [ ]* Lorem Generator for Articles 
- [ ] Article view counter 
- [ ] Article read estimater
- [X] Dynamic Titles
- [X] User-Article-Comment Relations
- [ ] Admin role
+## Tech used 
 
-[ ] Frontend
-  [ ] Add cover picture option to article
-  [X] Pagination on Welcome Page
-  [ ] Pagination on dashboard
-  [ ] User Profile view page 
-  [ ] Comments 
-  [X] Tagger component  
-
-  [ ]* Add dropdown of existing tags to tag input
-  [ ]* Pop-Up Modal for success message 
-
-[X] Add all functionality also to Edit page
-[X] Create 1 component for creating/editing articles
-
-[ ] Welcome 
- [X] Latest Post 
- [X] Featured Section
- [X] Short-About section
- [X] All Featured posts
- [X] Recent articles Section
-  [X] Pagination
-  [X] restrict latest post 
- [X] Tags section 
-  [ ] All tags button
- [X] Elsewhere Links section
-
-[ ] Dashboard
- [ ] Article table view
-  [X] See All Articles
-  [X] Edit btn
-  [ ] Delete btn
-  [ ] Paginate
- [ ]* Profile Settings
-  [ ] Change Username
-  [ ] Change Email
-  [ ] Change Password
- [ ] Article views 
- [ ] Article Comments
-
-[ ] Article Create
- [ ] Markdown support
- [ ] Cover Image
- [ ] Article preview
- [X] Sucess messages
- [X] Error handling
-
-  [X] Featured Article section
-  [X] Latest article
-
-  [X] Add Tags option
-   [X] Show
-   [X] Index
-   [X] Edit
-   [X] Create
-
- [X] CRUD Pages Design
-  [X] Index
-   [X] Design v1
-   [X] Design v2
-  [X] Show
-   [X] Design v1
-   [X] Design v2
-  [X] Edit
-   [X] Design v1
-   [X] Design v2
-  [X] Create
-   [x] Design v1
-   [X] Tags
-
-[X] Add Vue.js AS front-end Framework
-
-[ ] Backend
- [ ] Restful Methods
-  [X] Index
-  [X] Show
-  [X] Edit
-   [X] Persist edit
-  [X] Create
-   [X] Store 
-  [ ] Destroy
- 
-[X] Tagging 
- [X] Article-User relationship
- [X] Article-Tag relationship 
-  [X] Pivot table article_tag
-
- [X] Authorization
-  [X] Login
-  [X] Register
-  [X] Dashboards
-   [X] User
-
- 
-
-```
+- vue.js 
+- laravel 
+- bootstrap 
+- scss
