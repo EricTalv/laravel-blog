@@ -28,3 +28,6 @@ got with it and the valuable stuff I learned.
 - laravel 
 - bootstrap 
 - scss
+- vessel 
+- docker 
+- axios 
