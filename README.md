@@ -19,8 +19,9 @@ Coming back the composer was so out-of-date I couldn´t get the site
 back up and running.
 
 Though not finished, I am still proud of how far I 
-
 got with it and the valuable stuff I learned.
+
+I am gonna get the site running again hopefully in the near future.
 
 ## Tech used 
 
